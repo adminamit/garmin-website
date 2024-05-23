@@ -1,0 +1,46 @@
+.app__layout-container {
+    @apply w-full py-12 px-8 text-black
+}
+.app__layout-container--neutral {
+    @apply bg-[#f2f2f2]
+}
+
+.app__layout-container > * {
+    @apply mx-auto max-w-[1220px]
+}
+
+.app__layout-container--medium > * {
+    max-width: 1400px;
+    @apply max-w-[1400px]
+}
+.app__disclaimer__block {
+    margin-bottom: 1em;
+    padding: 0px 0.5rem;
+}
+.app__disclaimer__item {
+    font-size: 0.6875rem;
+    line-height: 1.25rem;
+}
+.app__column-layout__column--1{
+    @apply grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8
+}
+
+.app__column-layout__column--2{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8
+}
+
+.app__column-layout__column--3{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8
+}
+
+.app__column-layout__column--4{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8
+}
+
+.app__column-layout__column--5{
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8
+}
+
+.app__column-layout__column--6{
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8
+}

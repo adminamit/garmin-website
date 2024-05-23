@@ -1,0 +1,88 @@
+.app__tabs__content {
+    padding-top: 7em;
+    margin-top: -4.7em;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    max-width: 1170px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product__tabs__nav {
+    @apply sticky top-0 block visible z-[200] text-base bg-[#e6e6e6] w-full
+}
+
+.product__tabs__nav__list{
+    @apply my-0 mx-auto px-16 text-center flex justify-center
+}
+
+.product__subnav__item{
+    @apply block text-black cursor-pointer  text-[0.9rem]  px-[1em] 
+}
+
+.product__subnav__link{
+    @apply px-[1em] uppercase font-medium tracking-wide py-[2em] box-border
+}
+
+.product__subnav__link--active, .product__subnav__link:hover {
+    color: rgb(0, 0, 0);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    @apply focus:outline-none
+}
+
+.app__tabs__content__wrap {
+    /* padding: 2em; */
+    width: 100%;
+    min-height: 1px;
+    overflow: visible;
+    max-height: unset;
+    text-align: left;
+}
+.app__tabs__content__main--full {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px){
+    .app__tabs__content {
+        padding: 7em 5.15em 2em;
+        min-height: 600px;
+    }
+    .app__tabs__content__devices, .app__tabs__content__accessories {
+        width: 100%;
+    }
+    .app__tabs__content__full .app__tabs__content__main {
+        width: 100%;
+    }
+    .app__tabs__content__specs, .app__tabs__content__inthebox {
+        width: 70%;
+    }
+    
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+.app__tabs__content ul, .app__tabs__content ol {
+    margin: 0;
+    padding: 0 0 16px 22px;
+}
+.app__tabs__content ol li, .app__tabs__content ul li {
+    line-height: 1.6;
+    font-weight: 400;
+    color: #101010;
+}
+
+.app__tabs__content ol li, .app__tabs__content ul li {
+    margin-bottom: 1rem;
+}
+.app__tabs__content ul li {
+    list-style: disc;
+}

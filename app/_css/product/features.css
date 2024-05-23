@@ -1,0 +1,40 @@
+
+.app__feature__card {
+    text-align: center;
+    @apply flex flex-col items-center
+}
+.app__feature__card--left{
+    text-align: left;
+}
+.app__tabs__content__wrap img {
+    max-width: 100%;
+    height: auto;
+}
+
+.app__feature__card__image {
+    margin: 0px 0px 0.5rem;
+    /* width: 50px; */
+    max-width: 100%;
+    width: auto;
+}
+.app__feature__card__title {
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    /* @apply  */
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    margin: 1rem 0;
+    font-family: var(--font-oswald);
+    line-height: 1.25;
+    width: 100%;
+}
+.app__feature__card__title--left{
+    text-align: left;
+}
+.app__feature__card__description {
+    font-size: 0.875rem;
+    letter-spacing: 0px;
+    line-height: 19px;
+    margin: 0px;
+}

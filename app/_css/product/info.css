@@ -1,0 +1,153 @@
+.app__product__info {
+    flex: 1 1 auto;
+    margin: 1rem;
+}
+.app__product__info {
+    flex-basis: auto;
+    display: block;
+    text-align: center;
+    max-width: 100%;
+}
+.app__product__info__title h1 {
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+}
+.app__product__info__subtitle {
+    max-width: 580px;
+    font-size: 1.11em;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    margin: 0px auto 0.5em;
+    line-height: 1.6;
+}
+.app__product__info__title h1 {
+    margin: 0px;
+}
+.app__product__info__part-number {
+    font-size: 0.7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    margin: 1em 0px;
+}
+.app__product__info__part-number--light {
+    padding-left: 0.2rem;
+    font-weight: 500;
+}
+.app__product__price__wrapper{
+    text-align: center;
+    justify-content: center;
+    margin: 1em 0px 2em;
+}
+.app__product__price__wrapper__main {
+    display: flex;
+    font-size: 1.6em;
+    font-weight: 500;
+    color: rgb(0, 121, 190);
+    justify-content: center;
+}
+.app__product__price__formatted .currency-sign {
+    position: relative;
+    font-size: 0.75em;
+    top: -0.25em;
+    display: inline;
+    vertical-align: top;
+}
+.app__product__cta .app__product__cta__button {
+    position: relative;
+    display: inline-block;
+    padding: 1em 3em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: .75em;
+    font-weight: 700;
+    border: none;
+    transition: background .2s ease-in-out,color .2s ease-in-out,box-shadow .2s ease-in-out;
+    cursor: pointer;
+    margin: 1em 0.4em 1em auto;
+    max-width: 80%;
+}
+.app__product__cta .app__product__cta__button__buy {
+    background: #0079be;
+    color: #fff;
+}
+.app__product__cta .app__product__cta__button:last-of-type {
+    margin: 1em auto;
+}
+.app__product__cta .app__product__cta__button__buy:hover {
+    background: #0089d7;
+    color: #fff;
+}
+p {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.6;
+}
+h1 sup {
+    /* top: -0.35rem; */
+}
+
+h1 sup, h2 sup, h3 sup, h4 sup, h5 sup, h6 sup {
+    font-size: max(.6875rem,.4em);
+    vertical-align: top;
+    line-height: 2;
+    position: static;
+}
+
+@media screen and (min-width: 768px){
+    .app__product__info__title h1 {
+        font-size: 2.5rem;
+    }
+    .app__product__cta .app__product__cta__button {
+        position: relative;
+        width: auto;
+        text-align: center;
+        max-width: none;
+    }
+    .app__product__cta .app__product__cta__button__buy {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1023px){
+    .app__product__info {
+        flex-basis: auto;
+        /* max-width: 50vw; */
+        max-width: 45vw;
+        text-align: left;
+        padding-right: 7vw;
+    }
+    .app__product__info__subtitle {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .app__product__price__wrapper{
+        display: block;
+        text-align: left;
+        justify-content: left;
+    }
+    .app__product__price__wrapper__main {
+        justify-content: flex-start;
+    }
+    .app__product__cta {
+        max-width: 570px;
+    }
+    .app__product__cta .app__product__cta__button {
+        text-align: left;
+    }
+    .app__product__cta .app__product__cta__button:first-child {
+        margin-right: 0.4em;
+    }
+
+}
+
+@media screen and (min-width: 1224px){
+    .app__product__info {
+        padding-right: 10vw;
+    }
+}

@@ -1,0 +1,17 @@
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 0.5s ease;
+    animation: smoothScroll 1s forwards;
+}
+  
+@keyframes smoothScroll {
+    0% {
+        transform: translateY(-142px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

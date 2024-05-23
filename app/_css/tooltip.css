@@ -1,0 +1,23 @@
+.tooltip{
+    @apply mt-2 text-[#2c3e50]
+}
+
+.tooltip__summary{
+    @apply flex items-center gap-1 text-xs font-semibold cursor-pointer tracking-wide
+}
+.tooltip__title{
+    /* font-family: var(--font-oswald); */
+}
+.tooltip__icon svg{
+    @apply fill-[#737373]
+}
+.tooltip__text{
+    @apply text-xs mt-1 font-light
+}
+
+.tooltip--product {
+    @apply mb-2 ;
+}
+.tooltip--product .tooltip__title{
+    /* font-family: 'Roboto'; */
+}

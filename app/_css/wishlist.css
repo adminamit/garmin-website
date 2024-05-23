@@ -1,0 +1,80 @@
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Roboto,Noto Sans TC,Noto Sans SC,Noto Sans JP,Noto Sans KR,Prompt,sans-serif;
+    font-weight: 400;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px #3c404314, 0 1px 3px 1px #3c404329;
+    transition: box-shadow 135ms cubic-bezier(.4,0,.2,1),width 235ms cubic-bezier(.4,0,.2,1);
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+    min-height: 0;
+    position: relative;
+}
+.card:hover {
+    box-shadow: 0 1px 3px 1px #3c404333, 0 2px 8px 4px #3c40431a;
+}
+.card:link, .card:visited, .card:hover, .card:active {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.card__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h2 {
+    font-family: 'oswald';
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.card__name {
+    font-size: .9rem;
+    color: #000;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    font-weight: 700;
+}
+.card__description {
+    font-size: .9rem;
+    color: #000;
+    margin: 0;
+    margin-top: 2rem;
+}
+.remove{
+    @apply absolute w-6 h-6 top-2 right-2 text-black
+}
+@media screen and (min-width: 580px){
+    .card {
+        width: calc(50% - 2rem);
+    }
+}
+@media screen and (min-width: 768px){
+    .card {
+        width: calc(33.3333333333% - 2rem);
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+

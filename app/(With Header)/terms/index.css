@@ -1,0 +1,17 @@
+.copy h2{
+    font-family: var(--font-oswald);
+    @apply font-normal text-[2rem] tracking-wider my-8 leading-[1.25]
+}
+.copy p,.copy ul{
+    @apply font-light mb-4 text-base
+}
+.copy ul {
+    @apply list-disc ml-8
+}
+.copy ul li{
+    @apply mb-4
+}
+
+.copy a{
+    @apply underline
+}

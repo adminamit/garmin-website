@@ -1,0 +1,14 @@
+.app__overview__intro__description {
+    margin-bottom: 3rem;
+    max-width: 900px;
+    text-align: center;
+    font-weight: 400;
+}
+.app__overview__intro__title h2 {
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 900px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}

@@ -1,0 +1,40 @@
+.sidebar__product-links{
+    @apply  pt-8 pb-16
+}
+.product-link__icon {
+    padding: 0 0 1rem;
+    @apply w-[50px] h-[50px] mx-auto my-0;
+}
+.product-link__title{
+    @apply mt-[1em] flex items-center gap-4 w-full justify-center font-medium
+}
+.product-link__title__text{
+    @apply uppercase text-black text-sm font-medium pl-4 max-w-[140px]
+}
+.sidebar__container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 1rem;
+    justify-content: center;
+}
+.sidebar__product-links__card {
+    /* width: 200px; */
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+}
+
+.sidebar__full .sidebar__container {
+    flex: 1 1 auto;
+}
+@media screen and (min-width: 768px){
+    .sidebar .sidebar__product-links {
+        @apply  flex-col gap-16
+    }
+    .sidebar__full .sidebar__product-links {
+        @apply flex justify-center pt-8 pb-16  
+    }
+    .sidebar__full .sidebar__container .sidebar__product-links__card{
+        @apply w-[200px] 
+    }
+}

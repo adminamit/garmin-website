@@ -1,0 +1,26 @@
+.product__card{
+    @apply flex items-stretch mb-4 w-full
+}
+
+.sidebar__full .product__card{
+    @apply w-1/3 px-2
+}
+
+.product__card__inner {
+    box-shadow: 0 0 2px #0000001f, 0 2px 2px #0000003d;
+    @apply bg-white rounded-sm text-left p-[1em] w-full flex flex-row flex-nowrap mx-0 h-full ;
+}
+
+.product-card__product-image, .product-card__product-image img{
+    @apply w-24 mr-4;
+}
+.sidebar .product-card__product-image, .product-card__product-image img{
+    @apply mr-0 w-20;
+}
+.product-card__product-name{
+    @apply my-4 text-base font-normal tracking-wider leading-[1.25];
+    font-family: var(--font-oswald);
+}
+.product-card__product-price{
+    @apply text-base font-normal;
+}

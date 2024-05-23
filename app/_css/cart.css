@@ -1,0 +1,61 @@
+.cart__container{
+    @apply flex-nowrap m-auto flex justify-between max-w-[960px] items-start;
+}
+.cart__section{
+    @apply p-4;
+}
+.cart__section--main {
+    @apply w-[70%]
+}
+.cart__section--side{
+    @apply w-[30%] p-0 sticky top-4 mt-4;
+}
+.cart__section--side-wrapper{
+    @apply bg-[#f2f2f2] p-4;
+}
+.cart__product-card {
+    @apply relative flex p-4 rounded-[3px] font-normal tracking-wider text-black mb-4;
+    box-shadow: 0 1px 1px 0 rgba(60,64,67,.08), 0 1px 3px 1px rgba(60,64,67,.16);
+}
+.cart__product-card__product-image, .cart__product-card__product-image img{
+    @apply w-36 mr-4;
+}
+.cart__product-card__product-name{
+    @apply my-2 text-[1.5em] font-normal tracking-wider hover:underline;
+    font-family: var(--font-oswald);
+}
+.cart__product-card__product-sku{
+    @apply text-[0.8rem];
+}
+.product-card__price{
+    @apply flex items-center box-border text-lg whitespace-nowrap my-2;
+}
+.product-card__quantity{
+    @apply rounded-none text-base text-black w-24 border border-borderColor my-[0.3rem] py-[0.875em] pr-[3em] pl-[0.875em] outline-none focus:ring-0 focus:border-black
+}
+.product-card__message{
+    font-family: var(--font-oswald);
+    @apply text-[#101010] text-[0.8rem] font-normal leading-[1.6] my-2;
+}
+.product-card__legal-text{
+    @apply my-4;
+}
+.cart__section__order-total-summary{
+    @apply my-4;
+}
+.order-total-summary__item{
+    @apply flex justify-between pb-2 text-[0.875rem] leading-[1.4em] tracking-wider;
+}
+
+.order-total-summary__title{
+    @apply font-medium
+}
+.order-total-summary__title--subtotal{
+    @apply flex items-center gap-1;
+}
+.order-total-summary__title--subtotal svg {
+    @apply fill-borderColor;
+}
+.order-total-summary__detail{
+    @apply flex items-center
+}

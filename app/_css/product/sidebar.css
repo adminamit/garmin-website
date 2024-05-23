@@ -1,0 +1,34 @@
+#js__product__sidebar{
+    @apply py-8;
+}
+.sidebar__container{
+    @apply my-0 mx-auto flex flex-wrap w-full text-base
+}
+
+.sidebar__full .sidebar__container {
+    @apply max-w-[1200px] justify-center;
+    flex: 1 1 auto;
+}
+
+.sidebar__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 0 1em;
+    margin-top: 0.5rem;
+    justify-content: start;
+}
+
+.app__tabs__content.sidebar__hidden div.sidebar {
+    display: none;
+}
+
+@media screen and (min-width: 1023px){
+
+.sidebar {
+    width: 30%;
+    padding-left: 2em;
+    margin: 0px;
+}
+}

@@ -1,0 +1,13 @@
+.app__product {
+    position: relative;
+    display: flex;
+    padding-bottom: 1em;
+    flex-flow: wrap;
+}
+
+@media screen and (min-width: 1023px){
+    .app__product {
+        margin-top: 0em;
+        flex-flow: row;
+    }
+}

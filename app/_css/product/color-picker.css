@@ -1,0 +1,51 @@
+.app__color__picker__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0px;
+    flex-flow: wrap;
+}
+
+.app__color__picker__item {
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.9em;
+    margin: 0px 0.6em 0.6em 0px;
+}
+.app__color__picker__link {
+    display: block;
+    padding: 0px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    transition: background-color 0.5s ease 0s, border-color 0.5s ease 0s, color 0.5s ease 0s;
+}
+
+.app__color__picker__item img {
+    width: 60px;
+    height: 60px;
+    opacity: 0.3;
+    overflow: hidden;
+}
+.app__color__picker__link__active img, .app__color__picker__link__selected img {
+    opacity: 1;
+    transition: opacity 0.5s ease 0s;
+}
+
+@media screen and (min-width: 768px){
+    .app__color__picker__item img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+@media screen and (min-width: 1023px){
+    .app__color__picker__list {
+        max-width: 570px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}

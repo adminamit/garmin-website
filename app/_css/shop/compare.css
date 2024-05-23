@@ -1,0 +1,119 @@
+.compare-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #f2f2f2;
+    border-top: 1px solid #d9d9d9;
+    z-index: 2000;
+}
+.compare-banner__inner-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+.compare-banner__autocomplete-wrapper {
+    margin-top: 0.75rem;
+}
+.compare-items {
+    display: flex;
+    width: auto;
+    align-self: flex-start;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-top: 0.35em;
+}
+.compare-item {
+    position: relative;
+    width: 49px;
+    min-height: 47px;
+    border: 1px solid #d9d9d9;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+.compare-item--active {
+    background: #fff;
+}
+.compare-item__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 0 0.188rem 1.75rem 2.25rem;
+    background: 0 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #000;
+}
+.compare-item__image {
+    display: block;
+}
+.compare-button {
+    box-sizing: border-box;
+    border-radius: 0;
+    font-size: 1rem;
+    line-height: 1.15;
+    overflow: auto;
+    transition: background 0.2s, color 0.2s;
+    vertical-align: middle;
+    padding: 0.875rem 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    word-break: break-word;
+    color: #000000;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #000000;
+}
+.compare-button--disabled {
+    color: #000000;
+    border-color: #d9d9d9;
+    background: #d9d9d9;
+    cursor: not-allowed;
+}
+@media screen and (min-width: 480px){
+    .compare-banner__inner-wrap {
+        align-items: center;
+        display: inline-flex;
+        flex-direction: row;
+    }
+    .compare-banner__autocomplete-wrapper {
+        margin-top: 0.35rem;
+    }
+    .compare-items {
+        justify-content: center;
+        align-self: center;
+    }
+}
+@media screen and (min-width: 768px){
+    .compare-banner {
+        flex-direction: row;
+        padding: 2rem 1.5rem;
+    }
+    .compare-banner__inner-wrap {
+        width: auto;
+        justify-content: unset;
+        margin-bottom: 0;
+    }
+    .compare-banner__autocomplete-wrapper {
+        margin-top: 0;
+    }
+    .compare-items {
+        margin: 0 0 0 1rem;
+        width: auto;
+        padding-top: 0;
+    }
+    .compare-button {
+        width: auto;
+    }
+}

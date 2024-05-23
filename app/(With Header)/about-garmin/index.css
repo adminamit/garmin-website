@@ -1,0 +1,227 @@
+.container.base {
+    width: auto;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+.container {
+    margin: 0 auto;
+    width: 100%;
+}
+.container.white {
+    background: #fff;
+}
+.container--constraint {
+    display: flex;
+    flex-direction: column;
+}
+.container.base__small .container--constraint {
+    max-width: 644px;
+}
+.h1 {
+    font-family: 'Oswald', 'Roboto Condensed', 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.g__copy {
+    /* font-family: 'Roboto', sans-serif; */
+    line-height: 1.5;
+    margin-bottom: 0;
+    overflow: auto;
+    text-align: center;
+    font-size: 16px;
+}
+.container.light {
+    background: #eee;
+}
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container--constraint {
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.g__card-container {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+.g__card-container--light {
+    background: #eeeeee;
+}
+.g__card-container__constraint {
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+.g__card {
+    background: #ffffff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: block;
+    min-height: 200px;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.24);
+    transition: box-shadow 135ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+.g__card--non-clickable {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.24);
+}
+.g__card .g__card__outer__wrapper {
+    position: relative;
+    height: 100%;
+}
+.g__card .g__card__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.g__card .g__card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.g__card .heading {
+    margin: 1rem 1rem;
+}
+
+.g__heading--center {
+    text-align: center;
+}
+
+.g__heading--light {
+    color: #000000;
+    background: transparent;
+}
+
+.g__heading {
+    box-sizing: border-box;
+}
+.g__heading h3 {
+    font-family: "Oswald", "Roboto Condensed", "Roboto", "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Prompt", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+.g__card .copy-only {
+    margin: 0 1rem 1.5rem;
+    font-weight: 200;
+}
+
+.figure .image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    max-height: 455px;
+}
+.g__tile-container {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: flex-end;
+    color: #ffffff;
+    /* width: calc(100% - 1rem); */
+}
+.g__tile {
+    box-sizing: border-box;
+    position: relative;
+    height: 380px;
+    display: flex;
+    padding: 1.5rem;
+    text-decoration: none;
+    width: 100%;
+    align-items: end;
+}
+.g__tile--half {
+    width: 50%;
+}
+.g__tile--base, .g__tile--clickable {
+    margin: 0.5rem;
+}
+.g__tile__background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.g__tile__background__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.g__tile__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 1;
+}
+.g__tile--half {
+    width: calc(100% - 1rem);
+}
+.g__tile__copy{
+    font-size: 16px;
+    font-weight: 300;
+}
+@media screen and (min-width: 480px){
+    .g__card-container__constraint {
+        padding-left: 1rem;
+    }
+    .g__card {
+        margin: 0;
+    }
+    .g__card__vertical {
+        width: calc(50% - 1rem);
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .h1 {
+        font-size: 2.5rem;
+    }
+    .g__card__vertical {
+        width: calc(33.3333333333% - 1rem);
+    }
+    .g__heading h3 {
+        font-size: 1.5rem;
+    }
+    .g__tile-container {
+        flex-direction: row;
+    }
+    .g__tile--half {
+        width: calc(50% - 1rem);
+    }
+}
+
+
+@media screen and (min-width: 1024px){
+.g__card__vertical.g__card--third {
+    width: calc(33.3333333333% - 1rem);
+}
+}

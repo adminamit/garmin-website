@@ -1,0 +1,111 @@
+
+.app__life-style {
+    position: relative;
+    display: block;
+    background-color: #000;
+}
+.app__life-style {
+    background-color: #0000;
+}
+.app__life-style__img-con {
+    background-color: #000;
+}
+.app__tabs__content__wrap img {
+    max-width: 100%;
+    height: auto;
+}
+.app__img-banner__img {
+    width: 100%;
+    display: block;
+}
+.app__img-banner__img--desktop {
+    display: none;
+}
+.app__life-style__text__con {
+    color: #fff;
+    text-shadow: 0 0 0.5em #000;
+    text-align: center;
+    font-family: var(--font-oswald);
+    padding: 2rem;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    width: 35%;
+    
+}
+.app__life-style--dark .app__life-style__text__con *{
+    color: #fff;
+    text-shadow: 0 0 0.5em #000;
+}
+.app__life-style--light .app__life-style__text__con *{
+    color: #000;
+    text-shadow: 0 0 0.5em #fff;
+}
+
+.app__headline {
+    /* color: #000; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.app__headline__secondary-text {
+    /* font-family: 'Roboto','Noto Sans TC'; */
+    font-size: 33.333333%;
+    display: block;
+    margin: 0;
+    text-transform: uppercase;
+    color: inherit;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+/* .app__headline--dark, .app__headline--dark a {
+    color: #fff;
+} */
+
+.app__life-style__text__con__mobile--center {
+    text-align: center;
+}
+.app__headline__primary-text+.app__headline__secondary-text {
+    margin: 1.5rem 0 0;
+}
+
+@media screen and (min-width: 768px){
+.app__img-banner__img--desktop {
+    display: block;
+}
+.app__img-banner__img--mobile {
+    display: none;
+}
+.app__life-style__text__con--right {
+    right: 0;
+    padding: 2rem 4rem 2rem 0;
+    text-align: right;
+}
+.app__life-style__text__con--middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.app__headline--right {
+    text-align: right;
+}
+.app__headline--center {
+    text-align: center;
+}
+.app__life-style__text__con--left {
+    padding: 2rem 0 2rem 2rem;
+    text-align: left;
+}
+.app__life-style__text__con--center {
+    left: 25%;
+    width: 50%;
+    padding: 2rem 0;
+    text-align: center;
+}
+.app__life-style__text__con--bottom {
+    bottom: 0;
+}
+
+.app__life-style__text__con--top {
+    top: 0;
+}
+}

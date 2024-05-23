@@ -1,0 +1,25 @@
+.copy h3, .copy h4, .copy h5 {
+    font-family: var(--font-oswald);
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+.copy p{
+    @apply my-4 font-light text-base
+}
+.copy a{
+    @apply underline
+}
+.copy div img{
+    @apply w-4 inline-flex
+}
+@media screen and (min-width: 768px){
+    .copy h3 {
+        font-size: 1.5rem;
+    }
+    .copy h4 {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,14 @@
+@tailwind base;
+
+@layer base {
+    @font-face {
+      font-family: "knockout 30";
+      font-weight: 400;
+      src: url('/fonts/knockout 30.woff2') format("woff2");
+    }
+    @font-face {
+      font-family: 'oswald';
+      font-weight: normal;
+      src: url('/fonts/oswald.woff2') format("woff2");
+    }
+  }

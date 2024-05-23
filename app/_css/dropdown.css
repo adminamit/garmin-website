@@ -1,0 +1,13 @@
+.dropdown{
+    @apply relative cursor-pointer flex items-center z-[100]
+}
+.dropdown__title{
+    @apply py-5 border-b-[3px] border-white group-hover:border-black px-1;
+}
+.dropdown__menu{
+    @apply absolute flex-col gap-2 border border-borderColor bg-white text-sm p-6 -left-20 top-full w-32 hidden group-hover:flex;
+    @apply hidden;
+}
+.dropdown__menu a{
+    @apply hover:underline;
+}

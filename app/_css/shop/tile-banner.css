@@ -1,0 +1,127 @@
+.sticky-custom-card-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+}
+
+.tile-banner-card {
+    text-decoration: none;
+    text-align: left;
+    color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3px 1px #e6e6e6;
+}
+.tile-banner-card.text-black, .tile-banner-card.text-black h3 {
+    color: #000;
+}
+.tile-banner-card__wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.tile-banner-card__image-container {
+    width: 100%;
+    min-height: 350px;
+    flex-shrink: 0;
+}
+.tile-banner-card__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.tile-banner-card__gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.tile-banner-card__description {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: 1em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.tile-banner-card__description__title {
+    font-family: Oswald,Roboto Condensed,Roboto,Noto Sans TC,Noto Sans SC,Noto Sans JP,Noto Sans KR,Prompt,sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    position: relative;
+    text-align: left;
+}
+.tile-banner-card__description__title.center-center {
+    top: 45%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.tile-banner-card__description__title.top-center {
+    text-align: center;
+}
+
+.tile-banner-card__description__title h3 {
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: var(--font-oswald);
+}
+.tile-banner-card__description__copy {
+    margin: 0;
+    padding-bottom: 0;
+    font-size: .875rem;
+    line-height: 1.05rem;
+    position: relative;
+    text-align: left;
+}
+.tile-banner-card__description__copy.center-center {
+    top: 45%;
+    transform: translateY(-50%);
+    margin-top: 2em;
+    text-align: center;
+}
+@media screen and (min-width: 480px){
+    .sticky-custom-card-container[data-v-61dd5474] {
+        width: calc(50% - 0.5rem);
+        margin-top: 1rem;
+    }
+    .tile-banner-card__description {
+        padding: 1.85em 1.5em;
+    }
+}
+@media screen and (min-width: 768px){
+    .sticky-custom-card-container[data-v-61dd5474] {
+        width: calc(50% - 0.5rem);
+        margin-top: 1rem;
+    }
+    .tile-banner-card__image-container {
+        min-height: unset;
+    }
+    .tile-banner-card__description__title {
+        font-size: 1.6rem;
+        line-height: 1.7rem;
+    }
+    .tile-banner-card__description__copy {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .sticky-custom-card-container[data-v-61dd5474] {
+        width: calc(33.3333% - 1.35em);
+        margin: 1rem 0 0 1rem;
+    }
+}

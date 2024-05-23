@@ -1,0 +1,31 @@
+.app__headline {
+    color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.app__headline--dark, .app__headline--dark a {
+    color: #fff;
+}
+.app__headline--center {
+    text-align: center;
+}
+.app__headline__primary-text {
+    display: block;
+    font-family: var(--font-oswald);
+}
+
+.app__headline__container {
+    display: block;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    --headlineMobileTextSizeAdjuster: 2.5;
+    --headlineSecondaryTextSizeAdjuster: 3;
+    --headlineRatio: calc(var(--headlineMobileTextSizeScaler) * var(--headlineMobileTextSizeAdjuster));
+    --headlineFontSize: calc(1.6vw * var(--headlineRatio));
+    font-size: var(--headlineFontSize);
+}
+.app__headline__container {
+    --headlineFontSize: calc(1.6vw * var(--headlineTextSizeScaler));
+    font-size: calc(var(--headlineFontSize));
+}

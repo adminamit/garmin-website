@@ -1,0 +1,34 @@
+.flash-msg[data-v-e5d980b4] {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.g__alert {
+    box-shadow: 0 1px 0 #000000;
+    align-items: center;
+    background-color: #000000;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    flex: 1 1 0;
+    flex-flow: row nowrap;
+    font-size: 0.8rem;
+    letter-spacing: 0.02rem;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+}
+
+.g__alert--error {
+    background-color: #ff6666;
+    color: #000000;
+    box-shadow: 0 1px 0 #ff6666;
+}
+.g__alert--with-close-btn {
+    /* padding-left: 3.25rem; */
+}
+.g__alert__slot {
+    flex-grow: 1;
+    line-height: 1.25rem;
+    padding: 0.35rem;
+    text-align: center;
+}

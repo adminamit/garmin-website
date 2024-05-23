@@ -1,0 +1,45 @@
+
+.app__product__filters {
+    margin-bottom: 1em;
+}
+.app__product__filters__group {
+    margin: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app__product__filters__label{
+    margin-bottom: 0.3em;
+}
+.app__product__filters__buttons {
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 0 0.75em 0.75em 0;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    font-size: .72em;
+    padding: 0.5em 1.25em;
+    font-weight: 400;
+    transition: background-color .5s,border-color .5s,color .5s;
+}
+.app__product__filters__buttons--selected{
+    pointer-events: none;
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+.app__product__filters__buttons--selected[data-v-e9b8a356]:visited, .app__product__filters__buttons--selected[data-v-e9b8a356]:focus {
+    color: #fff;
+}
+.app__product__filters__buttons:hover {
+    color: #000;
+    background: #fff;
+    border-color: #000;
+}
+@media screen and (min-width: 1023px){
+    .app__product__filters__group {
+        align-items: flex-start;
+    }
+}
