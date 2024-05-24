@@ -19,32 +19,38 @@ const Header = () => {
                         <Link href="/" className="font-bold text-2xl">
                             <Image
                                 alt="default alt"
-                                src={`/assets/images/logo.svg`}
+                                src={`/assets/images/Garmin-Authorised-Distributor.png`}
                                 width="140"
                                 height="140"
                             />
                         </Link>
                     </div>
                     <nav className="menu">
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link
+                            href="/c/wearables-smartwatches"
+                            className="menu-item"
+                        >
                             SMARTWATCHES
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link href="/c/sports-fitness" className="menu-item">
                             SPORTS & FITNESS
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link
+                            href="/c/outdoor-recreation"
+                            className="menu-item"
+                        >
                             OUTDOOR RECREATION
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link href="/s/automotive" className="menu-item">
                             AUTOMOTIVE
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link href="/c/marine" className="menu-item">
                             MARINE
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link href="/c/aviation" className="menu-item">
                             Aviation
                         </Link>
-                        <Link href="/smartwatches" className="menu-item">
+                        <Link href="/sale" className="menu-item">
                             Sale
                         </Link>
                     </nav>

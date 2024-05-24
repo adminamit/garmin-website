@@ -14,7 +14,7 @@ export async function POST(request, response) {
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
                 maxAge: expiresIn,
-                sameSite: "strict",
+                // sameSite: "strict",
                 path: "/",
             }),
         },
