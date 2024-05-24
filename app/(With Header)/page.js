@@ -1,6 +1,6 @@
 import React from "react";
 import { draftMode } from "next/headers";
-import NotFound from "./not-found";
+import notFound from "./not-found";
 import { Blocks } from "@/app/_components/Blocks";
 export default async function Home() {
     const slug = "home";

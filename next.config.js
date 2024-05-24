@@ -18,6 +18,11 @@ module.exports = {
                 hostname: "www.garmin.com",
                 port: "",
             },
+            {
+                protocol: "https",
+                hostname: "3.7.254.15.nip.io",
+                port: "",
+            },
         ],
         domains: ["localhost"],
     },
