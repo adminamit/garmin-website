@@ -3,7 +3,7 @@ import React from "react";
 import { AccountMenu } from "@/app/_components/Account/Menu";
 import Link from "next/link";
 import { RiArrowGoBackFill } from "react-icons/ri";
-import EditAddressForm from "@/app/_components/Account/Address/Edit";
+import { EditAddressForm } from "@/app/_components/Account/Address/Edit";
 import { Loader } from "@/app/_components/Loader";
 import { useAuth } from "@/app/_providers/Auth";
 
