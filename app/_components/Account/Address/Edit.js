@@ -1,5 +1,5 @@
 import React from "react";
 
-export const Edit = () => {
+export const EditAddressForm = () => {
     return <div>Edit</div>;
 };
