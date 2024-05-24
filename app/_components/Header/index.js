@@ -41,7 +41,7 @@ const Header = () => {
                         >
                             OUTDOOR RECREATION
                         </Link>
-                        <Link href="/s/automotive" className="menu-item">
+                        <Link href="/c/automotive" className="menu-item">
                             AUTOMOTIVE
                         </Link>
                         <Link href="/c/marine" className="menu-item">

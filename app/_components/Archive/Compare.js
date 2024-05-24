@@ -34,7 +34,11 @@ const Compare = () => {
             <div className="compare__button__host compare__button__host--large">
                 <Link
                     className="compare-button"
-                    href={`/compare/?compareProduct=${compareProduct}`}
+                    href={
+                        false
+                            ? `/compare/?compareProduct=${compareProduct}`
+                            : "/"
+                    }
                 >
                     COMPARE
                 </Link>
