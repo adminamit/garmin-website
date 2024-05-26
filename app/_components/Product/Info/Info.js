@@ -18,7 +18,7 @@ const formatPrice = (price) => {
     });
 };
 
-const Info = ({ productData }) => {
+const Info = ({ productData, variationData }) => {
     const { user, removeItemFromWishlist, isUpdating, addItemToWishlist } =
         useAuth();
 
@@ -44,7 +44,7 @@ const Info = ({ productData }) => {
         let exist = false;
         if (user && user.wishlist) {
             user.wishlist.items.map((item) => {
-                console.log(item);
+                // console.log(item);
                 if (item.product.id == id) {
                     exist = true;
                 }
@@ -114,7 +114,7 @@ const Info = ({ productData }) => {
                 </div>
             </div>
 
-            {attributes.length == 0 ? (
+            {/* {attributes.length == 0 ? (
                 <div className="flex flex-col gap-5">
                     <div class="animate-pulse flex space-x-4 ">
                         <div className="h-12 w-36 bg-gray-100"></div>
@@ -129,7 +129,12 @@ const Info = ({ productData }) => {
                 </div>
             ) : (
                 <Attributes attributes={attributes} />
-            )}
+            )} */}
+
+            <Attributes
+                productData={productData}
+                variationData={variationData}
+            />
 
             <div className="flex-gap gap-4 items-center relative">
                 <AddToCart product={productData} />

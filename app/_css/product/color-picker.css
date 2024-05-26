@@ -49,3 +49,7 @@
         justify-content: flex-start;
     }
 }
+
+.app__color__picker__link__selected {
+    border-color: #000;
+}

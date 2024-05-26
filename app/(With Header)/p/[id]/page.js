@@ -7,6 +7,14 @@ import Info from "@/app/_components/Product/Info/Info";
 import "@/app/_css/product/product.css";
 import notFound from "../../not-found";
 import { Loader } from "@/app/_components/Loader";
+
+async function getProduct(id) {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
+    );
+    return res.json();
+}
+
 async function getProductData(id) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
@@ -15,9 +23,15 @@ async function getProductData(id) {
 }
 
 const page = async ({ params: { id } }) => {
-    let productData = null;
-    const fetchProduct = await getProductData(id);
-    productData = fetchProduct[0];
+    let productData = null,
+        variationData = null;
+    const fetchProduct = await getProduct(id);
+    productData = fetchProduct.product;
+    console.log("productData");
+    console.log(fetchProduct);
+    variationData = fetchProduct.variations;
+    console.log("variationData");
+    console.log(variationData);
     if (!productData) {
         return notFound();
     }
@@ -37,7 +51,7 @@ const page = async ({ params: { id } }) => {
             <BreadCrumb breadCrumbs={breadCrumbs} />
             <div className="app__product">
                 <Gallery gallery={productData.images} />
-                <Info productData={productData} />
+                <Info productData={productData} variationData={variationData} />
             </div>
             {productData ? <Tabs productData={productData} /> : <Loader />}
         </div>

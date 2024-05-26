@@ -3,7 +3,8 @@ import Tooltip from "../../Helpers/Tooltip";
 import Link from "next/link";
 import Image from "next/image";
 import "@/app/_css/product/color-picker.css";
-const ColorPicker = () => {
+import { isEqual } from "lodash";
+const ColorPicker = ({ models }) => {
     const colorOptions = [
         {
             id: "010-02582-21",
@@ -44,22 +45,31 @@ const ColorPicker = () => {
                 </Tooltip>
             </div>
             <ul className="app__color__picker__list">
-                {colorOptions.map((option) => {
+                {models.map((model) => {
                     return (
-                        <li
-                            className="app__color__picker__item"
-                            key={option.id}
-                        >
+                        <li className="app__color__picker__item" key={model.id}>
+                            {/* {JSON.stringify(model.activeAttributes)}
+                            {JSON.stringify(model.attributes)}
+                            {JSON.stringify(
+                                isEqual(
+                                    model.activeAttributes,
+                                    model.attributes
+                                )
+                            )} */}
                             <Link
                                 className={`app__color__picker__link js__filter-option ${
-                                    option.active
-                                        ? "app__color__picker__link__active js__active"
+                                    model.active
+                                        ? "app__color__picker__link__active"
+                                        : ""
+                                } ${
+                                    model.current
+                                        ? "app__color__picker__link__selected"
                                         : ""
                                 }`}
-                                href={option.url}
+                                href={`/p/${model.sku}`}
                             >
                                 <Image
-                                    src={option.img}
+                                    src={model.image}
                                     alt="010-02582-21"
                                     width={0}
                                     height={0}

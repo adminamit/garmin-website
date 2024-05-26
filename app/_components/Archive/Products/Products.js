@@ -16,6 +16,8 @@ export const Products = async ({
         }/api/products/?id=${categoryId}&draft=${false}`
     );
     products = await fetchProducts.json();
+    console.log("productsproductsproductsproducts");
+    console.log(products);
     return (
         <>
             <div className="product-grid">

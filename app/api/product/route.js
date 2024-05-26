@@ -1,25 +1,50 @@
-import qs from "qs";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(request, context) {
     const id = request.nextUrl.searchParams.get("id");
-    const query = {
-        id: {
-            equals: id,
+    console.log(id);
+    const res = await fetch(process.env.GRAPHQL_API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
         },
-    };
-    const stringifiedQuery = qs.stringify(
-        {
-            limit: 1,
-            depth: 2,
-            where: query,
-        },
-        { addQueryPrefix: true }
-    );
-
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
-    );
+        body: JSON.stringify({
+            query: `
+            query {
+                Products(where: { sku: { equals: "${id}" } }) {
+                  docs {
+                    id,
+                    title,
+                    price,
+                    salePrice,
+                    sku,
+                    productType,
+                    
+                    parentProduct{
+                      title,
+                      id
+                    },
+                    attributes{
+                      title,
+                      attribute{
+                        title
+                      }
+                    }
+                    images{
+                      featuredImage{
+                        url
+                      }
+                    },
+                    featuredImage {
+                      url
+                    }
+                  }
+                  totalDocs
+                }
+              }
+            `,
+        }),
+    });
     const data = await res.json();
     return NextResponse.json(data);
 }
