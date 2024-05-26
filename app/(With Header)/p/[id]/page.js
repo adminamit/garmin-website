@@ -27,11 +27,8 @@ const page = async ({ params: { id } }) => {
         variationData = null;
     const fetchProduct = await getProduct(id);
     productData = fetchProduct.product;
-    console.log("productData");
-    console.log(fetchProduct);
     variationData = fetchProduct.variations;
-    console.log("variationData");
-    console.log(variationData);
+
     if (!productData) {
         return notFound();
     }

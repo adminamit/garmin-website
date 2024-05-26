@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { HiOutlineSelector } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { useQueryState } from "nuqs";
 
 const SortFilter = ({ compare, handleCompareChange }) => {
-    const [selectedOption, setSelectedOption] = useState("featured");
-
-    const handleSelectChange = (event) => {
-        setSelectedOption(event.target.value);
+    const [sortBy, setSortBy] = useQueryState("sortBy");
+    const handlesortByUpdate = (sort) => {
+        setSortBy(sort);
     };
 
     return (
@@ -23,14 +23,16 @@ const SortFilter = ({ compare, handleCompareChange }) => {
             <div className="relative flex dropdown items-center">
                 <span className="text-sm font-bold w-[100px]">Sort By</span>
                 <select
-                    value={selectedOption}
-                    onChange={handleSelectChange}
+                    onChange={(e) => {
+                        handlesortByUpdate(e.target.value);
+                    }}
+                    defaultValue={sortBy}
                     className=""
                 >
-                    <option value="featured">Featured Products</option>
-                    <option value="priceLowToHigh">Price: Low to High</option>
-                    <option value="priceHighToLow">Price: High to Low</option>
-                    {/* Add more sorting options here */}
+                    <option value="title">A to Z</option>
+                    <option value="-title">Z to A</option>
+                    <option value="price">Price: Low to High</option>
+                    <option value="-price">Price: High to Low</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                     <HiOutlineSelector className="fill-current h-4 w-4" />

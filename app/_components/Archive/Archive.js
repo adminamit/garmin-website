@@ -11,23 +11,49 @@ import Sidebar from "./sidebar";
 import { Loading } from "./Loading";
 import SortFilter from "./Filters/Sort";
 import Series from "./Series";
-export const Archive = ({ products, category }) => {
-    const [compareProducts, setCompareProducts] = useState([]);
-    const [compare, setCompare] = useQueryState("compare");
-    const [compareProductParam, setCompareProductParam] =
-        useQueryState("compareProduct");
+import { useSearchParams } from "next/navigation";
+export const Archive = async ({ category }) => {
+    const searchParams = useSearchParams();
+    const series = searchParams.get("series");
+    const activity = searchParams.get("activity");
+    const features = searchParams.get("features");
+    const sortBy = searchParams.get("sortBy");
+
+    // const [compareProducts, setCompareProducts] = useState([]);
+    const [compare, setCompare] = useQueryState("compare", {
+        shallow: true,
+        history: "push",
+    });
+    const [compareProducts, setCompareProducts] = useQueryState(
+        "compareProduct",
+        {
+            shallow: true,
+            history: "push",
+        }
+    );
+
+    let products = [];
+    const fetchProducts = await fetch(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
+            category.id
+        }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
+    );
+    products = await fetchProducts.json();
 
     const handleCompareProductsChange = (id, action) => {
-        let activeCompareProducts = compareProductParam
-            ? compareProductParam.split(",")
+        let activeCompareProducts = compareProducts
+            ? compareProducts.split(",")
             : [];
         if (action === "REMOVE") {
             const updated = activeCompareProducts.filter((item) => item !== id);
-            setCompareProductParam(updated.toString());
+            setCompareProducts(updated.toString(), {
+                shallow: true,
+                history: "push",
+            });
         } else if (action === "ADD") {
             activeCompareProducts.length < 5
                 ? activeCompareProducts.push(id) &&
-                  setCompareProductParam(activeCompareProducts.toString())
+                  setCompareProducts(activeCompareProducts.toString())
                 : null;
         }
     };
@@ -57,7 +83,7 @@ export const Archive = ({ products, category }) => {
 
             <div className="flex w-full border-t border-borderColor">
                 <div className="sidebar w-[315px] border-r border-borderColor p-4">
-                    <Sidebar />
+                    <Sidebar products={products} />
                 </div>
                 <div className="products-wrapper w-[calc(100vw-315px)]">
                     <SortFilter
@@ -73,6 +99,7 @@ export const Archive = ({ products, category }) => {
                             }
                             compareProducts={compareProducts}
                             categoryId={category.id}
+                            products={products}
                         />
                     </Suspense>
                 </div>

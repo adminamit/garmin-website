@@ -2,22 +2,25 @@ import React, { useState, useRef } from "react";
 import TileBanner from "./TileBanner";
 import { Product } from "./Product";
 import Pagination from "../Pagination";
+import { useSearchParams } from "next/navigation";
 export const Products = async ({
     compare,
     handleCompareProductsChange,
     compareProducts,
     handleCompareChange,
     categoryId,
+    products,
 }) => {
-    let products = [];
-    const fetchProducts = await fetch(
-        `${
-            process.env.NEXT_PUBLIC_LIVE_URL
-        }/api/products/?id=${categoryId}&draft=${false}`
-    );
-    products = await fetchProducts.json();
-    console.log("productsproductsproductsproducts");
-    console.log(products);
+    // const searchParams = useSearchParams();
+    // const series = searchParams.get("series");
+
+    // let products = [];
+    // const fetchProducts = await fetch(
+    //     `${
+    //         process.env.NEXT_PUBLIC_LIVE_URL
+    //     }/api/products/?id=${categoryId}&draft=${false}&series=${series}`
+    // );
+    // products = await fetchProducts.json();
     return (
         <>
             <div className="product-grid">

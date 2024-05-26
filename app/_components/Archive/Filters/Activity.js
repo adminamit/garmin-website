@@ -1,18 +1,19 @@
 import React, { useState } from "react";
+import HtmlParser from "react-html-parser";
 import { useQueryState } from "nuqs";
 
-const FeatureFilter = ({ allFeatures }) => {
-    const [features, setFeatures] = useQueryState("features");
+const ActivityFilter = ({ allActivity }) => {
+    const [activity, setActivity] = useQueryState("activity");
 
-    const handleFeaturesUpdate = (id, action) => {
-        let activeFeatures = features ? features.split(",") : [];
+    const handleActivityUpdate = (id, action) => {
+        let activeActivity = activity ? activity.split(",") : [];
         if (!action) {
-            const updated = activeFeatures.filter((item) => item !== id);
+            const updated = activeActivity.filter((item) => item !== id);
             updated.length === 0
-                ? setFeatures(null)
-                : setFeatures(updated.toString());
+                ? setActivity(null)
+                : setActivity(updated.toString());
         } else {
-            activeFeatures.push(id) && setFeatures(activeFeatures.toString());
+            activeActivity.push(id) && setActivity(activeActivity.toString());
         }
     };
 
@@ -25,10 +26,10 @@ const FeatureFilter = ({ allFeatures }) => {
                 <ul className="space-y-1">
                     <li>
                         <h3 className="text-sm font-bold mb-2">
-                            Shop by Feature
+                            Shop by Activity
                         </h3>
                     </li>
-                    {allFeatures.map((item) => (
+                    {allActivity.map((item) => (
                         <li key={item.name}>
                             <label className="flex items-center justify-between">
                                 <div className="flex relative items-center">
@@ -38,15 +39,15 @@ const FeatureFilter = ({ allFeatures }) => {
                                             .toLowerCase()
                                             .replace(/\s+/g, "")}
                                         checked={
-                                            features &&
-                                            features
+                                            activity &&
+                                            activity
                                                 .split(",")
                                                 .includes(item.id)
                                         }
                                         type="checkbox"
                                         className="hidden"
                                         onChange={(e) => {
-                                            handleFeaturesUpdate(
+                                            handleActivityUpdate(
                                                 item.id,
                                                 e.target.checked
                                             );
@@ -57,8 +58,8 @@ const FeatureFilter = ({ allFeatures }) => {
                                         htmlFor={item.name}
                                         className="ml-1 block text-black px-4 py-[0.4rem] filter_checkbox_label cursor-pointer"
                                     >
-                                        <span className="text-sm font-regular">
-                                            {item.name}
+                                        <span className="text-sm font-regular -mt-1">
+                                            {HtmlParser(item.name)}
                                         </span>
                                     </label>
                                 </div>
@@ -77,4 +78,4 @@ const FeatureFilter = ({ allFeatures }) => {
     );
 };
 
-export default FeatureFilter;
+export default ActivityFilter;

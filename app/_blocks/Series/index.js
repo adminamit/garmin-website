@@ -2,20 +2,17 @@ import React from "react";
 import HtmlParser from "react-html-parser";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 async function getSeriesData() {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/product-series/`
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/series/`);
     return res.json();
 }
 
 export const Series = async ({ title, image }) => {
-    // console.log("image");
-    // console.log(image);
+    const currentPath = usePathname();
     let series = [];
-    const fetchSeries = await getSeriesData();
-    series = fetchSeries.docs;
-    console.log(series);
+    series = await getSeriesData();
+    // series = fetchSeries;
 
     return (
         <>
@@ -32,7 +29,7 @@ export const Series = async ({ title, image }) => {
                     <div className="flex series-banner-content">
                         {series.map((el) => (
                             <Link
-                                href={"/"}
+                                href={`${currentPath}?series=${el.id}`}
                                 key={el.id}
                                 className="text-center max-w-[240px] px-4"
                             >

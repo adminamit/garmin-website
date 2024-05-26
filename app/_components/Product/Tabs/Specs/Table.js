@@ -5,11 +5,11 @@ const Table = ({ productSpecifications }) => {
         <>
             {productSpecifications.map((group) => {
                 return (
-                    <table>
+                    <table key={group.id}>
                         <tbody>
                             <tr className="title">
                                 <td
-                                    colspan="2"
+                                    colSpan="2"
                                     className="border-0 p-0 !pl-0 !pr-0"
                                 >
                                     <h3>{group.specificationGroup.title}</h3>

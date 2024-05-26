@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import HtmlParser from "react-html-parser";
+import { useQueryState } from "nuqs";
 
-const SeriesFilter = () => {
+const SeriesFilter = ({ allSeries }) => {
+    const [series, setSeries] = useQueryState("series");
     const [filters, setFilters] = useState({
         descentSeries: false,
         vivosmart: false,
@@ -8,22 +11,17 @@ const SeriesFilter = () => {
         // Add the rest of the filters here
     });
 
-    const handleCheckboxChange = (event) => {
-        const { name, checked } = event.target;
-        setFilters((prevFilters) => ({
-            ...prevFilters,
-            [name]: checked,
-        }));
+    const handleSeriesUpdate = (id, action) => {
+        let activeSeries = series ? series.split(",") : [];
+        if (!action) {
+            const updated = activeSeries.filter((item) => item !== id);
+            updated.length === 0
+                ? setSeries(null)
+                : setSeries(updated.toString());
+        } else {
+            activeSeries.push(id) && setSeries(activeSeries.toString());
+        }
     };
-
-    const series = [
-        { name: "Descent Series", count: 9 },
-        { name: "vivosmart", count: 1 },
-        { name: "Lily", count: 4 },
-        { name: "epix", count: 6 },
-        { name: "quatix", count: 2 },
-        { name: "Lily", count: 4 },
-    ];
 
     return (
         <aside
@@ -37,8 +35,8 @@ const SeriesFilter = () => {
                             Shop by Series
                         </h3>
                     </li>
-                    {series.map((item) => (
-                        <li key={item.name}>
+                    {allSeries.map((item) => (
+                        <li key={item.name} className="">
                             <label className="flex items-center justify-between">
                                 <div className="flex relative items-center">
                                     <input
@@ -47,32 +45,34 @@ const SeriesFilter = () => {
                                             .toLowerCase()
                                             .replace(/\s+/g, "")}
                                         checked={
-                                            filters[
-                                                item.name
-                                                    .toLowerCase()
-                                                    .replace(/\s+/g, "")
-                                            ]
+                                            series &&
+                                            series.split(",").includes(item.id)
                                         }
                                         type="checkbox"
                                         className="hidden"
-                                        onChange={handleCheckboxChange}
+                                        onChange={(e) => {
+                                            handleSeriesUpdate(
+                                                item.id,
+                                                e.target.checked
+                                            );
+                                        }}
                                     />
 
                                     <label
                                         htmlFor={item.name}
-                                        className="ml-1 block text-black px-4 py-2 filter_checkbox_label"
+                                        className="ml-1 block text-black px-4 py-[0.4rem] filter_checkbox_label cursor-pointer"
                                     >
-                                        <span className="text-sm font-light">
-                                            {item.name}
+                                        <span className="text-sm font-regular">
+                                            {HtmlParser(item.name)}
                                         </span>
                                     </label>
                                 </div>
                                 {/* <span className="text-gray-900 dark:text-gray-300">
                                     {item.name}
                                 </span> */}
-                                <span className="text-sm font-light">
+                                {/* <span className="text-sm font-light">
                                     ({item.count})
-                                </span>
+                                </span> */}
                             </label>
                         </li>
                     ))}

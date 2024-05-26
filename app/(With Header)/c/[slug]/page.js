@@ -21,10 +21,7 @@ async function getCategoryData(slug) {
     return res.json();
 }
 
-export default async function Shop({
-    params: { slug },
-    searchParams: { series, orderBy },
-}) {
+export default async function Shop({ params: { slug } }) {
     let catgeory;
     const fetchCategory = await getCategoryData(slug);
     catgeory = fetchCategory.docs[0];
