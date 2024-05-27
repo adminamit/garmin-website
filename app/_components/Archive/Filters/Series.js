@@ -4,12 +4,6 @@ import { useQueryState } from "nuqs";
 
 const SeriesFilter = ({ allSeries }) => {
     const [series, setSeries] = useQueryState("series");
-    const [filters, setFilters] = useState({
-        descentSeries: false,
-        vivosmart: false,
-        lily: false,
-        // Add the rest of the filters here
-    });
 
     const handleSeriesUpdate = (id, action) => {
         let activeSeries = series ? series.split(",") : [];

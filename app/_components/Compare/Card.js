@@ -12,7 +12,7 @@ const Card = ({ product }) => {
                 >
                     <Image
                         className="card__header__image--main"
-                        src={product.imgMid}
+                        src={product.featuredImageUrl}
                         alt="vívoactive® 5"
                         width={0}
                         height={0}
@@ -45,7 +45,7 @@ const Card = ({ product }) => {
                             original-price="£259.99"
                         >
                             <div className="g__price__original-price">
-                                ₹{product.regularPrice}
+                                ₹{product.price}
                             </div>
                         </div>
                     </div>

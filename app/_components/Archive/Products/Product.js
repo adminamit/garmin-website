@@ -54,12 +54,12 @@ export const Product = ({
             </Link>
             {compare ? (
                 compareProductParam &&
-                compareProductParam.split(",").includes(product.id) ? (
+                compareProductParam.split(",").includes(product.sku) ? (
                     <button
                         className="product-card-compare product-card-compare--active"
                         aria-label="Add to comparison"
                         onClick={() =>
-                            handleCompareProductsChange(product.id, "REMOVE")
+                            handleCompareProductsChange(product.sku, "REMOVE")
                         }
                     >
                         <span className="compare-icon compare-icon--remove">
@@ -71,7 +71,7 @@ export const Product = ({
                         className="product-card-compare "
                         aria-label="Add to comparison"
                         onClick={() =>
-                            handleCompareProductsChange(product.id, "ADD")
+                            handleCompareProductsChange(product.sku, "ADD")
                         }
                     >
                         <span className="compare-icon compare-icon--add">

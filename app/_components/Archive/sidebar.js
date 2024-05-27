@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import SeriesFilter from "./Filters/Series";
 import FeatureFilter from "./Filters/Feature";
 import ActivityFilter from "./Filters/Activity";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Sidebar = ({ products }) => {
     let allActivity = [],

@@ -35,7 +35,7 @@ const Compare = () => {
                 <Link
                     className="compare-button"
                     href={
-                        false
+                        true
                             ? `/compare/?compareProduct=${compareProduct}`
                             : "/"
                     }
