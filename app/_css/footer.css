@@ -1,0 +1,240 @@
+.gf__footer {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em 0;
+}
+.gf__nav {
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+.gf__list {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    position: relative;
+    padding: 0;
+}
+.gf__list__item {
+    list-style: none;
+    font-size: 1.25rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 0;
+    display: block;
+    flex: 1;
+    margin: 0;
+}
+.gf__list__item a, .gf__list__item button {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    background: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: 0;
+    line-height: 2rem;
+    padding: 1rem 1rem;
+    font-size: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    text-decoration: none;
+}
+.gf__list__item a, .gf__list__item button {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    background: rgba(0, 0, 0, 0);
+    color: #fff;
+    border: 0;
+    line-height: 2rem;
+    padding: 1rem 1rem;
+    font-size: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    text-decoration: none;
+}
+.gf__list__item .gf__list__item__link__text {
+    flex: 1 1 auto;
+}
+.gf__list__item__icon {
+    max-width: 1rem;
+    max-height: 1rem;
+    transform: rotate(0);
+    transition: transform .2s ease-in-out;
+    transform-origin: center;
+    align-self: center;
+    justify-self: flex-end;
+    flex: 1;
+    flex-basis: 1rem;
+}
+.gf__list {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    position: relative;
+    padding: 0;
+}
+.gf__list__item .gf__list {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    display: none;
+    position: relative;
+    padding: 0 1rem 1rem 1rem;
+    font-weight: 500;
+    margin: 0 1rem;
+}
+.gf__list__item .gf__list .gf__list__item {
+    padding: 0;
+    display: block;
+    text-transform: initial;
+    font-size: .8rem;
+    background: #fff;
+    color: #000;
+    margin: 0;
+}
+.gf__list__item__link__wrapper {
+    display: flex;
+}
+.gf__list__item .gf__list .gf__list__item a {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    padding: .5rem 0;
+    line-height: 1.5rem;
+    display: block;
+    text-transform: none;
+}
+.gf__social {
+    min-width: 200px;
+}
+.gf__social__list {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+}
+.gf__social__list__item {
+    list-style: none;
+    margin: 0 1em;
+}
+.gf__company {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    margin: 1rem 0 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: solid 4px #fff;
+    flex-direction: column;
+}
+.gf__social__list__item svg {
+    width: 1.25rem;
+    height: auto;
+    fill: #fff;
+}
+.gf__legal {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    flex: 1 1 100%;
+    background: #000;
+    color: #fff;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 1rem 1rem 1rem;
+    flex-direction: column-reverse;
+}
+.gf__legal p {
+    font-size: .8rem;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+}
+.gf__legal__container__copyright {
+    margin-bottom: .5em;
+    margin-top: 1em;
+}
+.gf__list__item.active .gf__list__item__icon {
+    transform: rotate(180deg);
+}
+.gf__list__item.active .gf__list {
+    display: block;
+}
+.gf__list__item--active, .gf__list__item.active {
+    background: #fff;
+    border-bottom: solid 4px #000;
+}
+.gf__list__item--active a, .gf__list__item.active a {
+    color: #000;
+}
+.gf__list__item.active button {
+    color: #000;
+}
+.gf__list__item.active .gf__list__item__icon path {
+    stroke: #000;
+}
+
+@media screen and (min-width: 1200px) {
+    .gf__list {
+        display: flex;
+        padding: 1.5rem;
+    }
+    .gf__list__item {
+        margin-right: 3rem;
+        line-height: 1.5rem;
+        display: inline-block;
+        border-bottom: none;
+    }
+    .gf__list__item a, .gf__list__item button {
+        width: auto;
+        padding: 0;
+    }
+    .gf__list__item__icon {
+        display: none;
+    }
+    .gf__list {
+        display: flex;
+        padding: 1.5rem;
+    }
+    .gf__list__item .gf__list {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    .gf__list__item .gf__list .gf__list__item {
+        background: #000;
+        color: #fff;
+    }
+    .gf__list__item .gf__list .gf__list__item:first-child {
+        padding-top: 0;
+    }
+    .gf__list__item .gf__list .gf__list__item a {
+        padding: 0;
+    }
+    .gf__list__item .gf__list .gf__list__item a:active, .gf__list__item .gf__list .gf__list__item a:focus, .gf__list__item .gf__list .gf__list__item a:hover, .gf__list__item .gf__list .gf__list__item a:link, .gf__list__item .gf__list .gf__list__item a:visited {
+        text-decoration: none;
+        color: #fff;
+    }
+    .gf__company {
+        flex-direction: row;
+        margin: 0 1.5rem;
+    }
+
+    .gf__legal {
+        flex-direction: row;
+        padding: 0 1.5rem;
+    }
+    .gf__legal p {
+        text-align: left;
+    }
+}

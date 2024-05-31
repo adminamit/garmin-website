@@ -1,0 +1,90 @@
+.series-banner {
+    display: block;
+    background-color: #f2f2f2;
+    background-position: center;
+    background-size: cover;
+}
+.series-banner__title {
+    font-family: Oswald, Roboto Condensed, Roboto, Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+.series-banner__title {
+    padding: 1.5em 1em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    color: #000;
+}
+.series-banner__title p {
+    margin: 0;
+}
+.series-banner__content {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 0 auto;
+    padding: 0 26vw;
+    background: linear-gradient(to bottom, transparent 40%, #ffffff 0);
+    text-align: center;
+}
+.series-banner__products {
+    display: inline-flex;
+    margin-bottom: 1rem;
+}
+.series-banner__products .series-banner__item {
+    display: inline-block;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    width: 50vw;
+    text-decoration: none;
+    color: #000;
+    font-weight: 400;
+}
+.series-banner__products .series-banner__item img {
+    max-width: 280px;
+    width: 100%;
+    vertical-align: middle;
+}
+.item-heading {
+    color: #000000;
+    background: transparent;
+    text-align: center;
+}
+.item-heading h3 {
+    font-family: "Oswald", "Roboto Condensed", "Roboto", "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Prompt", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+.series-banner__products .series-banner__item .item-description {
+    margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+    .series-banner__title {
+        font-size: 2.5rem;
+    }
+
+    .series-banner__content {
+        padding: 0;
+    }
+    .series-banner__products {
+        padding: 0 1rem;
+    }
+    .series-banner__products .series-banner__item {
+        max-width: 240px;
+        width: auto;
+    }
+    .series-banner__products .series-banner__item img {
+        max-width: calc(240px - 2rem);
+        width: auto;
+    }
+    .item-heading h3 {
+        font-size: 1.5rem;
+    }
+}

@@ -213,9 +213,12 @@
     position: absolute;
     display: none;
     box-sizing: content-box;
-    width: calc(100% - 2rem);
-    top: 50px;
-    left: 1rem;
+    width: calc(100%);
+    top: 70px;
+    left: 0;
+}
+.gh__header__nav--active .gh__search {
+    display: block;
 }
 .gh__search__form {
     margin-bottom: 0;
@@ -234,7 +237,7 @@
     line-height: 1.3rem;
     width: 100%;
     border: 2px solid #d9d9d9;
-    padding: 1rem 2.6rem;
+    padding: 1rem 2.6rem !important;
     background: rgba(0, 0, 0, 0);
     box-sizing: border-box;
 }
@@ -284,6 +287,9 @@
 }
 .gh__nav__categories__items__menu__column--active .items__menu__icon .minus {
     display: block;
+}
+.gh__header__nav--active .gh__utility-bar.has-search-ref{
+    margin-bottom: 80px;
 }
 @media screen and (min-width: 1024px) {
     .gh__header__nav__content {

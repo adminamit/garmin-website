@@ -31,7 +31,7 @@ const ThreeColumnBlockWrapper = ({ items, title }) => {
                                 </div>
                                 <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                 <div className="absolute bottom-8 left-8 text-white">
-                                    <h2 className="home-product-cat-tile-heading">
+                                    <h2 className="home-product-cat-tile-heading uppercase">
                                         {item.title}
                                     </h2>
                                     <p className="mt-5">

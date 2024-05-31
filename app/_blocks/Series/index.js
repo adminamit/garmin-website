@@ -3,11 +3,11 @@ import HtmlParser from "react-html-parser";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import "./index.css";
 async function getSeriesData() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/series/`);
     return res.json();
 }
-
 export const Series = async ({ title, image }) => {
     const currentPath = usePathname();
     let series = [];
@@ -15,47 +15,50 @@ export const Series = async ({ title, image }) => {
     // series = fetchSeries;
 
     return (
-        <>
-            <div
-                className="w-full bg-center bg-cover block bg-[#f2f2f2]"
-                style={{
-                    backgroundImage: `url(${image.url})`,
-                }}
-            >
-                <div className="w-full mx-auto ">
-                    <h1 className="py-[1.5em] px-[1em] text-[2.5rem] oswald text-center tracking-wider">
-                        <p>{HtmlParser(title)}</p>
-                    </h1>
-                    <div className="series-banner__content overflow-x-auto">
-                        <div className="flex series-banner__products">
-                            {series.map((el) => (
-                                <Link
-                                    href={`${currentPath}?series=${el.id}`}
-                                    key={el.id}
-                                    className="text-center max-w-[240px] px-4"
+        <section
+            className="series-banner light"
+            style={{
+                backgroundImage: `url(${image.url})`,
+            }}
+        >
+            <h1 className="series-banner__title">
+                <p>MOST POPULAR SMARTWATCHES</p>
+            </h1>
+            <div className="series-banner__content">
+                <div className="series-banner__products" role="presentation">
+                    {series.map((el) => {
+                        return (
+                            <Link
+                                className="series-banner__item"
+                                href={`${currentPath}?series=${el.id}`}
+                            >
+                                <Image
+                                    alt="default alt"
+                                    src={el.image.url}
+                                    width="160"
+                                    height="160"
+                                    className=""
+                                />
+                                <div
+                                    className="item-heading g__heading g__heading--center g__heading--light"
+                                    heading-size={3}
+                                    text-align="center"
+                                    data-testid="g__heading"
+                                    theme="light"
                                 >
-                                    <div className="series-image w-full">
-                                        <Image
-                                            alt="default alt"
-                                            src={el.image.url}
-                                            width="160"
-                                            height="160"
-                                            className="h-[200px] lg:h-full object-center object-cover w-[240px]"
-                                        />
-                                    </div>
-
-                                    <h3 className="font-normal oswald my-4 leading-[1.25] tracking-wider text-2xl">
-                                        {HtmlParser(el.title)}
+                                    <h3>
+                                        <p>{HtmlParser(el.title)}</p>
                                     </h3>
-                                    <p className="my-4">
-                                        {HtmlParser(el.excerpt)}
-                                    </p>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+                                </div>
+                                <div className="item-description">
+                                    <p>{HtmlParser(el.excerpt)}</p>
+                                </div>
+                                {/**/}
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
-        </>
+        </section>
     );
 };

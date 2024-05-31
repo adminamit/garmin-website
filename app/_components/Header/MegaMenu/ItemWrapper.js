@@ -8,7 +8,11 @@ export const ItemWrapper = ({ children, title }) => {
                 active ? "gh__nav__categories__items--active" : ""
             }`}
         >
-            <span className="gh__nav__categories__items__link" tabIndex={0}>
+            <span
+                className="gh__nav__categories__items__link"
+                tabIndex={0}
+                onClick={() => setActive(active ? false : true)}
+            >
                 {title}
                 <span className="items__menu__icon">
                     <svg
@@ -18,7 +22,6 @@ export const ItemWrapper = ({ children, title }) => {
                         width="14px"
                         viewBox="0 0 12 12"
                         version="1.1"
-                        onClick={() => setActive(true)}
                     >
                         <g
                             stroke="none"
@@ -39,7 +42,6 @@ export const ItemWrapper = ({ children, title }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 455 31"
                         width="15px"
-                        onClick={() => setActive(false)}
                     >
                         <path
                             className="shp0"

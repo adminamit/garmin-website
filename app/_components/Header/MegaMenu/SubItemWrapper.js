@@ -11,6 +11,7 @@ export const SubItemWrapper = ({ children, title }) => {
             <span
                 data-gatext="PRODUCTS"
                 className="gh__nav__categories__items__menu__heading en-GB"
+                onClick={() => setActive(active ? false : true)}
             >
                 {title}
                 <span className="items__menu__icon">
@@ -21,7 +22,6 @@ export const SubItemWrapper = ({ children, title }) => {
                         width="14px"
                         viewBox="0 0 12 12"
                         version="1.1"
-                        onClick={() => setActive(true)}
                     >
                         <g
                             stroke="none"
@@ -42,7 +42,6 @@ export const SubItemWrapper = ({ children, title }) => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 455 31"
                         width="15px"
-                        onClick={() => setActive(false)}
                     >
                         <style
                             dangerouslySetInnerHTML={{
