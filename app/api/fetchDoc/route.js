@@ -21,7 +21,7 @@ export async function GET(request, context) {
     const collection = request.nextUrl.searchParams.get("collection");
     const isDraftMode = request.nextUrl.searchParams.get("isDraftMode");
     const doc = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/pages?where[slug]=${slug}&draft=${isDraftMode}&depth=1`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/pages?where[slug]=${slug}&draft=${isDraftMode}&depth=2`
     );
     const data = await doc.json();
     return NextResponse.json(data.docs?.[0]);

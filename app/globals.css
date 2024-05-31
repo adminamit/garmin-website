@@ -196,6 +196,12 @@ nav.menu .menu-item{
   height: 485px;
   text-decoration: none;
 }
+.desktopImage{
+  display: none;
+}
+.mobileImage{
+  display: block;
+}
 .home-slide-cta{
   font-size: 0.9rem;
   padding: 0.75rem 1.5rem;
@@ -471,6 +477,13 @@ table {
   .h2{
       font-size: 2rem;
   }
+  .desktopImage{
+    display: block;
+  }
+  .mobileImage{
+    display: none;
+  }
+  
 }
 
 @media screen and (max-width: 768px){
@@ -481,8 +494,12 @@ table {
     background: #000;
     width: 100%;
     padding: 30px 50px;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
+  }
+  .home-slide-item{
+    height: auto;
+    text-decoration: none;
   }
   .home-product-cat-tile-heading{
     @apply text-[1.2rem];

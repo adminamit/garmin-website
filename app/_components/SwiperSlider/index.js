@@ -53,17 +53,25 @@ export const SwiperSlider = ({ slides }) => {
                     <SwiperSlide key={slide.id}>
                         <div key={slide.id} className="group home-slide-item">
                             <Link href="/" className="w-full">
-                                <div className="w-full absolute h-full top-0 left-0">
+                                <div className="w-full md:absolute h-full top-0 left-0 ">
                                     <Image
                                         alt="default alt"
                                         src={slide.image.url}
                                         width="160"
                                         height="160"
-                                        className="w-full h-full object-center object-cover"
+                                        className="w-full h-full object-center object-cover desktopImage"
+                                        unoptimized
+                                    />
+                                    <Image
+                                        alt="default alt"
+                                        src={slide.mobileImage.url}
+                                        width="160"
+                                        height="160"
+                                        className="w-full h-full object-center object-cover mobileImage"
                                         unoptimized
                                     />
                                 </div>
-                                <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
+                                <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                 <div className="slide-content relative text-white flex flex-col gap-8">
                                     <h1 className="home-product-cat-tile-heading">
                                         {parse(slide.title)}

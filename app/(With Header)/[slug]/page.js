@@ -3,8 +3,6 @@ import { draftMode } from "next/headers";
 import notFound from "../not-found";
 import { Blocks } from "@/app/_components/Blocks";
 export default async function Page({ params: { slug } }) {
-    console.log("slug");
-    console.log(slug);
     slug = slug == "" || slug == "/" ? "home" : slug;
     slug = "home";
     const { isEnabled: isDraftMode } = draftMode();
@@ -28,9 +26,12 @@ export default async function Page({ params: { slug } }) {
     }
 
     const { hero, layout } = page;
+    console.log("layout.heroSlider");
+    console.log(layout);
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
+            {JSON.stringify(layout)}
             {/* <div className="w-xl mx-auto">
                 <pre>{JSON.stringify(layout, null, 2)}</pre>
             </div> */}

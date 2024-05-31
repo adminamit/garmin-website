@@ -22,8 +22,12 @@ async function getCategoryData(slug) {
 }
 
 export default async function Shop({ params: { slug } }) {
+    // const slug =
+    const activeSlug = slug.pop();
+    console.log(activeSlug);
+    console.log("activeSlugactiveSlugactiveSlug");
     let catgeory;
-    const fetchCategory = await getCategoryData(slug);
+    const fetchCategory = await getCategoryData(activeSlug);
     catgeory = fetchCategory.docs[0];
     if (!catgeory) {
         return notFound();
