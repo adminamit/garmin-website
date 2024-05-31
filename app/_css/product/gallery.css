@@ -16,7 +16,7 @@
     margin: 0px auto;
     display: flex;
     flex-direction: row-reverse;
-    height: 491px;
+    height: 300px;
 }
 
 .gallery-thumbnail-wrap {
@@ -26,7 +26,7 @@
     -webkit-box-pack: center;
     justify-content: center;
     transition: all 0.5s ease-in-out 0s;
-    height: 491px;
+    height: 300px;
     box-sizing: border-box;
     user-select: none;
 }
@@ -56,6 +56,10 @@
 {
     #gallery-widget {
         max-width: calc(-1rem + 50vw);
+        height: 491px;
+    }
+    .gallery-thumbnail-wrap{
+        height: 491px;
     }
 }
 

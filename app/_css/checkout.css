@@ -2,17 +2,17 @@ p{
     @apply font-normal leading-[1.6] text-[0.9rem] text-[#101010];
 }
 .checkout__container{
-    @apply flex-nowrap m-auto flex justify-between max-w-[900px] items-start py-4 mb-4;
+    @apply flex-wrap m-auto flex justify-between max-w-[900px] items-start py-4 mb-4;
     
 }
 .checkout__section{
     @apply p-4;
 }
 .checkout__section--main {
-    @apply w-[50%]
+    @apply w-[100%] lg:w-[50%] order-last lg:order-first
 }
 .checkout__section--side{
-    @apply w-[45%] p-0 sticky top-4 mt-4;
+    @apply w-[100%] lg:w-[45%] p-4 lg:p-0 lg:sticky top-4 mt-4;
 }
 .checkout__section--side-wrapper{
     @apply bg-[#f2f2f2] p-4;

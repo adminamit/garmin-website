@@ -20,11 +20,11 @@ const TwoColumnBlockWrapper = ({ items }) => {
                         <h2 className="home-product-cat-tile-heading">
                             {HtmlParser(item.title)}
                         </h2>
-                        <p className="mt-5 text-right">
+                        <p className="mt-5 lg:text-right">
                             {item.links[0].link.type == "custom" ? (
                                 <Link
                                     href={item.links[0].link.url}
-                                    className="dark-cta mt-5 text-right absolute bottom-6 right-4"
+                                    className="dark-cta mt-5 text-right md:absolute bottom-6 right-4"
                                 >
                                     {item.links[0].link.label}
                                 </Link>
@@ -36,7 +36,7 @@ const TwoColumnBlockWrapper = ({ items }) => {
                                             ? `/p/${item.links[0].link.reference.value.slug}`
                                             : `/c/${item.links[0].link.reference.value.slug}`
                                     }
-                                    className="dark-cta mt-5 text-right absolute bottom-6 right-4"
+                                    className="dark-cta mt-5 text-right md:absolute bottom-6 right-4"
                                 >
                                     {item.links[0].link.label}
                                 </Link>

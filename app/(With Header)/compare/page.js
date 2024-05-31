@@ -9,16 +9,35 @@ import { Accordion } from "@/app/_components/Helpers/Accordion";
 import Sticky from "react-sticky-el";
 import { useSearchParams } from "next/navigation";
 import { some, findIndex, set } from "lodash";
+import { useQueryState } from "nuqs";
+
 const compare = async () => {
     const searchParams = useSearchParams();
     const compareProductParam = searchParams.get("compareProduct");
-
+    const [compareProducts, setCompareProducts] = useQueryState(
+        "compareProduct",
+        {
+            shallow: true,
+            history: "push",
+        }
+    );
     let products = [],
         specGroups = [];
     const fetchProducts = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/compare?products=${compareProductParam}`
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/compare?products=${compareProducts}`
     );
     products = await fetchProducts.json();
+
+    const removeProduct = (id) => {
+        let activeCompareProducts = compareProducts
+            ? compareProducts.split(",")
+            : [];
+        const updated = activeCompareProducts.filter((item) => item !== id);
+        setCompareProducts(updated.toString(), {
+            shallow: true,
+            history: "push",
+        });
+    };
 
     //Prepare unique spec groups
     products.map((product) => {
@@ -65,18 +84,12 @@ const compare = async () => {
             });
         });
     });
-    console.log(specGroups);
-    // console.log(index);
-    // console.log(item.specification.id);
+
     return (
         <div className="main" id="main">
             <div className="app-header">
                 <Container>
-                    <Link
-                        href="https://www.garmin.com/en-GB/"
-                        target="_self"
-                        className="app-header__link"
-                    >
+                    <Link href="/" target="_self" className="app-header__link">
                         <div className="app-header__link__icon">
                             <svg
                                 className="g-icon"
@@ -102,7 +115,13 @@ const compare = async () => {
                 <div className="container-inner">
                     <div className="grid grid-cols-5 gap-4 mb-4">
                         {products.map((product) => {
-                            return <Card product={product} key={product.id} />;
+                            return (
+                                <Card
+                                    product={product}
+                                    key={product.id}
+                                    removeProduct={removeProduct}
+                                />
+                            );
                         })}
                     </div>
                 </div>

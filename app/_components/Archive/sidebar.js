@@ -25,7 +25,12 @@ const Sidebar = ({ products }) => {
 
     //PREPARE SERIES
     products.docs.map((product) => {
-        allSeries.push({ id: product.series.id, name: product.series.title });
+        product.series
+            ? allSeries.push({
+                  id: product.series.id,
+                  name: product.series.title,
+              })
+            : "";
     });
 
     //GET Unique Activity

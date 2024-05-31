@@ -26,29 +26,33 @@ export const Series = async ({ title, image }) => {
                     <h1 className="py-[1.5em] px-[1em] text-[2.5rem] oswald text-center tracking-wider">
                         <p>{HtmlParser(title)}</p>
                     </h1>
-                    <div className="flex series-banner-content">
-                        {series.map((el) => (
-                            <Link
-                                href={`${currentPath}?series=${el.id}`}
-                                key={el.id}
-                                className="text-center max-w-[240px] px-4"
-                            >
-                                <div className="series-image w-full">
-                                    <Image
-                                        alt="default alt"
-                                        src={el.image.url}
-                                        width="160"
-                                        height="160"
-                                        className=" h-full object-center object-cover w-[240px]"
-                                    />
-                                </div>
+                    <div className="series-banner__content overflow-x-auto">
+                        <div className="flex series-banner__products">
+                            {series.map((el) => (
+                                <Link
+                                    href={`${currentPath}?series=${el.id}`}
+                                    key={el.id}
+                                    className="text-center max-w-[240px] px-4"
+                                >
+                                    <div className="series-image w-full">
+                                        <Image
+                                            alt="default alt"
+                                            src={el.image.url}
+                                            width="160"
+                                            height="160"
+                                            className="h-[200px] lg:h-full object-center object-cover w-[240px]"
+                                        />
+                                    </div>
 
-                                <h3 className="font-normal oswald my-4 leading-[1.25] tracking-wider text-2xl">
-                                    {HtmlParser(el.title)}
-                                </h3>
-                                <p className="my-4">{HtmlParser(el.excerpt)}</p>
-                            </Link>
-                        ))}
+                                    <h3 className="font-normal oswald my-4 leading-[1.25] tracking-wider text-2xl">
+                                        {HtmlParser(el.title)}
+                                    </h3>
+                                    <p className="my-4">
+                                        {HtmlParser(el.excerpt)}
+                                    </p>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

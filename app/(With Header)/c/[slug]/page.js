@@ -1,4 +1,4 @@
-import notFound from "../../not-found";
+import notFound from "@/app/(With Header)/not-found";
 import { Archive } from "@/app/_components/Archive/Archive";
 import "@/app/_css/shop/products.css";
 import qs from "qs";

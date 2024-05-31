@@ -10,18 +10,24 @@ export const Search = () => {
     const [query, setQuery] = useState("");
     // const handleChange()
     return (
-        <div className="">
+        <>
             <CiSearch
-                className="w-6 h-6 cursor-pointer"
+                className="gh__utility-bar__search"
                 onClick={() => setActive(true)}
             />
 
-            {active ? (
-                <div className="flex justify-between items-center border shadow-none px-2 absolute bg-white -right-1 top-[12px] z-[200]">
-                    <CiSearch className="w-5 h-5 cursor-pointer" />
+            <div
+                className={`gh__search js__gh__search ${
+                    active ? "gh__search--active" : ""
+                }`}
+            >
+                <div className="gh__search-form" id="js__search-form">
+                    {/* <span className="gh__search__input__icon"> */}
+                    <CiSearch className="gh__search__input__icon" />
+                    {/* </span> */}
                     <input
                         type="text"
-                        className="!outline-none !border-0 w-40 !ring-0 !shadow-none !outline-0"
+                        className="gh__search__input"
                         onChange={(e) => {
                             setQuery(e.target.value);
                         }}
@@ -32,14 +38,14 @@ export const Search = () => {
                             }
                         }}
                     />
-                    <IoIosClose
-                        className="w-5 h-5 cursor-pointer"
-                        onClick={() => setActive(false)}
-                    />
+                    <span className="gh__search__close" id="js__search-close">
+                        <IoIosClose
+                            className="gh__search__close__icon"
+                            onClick={() => setActive(false)}
+                        />
+                    </span>
                 </div>
-            ) : (
-                " "
-            )}
-        </div>
+            </div>
+        </>
     );
 };

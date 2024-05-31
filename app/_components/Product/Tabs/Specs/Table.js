@@ -12,7 +12,9 @@ const Table = ({ productSpecifications }) => {
                                     colSpan="2"
                                     className="border-0 p-0 !pl-0 !pr-0"
                                 >
-                                    <h3>{group.specificationGroup.title}</h3>
+                                    <h3 className="px-4 lg:px-0">
+                                        {group.specificationGroup.title}
+                                    </h3>
                                 </td>
                             </tr>
 

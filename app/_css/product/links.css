@@ -17,6 +17,8 @@
     width: 100%;
     font-size: 1rem;
     justify-content: center;
+    flex-direction: column;
+    gap: 25px;
 }
 .sidebar__product-links__card {
     /* width: 200px; */
@@ -27,7 +29,7 @@
 .sidebar__full .sidebar__container {
     flex: 1 1 auto;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1024px){
     .sidebar .sidebar__product-links {
         @apply  flex-col gap-16
     }
@@ -36,5 +38,10 @@
     }
     .sidebar__full .sidebar__container .sidebar__product-links__card{
         @apply w-[200px] 
+    }
+    .sidebar__container {
+
+        flex-direction: row;
+        gap: 0px;
     }
 }

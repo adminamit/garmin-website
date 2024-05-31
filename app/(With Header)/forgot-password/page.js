@@ -52,7 +52,7 @@ const ForgotPassword = () => {
                         "url('https://source.unsplash.com/featured/?beach,dark')",
                 }}
             >
-                <div className="bg-white pt-8 pb-12 px-12 shadow-md w-full max-w-[27em] relative">
+                <div className="bg-white pt-8 pb-12 px-6 lg:px-12 shadow-md w-full max-w-[27em] relative">
                     <div className="flex mt-5 mb-12 justify-center w-full">
                         <Image
                             alt="default alt"

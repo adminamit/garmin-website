@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HtmlParser from "react-html-parser";
-const Card = ({ product }) => {
+const Card = ({ product, removeProduct }) => {
     return (
         <div className="compare__card">
             <div className="card__header">
@@ -22,7 +22,12 @@ const Card = ({ product }) => {
                         {HtmlParser(product.title)}
                     </div>
                 </Link>
-                <div className="card__header--close">
+                <div
+                    className="card__header--close cursor-pointer"
+                    onClick={() => {
+                        removeProduct(product.sku);
+                    }}
+                >
                     <div className="card__header--close--icon">
                         <svg
                             className="g-icon"

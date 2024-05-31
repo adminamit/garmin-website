@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 const Terms = () => {
     return (
-        <div className="max-w-[900px] mx-auto my-16 copy">
+        <div className="max-w-[900px] mx-auto my-16 copy px-4">
             <h1 className="oswald uppercase text-[2.5rem] font-normal tracking-wider leading-[1.25] my-6">
                 Terms and Conditions
             </h1>

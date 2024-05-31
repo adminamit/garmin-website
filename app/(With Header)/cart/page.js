@@ -42,7 +42,7 @@ const Cart = () => {
             {cart && cartDetails ? (
                 cartDetails.cart.items.length > 0 ? (
                     <>
-                        <h2 className="cart__heading text-sm font-normal py-6 text-center">
+                        <h2 className="cart__heading text-sm font-normal md:py-6 text-center">
                             CART
                         </h2>
                         <div className="cart__container">

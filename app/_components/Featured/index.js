@@ -36,6 +36,21 @@ export const Featured = ({ slides }) => {
                     pagination={false}
                     modules={[]}
                     ref={sliderRef}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2.5,
+                        },
+
+                        1024: {
+                            slidesPerView: 3.5,
+                        },
+                        1200: {
+                            slidesPerView: 4.5,
+                        },
+                    }}
                 >
                     {slides.map((slide) => (
                         <SwiperSlide key={slide.id} className="my-1">
@@ -85,13 +100,13 @@ export const Featured = ({ slides }) => {
                                         ""
                                     )}
 
-                                    <div className="w-full h-[16vw] text-center mt-4 mb-8 flex justify-center">
+                                    <div className="w-full md:h-[16vw] text-center mt-4 mb-8 flex justify-center">
                                         <Image
                                             alt="default alt"
                                             src={slide.image.url}
                                             width="160"
                                             height="160"
-                                            className="w-full h-full object-center object-contain max-w-[15em]"
+                                            className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
                                             quality={100}
                                         />
                                     </div>

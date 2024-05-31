@@ -17,7 +17,7 @@ const CartItem = ({ item }) => {
 
     return (
         <div className="cart__product-card">
-            <div className="cart__product-card__product-url">
+            <div className="cart__product-card__product-url cart__product-card__product-image">
                 <Link href={`/p/${product.sku}`}>
                     <Image
                         src={product.featuredImageUrl}

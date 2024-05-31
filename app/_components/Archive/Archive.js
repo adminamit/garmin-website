@@ -19,7 +19,7 @@ export const Archive = async ({ category }) => {
     const features = searchParams.get("features");
     const sortBy = searchParams.get("sortBy");
 
-    // const [compareProducts, setCompareProducts] = useState([]);
+    const [compareProductsDtata, setCompareProductsData] = useState([]);
     const [compare, setCompare] = useQueryState("compare", {
         shallow: true,
         history: "push",
@@ -38,9 +38,16 @@ export const Archive = async ({ category }) => {
             category.id
         }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
     );
+
+    // const fetchProducts = await fetch(
+    //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
+    //         category.id
+    //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
+    // );
+
     products = await fetchProducts.json();
 
-    const handleCompareProductsChange = (id, action) => {
+    const handleCompareProductsChange = (id, action, image) => {
         let activeCompareProducts = compareProducts
             ? compareProducts.split(",")
             : [];
@@ -81,11 +88,11 @@ export const Archive = async ({ category }) => {
             </React.Fragment>
             <Heading title={heading} />
 
-            <div className="flex w-full border-t border-borderColor">
-                <div className="sidebar w-[315px] border-r border-borderColor p-4">
+            <div className="flex flex-col lg:flex-row w-full border-t border-borderColor">
+                <div className="sidebar lg:w-[315px] border-r border-borderColor p-4">
                     <Sidebar products={products} />
                 </div>
-                <div className="products-wrapper w-[calc(100vw-315px)]">
+                <div className="products-wrapper lg:w-[calc(100vw-315px)]">
                     <SortFilter
                         compare={compare}
                         handleCompareChange={handleCompareChange}

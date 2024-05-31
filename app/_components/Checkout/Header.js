@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <>
             <div className="bg-black ">
-                <div className="w-full max-w-[1000px] relative flex items-center justify-center py-7 mx-auto">
+                <div className="w-full max-w-[1000px] relative flex items-center justify-center py-7 px-4 lg:px-0 mx-auto">
                     <Image
                         alt="default alt"
                         src={`/assets/images/logo-light.svg`}
@@ -16,7 +16,7 @@ const Header = () => {
                         height="115"
                     />
 
-                    <div className="absolute right-0">
+                    <div className="absolute right-8 lg:right-0">
                         <MiniCart theme="light" />
                     </div>
                 </div>

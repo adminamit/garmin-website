@@ -24,8 +24,15 @@
     --headlineRatio: calc(var(--headlineMobileTextSizeScaler) * var(--headlineMobileTextSizeAdjuster));
     --headlineFontSize: calc(1.6vw * var(--headlineRatio));
     font-size: var(--headlineFontSize);
+    font-size: 2.5em !important;
 }
 .app__headline__container {
     --headlineFontSize: calc(1.6vw * var(--headlineTextSizeScaler));
     font-size: calc(var(--headlineFontSize));
 }
+@media screen and (min-width: 1023px){
+    .app__headline__container {
+        font-size: 4.5em !important;
+    }
+}
+

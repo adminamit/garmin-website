@@ -48,7 +48,7 @@ const NewsletterSignup = ({ title, description }) => {
                         <input
                             type="email"
                             placeholder="john@example.com"
-                            className="outline-none flex-1 px-2 py-1 h-[37px] text-base text-[#333] w-[21.5em]"
+                            className="outline-none flex-1 px-2 py-1 h-[37px] text-base text-[#333] md:w-[21.5em]"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required

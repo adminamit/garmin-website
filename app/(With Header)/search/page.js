@@ -7,7 +7,7 @@ import "@/app/_css/search.css";
 import { useSearchParams } from "next/navigation";
 import { useQueryState } from "nuqs";
 import { Loader } from "@/app/_components/Loader";
-
+import { CiSearch } from "react-icons/ci";
 const search = () => {
     const searchParams = useSearchParams();
     const defaultQuery = searchParams.get("query");
@@ -41,6 +41,7 @@ const search = () => {
             <div className="ais-InstantSearch">
                 <div className="ais-SearchBox">
                     <form className="ais-SearchBox-form">
+                        <CiSearch className="w-8 h-8" />
                         <input
                             type="search"
                             autocorrect="off"

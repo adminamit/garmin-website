@@ -16,7 +16,7 @@ const Contact = () => {
                 unoptimized
                 className="w-full h-[400px] object-cover"
             />
-            <div className="max-w-[900px] mx-auto">
+            <div className="max-w-[900px] mx-auto px-4">
                 <h1 className="oswald uppercase text-[2.5rem] font-normal tracking-wider leading-[1.25] my-12 text-center">
                     Contact Us
                 </h1>

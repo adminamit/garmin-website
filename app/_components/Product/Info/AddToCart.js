@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useCart } from "@/app/_providers/Cart";
+import { Loader } from "../../Loader";
+import toast from "react-hot-toast";
 export const AddToCart = ({ product, quantity = 1 }) => {
     const {
         cart,
@@ -9,17 +11,21 @@ export const AddToCart = ({ product, quantity = 1 }) => {
         hasInitializedCart,
         isCartUpdating,
     } = useCart();
-    const [isInCart, setIsInCart] = useState();
+    const [addingToCart, setAddingToCart] = useState(false);
 
-    useEffect(() => {
-        setIsInCart(isProductInCart(product));
-    }, [isProductInCart, product, cart]);
-
-    const addToCart = () => {
-        addItemToCart({
-            product,
-            quantity,
-        });
+    // useEffect(() => {
+    //     setIsInCart(isProductInCart(product));
+    // }, [isProductInCart, product, cart]);
+    const handleAddToCart = () => {
+        setAddingToCart(true);
+        setTimeout(() => {
+            addItemToCart({
+                product,
+                quantity,
+            });
+            setAddingToCart(false);
+            toast.success("Product added to cart");
+        }, 1000);
     };
 
     return (
@@ -31,10 +37,10 @@ export const AddToCart = ({ product, quantity = 1 }) => {
                     isCartUpdating ? "" : ""
                 }`}
                 onClick={() => {
-                    addToCart();
+                    handleAddToCart();
                 }}
             >
-                Add To Cart
+                {addingToCart ? <Loader /> : "Add To Cart"}
             </button>
         </div>
     );

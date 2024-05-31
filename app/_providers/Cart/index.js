@@ -143,7 +143,7 @@ export const CartProvider = (props) => {
         const currentCartTotal = localStorage.getItem("cartDetails");
         const flattenedCart = flattenCart(cart);
         const req = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders/calculateOrder`,
+            `${process.env.NEXT_PUBLIC_LIVE_URL}/api/order/calculate`,
             {
                 credentials: "include",
                 method: "POST",

@@ -15,7 +15,7 @@
 }
 
 .product__tabs__nav__list{
-    @apply my-0 mx-auto px-16 text-center flex justify-center
+    @apply my-0 mx-auto px-72 pr-4 text-center flex justify-center overflow-x-auto;
 }
 
 .product__subnav__item{
@@ -23,7 +23,7 @@
 }
 
 .product__subnav__link{
-    @apply px-[1em] uppercase font-medium tracking-wide py-[2em] box-border
+    @apply px-0 w-[100px] lg:w-auto lg:px-[1em] uppercase font-medium tracking-wide py-[2em] box-border
 }
 
 .product__subnav__link--active, .product__subnav__link:hover {
@@ -85,4 +85,13 @@ h3 {
 }
 .app__tabs__content ul li {
     list-style: disc;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .product__tabs__nav__list {
+       
+        @apply px-16;
+        
+      }
 }

@@ -1,0 +1,456 @@
+.gh__header {
+    position: relative;
+    z-index: 99999;
+    background: #fff;
+    color: #000;
+}
+.gh__header ul {
+    margin: 0;
+    padding: 0;
+}
+
+.gh__header__nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.gh__header__nav__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    order: 2;
+}
+.gh__hamburger {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 11px;
+    padding: 1.25rem;
+    top: 0;
+    z-index: 5000;
+}
+.gh__logo-container{
+    z-index: 30000;
+}
+.gh__logo-container__logo {
+    width: 130px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 0;
+    top: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.gh__hamburger__bottom, .gh__hamburger__top {
+    position: absolute;
+    background: #000;
+    height: 2px;
+    width: 20px;
+    border-radius: 20px;
+    transform: rotate(0);
+    transition: all ease .5s;
+    transform-origin: center center;
+}
+.gh__header__nav--active .gh__hamburger__top {
+    transform: rotate(-45deg);
+}
+.gh__header__nav--active .gh__hamburger__bottom {
+    transform: rotate(45deg);
+}
+.gh__hamburger__bottom {
+    transform: translateY(8px);
+}
+.gh__nav {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    display: none;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+.gh__header__nav--active .gh__nav {
+    display: block;
+    min-height: 93vh;
+}
+.gh__nav__categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    list-style-type: none;
+}
+.gh__nav__categories__items {
+    text-transform: uppercase;
+    width: 100%;
+    line-height: 2rem;
+}
+.gh__nav__categories__items__menu {
+    display: none;
+    text-transform: none;
+    letter-spacing: .04rem;
+    border-bottom: 1px solid #000;
+    margin: 0 1rem;
+}
+.gh__nav__categories__items__menu__column {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+}
+.gh__nav__categories__items__link, .gh__nav__categories__items__menu__heading {
+    display: flex;
+    justify-content: space-between;
+}
+.gh__nav__categories__items__link {
+    font-size: 0.925rem;
+    letter-spacing: .04rem;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 1px solid #d9d9d9;
+    align-items: center;
+}
+.gh__nav__categories__items__menu__heading {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 1rem 0 1rem 1rem;
+    border-bottom: 1px solid #d9d9d9;
+    cursor: pointer;
+}
+.items__menu__icon {
+    display: flex;
+    align-items: center;
+}
+.gh__nav__categories__items__menu__subcategories {
+    display: none;
+}
+.gh__nav__categories__items__menu__subcategories a.gh__nav__categories__items__menu__link {
+    color: #000;
+    text-decoration: none;
+}
+.gh__nav__categories__items__menu__subcategories a.gh__nav__categories__items__menu__link:hover {
+    text-decoration: underline;
+}
+.gh__nav__categories__items__menu__promo-card {
+    display: none;
+    border: .5px solid #d9d9d9;
+    border-radius: 3px;
+    box-shadow: 0 0 6px 0 #d9d9d9;
+    flex-direction: column;
+    margin-top: 1rem;
+    max-width: 250px;
+}
+
+.gh__nav__categories__items__menu__promo-card .vertical {
+    text-align: center;
+}
+.gh__nav__categories__items__menu__promo-card a, .gh__nav__categories__items__menu__promo-card a:active, .gh__nav__categories__items__menu__promo-card a:focus, .gh__nav__categories__items__menu__promo-card a:hover, .gh__nav__categories__items__menu__promo-card a:link, .gh__nav__categories__items__menu__promo-card a:visited {
+    color: #000;
+}
+.gh__nav__categories__items__menu__promo-card__image {
+    object-fit: cover;
+}
+.gh__nav__categories__items__menu__promo-card .vertical .gh__nav__categories__items__menu__promo-card__image {
+    width: 100%;
+}
+.gh__nav__categories__items__menu__promo-card .grouping {
+    padding: 0 .5rem;
+}
+.gh__nav__categories__items__menu__promo-card__heading {
+    font-family: Oswald, "Roboto Condensed", Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    font-size: 1.25rem;
+}
+.gh__nav__categories__items__menu__promo-card .vertical .gh__nav__categories__items__menu__promo-card__heading {
+    padding: 1rem 0 .875rem 0;
+}
+.gh__nav__categories__items__menu__promo-card__copy {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-size: .9rem;
+}
+.gh__nav__categories__items__menu__promo-card__cta {
+    margin-top: 1rem;
+    padding: .5rem 0;
+    text-align: right;
+    font-size: .9rem;
+    font-weight: 500;
+    display: block;
+}
+.gh__nav__categories__items__menu__link {
+    display: block;
+    padding: .875rem 2rem;
+    font-size: .8125rem;
+    line-height: 1.25;
+}
+.gh__utility-bar__cart, .gh__utility-bar__search, .gh__utility-bar__sign-in, .gh__utility-bar__support {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+}
+.gh__utility-bar__cart {
+    margin: 0 .25rem 0 .5rem;
+}
+.gh__utility-bar__sign-in {
+    margin-left: .5rem;
+}
+.gh__utility-bar__search {
+    margin-left: .5rem;
+    cursor: pointer;
+    display: none;
+}
+.gh__search {
+    position: absolute;
+    display: none;
+    box-sizing: content-box;
+    width: calc(100% - 2rem);
+    top: 50px;
+    left: 1rem;
+}
+.gh__search__form {
+    margin-bottom: 0;
+    width: 100%;
+}
+.gh__search__input__icon {
+    position: absolute;
+    height: 100%;
+    left: 10px;
+    top: 0;
+    width: 20px;
+}
+.gh__search__input {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    font-size: .8125rem;
+    line-height: 1.3rem;
+    width: 100%;
+    border: 2px solid #d9d9d9;
+    padding: 1rem 2.6rem;
+    background: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+}
+.gh__search__close {
+    display: none;
+}
+.gh__search__close__icon {
+    width: 2rem;
+    height: 2rem;
+}
+.gh__utility-bar__support {
+    display: none;
+}
+.gh__utility-bar {
+    font-family: Roboto, "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: calc(100% - 2rem);
+    box-sizing: border-box;
+    height: 50px;
+    position: relative;
+}
+.gh__nav__categories__items--active:first-child .gh__nav__categories__items__link {
+    border-color: #000;
+}
+.gh__nav__categories__items--active .gh__nav__categories__items__menu {
+    display: block;
+}
+.items__menu__icon .minus {
+    display: none;
+}
+.gh__nav__categories__items--active .gh__nav__categories__items__link .items__menu__icon .plus {
+    display: none;
+}
+.gh__nav__categories__items--active .gh__nav__categories__items__link .items__menu__icon .minus {
+    display: block;
+}
+.gh__nav__categories__items__menu__column--active .gh__nav__categories__items__menu__heading{
+    margin-bottom: .75rem;
+}
+.gh__nav__categories__items__menu__column--active  .gh__nav__categories__items__menu__subcategories{
+    display: block;
+}
+.gh__nav__categories__items__menu__column--active .items__menu__icon .plus {
+    display: none;
+}
+.gh__nav__categories__items__menu__column--active .items__menu__icon .minus {
+    display: block;
+}
+@media screen and (min-width: 1024px) {
+    .gh__header__nav__content {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+    /* */
+    .gh__logo-container__logo {
+        width: 140px;
+        min-width: 130px;
+        height: 72px;
+    }
+    .gh__hamburger {
+        display: none;
+    }
+    .gh__nav {
+        position: static;
+        padding: 0;
+        display: block;
+        border-top: 1px solid #d9d9d9;
+    }
+    .gh__nav__categories {
+        flex-direction: row;
+        justify-content: center;
+        height: 40px;
+        min-height: 0;
+    }
+    .gh__nav__categories__items {
+        display: flex;
+        width: auto;
+        height: 100%;
+        line-height: normal;
+        align-items: center;
+    }
+    .gh__nav__categories__items.js__mega-menu-item--active, .gh__nav__categories__items:hover {
+        box-shadow: 0 -.2rem 0 #000 inset;
+        background: 0 0;
+        color: #000;
+    }
+    .gh__nav__categories__items__menu {
+        top: 113px;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        padding-bottom: 1rem;
+        border: solid #d9d9d9;
+        border-width: 1px 0;
+    }
+    .gh__nav__categories__items__link {
+        height: 100%;
+        padding: 0 .8rem;
+        margin: 0;
+        border: none;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+    }
+    .gh__nav__categories__items.js__mega-menu-item--active .gh__nav__categories__items__menu, .gh__nav__categories__items:hover .gh__nav__categories__items__menu {
+        display: flex;
+        position: absolute;
+        left: 0;
+        background: #fff;
+        padding: 0 0 2rem;
+    }
+    .gh__nav__categories__items__menu__column {
+        padding: 0 2rem;
+        max-width: 25%;
+    }
+    .gh__nav__categories__items__menu__heading {
+        border-bottom: 1px solid #d9d9d9;
+        padding: 2rem 0 .875rem 0;
+        cursor: auto;
+        margin-bottom: 1rem;
+        min-height: 1.25rem;
+    }
+    .items__menu__icon {
+        display: none;
+    }
+    .gh__nav__categories__items__menu__subcategories {
+        display: block;
+    }
+    .gh__nav__categories__items__menu__link {
+        padding: .5rem 0;
+    }
+    .gh__utility-bar__search {
+        display: flex;
+    }
+    .gh__search {
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+
+    }
+    .gh__header__nav .gh__search.gh__search--active {
+        display: flex;
+    }
+    .gh__search__input__icon {
+        height: 100%;
+        left: 3px;
+    }
+    .gh__search__input {
+        padding: .6rem 2rem .6rem 1.9rem !important;
+        border: 1px solid #d9d9d9;
+    }
+    .gh__search__close {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: 0 0;
+        border: none;
+        padding: .75rem .5rem;
+        cursor: pointer;
+    }
+    .gh__utility-bar__support {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-size: .8125rem;
+        min-width: 70px;
+        padding: 0 .25rem;
+        margin-right: 1rem;
+    }
+    .gh__utility-bar {
+        width: auto;
+    }
+    .gh__nav__categories__items__menu__promo-card {
+        display: flex;
+    }
+        
+}
+@media screen and (min-width: 1200px) {
+    .gh__header__nav__content {
+        box-shadow: 0 1px 0 #eee;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+    .gh__logo-container__logo {
+        margin-right: 1rem;
+        position: static;
+        transform: none;
+        height: 64px;
+    }
+    .gh__nav {
+        width: auto;
+        border-width: 0;
+    }
+    .gh__nav__categories {
+        height: 64px;
+    }
+    .gh__nav__categories__items__menu {
+        top: 64px;
+    }
+    .gh__nav__categories__items__menu__column {
+        padding: 0 3rem;
+    }
+    .gh__logo-container {
+        width: 13.75rem;
+    }
+}

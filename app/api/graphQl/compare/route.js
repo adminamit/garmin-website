@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 export async function GET(request, context) {
     let products = request.nextUrl.searchParams.get("products");
     products = products.split(",");
+
+    // return NextResponse.json({ url: process.env.GRAPHQL_API_URL });
     const res = await fetch(process.env.GRAPHQL_API_URL, {
         method: "POST",
         headers: {

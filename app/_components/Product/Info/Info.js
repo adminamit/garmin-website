@@ -142,7 +142,7 @@ const Info = ({ productData, variationData }) => {
                     !isUpdating ? (
                         !checkIfInWishlist(productData.id) ? (
                             <div
-                                className="flex items-center oswald gap-1 text-primary cursor-pointer mb-4 text-base"
+                                className="justify-center lg:justify-normal flex items-center oswald gap-1 text-primary cursor-pointer mb-4 text-base"
                                 onClick={() => addItemHandler(productData.id)}
                             >
                                 <FaHeart className="text-base" />
@@ -150,7 +150,7 @@ const Info = ({ productData, variationData }) => {
                             </div>
                         ) : (
                             <div
-                                className="flex items-center oswald gap-1 text-red-500 cursor-pointer mb-4 text-base"
+                                className="justify-center lg:justify-normal flex items-center oswald gap-1 text-red-500 cursor-pointer mb-4 text-base"
                                 onClick={() =>
                                     removeItemHandler(productData.id)
                                 }

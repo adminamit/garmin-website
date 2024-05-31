@@ -24,7 +24,7 @@ const Career = () => {
                     <p className="my-4 font-light">Put Your Passion to Work</p>
                 </div>
             </div>
-            <div className="bg-black py-16 text-center text-white ">
+            <div className="bg-black py-16 text-center text-white px-4">
                 <h1 className="text-[2.5rem] oswald my-4">
                     We Fuel People{"'"}s Passions
                 </h1>
@@ -166,7 +166,7 @@ const Career = () => {
                 </h1>
             </div>
 
-            <div className=" max-w-[1200px] mx-auto">
+            <div className=" max-w-[1200px] mx-auto px-4">
                 <div className="grid sm:grid-cols-3 gap-5 mb-16">
                     <div className="border border-borderColor py-8 px-4">
                         <h3 className="oswald font-normal text-[1.5rem] tracking-wider leading-5 mb-4">

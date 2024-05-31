@@ -154,7 +154,7 @@ export const LoginForm = () => {
                 <div className="g-recaptcha mb-6" data-sitekey="your-site-key">
                     <ReCAPTCHA
                         style={{ display: "inline-block" }}
-                        size="normal"
+                        size="tiny"
                         theme="light"
                         ref={reCaptchaRef}
                         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}

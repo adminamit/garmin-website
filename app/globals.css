@@ -458,8 +458,6 @@ table {
   }
 }
 
-
-
 .h2 {
   font-family: var( --font-oswald),'Roboto Condensed','Roboto',sans-serif;
   font-weight: 400;
@@ -472,6 +470,29 @@ table {
 @media screen and (min-width: 768px){
   .h2{
       font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .slide-content {
+    width: calc(100% - 10rem);
+    margin-left: auto;
+    margin-right: auto;
+    background: #000;
+    width: 100%;
+    padding: 30px 50px;
+    position: absolute;
+    bottom: 0;
+  }
+  .home-product-cat-tile-heading{
+    @apply text-[1.2rem];
+    
+  }
+  .slide-content {
+    @apply text-center
+  }
+  .slide-content p{
+    @apply text-[14px]
   }
 }
 

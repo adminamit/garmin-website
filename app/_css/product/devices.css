@@ -5,6 +5,7 @@
     justify-content: flex-start;
     gap: 1.5em;
     margin: 1em 0;
+    padding: 0 2em;
 }
 
 .app__product__devices__section {
@@ -19,6 +20,9 @@
 @media screen and (min-width: 1024px){
     .app__product__devices__section {
         width: calc(25% - 1.125em);
+    }
+    .app__product__devices__container {
+        padding: 0;
     }
 }
 
