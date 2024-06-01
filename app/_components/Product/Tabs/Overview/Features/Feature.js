@@ -29,7 +29,7 @@ export const Feature = ({ image, heading, title, description, align }) => {
             )}
             {title ? (
                 <h3
-                    className={`app__feature__card__title ${
+                    className={`app__feature__card__title app__feature__card__title--small ${
                         align == "left" ? "app__feature__card__title--left" : ""
                     }`}
                 >

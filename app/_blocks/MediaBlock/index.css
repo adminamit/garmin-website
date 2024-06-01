@@ -1,0 +1,85 @@
+.container__spotlight__inner.large {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .container__spotlight__inner {
+    width: 100%;
+  }
+  .g__spotlight--light {
+    background-color: #ffffff;
+  }
+  .g__spotlight {
+    box-sizing: border-box;
+    display: flex;
+  }
+  .g__spotlight .media {
+    display: flex;
+    align-items: center;
+  }
+  .g__spotlight .media img {
+    width: 100%;
+  }
+  .g__copy p {
+    font-weight: 200;
+  }
+  
+  .g__copy p a {
+    text-decoration: underline;
+  }
+  .g__spotlight .body {
+    flex: 1;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .g__spotlight--width-50-50 .body,
+  .g__spotlight--width-70-30 .body,
+  .g__spotlight--width-60-40 .body,
+  .g__spotlight--width-half .body {
+    padding: 1rem 1rem 2rem 1rem;
+  }
+  .g__copy--primary,
+  .g__copy--primary table {
+    font-size: 16px;
+  }
+  .g__heading h2 {
+    font-family: "Oswald", "Roboto Condensed", "Roboto", "Noto Sans TC",
+      "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Prompt", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .g__heading h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .container__spotlight__inner {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .g__spotlight--width-60-40 .media {
+      width: 60%;
+    }
+    .g__spotlight--width-50-50 .body,
+    .g__spotlight--width-70-30 .body,
+    .g__spotlight--width-60-40 .body,
+    .g__spotlight--width-half .body {
+      padding: 2rem 4rem;
+    }
+    .g__heading h2 {
+      font-size: 2rem;
+    }
+  
+    .g__spotlight--width-50-50.g__spotlight--img-right,
+    .g__spotlight--width-70-30.g__spotlight--img-right,
+    .g__spotlight--width-60-40.g__spotlight--img-right {
+      flex-direction: row-reverse;
+    }
+  }
+  

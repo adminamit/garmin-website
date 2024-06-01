@@ -2,10 +2,12 @@ import React from "react";
 import Link from "next/link";
 import HtmlParser from "react-html-parser";
 import "./index.css";
-export const CopyBlock = ({ title, description, link }) => {
+export const CopyBlock = ({ title, description, link, theme }) => {
     return (
         <div
-            className="base-container base-container__large dark center"
+            className={`base-container base-container__large ${
+                theme == "light" ? "light" : "dark"
+            } center`}
             locale="en-GB"
         >
             <div id="constraint" className="constraint">

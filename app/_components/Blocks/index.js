@@ -13,6 +13,9 @@ import { LargeImageBlock } from "@/app/_blocks/LargeImageBlock";
 import { Heading } from "@/app/_blocks/Heading";
 import { ImageGrid } from "@/app/_blocks/FeaturesBlock";
 import { SmallIconGrid } from "@/app/_blocks/SmallIconGrid";
+import { Headline } from "@/app/_blocks/Headline";
+import { Paragraph } from "@/app/_blocks/Paragraph";
+import { MediaBlock } from "@/app/_blocks/MediaBlock";
 const blockComponents = {
     heroSlider: HeroSlider,
     newsletter: Newsletter,
@@ -26,6 +29,9 @@ const blockComponents = {
     Heading: Heading,
     imageGrid: ImageGrid,
     smallIconGrid: SmallIconGrid,
+    Headline: Headline,
+    Paragraph: Paragraph,
+    mediaBlock: MediaBlock,
 };
 
 export const Blocks = (props) => {

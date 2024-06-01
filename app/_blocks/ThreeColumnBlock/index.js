@@ -8,6 +8,8 @@ export const ThreeColumnBlock = ({ threeColumnBlockItems }) => {
             <ThreeColumnBlockWrapper
                 items={threeColumnBlockItems.items}
                 title={threeColumnBlockItems.title}
+                align={threeColumnBlockItems.align}
+                columns={threeColumnBlockItems.columns}
             />
         </>
     );

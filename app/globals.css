@@ -154,6 +154,7 @@ nav.menu .menu-item{
   @apply relative box-border flex p-6;
   height: 380px;
   text-decoration: none;
+  z-index: 10000;
 }
 
 .home-product-cat-tile-heading{
@@ -162,6 +163,7 @@ nav.menu .menu-item{
   font-weight: 400;
   letter-spacing: 0.05rem;
   line-height: 1.25;
+  margin-bottom: 10px;
 }
 .home-product-cat-tile-cta{
   font-size: 0.875rem;

@@ -8,9 +8,17 @@
 }
 .base-container.dark {
     background: #000;
+    color: #fff;
+}
+.base-container.ligth {
+    background: #fff;
+    color: #000;
 }
 .base-container.dark * {
     color: #fff;
+}
+.base-container.light * {
+    color: #000;
 }
 .base-container__large .constraint {
     max-width: 1200px;
@@ -19,10 +27,10 @@
     margin: 0 auto;
     width: 100%;
 }
-.g__copy--dark {
+/* .dark .g__copy {
     color: #ffffff;
     background: #000000;
-}
+} */
 .g__copy {
     display: block;
     margin-bottom: 2rem;
@@ -51,18 +59,28 @@
     text-align: center;
     word-break: break-word;
 }
-.cta-button.dark {
+.dark .cta-button {
     background: 0 0;
-    color: #fff;
+    /* color: #fff; */
     border: solid 1px #fff;
 }
-.cta-button.dark:link, .cta-button.dark:visited, .cta-button.dark:hover, .cta-button.dark:focus, .cta-button.dark:active {
+.light .cta-button {
+    background: 0 0;
+    /* color: #fff; */
+    border: solid 1px #000;
+}
+.dark .cta-button:link,.dark .cta-button:visited,.dark .cta-button:hover,.dark .cta-button:focus,.dark .cta-button:active {
     color: #fff;
 }
-.cta-button.dark:hover {
+.dark .cta-button:hover {
     border: solid 1px #000;
     background: #fff;
     color: #000;
+}
+.light .cta-button:hover {
+    border: solid 1px #000;
+    background: #000;
+    color: #fff;
 }
 .cta-button.center {
     align-self: center;

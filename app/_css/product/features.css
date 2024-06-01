@@ -29,6 +29,10 @@
     line-height: 1.25;
     width: 100%;
 }
+.app__feature__card__title--small{
+    font-size: .875rem;
+    font-weight: 100;
+}
 .app__feature__card__title--left{
     text-align: left;
 }

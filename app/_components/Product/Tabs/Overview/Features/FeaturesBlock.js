@@ -4,7 +4,13 @@ import ColumnLayout from "../../../Common/ColumnLayout";
 import { Heading } from "../../../Common/Heading";
 import { Feature } from "./Feature";
 import "@/app/_css/product/features.css";
-const FeaturesBlock = ({ heading, items, align = "center", columns = 3 }) => {
+const FeaturesBlock = ({
+    heading,
+    items,
+    align = "center",
+    columns = 3,
+    type,
+}) => {
     return (
         <Container className="bg-white">
             {heading ? (
@@ -18,7 +24,7 @@ const FeaturesBlock = ({ heading, items, align = "center", columns = 3 }) => {
                 ""
             )}
 
-            <ColumnLayout columns={columns}>
+            <ColumnLayout columns={columns} type={type}>
                 {items.map((feature, index) => (
                     <Feature key={index} {...feature} align={align} />
                 ))}

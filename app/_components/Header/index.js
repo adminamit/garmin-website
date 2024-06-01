@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CiSearch } from "react-icons/ci";
 import { HiOutlineUserCircle } from "react-icons/hi2";
 import { CiCircleQuestion } from "react-icons/ci";
@@ -19,11 +20,12 @@ import { Outdoor } from "./MegaMenu/Outdoor";
 import { SportFitness } from "./MegaMenu/SportFitness";
 import "../../_css/header.css";
 const Header = () => {
+    const router = useRouter();
     const { status } = useAuth();
     const [menuActive, setMenuActive] = useState(false);
     useEffect(() => {
         setMenuActive(false);
-    }, []);
+    }, [router]);
     return (
         <div>
             <header className="gh__header">

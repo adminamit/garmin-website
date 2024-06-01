@@ -1,8 +1,14 @@
 import React from "react";
 
-const ColumnLayout = ({ columns, children }) => {
+const ColumnLayout = ({ columns, children, type }) => {
     return (
-        <div className={`app__column-layout__column--${columns}`}>
+        <div
+            className={
+                type == "flex"
+                    ? "app__column-layout__column--flex"
+                    : `app__column-layout__column--"${columns}`
+            }
+        >
             {children}
         </div>
     );

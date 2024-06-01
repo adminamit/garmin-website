@@ -49,65 +49,75 @@ export const SwiperSlider = ({ slides }) => {
                 className="relative"
                 ref={sliderRef}
             >
-                {slides.map((slide) => (
-                    <SwiperSlide key={slide.id}>
-                        <div key={slide.id} className="group home-slide-item">
-                            <Link href="/" className="w-full">
-                                <div className="w-full md:absolute h-full top-0 left-0 ">
-                                    <Image
-                                        alt="default alt"
-                                        src={slide.image.url}
-                                        width="160"
-                                        height="160"
-                                        className="w-full h-full object-center object-cover desktopImage"
-                                        unoptimized
-                                    />
-                                    <Image
-                                        alt="default alt"
-                                        src={slide.mobileImage.url}
-                                        width="160"
-                                        height="160"
-                                        className="w-full h-full object-center object-cover mobileImage"
-                                        unoptimized
-                                    />
-                                </div>
-                                <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
-                                <div className="slide-content relative text-white flex flex-col gap-8">
-                                    <h1 className="home-product-cat-tile-heading">
-                                        {parse(slide.title)}
-                                    </h1>
-                                    <p className="max-w-[350px]">
-                                        {parse(slide.description)}
-                                    </p>
-                                    <p className="mt-2">
-                                        {slide.links[0].link.type ==
-                                        "custom" ? (
-                                            <Link
-                                                href={slide.links[0].link.url}
-                                                className="home-slide-cta inline-block"
-                                            >
-                                                {slide.links[0].link.label}
-                                            </Link>
+                {slides.map((item) => {
+                    let urlData = " ";
+                    if (item.link.type == "custom") {
+                        urlData = {
+                            url: item.link.url,
+                            label: item.link.label,
+                        };
+                    } else {
+                        const urlActive =
+                            item.link.reference.relationTo == "products"
+                                ? `/p/${item.link.reference.value.slug}`
+                                : `/c/${item.link.reference.value.slug}`;
+                        urlData = {
+                            url: urlActive,
+                            label: item.link.label,
+                        };
+                    }
+
+                    return (
+                        <SwiperSlide key={item.id}>
+                            <div
+                                key={item.id}
+                                className="group home-slide-item"
+                            >
+                                <Link href={urlData.url} className="w-full">
+                                    <div className="w-full md:absolute h-full top-0 left-0 ">
+                                        <Image
+                                            alt="default alt"
+                                            src={item.image.url}
+                                            width="160"
+                                            height="160"
+                                            className="w-full h-full object-center object-cover desktopImage"
+                                            unoptimized
+                                        />
+                                        <Image
+                                            alt="default alt"
+                                            src={item.mobileImage.url}
+                                            width="160"
+                                            height="160"
+                                            className="w-full h-full object-center object-cover mobileImage"
+                                            unoptimized
+                                        />
+                                    </div>
+                                    <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
+                                    <div className="slide-content relative text-white flex flex-col gap-8">
+                                        <h1 className="home-product-cat-tile-heading">
+                                            {parse(item.title)}
+                                        </h1>
+                                        <p className="max-w-[350px]">
+                                            {parse(item.description)}
+                                        </p>
+                                        {urlData.label ? (
+                                            <p className="mt-5">
+                                                <Link
+                                                    href={urlData.url}
+                                                    className="home-product-cat-tile-cta"
+                                                >
+                                                    {urlData.label}
+                                                </Link>
+                                            </p>
                                         ) : (
-                                            <Link
-                                                href={
-                                                    slide.links[0].link
-                                                        .reference.relationTo ==
-                                                    "products"
-                                                        ? `/p/${slide.links[0].link.reference.value.slug}`
-                                                        : `/c/${slide.links[0].link.reference.value.slug}`
-                                                }
-                                                className="home-slide-cta inline-block"
-                                            >
-                                                {slide.links[0].link.label}
-                                            </Link>
+                                            ""
                                         )}
-                                    </p>
-                                </div>
-                            </Link>
-                        </div>
-                    </SwiperSlide>
-                ))}
+                                    </div>
+                                </Link>
+                            </div>
+                        </SwiperSlide>
+                    );
+                })}
 
                 <div className="autoplay-progress " slot="container-end">
                     <svg viewBox="0 0 48 48" ref={progressCircle}>

@@ -292,6 +292,9 @@
     margin-bottom: 80px;
 }
 @media screen and (min-width: 1024px) {
+    .gh__header__nav {
+        padding: 0px 0;
+    }
     .gh__header__nav__content {
         flex-direction: column-reverse;
         align-items: flex-end;

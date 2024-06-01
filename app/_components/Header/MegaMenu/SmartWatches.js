@@ -57,14 +57,14 @@ export const SmartWatches = () => {
                         >
                             Running
                         </a>{" "}
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-and-fitness/marathon-season/"
                             data-gatext="Global Navigation - Marathon Watches"
                             data-ua-event="Global Header, SMARTWATCHES, Marathon"
                         >
                             Marathon
-                        </a>{" "}
+                        </a>{" "} */}
                         <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/multisport-smartwatches/"
@@ -121,14 +121,14 @@ export const SmartWatches = () => {
                         >
                             Kids wearables
                         </a>{" "}
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/gaming/"
                             data-gatext="Global Navigation - Gaming"
                             data-ua-event="Global Header, SMARTWATCHES, Gaming"
                         >
                             Gaming
-                        </a>
+                        </a> */}
                     </div>
                 </SubItemWrapper>
                 <SubItemWrapper title="MAPS">
@@ -169,14 +169,14 @@ export const SmartWatches = () => {
                         >
                             Apps
                         </a>{" "}
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/subscription-plans/"
                             data-gatext="Subscription & Service Plans"
                             data-ua-event="Global Header, SMARTWATCHES, Subscription & service plans"
                         >
                             Subscription &amp; service plans
-                        </a>
+                        </a> */}
                     </div>
                 </SubItemWrapper>
                 <SubItemWrapper title="DISCOVER">

@@ -108,7 +108,14 @@ export const Archive = ({ category }) => {
               setCompareProductsData([]);
     };
 
-    const { layoutTop, layoutBottom, title, heading, featuredImage } = category;
+    const {
+        layoutTop,
+        layoutBottom,
+        title,
+        heading,
+        featuredImage,
+        description,
+    } = category;
     return (
         <div className="w-full">
             {featuredImage ? (
@@ -126,7 +133,10 @@ export const Archive = ({ category }) => {
             <React.Fragment>
                 <Blocks blocks={layoutTop} />
             </React.Fragment>
-            <Heading title={heading} />
+            <div className="py-[2.5em] px-[1em] text-center max-w-[900px] mx-auto mt-2 mb-6">
+                <Heading title={heading} />
+                <p className="font-light text-base">{description}</p>
+            </div>
 
             <div className="flex flex-col lg:flex-row w-full border-t border-borderColor">
                 <div className="sidebar lg:w-[315px] border-r border-borderColor lg:p-4">
