@@ -37,6 +37,7 @@ export const Search = () => {
                                 router.push(`/search/?query=${query}`);
                             }
                         }}
+                        placeholder="Search Garmin"
                     />
                     <span className="gh__search__close" id="js__search-close">
                         <IoIosClose

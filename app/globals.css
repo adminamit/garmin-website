@@ -502,7 +502,7 @@ table {
     text-decoration: none;
   }
   .home-product-cat-tile-heading{
-    @apply text-[1.2rem];
+    @apply text-[1.5rem];
     
   }
   .slide-content {

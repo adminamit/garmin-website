@@ -75,7 +75,7 @@ const Sidebar = ({ products }) => {
                     </div>
                 </div>
                 <div className="product-filters">
-                    <div className="relative flex flex-col lg:hidden  dropdown items-start mb-4 ">
+                    <div className="relative flex flex-col lg:hidden items-start mb-4 ">
                         <span className="text-sm font-bold w-[100px]">
                             Sort By
                         </span>

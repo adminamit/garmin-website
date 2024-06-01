@@ -59,7 +59,7 @@ export const Product = ({
                         className="product-card-compare product-card-compare--active"
                         aria-label="Add to comparison"
                         onClick={() =>
-                            handleCompareProductsChange(product.sku, "REMOVE")
+                            handleCompareProductsChange(product, "REMOVE")
                         }
                     >
                         <span className="compare-icon compare-icon--remove">
@@ -71,7 +71,7 @@ export const Product = ({
                         className="product-card-compare "
                         aria-label="Add to comparison"
                         onClick={() =>
-                            handleCompareProductsChange(product.sku, "ADD")
+                            handleCompareProductsChange(product, "ADD")
                         }
                     >
                         <span className="compare-icon compare-icon--add">

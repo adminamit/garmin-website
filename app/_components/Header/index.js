@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
@@ -21,6 +21,9 @@ import "../../_css/header.css";
 const Header = () => {
     const { status } = useAuth();
     const [menuActive, setMenuActive] = useState(false);
+    useEffect(() => {
+        setMenuActive(false);
+    }, []);
     return (
         <div>
             <header className="gh__header">

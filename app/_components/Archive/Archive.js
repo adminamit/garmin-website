@@ -22,7 +22,7 @@ export const Archive = ({ category }) => {
 
     const [products, setProducts] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [compareProductsDtata, setCompareProductsData] = useState([]);
+    const [compareProductsData, setCompareProductsData] = useState([]);
     const [compare, setCompare] = useQueryState("compare", {
         shallow: true,
         history: "push",
@@ -70,25 +70,42 @@ export const Archive = ({ category }) => {
         fetchProducts();
     }, [series, activity, features, sortBy]);
 
-    const handleCompareProductsChange = (id, action, image) => {
+    const handleCompareProductsChange = (product, action, image) => {
+        let currentProducts = compareProductsData ? compareProductsData : [];
         let activeCompareProducts = compareProducts
             ? compareProducts.split(",")
             : [];
         if (action === "REMOVE") {
-            const updated = activeCompareProducts.filter((item) => item !== id);
+            const updated = activeCompareProducts.filter(
+                (item) => item !== product.sku
+            );
+            currentProducts = currentProducts.filter(
+                (item) => item.sku !== product.sku
+            );
             setCompareProducts(updated.toString(), {
                 shallow: true,
                 history: "push",
             });
+            setCompareProductsData(currentProducts);
         } else if (action === "ADD") {
+            currentProducts.push({
+                sku: product.sku,
+                title: product.title,
+                image: product.featuredImageUrl,
+            });
             activeCompareProducts.length < 5
-                ? activeCompareProducts.push(id) &&
-                  setCompareProducts(activeCompareProducts.toString())
+                ? activeCompareProducts.push(product.sku) &&
+                  setCompareProducts(activeCompareProducts.toString()) &&
+                  setCompareProductsData(currentProducts)
                 : null;
         }
     };
     const handleCompareChange = (state) => {
-        state ? setCompare("1") : setCompare(null);
+        state
+            ? setCompare("1")
+            : setCompare(null) &&
+              setCompareProducts(null) &&
+              setCompareProductsData([]);
     };
 
     const { layoutTop, layoutBottom, title, heading, featuredImage } = category;
@@ -142,7 +159,14 @@ export const Archive = ({ category }) => {
             <React.Fragment>
                 <Blocks blocks={layoutBottom} />
             </React.Fragment>
-            {compare ? <Compare /> : ""}
+            {compare ? (
+                <Compare
+                    compareProductsData={compareProductsData}
+                    handleCompareProductsChange={handleCompareProductsChange}
+                />
+            ) : (
+                ""
+            )}
         </div>
     );
 };

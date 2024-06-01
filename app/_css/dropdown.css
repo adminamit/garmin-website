@@ -1,5 +1,5 @@
 .dropdown{
-    @apply relative cursor-pointer flex items-center z-[100]
+    @apply relative cursor-pointer items-center z-[100]
 }
 .dropdown__title{
     @apply py-5 border-b-[3px] border-white group-hover:border-black px-1;

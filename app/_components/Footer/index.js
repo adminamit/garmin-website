@@ -395,9 +395,12 @@ const Footer = () => {
                 <ul className="gf__image__list" />
             </div>
             <div className="gf__company">
-                <div className="gf__image">
-                    <ul className="gf__image__list" />
+                <div class="gf__locale">
+                    <a class="gf__locale__link en-GB" href="/">
+                        India
+                    </a>
                 </div>
+
                 <div className="gf__social">
                     <ul className="gf__social__list">
                         <li className="gf__social__list__item">

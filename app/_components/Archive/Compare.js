@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import "@/app/_css/shop/compare.css";
-const Compare = () => {
+const Compare = ({ compareProductsData, handleCompareProductsChange }) => {
     const searchParams = useSearchParams();
     const compareProduct = searchParams.get("compareProduct");
     return (
@@ -11,24 +11,33 @@ const Compare = () => {
             <div className="compare-banner__inner-wrap">
                 <div className="compare-banner__autocomplete-wrapper"></div>
                 <div className="compare-items">
-                    <div className="compare-item compare-item--active">
-                        <button className="compare-item__close" type="button">
-                            {" "}
-                            ×{" "}
-                        </button>
-                        <Image
-                            className="compare-item__image"
-                            src="https://res.garmin.com/en/products/010-02863-33/g/cf-sm.jpg"
-                            alt="Forerunner® 165 Music"
-                            width={47}
-                            height={47}
-                            quality={100}
-                        />
-                    </div>
-                    <div className="compare-item"></div>
-                    <div className="compare-item"></div>
-                    <div className="compare-item"></div>
-                    <div className="compare-item"></div>
+                    {compareProductsData.map((product) => {
+                        return (
+                            <div className="compare-item compare-item--active">
+                                <button
+                                    className="compare-item__close"
+                                    type="button"
+                                    onClick={() =>
+                                        handleCompareProductsChange(
+                                            product,
+                                            "REMOVE"
+                                        )
+                                    }
+                                >
+                                    {" "}
+                                    ×{" "}
+                                </button>
+                                <Image
+                                    className="compare-item__image"
+                                    src={product.image}
+                                    alt={product.title}
+                                    width={47}
+                                    height={47}
+                                    quality={100}
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <div className="compare__button__host compare__button__host--large">

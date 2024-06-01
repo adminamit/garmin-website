@@ -20,7 +20,7 @@ const SortFilter = ({ compare, handleCompareChange }) => {
                 <span>COMPARE</span>
                 {compare ? <IoClose /> : " "}
             </button>
-            <div className="relative  dropdown items-center hidden lg:flex">
+            <div className="relative dropdown items-center hidden lg:flex">
                 <span className="text-sm font-bold w-[100px]">Sort By</span>
                 <select
                     onChange={(e) => {

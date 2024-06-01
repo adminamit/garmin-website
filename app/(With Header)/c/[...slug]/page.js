@@ -20,6 +20,13 @@ async function getCategoryData(slug) {
     );
     return res.json();
 }
+export const metadata = {
+    title: "Producc",
+    description: "",
+    icons: {
+        icon: "/icon.webp", // /public path
+    },
+};
 
 export default async function Shop({ params: { slug } }) {
     let catgeory;
@@ -31,10 +38,12 @@ export default async function Shop({ params: { slug } }) {
     if (!catgeory) {
         return notFound();
     }
-
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between">
-            <Archive category={catgeory} />
-        </main>
+        <>
+            {/* <NextSeo title={catgeory.heading} description="hfkflsdjljfl" /> */}
+            <main className="flex min-h-screen flex-col items-center justify-between">
+                <Archive category={catgeory} />
+            </main>
+        </>
     );
 }
