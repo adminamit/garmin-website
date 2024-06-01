@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import HtmlParser from "react-html-parser";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,13 +9,22 @@ async function getSeriesData() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/series/`);
     return res.json();
 }
-export const Series = async ({ title, image }) => {
-    const currentPath = usePathname();
-    let series = [];
-    series = await getSeriesData();
-    // series = fetchSeries;
+export const Series = ({ title, image }) => {
+    const [series, setSeries] = useState(null);
 
-    return (
+    useEffect(() => {
+        const getSeries = async () => {
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/series/`
+            );
+            const data = await res.json();
+            setSeries(data);
+        };
+        getSeries();
+    }, []);
+    const currentPath = usePathname();
+
+    return series ? (
         <section
             className="series-banner light"
             style={{
@@ -60,5 +70,7 @@ export const Series = async ({ title, image }) => {
                 </div>
             </div>
         </section>
+    ) : (
+        ""
     );
 };

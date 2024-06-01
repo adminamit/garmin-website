@@ -3,7 +3,7 @@ import TileBanner from "./TileBanner";
 import { Product } from "./Product";
 import Pagination from "../Pagination";
 import { useSearchParams } from "next/navigation";
-export const Products = async ({
+export const Products = ({
     compare,
     handleCompareProductsChange,
     compareProducts,

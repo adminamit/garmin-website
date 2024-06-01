@@ -26,8 +26,6 @@ export default async function Page({ params: { slug } }) {
     }
 
     const { hero, layout } = page;
-    console.log("layout.heroSlider");
-    console.log(layout);
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
