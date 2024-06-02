@@ -1,61 +1,37 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PostList from "@/app/_components/Blog/PostList";
 import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
-const blogCategory = () => {
-    const posts = [
-        {
-            slug: "garmin-marine-mapping-you-can-count-on-moving-forward/",
-            categories: ["general"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Garmin Marine Mapping You Can Count on Moving Forward ",
-            date: "21 February, 2024",
-        },
-        {
-            slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects/",
-            categories: ["Health"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
-            date: "15 February, 2024",
-        },
-        {
-            slug: "wheelchair-workouts-with-garmin-smartwatches/",
-            categories: ["general", "fitness"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Wheelchair Workouts with Garmin Smartwatches",
-            date: "12 February, 2024",
-        },
-        {
-            slug: "garmin-marine-mapping-you-can-count-on-moving-forward-2/",
-            categories: ["general"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Garmin Marine Mapping You Can Count on Moving Forward ",
-            date: "21 February, 2024",
-        },
-        {
-            slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects-2/",
-            categories: ["Health"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
-            date: "15 February, 2024",
-        },
-        {
-            slug: "wheelchair-workouts-with-garmin-smartwatches-2/",
-            categories: ["general", "fitness"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Wheelchair Workouts with Garmin Smartwatches",
-            date: "12 February, 2024",
-        },
-    ];
+
+async function getCategory(slug) {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/category?slug=${slug}`
+    );
+    return res.json();
+}
+
+async function getCategoryPosts(id) {
+    console.log(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/categoryPosts?id=${id}`
+    );
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/categoryPosts?id=${id}`
+    );
+    return res.json();
+}
+
+const blogCategory = async ({ params: { slug } }) => {
+    let category,
+        posts = [];
+    category = await getCategory(slug);
+    if (!category) {
+        return notFound();
+    } else {
+        const fetchPosts = await getCategoryPosts(category.id);
+        posts = fetchPosts.docs;
+    }
 
     return (
         <div>
@@ -69,7 +45,7 @@ const blogCategory = () => {
                 aria-label="Hero Banner"
             >
                 <Image
-                    src="https://static.garmincdn.com/gdc/home-page/segments/3-hero_bike_cycling-V2.jpg"
+                    src={category.featuredImage.url}
                     alt=""
                     height={0}
                     width={0}
@@ -102,7 +78,13 @@ const blogCategory = () => {
                         </form>
                     </div>
                 </div>
-                <PostList posts={posts} />
+                {posts.length > 0 ? (
+                    <PostList posts={posts} />
+                ) : (
+                    <div className="flex justify-center items-center py-8">
+                        No matching posts found.
+                    </div>
+                )}
                 <NewsletterSignup />
             </div>
         </div>

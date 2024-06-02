@@ -64,6 +64,7 @@ export const serialize = (children) =>
                 return <li key={i}>{serialize(node.children)}</li>;
             case "sup":
                 return <sup key={i}>{serialize(node.children)}</sup>;
+
             case "link":
                 return (
                     <Link

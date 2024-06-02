@@ -4,57 +4,75 @@ import Image from "next/image";
 import PostList from "@/app/_components/Blog/PostList";
 import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
-const blog = () => {
-    const posts = [
-        {
-            slug: "garmin-marine-mapping-you-can-count-on-moving-forward/",
-            categories: ["general"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Garmin Marine Mapping You Can Count on Moving Forward ",
-            date: "21 February, 2024",
-        },
-        {
-            slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects/",
-            categories: ["Health"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
-            date: "15 February, 2024",
-        },
-        {
-            slug: "wheelchair-workouts-with-garmin-smartwatches/",
-            categories: ["general", "fitness"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Wheelchair Workouts with Garmin Smartwatches",
-            date: "12 February, 2024",
-        },
-        {
-            slug: "garmin-marine-mapping-you-can-count-on-moving-forward-2/",
-            categories: ["general"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Garmin Marine Mapping You Can Count on Moving Forward ",
-            date: "21 February, 2024",
-        },
-        {
-            slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects-2/",
-            categories: ["Health"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
-            date: "15 February, 2024",
-        },
-        {
-            slug: "wheelchair-workouts-with-garmin-smartwatches-2/",
-            categories: ["general", "fitness"],
-            featured:
-                "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
-            title: "Wheelchair Workouts with Garmin Smartwatches",
-            date: "12 February, 2024",
-        },
-    ];
+
+async function getPosts() {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/posts`
+    );
+    console.log("sdsfsdfsfdffsd");
+    console.log(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/posts`);
+    return res.json();
+}
+
+const blog = async () => {
+    let posts = [];
+    //Get Product Category Slug
+    //Fetch Category Details
+    const fetchPosts = await getPosts();
+    posts = fetchPosts.docs;
+    console.log("00000fetchPostsfetchPostsfetchPostsfetchPosts");
+    console.log(posts);
+
+    // const posts = [
+    //     {
+    //         slug: "garmin-marine-mapping-you-can-count-on-moving-forward/",
+    //         categories: ["general"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Garmin Marine Mapping You Can Count on Moving Forward ",
+    //         date: "21 February, 2024",
+    //     },
+    //     {
+    //         slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects/",
+    //         categories: ["Health"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
+    //         date: "15 February, 2024",
+    //     },
+    //     {
+    //         slug: "wheelchair-workouts-with-garmin-smartwatches/",
+    //         categories: ["general", "fitness"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Wheelchair Workouts with Garmin Smartwatches",
+    //         date: "12 February, 2024",
+    //     },
+    //     {
+    //         slug: "garmin-marine-mapping-you-can-count-on-moving-forward-2/",
+    //         categories: ["general"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Garmin Marine Mapping You Can Count on Moving Forward ",
+    //         date: "21 February, 2024",
+    //     },
+    //     {
+    //         slug: "increased-physical-activity-improves-quality-of-life-in-patients-with-congenital-heart-defects-2/",
+    //         categories: ["Health"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Increased Physical Activity Improves Quality of Life in Patients with Congenital Heart Defects",
+    //         date: "15 February, 2024",
+    //     },
+    //     {
+    //         slug: "wheelchair-workouts-with-garmin-smartwatches-2/",
+    //         categories: ["general", "fitness"],
+    //         featured:
+    //             "https://www.garmin.com/en-GB/blog/wp-content/uploads/2024/02/Cartography-Updates-blog.webp",
+    //         title: "Wheelchair Workouts with Garmin Smartwatches",
+    //         date: "12 February, 2024",
+    //     },
+    // ];
     return (
         <div>
             <nav className="blog__breadcrumbs">

@@ -16,16 +16,20 @@ const Sidebar = ({ products }) => {
 
     //PREPARE ACTIVITY
     products.docs.map((product) => {
-        product.activity.map((item) => {
-            allActivity.push({ id: item.id, name: item.title });
-        });
+        product.activity
+            ? product.activity.map((item) => {
+                  allActivity.push({ id: item.id, name: item.title });
+              })
+            : "";
     });
 
     //PREPARE FEATURES
     products.docs.map((product) => {
-        product.features.map((item) => {
-            allFeatures.push({ id: item.id, name: item.title });
-        });
+        product.features
+            ? product.features.map((item) => {
+                  allFeatures.push({ id: item.id, name: item.title });
+              })
+            : "";
     });
 
     //PREPARE SERIES

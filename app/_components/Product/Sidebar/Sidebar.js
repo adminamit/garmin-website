@@ -16,9 +16,21 @@ const Sidebar = ({ full, productData }) => {
             ) : (
                 <></>
             )}
-            <CompatibleProducts products={productData.compatibleProducts} />
-            <YouMayAlsoLike products={productData.relatedProducts} />
-            <MoreFeatures products={productData.moreFeaturesProducts} />
+            {productData.compatibleProducts ? (
+                <CompatibleProducts products={productData.compatibleProducts} />
+            ) : (
+                <></>
+            )}
+            {productData.relatedProducts ? (
+                <YouMayAlsoLike products={productData.relatedProducts} />
+            ) : (
+                <></>
+            )}
+            {productData.moreFeaturesProducts ? (
+                <MoreFeatures products={productData.moreFeaturesProducts} />
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

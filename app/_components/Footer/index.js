@@ -156,7 +156,7 @@ const Footer = () => {
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
                                         <a
-                                            href="https://www.garmin.com/en-GB/blog/"
+                                            href="/blog/"
                                             className="gf__list__item__link en-GB"
                                             data-gatext="Blog"
                                             data-ua-event="Global Footer, Nav, Blog"
@@ -361,7 +361,7 @@ const Footer = () => {
                                     </span>
                                 </li>
                                 <li
-                                    className="gf__list__item en-GB js__gf__list__item"
+                                    className="gf__list__itexm en-GB js__gf__list__item"
                                     aria-hidden="false"
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">

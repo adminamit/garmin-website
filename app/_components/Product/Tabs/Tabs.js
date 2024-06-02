@@ -8,23 +8,19 @@ import Specs from "./Specs/Specs";
 import { Devices } from "./CompatibleDevices/Devices";
 import BoxContent from "./InTheBox/BoxContent";
 import { Accessories } from "./Accessories/Accessories";
+import { isEmpty } from "lodash";
 const Tabs = ({ productData }) => {
-    // useEffect(() => {
-    //     const getPData = async () => {
-    //         const res = await fetch(
-    //             `${process.env.NEXT_PUBLIC_SERVER_URL}/api/product/${orderID}?depth=1`
-    //         );
-    //     }
-    // })
-    // console.log("sdfddsf");
-    // console.log(productData.productAccessories.accessory);
     const [selectedIndex, setSelectedIndex] = useState(0);
     // const scroll = useScroll();
     const navListItems = [
         {
             id: "overview",
             label: "Overview",
-            content: <Overview productData={productData} />,
+            content: productData.Overview ? (
+                <Overview productData={productData} />
+            ) : (
+                <></>
+            ),
         },
         {
             id: "specs",

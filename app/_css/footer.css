@@ -237,4 +237,15 @@
     .gf__legal p {
         text-align: left;
     }
+    .gf__list__item--active, .gf__list__item.active {
+        background: transparent;
+        border-bottom: solid 4px #000;
+    }
+    .active a::after {
+        display: none !important;
+       
+    }
+    .gf__list__item.active button {
+        color: #fff;
+      }
 }

@@ -9,6 +9,9 @@ import notFound from "../../not-found";
 import { Loader } from "@/app/_components/Loader";
 
 async function getProduct(id) {
+    console.log(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
+    );
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
     );
