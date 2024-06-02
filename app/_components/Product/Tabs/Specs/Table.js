@@ -28,7 +28,7 @@ const Table = ({ productSpecifications }) => {
                                                         item.specification.url
                                                     }
                                                 >
-                                                    Sleep Score and Insights
+                                                    {item.specification.title}
                                                 </a>
                                             ) : (
                                                 item.specification.title
