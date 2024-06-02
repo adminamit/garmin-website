@@ -10,9 +10,6 @@ import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
 export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     const [addedToCart, setAddedToCart] = useState(false);
-    // useEffect(() => {
-    //     setAddedToCart(false);
-    // }, []);
     const handleAddedCart = () => {
         alert("added to cart");
         setAddedToCart(true);
@@ -79,7 +76,7 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                     handleAddedCart={handleAddedCart}
                 />
             </div>
-            {productData ? <Tabs productData={productData} /> : <Loader />}
+            {/* {productData ? <Tabs productData={productData} /> : <Loader />} */}
         </>
     );
 };
