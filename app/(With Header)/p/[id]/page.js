@@ -51,11 +51,11 @@ const page = async ({ params: { id } }) => {
         },
     ];
     return (
-        // <ProductWrapper
-        //     productData={productData}
-        //     variationData={variationData}
-        //     breadCrumbs={breadCrumbs}
-        // />
+        <ProductWrapper
+            productData={productData}
+            variationData={variationData}
+            breadCrumbs={breadCrumbs}
+        />
     );
 };
 
