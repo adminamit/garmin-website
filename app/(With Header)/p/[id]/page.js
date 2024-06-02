@@ -31,9 +31,9 @@ async function getProduct(id) {
 const page = async ({ params: { id } }) => {
     let productData = null,
         variationData = null;
-    // const fetchProduct = await getProduct(id);
-    // productData = fetchProduct.product;
-    // variationData = fetchProduct.variations;
+    const fetchProduct = await getProduct(id);
+    productData = fetchProduct.product;
+    variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
     productData = [];
     if (!productData) {
@@ -56,7 +56,6 @@ const page = async ({ params: { id } }) => {
         //     variationData={variationData}
         //     breadCrumbs={breadCrumbs}
         // />
-        <>Here</>
     );
 };
 
