@@ -16,11 +16,7 @@ const Tabs = ({ productData }) => {
         {
             id: "overview",
             label: "Overview",
-            content: productData.Overview ? (
-                <Overview productData={productData} />
-            ) : (
-                <></>
-            ),
+            content: <Overview productData={productData} />,
         },
         {
             id: "specs",

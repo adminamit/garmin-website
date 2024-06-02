@@ -6,7 +6,7 @@ const ColumnLayout = ({ columns, children, type }) => {
             className={
                 type == "flex"
                     ? "app__column-layout__column--flex"
-                    : `app__column-layout__column--"${columns}`
+                    : `app__column-layout__column--${columns}`
             }
         >
             {children}
