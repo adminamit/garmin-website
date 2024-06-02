@@ -35,7 +35,6 @@ const page = async ({ params: { id } }) => {
     productData = fetchProduct.product;
     variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
-    productData = [];
     if (!productData) {
         return notFound();
     }

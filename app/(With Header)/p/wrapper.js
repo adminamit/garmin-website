@@ -66,7 +66,7 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
             ) : (
                 <></>
             )}
-            {/* <BreadCrumb breadCrumbs={breadCrumbs} />
+            <BreadCrumb breadCrumbs={breadCrumbs} />
             <div className="app__product">
                 <Gallery gallery={productData.images} />
                 <Info
@@ -75,8 +75,8 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                     setAddedToCart={setAddedToCart}
                     handleAddedCart={handleAddedCart}
                 />
-            </div> */}
-            {/* {productData ? <Tabs productData={productData} /> : <Loader />} */}
+            </div>
+            {productData ? <Tabs productData={productData} /> : <Loader />}
         </>
     );
 };
