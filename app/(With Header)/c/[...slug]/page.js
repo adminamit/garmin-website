@@ -20,13 +20,25 @@ async function getCategoryData(slug) {
     );
     return res.json();
 }
-export const metadata = {
-    title: "Producc",
-    description: "",
-    icons: {
-        icon: "/icon.webp", // /public path
-    },
-};
+export async function generateMetadata(
+    { params: { slug }, searchParams },
+    parent
+) {
+    const activeSlug = slug.pop();
+
+    const meta = await fetch(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/category/meta?slug=${activeSlug}`
+    ).then((meta) => meta.json());
+    // console.log("metaDatametaDatametaData");
+    // console.log(activeSlug);
+    // const meta = metaData;
+    return {
+        title: meta.meta.title ? meta.meta.title : meta.title,
+        description: meta.meta.description
+            ? meta.meta.description
+            : meta.description,
+    };
+}
 
 export default async function Shop({ params: { slug } }) {
     let catgeory;
