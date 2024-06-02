@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "@/app/_providers/Cart";
 import { Loader } from "../../Loader";
 import toast from "react-hot-toast";
-export const AddToCart = ({ product, quantity = 1 }) => {
+export const AddToCart = ({ product, quantity = 1, setAddedToCart }) => {
     const {
         cart,
         addItemToCart,
@@ -25,6 +25,7 @@ export const AddToCart = ({ product, quantity = 1 }) => {
             });
             setAddingToCart(false);
             toast.success("Product added to cart");
+            setAddedToCart(true);
         }, 1000);
     };
 

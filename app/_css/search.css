@@ -118,12 +118,12 @@ h2 {
     margin: 0;
 }
 @media screen and (min-width: 580px){
-    .card {
+    .results .card {
         width: calc(50% - 2rem);
     }
 }
 @media screen and (min-width: 768px){
-    .card {
+    .results .card {
         width: calc(33.3333333333% - 2rem);
     }
 
@@ -135,7 +135,7 @@ h2 {
     .ais-SearchBox-form .ais-SearchBox-input {
         padding: 3rem 0;
     }
-    .card {
+    .results .card {
         width: calc(25% - 2rem);
     }
 }

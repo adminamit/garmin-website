@@ -7,7 +7,7 @@ import { Loader } from "@/app/_components/Loader";
 const wishlist = () => {
     const { user, removeItemFromWishlist, isUpdating } = useAuth();
     return (
-        <div className="relative">
+        <div className="relative wishlist">
             <div className="heading mb-6 ">
                 <h2 className="">Wishlist</h2>
             </div>

@@ -18,7 +18,12 @@ const formatPrice = (price) => {
     });
 };
 
-const Info = ({ productData, variationData }) => {
+const Info = ({
+    productData,
+    variationData,
+    setAddedToCart,
+    handleAddedCart,
+}) => {
     const { user, removeItemFromWishlist, isUpdating, addItemToWishlist } =
         useAuth();
 
@@ -44,7 +49,6 @@ const Info = ({ productData, variationData }) => {
         let exist = false;
         if (user && user.wishlist) {
             user.wishlist.items.map((item) => {
-                // console.log(item);
                 if (item.product.id == id) {
                     exist = true;
                 }
@@ -137,7 +141,10 @@ const Info = ({ productData, variationData }) => {
             />
 
             <div className="flex-gap gap-4 items-center relative">
-                <AddToCart product={productData} />
+                <AddToCart
+                    product={productData}
+                    setAddedToCart={setAddedToCart}
+                />
                 {user ? (
                     !isUpdating ? (
                         !checkIfInWishlist(productData.id) ? (
