@@ -36,7 +36,7 @@
 }
 
 .app__column-layout__column--5{
-    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-14
 }
 
 .app__column-layout__column--6{
@@ -61,5 +61,8 @@
     .app__column-layout__column--flex .app__feature__card {
         margin: 0;
         width: 16.6666666667%;
+    }
+    .app__column-layout__column--flex{
+        @apply gap-0
     }
   }

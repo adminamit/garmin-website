@@ -1,8 +1,6 @@
 import React from "react";
 import FeaturesBlock from "@/app/_components/Product/Tabs/Overview/Features/FeaturesBlock";
-export const SmallIconGrid = ({ items }) => {
+export const IconGrid = ({ items, heading }) => {
     const data = { items };
-    return (
-        <FeaturesBlock {...data} columns={6} type="flex" headingSize="small" />
-    );
+    return <FeaturesBlock {...data} columns={5} heading={heading} />;
 };

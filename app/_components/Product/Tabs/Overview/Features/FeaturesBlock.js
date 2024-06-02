@@ -10,6 +10,7 @@ const FeaturesBlock = ({
     align = "center",
     columns = 3,
     type,
+    headingSize,
 }) => {
     return (
         <Container className="bg-white">
@@ -26,7 +27,12 @@ const FeaturesBlock = ({
 
             <ColumnLayout columns={columns} type={type}>
                 {items.map((feature, index) => (
-                    <Feature key={index} {...feature} align={align} />
+                    <Feature
+                        key={index}
+                        {...feature}
+                        align={align}
+                        headingSize={headingSize}
+                    />
                 ))}
             </ColumnLayout>
         </Container>
