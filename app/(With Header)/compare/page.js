@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "@/app/_components/Common/Container";
 import Link from "next/link";
 import "@/app/_css/compare/compare.css";
@@ -12,6 +12,8 @@ import { some, findIndex, set } from "lodash";
 import { useQueryState } from "nuqs";
 
 const compare = async () => {
+    const [products, setProducts] = useState([]);
+    const [specGroupsData, setSpecGroupsData] = useState([]);
     const searchParams = useSearchParams();
     const compareProductParam = searchParams.get("compareProduct");
     const [compareProducts, setCompareProducts] = useQueryState(
@@ -21,12 +23,19 @@ const compare = async () => {
             history: "push",
         }
     );
-    let products = [],
-        specGroups = [];
-    const fetchProducts = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/compare?products=${compareProducts}`
-    );
-    products = await fetchProducts.json();
+    let specGroups = [];
+    const specs = [];
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const fetchProducts = await fetch(
+                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/compare?products=${compareProducts}`
+            );
+            const data = await fetchProducts.json();
+            setProducts(data);
+        };
+        fetchProducts();
+    }, [compareProducts]);
 
     const removeProduct = (id) => {
         let activeCompareProducts = compareProducts
@@ -39,51 +48,52 @@ const compare = async () => {
         });
     };
 
-    //Prepare unique spec groups
-    products.map((product) => {
-        product.productSpecifications.specificationGroup.map((group) => {
-            const data = {
-                specGroupId: group.specificationGroup.id,
-                specGroupName: group.specificationGroup.title,
-                specs: [],
-            };
-            !some(specGroups, data) ? specGroups.push(data) : "";
-        });
-    });
-
-    const specs = [];
-    products.map((product) => {
-        product.productSpecifications.specificationGroup.map((group) => {
-            const values = [];
-            group.items.map((item) => {
-                specs.push();
-                const index = findIndex(specGroups, function (o) {
-                    return o.specGroupId == item.specification.group.id;
-                });
-
-                //Check SpecKey
-                const specIndex = findIndex(
-                    specGroups[index]["specs"],
-                    function (o) {
-                        return o.specKey == item.specification.id;
-                    }
-                );
-
-                if (specIndex == "-1") {
-                    specGroups[index]["specs"].push({
-                        specKey: item.specification.id,
-                        specDisplayName: item.specification.title,
-                        specKeyUrl: item.specification.url,
-                        values: [...values, item.value],
-                    });
-                } else {
-                    specGroups[index]["specs"][specIndex].values.push(
-                        item.value
-                    );
-                }
+    useEffect(() => {
+        //Prepare unique spec groups
+        products.map((product) => {
+            product.productSpecifications.specificationGroup.map((group) => {
+                const data = {
+                    specGroupId: group.specificationGroup.id,
+                    specGroupName: group.specificationGroup.title,
+                    specs: [],
+                };
+                !some(specGroups, data) ? specGroups.push(data) : "";
             });
         });
-    });
+        products.map((product) => {
+            product.productSpecifications.specificationGroup.map((group) => {
+                const values = [];
+                group.items.map((item) => {
+                    specs.push();
+                    const index = findIndex(specGroups, function (o) {
+                        return o.specGroupId == item.specification.group.id;
+                    });
+
+                    //Check SpecKey
+                    const specIndex = findIndex(
+                        specGroups[index]["specs"],
+                        function (o) {
+                            return o.specKey == item.specification.id;
+                        }
+                    );
+
+                    if (specIndex == "-1") {
+                        specGroups[index]["specs"].push({
+                            specKey: item.specification.id,
+                            specDisplayName: item.specification.title,
+                            specKeyUrl: item.specification.url,
+                            values: [...values, item.value],
+                        });
+                    } else {
+                        specGroups[index]["specs"][specIndex].values.push(
+                            item.value
+                        );
+                    }
+                });
+            });
+        });
+        setSpecGroupsData(specGroups);
+    }, [products]);
 
     return (
         <div className="main" id="main">
@@ -113,7 +123,7 @@ const compare = async () => {
                 stickyClassName={"sticky-menu active"}
             >
                 <div className="container-inner">
-                    <div className="grid grid-cols-5 gap-4 mb-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-4">
                         {products.map((product) => {
                             return (
                                 <Card
@@ -129,7 +139,7 @@ const compare = async () => {
 
             <div className="app_body">
                 <div className="container-inner">
-                    {specGroups.map((group) => {
+                    {specGroupsData.map((group) => {
                         return (
                             <Accordion title={group.specGroupName}>
                                 {group.specs.map((spec) => {

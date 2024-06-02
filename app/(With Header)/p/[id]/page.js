@@ -1,5 +1,5 @@
 import React from "react";
-
+export const revalidate = 0;
 import "@/app/_css/product/product.css";
 import notFound from "../../not-found";
 

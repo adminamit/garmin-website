@@ -14,6 +14,7 @@ import SortFilter from "./Filters/Sort";
 import Series from "./Series";
 import { useSearchParams } from "next/navigation";
 import { Loader } from "../Loader";
+import useIsMobile from "@/app/_utilities/IsMobileDevice";
 export const Archive = ({ category }) => {
     const searchParams = useSearchParams();
     const series = searchParams.get("series");
@@ -72,6 +73,8 @@ export const Archive = ({ category }) => {
     }, [series, activity, features, sortBy]);
 
     const handleCompareProductsChange = (product, action, image) => {
+        const isMobile = window.innerWidth < 768;
+        const allowedProductCout = isMobile ? 2 : 5;
         let currentProducts = compareProductsData ? compareProductsData : [];
         let activeCompareProducts = compareProducts
             ? compareProducts.split(",")
@@ -94,7 +97,7 @@ export const Archive = ({ category }) => {
                 title: product.title,
                 image: product.featuredImageUrl,
             });
-            activeCompareProducts.length < 5
+            activeCompareProducts.length < allowedProductCout
                 ? activeCompareProducts.push(product.sku) &&
                   setCompareProducts(activeCompareProducts.toString()) &&
                   setCompareProductsData(currentProducts)
