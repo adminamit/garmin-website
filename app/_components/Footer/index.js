@@ -56,7 +56,7 @@ const Footer = () => {
                                     aria-hidden="false"
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                                        <Link href="/account/orders/search">
+                                        <Link href="https://www.delhivery.com/tracking">
                                             Order Status
                                         </Link>
                                     </span>
