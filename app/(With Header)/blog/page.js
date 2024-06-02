@@ -6,22 +6,14 @@ import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
 
 async function getPosts() {
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/posts`
-    );
-    console.log("sdsfsdfsfdffsd");
-    console.log(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/posts`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs`);
     return res.json();
 }
 
 const blog = async () => {
     let posts = [];
-    //Get Product Category Slug
-    //Fetch Category Details
     const fetchPosts = await getPosts();
-    posts = fetchPosts.docs;
-    console.log("00000fetchPostsfetchPostsfetchPostsfetchPosts");
-    console.log(posts);
+    posts = fetchPosts ? fetchPosts.docs : [];
 
     // const posts = [
     //     {
@@ -122,7 +114,7 @@ const blog = async () => {
                         </form>
                     </div>
                 </div>
-                <PostList posts={posts} />
+                {posts && posts.length > 0 ? <PostList posts={posts} /> : <></>}
                 <NewsletterSignup />
             </div>
         </div>

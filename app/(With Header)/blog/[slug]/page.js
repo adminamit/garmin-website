@@ -11,18 +11,16 @@ import "@/app/_css/blog/post.css";
 import RelatedPosts from "@/app/_components/Blog/RelatedPosts";
 
 async function getPostData(slug) {
-    console.log(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/post?slug=${slug}`
-    );
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/post?slug=${slug}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[slug][equals]=${slug}`
     );
     return res.json();
 }
 
 const blogCategory = async ({ params: { slug } }) => {
     let post;
-    post = await getPostData(slug);
+    const fetchPost = await getPostData(slug);
+    post = fetchPost.docs[0];
     if (!post) {
         return notFound();
     }
