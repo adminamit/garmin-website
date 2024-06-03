@@ -25,7 +25,7 @@ const blogCategory = async ({ params: { slug } }) => {
         return notFound();
     }
 
-    return (
+    return post ? (
         <div>
             <nav className="blog__breadcrumbs">
                 <Link href="/blog">Garmin Blog </Link>
@@ -87,6 +87,8 @@ const blogCategory = async ({ params: { slug } }) => {
                 </div>
             </div>
         </div>
+    ) : (
+        <></>
     );
 };
 
