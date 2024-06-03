@@ -39,16 +39,35 @@ const page = async ({ params: { id } }) => {
         return notFound();
     }
 
+    console.log("productDataproductDataproductDataproductData");
+    console.log(productData.breadcrumb);
+    //Prepare Breadcrumb
     const breadCrumbs = [
         {
-            label: "Sports & Fitness",
-            link: "#",
-        },
-        {
-            label: " Fitness Tracking",
-            link: "#",
+            label: "All SmartWatches",
+            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
         },
     ];
+    // productData.categories.map((category) => {
+    //     breadCrumbs.push({
+    //         label: category.title,
+    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${category.slug}`,
+    //     });
+    // });
+    breadCrumbs.push({
+        label: productData.categories[0].title,
+        link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
+    });
+    // const breadCrumbs = [
+    //     {
+    //         label: "Sports & Fitness",
+    //         link: "#",
+    //     },
+    //     {
+    //         label: " Fitness Tracking",
+    //         link: "#",
+    //     },
+    // ];
     return (
         <ProductWrapper
             productData={productData}

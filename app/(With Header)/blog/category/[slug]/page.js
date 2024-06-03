@@ -19,14 +19,20 @@ import BlogNav from "@/app/_components/Blog/BlogNav";
 // }
 async function getCategory(slug) {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blog-category?where[slug][equals]=${slug}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blog-category?where[slug][equals]=${slug}`,
+        {
+            next: { tags: ["blogCategory"] },
+        }
     );
     return res.json();
 }
 
 async function getCategoryPosts(id) {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[category][equals]=${id}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[category][equals]=${id}`,
+        {
+            next: { tags: ["categoryPosts"] },
+        }
     );
     return res.json();
 }

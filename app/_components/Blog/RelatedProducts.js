@@ -10,7 +10,7 @@ const RelatedProducts = ({ products }) => {
                     <li key={product.id}>
                         <Link href={`p/${product.id}`}>
                             <Image
-                                src={product.img}
+                                src={product.featuredImageUrl}
                                 alt={product.title}
                                 height={200}
                                 width={220}

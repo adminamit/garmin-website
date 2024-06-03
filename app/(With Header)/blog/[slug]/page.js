@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,12 +14,15 @@ import RelatedPosts from "@/app/_components/Blog/RelatedPosts";
 
 async function getPostData(slug) {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[slug][equals]=${slug}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[slug][equals]=${slug}`,
+        {
+            next: { tags: ["post"] },
+        }
     );
     return res.json();
 }
 
-const blogCategory = async ({ params: { slug } }) => {
+const Post = async ({ params: { slug } }) => {
     let post = null;
     const fetchPost = await getPostData(slug);
     post = fetchPost.docs[0];
@@ -74,16 +79,18 @@ const blogCategory = async ({ params: { slug } }) => {
                     <h1 className="post__title">{HtmlParser(post.title)} </h1>
                     <div className="post__timestamp">{post.publishDate} </div>
                     {serialize(post.content)}
+
+                    <NewsletterSignup />
                 </article>
                 <div className="post__aside">
                     <ul>
                         <li className="widget">
-                            {/* <RelatedProducts products={post.relatedProducts} /> */}
+                            <RelatedProducts products={post.relatedProducts} />
                         </li>
-                        <li className="widget">
+                        {/* <li className="widget">
                             <h2 className="widgettitle">Related</h2>
-                            {/* <RelatedPosts posts={post.relatedPosts} /> */}
-                        </li>
+                            <RelatedPosts posts={post.relatedPosts} />
+                        </li> */}
                     </ul>
                 </div>
             </div>
@@ -91,4 +98,4 @@ const blogCategory = async ({ params: { slug } }) => {
     );
 };
 
-export default blogCategory;
+export default Post;

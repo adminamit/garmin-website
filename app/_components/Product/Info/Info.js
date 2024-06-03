@@ -10,7 +10,7 @@ import { FaHeart } from "react-icons/fa";
 import { useAuth } from "@/app/_providers/Auth";
 import toast from "react-hot-toast";
 import { Loader } from "@/app/_components/Loader";
-
+import { OutOfStock } from "./OutOfStock";
 const formatPrice = (price) => {
     return price.toLocaleString("en-IN", {
         style: "currency",
@@ -118,33 +118,21 @@ const Info = ({
                 </div>
             </div>
 
-            {/* {attributes.length == 0 ? (
-                <div className="flex flex-col gap-5">
-                    <div class="animate-pulse flex space-x-4 ">
-                        <div className="h-12 w-36 bg-gray-100"></div>
-                        <div className="h-12 w-36 bg-gray-100"></div>
-                        <div className="h-12 w-36 bg-gray-100"></div>
-                    </div>
-
-                    <div class="animate-pulse flex space-x-4 ">
-                        <div className="h-20 w-36 bg-gray-100"></div>
-                        <div className="h-20 w-36 bg-gray-100"></div>
-                    </div>
-                </div>
-            ) : (
-                <Attributes attributes={attributes} />
-            )} */}
-
             <Attributes
                 productData={productData}
                 variationData={variationData}
             />
 
             <div className="flex-gap gap-4 items-center relative">
-                <AddToCart
-                    product={productData}
-                    setAddedToCart={setAddedToCart}
-                />
+                {productData.stock > 0 ? (
+                    <AddToCart
+                        product={productData}
+                        setAddedToCart={setAddedToCart}
+                    />
+                ) : (
+                    <OutOfStock productId={productData.id} />
+                )}
+
                 {user ? (
                     !isUpdating ? (
                         !checkIfInWishlist(productData.id) ? (

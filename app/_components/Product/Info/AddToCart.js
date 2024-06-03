@@ -24,7 +24,6 @@ export const AddToCart = ({ product, quantity = 1, setAddedToCart }) => {
                 quantity,
             });
             setAddingToCart(false);
-            toast.success("Product added to cart");
             setAddedToCart(true);
         }, 1000);
     };

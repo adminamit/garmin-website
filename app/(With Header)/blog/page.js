@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,7 +8,9 @@ import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
 
 async function getPosts() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs`, {
+        next: { tags: ["blog"] },
+    });
     return res.json();
 }
 

@@ -1,8 +1,8 @@
 "use client";
 import { useFormik } from "formik";
 import * as yup from "yup";
-// import { Loader } from "@/app/_components/Loader";
 import toast from "react-hot-toast";
+import { Loader } from "@/app/_components/Loader";
 export const BulkEnquiryForm = () => {
     const formik = useFormik({
         initialValues: {
@@ -112,7 +112,9 @@ export const BulkEnquiryForm = () => {
                     <button
                         type="submit"
                         className={` uppercase py-2 px-10 text-base font-medium submit submit--full  ${
-                            formik.isValid && formik.dirty
+                            formik.isValid &&
+                            formik.dirty &&
+                            !formik.isSubmitting
                                 ? ""
                                 : "submit--disabled"
                         }`}
@@ -121,12 +123,7 @@ export const BulkEnquiryForm = () => {
                         {!formik.isSubmitting ? (
                             <span>Send Bulk enquiry</span>
                         ) : (
-                            ""
-                        )}
-                        {formik.isSubmitting ? (
-                            <span>Send Bulk enquiry</span>
-                        ) : (
-                            ""
+                            <Loader />
                         )}
                     </button>
                 </div>
