@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import notFound from "@/app/(With Header)/not-found";
 import { Archive } from "@/app/_components/Archive/Archive";
 import "@/app/_css/shop/products.css";
@@ -31,9 +30,6 @@ export async function generateMetadata(
     const meta = await fetch(
         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/category/meta?slug=${activeSlug}`
     ).then((meta) => meta.json());
-    // console.log("metaDatametaDatametaData");
-    // console.log(activeSlug);
-    // const meta = metaData;
     return {
         title: meta.meta.title ? meta.meta.title : meta.title,
         description: meta.meta.description
