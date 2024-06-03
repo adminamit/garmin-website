@@ -17,7 +17,7 @@ const About = () => {
                     <h1 className="h1 light text-center">
                         <p>ABOUT US</p>
                     </h1>
-                    <div className="g__copy g__copy--center g__copy--light">
+                    <div className="g__copy g__copy--center g__copy--light !font-medium">
                         <div>
                             <p>
                                 We make products that are engineered on the

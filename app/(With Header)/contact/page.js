@@ -63,7 +63,7 @@ const Contact = () => {
                         <br />
                         <br />
                     </p>
-                    <h3 id="careers">CAREERS</h3>
+                    {/* <h3 id="careers">CAREERS</h3>
                     <hr />
                     <h5 id="wanttojoinourteam">Want to join our team?</h5>
                     <p>
@@ -71,7 +71,7 @@ const Contact = () => {
                         customers, we have built a strong and passionate team.
                         Come and consult our{" "}
                         <Link href="/career">job&nbsp;opportunities</Link>!
-                    </p>
+                    </p> */}
                 </div>
             </div>
         </div>
