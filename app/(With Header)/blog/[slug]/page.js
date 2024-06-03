@@ -25,7 +25,7 @@ const blogCategory = async ({ params: { slug } }) => {
         return notFound();
     }
 
-    return post ? (
+    return (
         <div>
             <nav className="blog__breadcrumbs">
                 <Link href="/blog">Garmin Blog </Link>
@@ -59,16 +59,17 @@ const blogCategory = async ({ params: { slug } }) => {
                         />
                     </div>
                     <div className="post__tags">
-                        {post.category.map((item) => {
-                            return (
-                                <Link
-                                    key={item.id}
-                                    href={`/blog/category/${item.slug}`}
-                                >
-                                    {item.title}
-                                </Link>
-                            );
-                        })}
+                        {post.category &&
+                            post.category.map((item) => {
+                                return (
+                                    <Link
+                                        key={item.id}
+                                        href={`/blog/category/${item.slug}`}
+                                    >
+                                        {item.title}
+                                    </Link>
+                                );
+                            })}
                     </div>
                     <h1 className="post__title">{HtmlParser(post.title)} </h1>
                     <div className="post__timestamp">{post.publishDate} </div>
@@ -87,8 +88,6 @@ const blogCategory = async ({ params: { slug } }) => {
                 </div>
             </div>
         </div>
-    ) : (
-        <></>
     );
 };
 
