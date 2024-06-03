@@ -11,15 +11,21 @@ export const Attributes = ({ productData, variationData }) => {
     productData.attributes.map((attribute) => {
         activeAttributes[attribute.attributeName] = attribute.title;
     });
+    console.log("activeAttributes");
+    console.log(productData.attributes);
 
     //Get All Attributes
     productData.attributes.map((attribute) => {
         attributes.push({
-            title: attribute.attribute.title,
-            id: attribute.attribute.id,
+            title: attribute.attributeName,
+            id: attribute.attribute,
+            text: attribute.attributeText,
             values: [],
         });
     });
+
+    console.log("Get All Attributes");
+    console.log(attributes);
 
     //Get All Attributes Available
     variationData.map((product) => {
@@ -27,6 +33,8 @@ export const Attributes = ({ productData, variationData }) => {
         product.attributes.map((attribute) => {
             variationAttributes[attribute.attributeName] = attribute.title;
         });
+        console.log("Get All variationAttributes");
+        console.log(variationAttributes);
 
         //Prepare Variation Model
         models.push({
@@ -44,7 +52,7 @@ export const Attributes = ({ productData, variationData }) => {
             attributes.map((el) => {
                 const att = {};
                 att[attribute.attributeName] = attribute.title;
-                if (el.id === attribute.attribute.id) {
+                if (el.id === attribute.attribute) {
                     el.values.push({
                         title: attribute.title,
                         sku: product.sku,
@@ -62,6 +70,8 @@ export const Attributes = ({ productData, variationData }) => {
         ];
     });
 
+    console.log("attributesattributesattributesattributes");
+    console.log(attributes);
     return (
         <div>
             <Filters attributes={attributes} product={productData} />

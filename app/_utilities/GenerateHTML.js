@@ -79,7 +79,7 @@ export const serialize = (children) =>
                 return (
                     <Image
                         key={i}
-                        src={`${process.env.PAYLOAD_PUBLIC_SERVER_URL}${node.value.url}`}
+                        src={`${node.value.url}`}
                         width={0}
                         height={0}
                         unoptimized

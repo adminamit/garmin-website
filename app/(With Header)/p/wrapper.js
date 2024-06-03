@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Tabs from "@/app/_components/Product/Tabs/Tabs";
 import Sidebar from "@/app/_components/Product/Sidebar/Sidebar";
@@ -41,13 +40,12 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                                 id="app__product__interstitial__continue_shopping"
                                 className="app__product__interstitial__continue_shopping g__button__host g__button__host--large"
                             >
-                                <a
+                                <div
                                     className="g__button g__button--contained g__button--contained--large g__button--contained--light"
-                                    href="#"
                                     onClick={() => setAddedToCart(false)}
                                 >
                                     Continue Shopping
-                                </a>
+                                </div>
                             </button>
                             <button
                                 id="app__product__interstitial__view_cart"

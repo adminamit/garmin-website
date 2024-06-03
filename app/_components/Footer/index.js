@@ -72,13 +72,14 @@ const Footer = () => {
                                         </Link>
                                     </span>
                                 </li>
+
                                 <li
                                     className="gf__list__item en-GB js__gf__list__item"
                                     aria-hidden="false"
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                                        <Link href="/account/orders/return">
-                                            Return Request
+                                        <Link href="/bulk-enquiry">
+                                            Bulk Enquiry
                                         </Link>
                                     </span>
                                 </li>
@@ -102,7 +103,7 @@ const Footer = () => {
                                         </Link>
                                     </span>
                                 </li>
-                                <li
+                                {/* <li
                                     className="gf__list__item en-GB js__gf__list__item"
                                     aria-hidden="false"
                                 >
@@ -111,7 +112,7 @@ const Footer = () => {
                                             Refund Policy
                                         </Link>
                                     </span>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </ItemWrapper>
@@ -486,7 +487,7 @@ const Footer = () => {
             <div className="gf__legal en-GB">
                 <div className="gf__legal__container">
                     <p className="gf__legal__container__copyright">
-                        © Garmin Ltd. or its subsidiaries. All rights reserved.
+                        Copyright © AMIT International Group
                     </p>
                 </div>
                 <ul className="gfl__list en-GB">

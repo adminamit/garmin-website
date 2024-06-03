@@ -16,11 +16,7 @@ const Filters = ({ attributes, product }) => {
                                 type="product"
                             >
                                 <p className="text-sm font-light">
-                                    Represents the diameter of the watch
-                                    housing.
-                                    <br />
-                                    The 47 mm Pro and 51 mm Solar options
-                                    include a flashlight and multiband GPS
+                                    {attribute.text}
                                 </p>
                             </Tooltip>
                         </div>
