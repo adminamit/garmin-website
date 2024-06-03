@@ -33,14 +33,14 @@ async function getCategoryPosts(id) {
 
 const blogCategory = async ({ params: { slug } }) => {
     let category,
-        posts = [];
+        posts = null;
     const fetchCategory = await getCategory(slug);
     category = fetchCategory.docs[0];
     if (!category) {
         return notFound();
     } else {
         const fetchPosts = await getCategoryPosts(category.id);
-        posts = fetchPosts.docs;
+        posts = fetchPosts.docs ? fetchPosts.docs : null;
     }
 
     return (

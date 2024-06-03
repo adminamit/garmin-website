@@ -18,7 +18,7 @@ async function getPostData(slug) {
 }
 
 const blogCategory = async ({ params: { slug } }) => {
-    let post;
+    let post = null;
     const fetchPost = await getPostData(slug);
     post = fetchPost.docs[0];
     if (!post) {

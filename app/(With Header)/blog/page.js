@@ -11,9 +11,9 @@ async function getPosts() {
 }
 
 const blog = async () => {
-    let posts = [];
+    let posts = null;
     const fetchPosts = await getPosts();
-    posts = fetchPosts ? fetchPosts.docs : [];
+    posts = fetchPosts ? fetchPosts.docs : null;
 
     // const posts = [
     //     {
@@ -96,11 +96,7 @@ const blog = async () => {
                 </div>
                 <div className="container">
                     <div className="blog__search">
-                        <form
-                            action="https://www.garmin.com/en-GB/blog"
-                            method="get"
-                            className="form"
-                        >
+                        <form method="get" className="form">
                             <div className="form__search">
                                 <input
                                     type="search"
@@ -114,7 +110,7 @@ const blog = async () => {
                         </form>
                     </div>
                 </div>
-                {posts && posts.length > 0 ? <PostList posts={posts} /> : <></>}
+                {posts ? <PostList posts={posts} /> : <></>}
                 <NewsletterSignup />
             </div>
         </div>
