@@ -88,7 +88,7 @@ const blogCategory = async ({ params: { slug } }) => {
                         </form>
                     </div>
                 </div>
-                {posts.length > 0 ? (
+                {posts && posts.length > 0 ? (
                     <PostList posts={posts} />
                 ) : (
                     <div className="flex justify-center items-center py-8">
