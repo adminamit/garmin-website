@@ -29,7 +29,6 @@ export default async function Page({ params: { slug } }) {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            {JSON.stringify(layout)}
             {/* <div className="w-xl mx-auto">
                 <pre>{JSON.stringify(layout, null, 2)}</pre>
             </div> */}

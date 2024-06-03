@@ -44,15 +44,13 @@ export async function GET(request, context) {
 
         { addQueryPrefix: true }
     );
-
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
-    );
     console.log(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
     );
-    console.log(res);
-    console.log("resresresresresresres");
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`,
+        { next: { tags: ["products"] } }
+    );
     const data = await res.json();
     // console.log(data);
 
