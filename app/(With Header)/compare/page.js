@@ -4,7 +4,6 @@ import Container from "@/app/_components/Common/Container";
 import Link from "next/link";
 import "@/app/_css/compare/compare.css";
 import Card from "@/app/_components/Compare/Card";
-import { Collapsible } from "@/app/_components/Compare/Collapsible";
 import { Accordion } from "@/app/_components/Helpers/Accordion";
 import Sticky from "react-sticky-el";
 import { useSearchParams } from "next/navigation";

@@ -5,7 +5,6 @@ import Footer from "@/app/_components/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import dynamic from "next/dynamic";
 import { Providers } from "../_providers";
-import { NextSeo } from "next-seo";
 const roboto = Roboto({
     weight: ["300", "400", "500", "700"],
     subsets: ["latin"],

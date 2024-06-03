@@ -195,7 +195,7 @@ nav.menu .menu-item{
 
 .home-slide-item{
   @apply relative box-border flex items-center;
-  height: 485px;
+  height: 400px;
   text-decoration: none;
 }
 .desktopImage{
@@ -488,6 +488,12 @@ table {
   
 }
 
+@media screen and (min-width: 1366px){
+  .home-slide-item{
+    height: 470px;
+  }
+
+}
 @media screen and (max-width: 768px){
   .slide-content {
     width: calc(100% - 10rem);

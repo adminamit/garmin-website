@@ -14,6 +14,7 @@ const TwoColumnBlockWrapper = ({ items }) => {
                             width="160"
                             height="160"
                             className="w-full object-center object-cover"
+                            unoptimized
                         />
                     </div>
                     <div className="px-4 py-8">

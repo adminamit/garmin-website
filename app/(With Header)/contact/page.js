@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import Link from "next/link";
 import Image from "next/image";
 const Contact = () => {
     return (
@@ -23,66 +24,43 @@ const Contact = () => {
                 <div>
                     <h3 id="generalenquiries">GENERAL ENQUIRIES</h3>
                     <hr />
-                    <h4 id="garmineuropeltd">Garmin (Europe) Ltd</h4>
+                    <h4 id="garmineuropeltd">Garmin (India) Pvt Ltd</h4>
                     <p>
-                        Liberty House
-                        <br />
-                        Hounsdown Business Park
-                        <br />
-                        Southampton
-                        <br />
-                        Hampshire
-                        <br />
-                        SO40 9LR
-                        <br />
-                        United Kingdom
+                        JA0326, 3rd Floor, DLF Tower A Jasola, <br />
+                        New Delhi, 110025
                         <br />
                         <img
                             src="https://static.garmincdn.com/shared/uk/contact-us/phone.gif"
                             alt="Telephone"
                             height="18"
                         />{" "}
-                        +44 (0) 23 8052 4000 <br />
+                        011 4800 5800/813/825 <br />
+                        <a href="mailto:info@garmin-india.com">
+                            info@garmin-india.com
+                        </a>
+                        <br />
                         <br />
                     </p>
                     <h3 id="technicalsupport">TECHNICAL SUPPORT</h3>
                     <hr />
                     <p>
-                        For help and support, please visit our{" "}
-                        <a href="https://support.garmin.com/en-GB/">
-                            Support Center
-                        </a>{" "}
-                        where you can find FAQs and technical support phone
-                        numbers.
+                        For help and support, please contact 011-48005813/825 or
+                        send us an email at{" "}
+                        <a href="mailto:support@garmin-india.com">
+                            support@garmin-india.com
+                        </a>
                         <br />
                         <br />
                     </p>
-                    <h3 id="aboutus">ABOUT US</h3>
-                    <hr />
-                    <h4 id="builttolast">Built to last.</h4>
-                    <p>
-                        Three simple words that describe our products, our
-                        company, our culture, our future. As a leading,
-                        worldwide provider of navigation, we are committed to
-                        making superior products for automotive, aviation,
-                        marine, outdoor and sports. For more information about
-                        our company, see the{" "}
-                        <a href="http://www.garmin.com/en-GB/company/about">
-                            about us
-                        </a>{" "}
-                        section.
-                    </p>
-                    <p>
-                        <br />
-                    </p>
+
                     <h3 id="marketing">MARKETING</h3>
                     <hr />
                     <p>
-                        Press &amp; Relations:{" "}
-                        <a href="mailto:UKPressOffice@garmin.com">
-                            UKPressOffice@garmin.com
+                        For marketing related queries:{" "}
+                        <a href="mailto:info@garmin-india.com">
+                            info@garmin-india.com
                         </a>
-                        .<br />
+                        <br />
                         <br />
                     </p>
                     <h3 id="careers">CAREERS</h3>
@@ -92,10 +70,7 @@ const Contact = () => {
                         Garmin is an extremely active company. To satisfy our
                         customers, we have built a strong and passionate team.
                         Come and consult our{" "}
-                        <a href="https://careers.garmin.com/en-GB/">
-                            job&nbsp;opportunities
-                        </a>
-                        !
+                        <Link href="/career">job&nbsp;opportunities</Link>!
                     </p>
                 </div>
             </div>

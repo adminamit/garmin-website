@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import "@/app/_css/footer.css";
 import { ItemWrapper } from "./ItemWrapper";
 const Footer = () => {
@@ -259,7 +260,7 @@ const Footer = () => {
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
                                         <Link
-                                            href="https://www.garmin.com/en-IN/software/express/mac/"
+                                            href="https://www.garmin.com/en-GB/software/express/windows/"
                                             className=""
                                         >
                                             Garmin Express
@@ -302,6 +303,20 @@ const Footer = () => {
                                             className=""
                                         >
                                             Garmin Explore
+                                        </Link>
+                                    </span>
+                                </li>
+                                <li
+                                    className="gf__list__item en-GB js__gf__list__item"
+                                    aria-hidden="false"
+                                >
+                                    <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
+                                        <Link
+                                            href="https://www.garmin.ae/health/"
+                                            className=""
+                                        >
+                                            Garmin Health: Enterprise Health
+                                            Solutions
                                         </Link>
                                     </span>
                                 </li>
@@ -396,6 +411,12 @@ const Footer = () => {
             </div>
             <div className="gf__company">
                 <div class="gf__locale">
+                    <Image
+                        alt="default alt"
+                        src={`/assets/images/amit-white-logo.svg`}
+                        width="140"
+                        height="140"
+                    />
                     <a class="gf__locale__link en-GB" href="/">
                         India
                     </a>
@@ -405,7 +426,7 @@ const Footer = () => {
                     <ul className="gf__social__list">
                         <li className="gf__social__list__item">
                             <a
-                                href="https://www.facebook.com/"
+                                href="https://www.facebook.com/GarminIN"
                                 data-ua-event="Footer Social Links,Click,Facebook"
                             >
                                 <svg viewBox="0 0 24 24">
@@ -416,7 +437,7 @@ const Footer = () => {
                         </li>
                         <li className="gf__social__list__item">
                             <a
-                                href="https://www.youtube.com/user/"
+                                href="https://www.youtube.com/@Garmin_IN"
                                 data-ua-event="Footer Social Links,Click,Youtube"
                             >
                                 <svg viewBox="0 0 24 24">
@@ -427,18 +448,24 @@ const Footer = () => {
                         </li>
                         <li className="gf__social__list__item">
                             <a
-                                href="https://www.pinterest.com/"
+                                href="https://www.linkedin.com/company/garminindia/"
                                 data-ua-event="Footer Social Links,Click,Pinterest"
                             >
-                                <svg viewBox="0 0 24 24">
-                                    <title>Pinterest</title>
-                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    x="0px"
+                                    y="0px"
+                                    width="100"
+                                    height="100"
+                                    viewBox="0 0 50 50"
+                                >
+                                    <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
                                 </svg>
                             </a>
                         </li>
                         <li className="gf__social__list__item">
                             <a
-                                href="https://www.instagram.com/garminuk/"
+                                href="https://www.instagram.com/garminindia?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                 data-ua-event="Footer Social Links,Click,Instagram"
                             >
                                 <svg viewBox="0 0 24 24">

@@ -17,14 +17,14 @@ export const SmartWatches = () => {
                         >
                             All Smartwatches
                         </a>{" "}
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="https://www.garmin.com/en-GB/your-watch-your-way/"
                             data-gatext="Design Your Own Watch - Your Watch Your Way"
                             data-ua-event="Global Header, SMARTWATCHES, Design your own watch"
                         >
                             Design your own watch
-                        </a>{" "}
+                        </a>{" "} */}
                         <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/women-wearables/?FILTER_FEATURE_FORWOMEN=true"
@@ -135,7 +135,7 @@ export const SmartWatches = () => {
                     <div className="gh__nav__categories__items__menu__subcategories">
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/outdoor-maps/"
+                            href="https://www.garmin.com/en-GB/c/outdoor-maps/ "
                             data-gatext="Global Navigation - Outdoor Map"
                             data-ua-event="Global Header, SMARTWATCHES, Outdoor Maps"
                         >
@@ -143,7 +143,7 @@ export const SmartWatches = () => {
                         </a>{" "}
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="https://www.garmin.com/en-GB/golf-courses/"
+                            href="https://www.garmin.com/en-GB/golf-courses/?a2=GB&state=&new=false&upd=false&cnt=false&q=&addr="
                             data-gatext="Global Navigation - Golf Course Locator"
                             data-ua-event="Global Header, SMARTWATCHES, Golf Course Locator"
                         >
@@ -169,14 +169,14 @@ export const SmartWatches = () => {
                         >
                             Apps
                         </a>{" "}
-                        {/* <a
+                        <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/subscription-plans/"
+                            href="https://www.garmin.com/en-GB/c/subscription-plans/"
                             data-gatext="Subscription & Service Plans"
                             data-ua-event="Global Header, SMARTWATCHES, Subscription & service plans"
                         >
                             Subscription &amp; service plans
-                        </a> */}
+                        </a>
                     </div>
                 </SubItemWrapper>
                 <SubItemWrapper title="DISCOVER">
