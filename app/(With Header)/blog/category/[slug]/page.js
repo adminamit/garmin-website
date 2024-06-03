@@ -5,19 +5,28 @@ import PostList from "@/app/_components/Blog/PostList";
 import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
 
+// async function getCategory(slug) {
+//     const res = await fetch(
+//         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/category?slug=${slug}`
+//     );
+//     return res.json();
+// }
+// async function getCategoryPosts(id) {
+//     const res = await fetch(
+//         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/categoryPosts?id=${id}`
+//     );
+//     return res.json();
+// }
 async function getCategory(slug) {
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/category?slug=${slug}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blog-category?where[slug][equals]=${slug}`
     );
     return res.json();
 }
 
 async function getCategoryPosts(id) {
-    console.log(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/categoryPosts?id=${id}`
-    );
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog/categoryPosts?id=${id}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs?where[category][equals]=${id}`
     );
     return res.json();
 }
@@ -25,7 +34,8 @@ async function getCategoryPosts(id) {
 const blogCategory = async ({ params: { slug } }) => {
     let category,
         posts = [];
-    category = await getCategory(slug);
+    const fetchCategory = await getCategory(slug);
+    category = fetchCategory.docs[0];
     if (!category) {
         return notFound();
     } else {
