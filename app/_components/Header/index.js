@@ -104,9 +104,9 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            <div className="header-notice">
+            {/* <div className="header-notice">
                 FREE SHIPPING ON ALL ORDERS OVER £30. NOW ACCEPTING KLARNA.
-            </div>
+            </div> */}
         </div>
     );
 };

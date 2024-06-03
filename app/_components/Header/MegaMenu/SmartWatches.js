@@ -175,7 +175,7 @@ export const SmartWatches = () => {
                             data-gatext="Subscription & Service Plans"
                             data-ua-event="Global Header, SMARTWATCHES, Subscription & service plans"
                         >
-                            Subscription &amp; service plans
+                            Subscription plans
                         </a>
                     </div>
                 </SubItemWrapper>
