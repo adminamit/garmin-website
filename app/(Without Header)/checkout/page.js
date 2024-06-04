@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import OrderSummary from "@/app/_components/Checkout/OrderSummary";
 import CheckoutPrompt from "@/app/_components/Checkout/CheckoutPrompt";
@@ -17,7 +18,7 @@ const Checkout = () => {
         cartDetails,
         hasInitializedCart,
     } = useCart();
-    // const router = useRouter();
+    const router = useRouter();
     // if (!user) {
     //     router.push("/login");
     // }
@@ -30,7 +31,7 @@ const Checkout = () => {
                         <>
                             <div className="checkout__section checkout__section--main">
                                 {/* <CartItems items={cartItems} /> */}
-                                <CheckoutPrompt user={user} status={status} />
+                                {/* <CheckoutPrompt user={user} status={status} /> */}
                                 <CheckoutForm
                                     user={user}
                                     status={status}

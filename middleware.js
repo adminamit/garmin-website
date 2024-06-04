@@ -13,6 +13,10 @@ export function middleware(request) {
     ) {
         return Response.redirect(new URL("/account", request.url));
     }
+    //Checkout Redirection
+    if (!userToken && request.nextUrl.pathname.startsWith("/checkout")) {
+        return Response.redirect(new URL("/login", request.url));
+    }
 
     // Add new request headers
     requestHeaders.set("Access-Control-Allow-Credentials", "true");

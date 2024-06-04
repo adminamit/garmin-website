@@ -9,16 +9,96 @@ import BillingAddress from "./BillingAddress";
 import GuestUserEmail from "./GuestUserEmail";
 import Script from "next/script";
 import toast from "react-hot-toast";
-import { getCookie } from "cookies-next";
+import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import { useOrder } from "@/app/_providers/Order";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/app/_providers/Cart";
+
+const checkForExisitingOrderID = () => {
+    const garminOrderId = getCookie("orderId");
+    return garminOrderId;
+};
+const clearOrder = () => {
+    deleteCookie("orderId");
+};
 const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     const route = useRouter();
-    const { createOrder, updateOrder, orderId } = useOrder();
+    const { clearCart } = useCart();
     const [isBillingSame, setIsBillingSame] = useState(true);
+    const [checkingOut, setCheckingOut] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const phoneRegExp =
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+    const createGarminOrder = async (orderData) => {
+        try {
+            const response = await fetch("/api/order/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const order = await response.json();
+            setCookie("orderId", order.id);
+            return order;
+        } catch (error) {
+            console.error(
+                "There was a problem with your fetch operation:",
+                error
+            );
+        }
+    };
+
+    const updateGarminOrder = async (orderData) => {
+        try {
+            const response = await fetch("/api/order/update", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const order = await response.json();
+            return order;
+        } catch (error) {
+            console.error(
+                "There was a problem with your fetch operation:",
+                error
+            );
+        }
+    };
+
+    const updateGarminOrderStatus = async (orderData) => {
+        try {
+            const response = await fetch("/api/order/updateOrderStatus", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const order = await response.json();
+            return order;
+        } catch (error) {
+            console.error(
+                "There was a problem with your fetch operation:",
+                error
+            );
+        }
+    };
 
     const createOrderId = async (order) => {
         try {
@@ -71,24 +151,30 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                         headers: { "Content-Type": "application/json" },
                     });
                     const res = await result.json();
-                    console.log(res);
                     if (res.isOk) {
-                        route.push(`/account/orders/${order.id}`);
-                        // const paymentUpdate = await updateOrder({
-                        //     id: order.id,
-                        //     razorpayPaymentId: response.razorpay_payment_id,
-                        //     order_status: "processing",
-                        // });
-                        // if (paymentUpdate) {
-                        //     toast.success("payment succeed");
-                        //     route.push(`/account/orders/${order.id}`);
-                        // } else {
-                        //     toast.error(
-                        //         "Payment recieved, will reflect in another 20 minutes"
-                        //     );
-                        //     route.push(`/account/orders/${order.id}`);
-                        // }
+                        // route.push(`/account/orders/${order.id}`);
+                        const paymentUpdate = await updateGarminOrderStatus({
+                            id: order.id,
+                            razorpayPaymentId: response.razorpay_payment_id,
+                            orderStatus: "processing",
+                        });
+                        if (paymentUpdate) {
+                            toast.success("payment successful!");
+                            setCheckingOut(false);
+                            clearOrder();
+                            clearCart();
+                            route.push(`/account/orders/${order.id}`);
+                        } else {
+                            toast.error(
+                                "Payment recieved, will reflect in another 20 minutes"
+                            );
+                            route.push(`/account/orders/${order.id}`);
+                            setCheckingOut(false);
+                            clearOrder();
+                            clearCart();
+                        }
                     } else {
+                        setCheckingOut(false);
                         toast.error(res.message);
                     }
                 },
@@ -143,14 +229,15 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             billing_state: user ? user.billingAddress.state : "",
         },
         onSubmit: async (values, { setSubmitting }) => {
+            setCheckingOut(true);
             //Check for orderId
-            const orderId = getCookie("orderId");
+            const garminOrderId = checkForExisitingOrderID();
+
             //Prepare Order Details
             const orderProducts = [];
             cart.items.map((item) => {
                 orderProducts.push({
                     product: item.product.id,
-                    // name: item.product.title,
                     sku: item.product.sku,
                     quantity: item.quantity,
                     categories: item?.product?.categories.map((category) => {
@@ -184,28 +271,24 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             };
 
             const orderData = {
-                // ...(orderId && { id: "GIN_2024_05_21" }),
-                // id: "GIN_2024_05_22",
                 orderedBy: user.id,
-                // status: "pending_payment",
+                orderId: garminOrderId ? garminOrderId : null,
                 coupon: cart.coupon,
                 items: orderProducts,
                 billingAddress: billingAddress,
                 shippingAddress: shippingAddress,
             };
-            // const order = orderId
-            //     ? await updateOrder(orderData)
-            //     : await createOrder(orderData);
-            const order = await createOrder(orderData);
+
+            const order = garminOrderId
+                ? await updateGarminOrder({
+                      orderData: orderData,
+                      orderId: garminOrderId,
+                  })
+                : await createGarminOrder(orderData);
             if (order.id) {
                 processPayment(order);
-                // createOrderId();
             }
-
-            // processPayment(values);
-            // createOrderId();
-
-            setSubmitting(true);
+            // setSubmitting(true);
         },
         validationSchema: yup.object({
             email: yup
@@ -397,7 +480,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                     </div>
                 </div>
             </div>
-            {formik.isSubmitting ? (
+            {checkingOut ? (
                 <div className="h-full w-full flex justify-center items-center absolute top-0 left-0 bg-white opacity-80">
                     <Loader />
                 </div>

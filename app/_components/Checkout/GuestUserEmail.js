@@ -11,6 +11,7 @@ const GuestUserEmail = ({ formik, handleInputChange }) => {
                     id="email"
                     name="email"
                     type="email"
+                    readOnly
                     className={`input ${
                         formik.touched.email &&
                         formik.errors.email &&
@@ -22,7 +23,7 @@ const GuestUserEmail = ({ formik, handleInputChange }) => {
                     <div className="error-text">{formik.errors.email}</div>
                 ) : null}
             </div>
-            <div className="flex relative">
+            {/* <div className="flex relative">
                 <input
                     id="promotions"
                     name="promotion"
@@ -46,7 +47,7 @@ const GuestUserEmail = ({ formik, handleInputChange }) => {
                         </p>
                     </span>
                 </label>
-            </div>
+            </div> */}
         </>
     );
 };
