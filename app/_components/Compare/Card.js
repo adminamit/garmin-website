@@ -8,7 +8,7 @@ const Card = ({ product, removeProduct }) => {
             <div className="card__header">
                 <Link
                     className="card__header__image"
-                    href="https://www.garmin.com/en-GB/p/1057989"
+                    href={`/p/${product.sku}`}
                 >
                     <Image
                         className="card__header__image--main"
@@ -58,7 +58,7 @@ const Card = ({ product, removeProduct }) => {
                 <div className="inline-flex ">
                     <Link
                         className="button inline bg-primary !border-none"
-                        href="https://www.garmin.com/en-GB/p/1057989"
+                        href={`/p/${product.sku}`}
                     >
                         Shop
                     </Link>

@@ -21,6 +21,7 @@ const Checkout = () => {
     // if (!user) {
     //     router.push("/login");
     // }
+
     return (
         <div className="checkout">
             <div className="checkout__container">

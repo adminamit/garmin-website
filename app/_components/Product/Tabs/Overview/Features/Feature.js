@@ -15,14 +15,18 @@ export const Feature = ({
                 align == "left" ? "app__feature__card--left" : ""
             }`}
         >
-            <Image
-                src={image.url}
-                width={0}
-                height={0}
-                className="app__feature__card__image"
-                unoptimized
-                alt={image.alt}
-            />
+            {image ? (
+                <Image
+                    src={image.url}
+                    width={0}
+                    height={0}
+                    className="app__feature__card__image"
+                    unoptimized
+                    alt={image.alt}
+                />
+            ) : (
+                <></>
+            )}
             {heading ? (
                 <h3
                     className={`app__feature__card__title ${

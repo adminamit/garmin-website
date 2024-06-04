@@ -7,7 +7,7 @@ import Card from "@/app/_components/Compare/Card";
 import { Accordion } from "@/app/_components/Helpers/Accordion";
 import Sticky from "react-sticky-el";
 import { useSearchParams } from "next/navigation";
-import { some, findIndex, set } from "lodash";
+import { some, findIndex, set, isEmpty } from "lodash";
 import { useQueryState } from "nuqs";
 
 const compare = async () => {
@@ -63,7 +63,7 @@ const compare = async () => {
             product.productSpecifications.specificationGroup.map((group) => {
                 const values = [];
                 group.items.map((item) => {
-                    specs.push();
+                    // specs.push();
                     const index = findIndex(specGroups, function (o) {
                         return o.specGroupId == item.specification.group.id;
                     });
@@ -75,6 +75,21 @@ const compare = async () => {
                             return o.specKey == item.specification.id;
                         }
                     );
+                    // if (
+                    //     group.specificationGroup.id ==
+                    //     "6635b997df49de087e7e5fe9"
+                    // ) {
+                    //     console.log("index");
+                    //     console.log(index);
+                    //     if (
+                    //         item.specification.id === "66584af8b388639409165ba0"
+                    //     ) {
+                    //         console.log("item");
+                    //         console.log(item);
+                    //         console.log("isEmpty item.value");
+                    //         console.log(isEmpty(item.value));
+                    //     }
+                    // }
 
                     if (specIndex == "-1") {
                         specGroups[index]["specs"].push({
@@ -91,6 +106,10 @@ const compare = async () => {
                 });
             });
         });
+
+        // console.log("specGroupsspecGroupsspecGroups");
+        // console.log(specGroups);
+
         setSpecGroupsData(specGroups);
     }, [products]);
 
