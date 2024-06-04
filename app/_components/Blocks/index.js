@@ -18,6 +18,7 @@ import { Paragraph } from "@/app/_blocks/Paragraph";
 import { MediaBlock } from "@/app/_blocks/MediaBlock";
 import { IconGrid } from "@/app/_blocks/IconGrid";
 import { VideoBlock } from "@/app/_blocks/VideoBlock";
+import { CopyFootnote } from "@/app/_blocks/CopyFootenote";
 const blockComponents = {
     heroSlider: HeroSlider,
     newsletter: Newsletter,
@@ -36,6 +37,7 @@ const blockComponents = {
     mediaBlock: MediaBlock,
     iconGrid: IconGrid,
     videoBlock: VideoBlock,
+    copyFootote: CopyFootnote,
 };
 
 export const Blocks = (props) => {

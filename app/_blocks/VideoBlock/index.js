@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import "./index.css";
-export const VideoBlock = ({ items }) => {
+export const VideoBlock = ({ fallBackImage, videoUrl }) => {
     const [active, setActive] = useState(false);
     return (
         <div
@@ -15,7 +15,7 @@ export const VideoBlock = ({ items }) => {
                     <iframe
                         className="app__video-banner__video__el"
                         title="Youtube Video"
-                        src="https://www.youtube-nocookie.com/embed/XygaG_wIi2I?rel=0&autoplay=1"
+                        src={videoUrl}
                         allow="autoplay"
                         frameBorder={0}
                         allowFullScreen
@@ -45,12 +45,12 @@ export const VideoBlock = ({ items }) => {
             <div className="app__img-banner">
                 <img
                     className="app__img-banner__img app__img-banner__img--desktop"
-                    src="https://res.garmin.com/en/products/010-02784-00/g/58837-D-VID.jpg"
+                    src={fallBackImage.url}
                     alt="video"
                 />
                 <img
                     className="app__img-banner__img app__img-banner__img--mobile"
-                    src="https://res.garmin.com/en/products/010-02784-00/g/58837-M-VID.jpg"
+                    src={fallBackImage.url}
                     alt="video"
                 />
             </div>

@@ -30,6 +30,12 @@
     --headlineFontSize: calc(1.6vw * var(--headlineTextSizeScaler));
     font-size: calc(var(--headlineFontSize));
 }
+span.app__headline__primary-text {
+    font-size: 4.5rem;
+}
+span.app__headline__secondary-text {
+    font-size: 1.8rem;
+}
 @media screen and (min-width: 1023px){
     .app__headline__container {
         font-size: 4.2em !important;

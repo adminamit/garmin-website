@@ -81,8 +81,10 @@ export const LoginForm = () => {
 
             password: yup.string().required("This field is required"),
             rememberMe: yup.boolean(),
-            recaptcha: yup.string().min(1, "Prove You Are Not A Robot"),
-            // .required("Prove You Are Not A Robot"),
+            recaptcha: yup
+                .string()
+                .min(1, "Prove You Are Not A Robot")
+                .required("Prove You Are Not A Robot"),
         }),
     });
 

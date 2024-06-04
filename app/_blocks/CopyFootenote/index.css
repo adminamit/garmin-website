@@ -1,0 +1,27 @@
+.app__layout-container--neutral {
+    background-color: #f2f2f2;
+}
+.app__layout-container {
+    width: 100%;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    color: #000;
+}
+.app__disclaimer__block {
+    margin-bottom: 1em;
+    padding: 0 .5rem;
+    font-size: .6875rem;
+    line-height: 1.25rem;
+}
+.app__layout-container>* {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+.app__disclaimer__block ol{
+    list-style: decimal;
+}
+
+.app__layout-container--grey{
+    background-color: #f2f2f2;
+}
