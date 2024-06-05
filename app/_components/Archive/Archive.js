@@ -20,6 +20,7 @@ export const Archive = ({ category }) => {
     const activity = searchParams.get("activity");
     const features = searchParams.get("features");
     const sortBy = searchParams.get("sortBy");
+    const page = searchParams.get("page");
 
     const [products, setProducts] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -61,7 +62,7 @@ export const Archive = ({ category }) => {
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
                     category.id
-                }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
+                }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
             );
             const data = await res.json();
             setLoading(false);
@@ -69,7 +70,7 @@ export const Archive = ({ category }) => {
         };
 
         fetchProducts();
-    }, [series, activity, features, sortBy]);
+    }, [series, activity, features, sortBy, page]);
 
     const handleCompareProductsChange = (product, action, image) => {
         const isMobile = window.innerWidth < 768;

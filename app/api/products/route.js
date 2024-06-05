@@ -7,7 +7,7 @@ export async function GET(request, context) {
     const activity = request.nextUrl.searchParams.get("activity");
     const features = request.nextUrl.searchParams.get("features");
     const sortBy = request.nextUrl.searchParams.get("sortBy");
-
+    const page = request.nextUrl.searchParams.get("page");
     const query = {
         categories: {
             in: id,
@@ -34,7 +34,8 @@ export async function GET(request, context) {
 
     const stringifiedQuery = qs.stringify(
         {
-            limit: 10,
+            limit: 12,
+            page: page ? page : 1,
             depth: 1,
             where: query,
             ...(sortBy != "null" && {
