@@ -1,0 +1,84 @@
+.app {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-align: center;
+}
+.app__content {
+    font-family: "Roboto", "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Prompt, sans-serif, "Microsoft JhengHei";
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 3rem 15px;
+    padding: 3rem 2rem;
+    color: black;
+}
+.app__content {
+    width: 40%;
+}
+.app__heading {
+    font-size: 22px;
+    font-weight: 500;
+}
+.app__subheading {
+    font-size: 16px;
+    font-weight: normal;
+}
+.app__button {
+    background-color: black;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .9rem;
+    padding: 0.5rem 1.2rem;
+    display: block;
+    width: fit-content;
+    font-size: 14px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+.app__error-code {
+    font-size: 12px;
+}
+
+.app__error-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (min-width: 420px) {
+    .app__content {
+        margin: 50px;
+        width: 70%;
+        text-align: center;
+    }
+}
+@media (min-width: 768px) {
+    .app__content {
+        text-align: left;
+        padding: 3rem 4rem;
+    }
+    .app__button {
+        margin: 0 0 1rem 0;
+    }
+}
+@media (min-width: 992px) {
+    .app {
+        justify-content: flex-end;
+    }
+    .app__content {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .app__content {
+        width: 40%;
+    }
+}

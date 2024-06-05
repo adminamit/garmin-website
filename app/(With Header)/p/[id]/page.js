@@ -11,13 +11,24 @@ export async function generateMetadata(
 ) {
     const metaData = await fetch(
         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product/meta?sku=${id}`
-    ).then((meta) => meta.json());
+    )
+        .then((meta) => meta.json())
+        .catch((err) => {
+            metaData: {
+            }
+        });
 
     return {
-        title: metaData.meta.title ? metaData.meta.title : metaData.title,
-        description: metaData.meta.description
+        title: metaData
+            ? metaData.meta.title
+                ? metaData.meta.title
+                : metaData.title
+            : "",
+        description: metaData
             ? metaData.meta.description
-            : metaData.description,
+                ? metaData.meta.description
+                : metaData.description
+            : "",
     };
 }
 
@@ -58,16 +69,7 @@ const page = async ({ params: { id } }) => {
         label: productData.categories[0].title,
         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
     });
-    // const breadCrumbs = [
-    //     {
-    //         label: "Sports & Fitness",
-    //         link: "#",
-    //     },
-    //     {
-    //         label: " Fitness Tracking",
-    //         link: "#",
-    //     },
-    // ];
+
     return (
         <ProductWrapper
             productData={productData}
