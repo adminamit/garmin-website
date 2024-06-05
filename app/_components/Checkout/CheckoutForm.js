@@ -26,7 +26,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     const { clearCart } = useCart();
     const [isBillingSame, setIsBillingSame] = useState(true);
     const [checkingOut, setCheckingOut] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
     const phoneRegExp =
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -77,6 +76,28 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         }
     };
 
+    const createDelhiveryManifestation = async (orderData) => {
+        try {
+            const response = await fetch("/api/order/manifestation", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(orderData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            console.error(
+                "There was a problem with your fetch operation:",
+                error
+            );
+        }
+    };
     const updateGarminOrderStatus = async (orderData) => {
         try {
             const response = await fetch("/api/order/updateOrderStatus", {
@@ -128,6 +149,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
 
     const processPayment = async (order) => {
         // e.preventDefault();
+        let waybill = "";
         try {
             const orderId = await createOrderId(order);
             const options = {
@@ -152,11 +174,21 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                     });
                     const res = await result.json();
                     if (res.isOk) {
+                        const manifestation =
+                            await createDelhiveryManifestation(order);
+                        //GET WayBill number
+
+                        if (manifestation) {
+                            waybill = manifestation.success
+                                ? manifestation.packages[0].waybill
+                                : "";
+                        }
                         // route.push(`/account/orders/${order.id}`);
                         const paymentUpdate = await updateGarminOrderStatus({
                             id: order.id,
                             razorpayPaymentId: response.razorpay_payment_id,
                             orderStatus: "processing",
+                            trackingId: waybill,
                         });
                         if (paymentUpdate) {
                             toast.success("payment successful!");
@@ -408,6 +440,15 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                 <div>
                     {/* <Loader /> */}
                     <div>
+                        <div
+                            onClick={() => {
+                                createDelhiveryManifestation({
+                                    id: "3432423",
+                                });
+                            }}
+                        >
+                            Manifest
+                        </div>
                         <form onSubmit={formik.handleSubmit} className="">
                             <GuestUserEmail formik={formik} status={status} />
 

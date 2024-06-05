@@ -44,7 +44,7 @@ const Checkout = () => {
                             </div>
                         </>
                     ) : (
-                        <div className="flex flex-col items-center justify-center my-24 oswald gap-8">
+                        <div className="flex flex-col items-center justify-center my-24 oswald gap-8 mx-auto">
                             <h2 className="text-3xl">Your Cart is Empty</h2>
                             <Link href="/" className="button !w-36">
                                 START SHOPPING

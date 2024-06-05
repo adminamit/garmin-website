@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Loader } from "@/app/_components/Loader";
+import toast from "react-hot-toast";
 const ForgotPassword = () => {
     const formik = useFormik({
         initialValues: {
@@ -25,9 +26,11 @@ const ForgotPassword = () => {
             const status = await res.json();
             if (res.status === 200) {
                 if (status.errors) {
-                    alert(status.errors[0].message);
+                    toast.error(status.errors[0].message);
                 } else {
-                    alert("Mail sent");
+                    toast.success(
+                        "We have sent you a link to reset your password."
+                    );
                     setSubmitting(true);
                     resetForm();
                 }
