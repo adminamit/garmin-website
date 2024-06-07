@@ -29,6 +29,7 @@ export const Product = ({
                             width="160"
                             height="160"
                             className="w-full h-full object-center object-contain"
+                            unoptimized
                         />
                     </div>
 

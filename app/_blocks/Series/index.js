@@ -49,6 +49,7 @@ export const Series = ({ title, image }) => {
                                     width="160"
                                     height="160"
                                     className=""
+                                    unoptimized
                                 />
                                 <div
                                     className="item-heading g__heading g__heading--center g__heading--light"
