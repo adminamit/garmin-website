@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 protocol: "https",
-                hostname: "garmin-web.cyberworxindia.com",
+                hostname: "garmincontrolpanel.cyberworxindia.com",
                 port: "",
             },
         ],
