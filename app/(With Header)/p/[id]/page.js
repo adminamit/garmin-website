@@ -1,9 +1,11 @@
 import React from "react";
-// export const revalidate = 0;
 import "@/app/_css/product/product.css";
 import notFound from "../../not-found";
-
 import { ProductWrapper } from "../wrapper";
+
+export const runtime = "edge";
+export const preferredRegion = "home";
+export const maxDuration = 300;
 
 export async function generateMetadata(
     { params: { id }, searchParams },
@@ -32,19 +34,9 @@ export async function generateMetadata(
     };
 }
 
-// async function getProduct(id) {
-//     const res = await fetch(
-//         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
-//     );
-//     return res.json();
-// }
-
 async function getProduct(id) {
-    console.log(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product?sku=${id}`
-    );
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product?sku=${id}`
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
     );
     return res.json();
 }
@@ -53,16 +45,12 @@ const page = async ({ params: { id } }) => {
     let productData = null,
         variationData = null;
     const fetchProduct = await getProduct(id);
-    // console.log("fetchProduct");
-    // console.log(fetchProduct);
-    productData = fetchProduct;
-    // productData = fetchProduct.product;
+    productData = fetchProduct.product;
     variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
     if (!productData) {
         return notFound();
     }
-
     //Prepare Breadcrumb
     const breadCrumbs = [
         {
@@ -76,10 +64,10 @@ const page = async ({ params: { id } }) => {
     //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${category.slug}`,
     //     });
     // });
-    // breadCrumbs.push({
-    //     label: productData.categories[0].title,
-    //     link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
-    // });
+    breadCrumbs.push({
+        label: productData.categories[0].title,
+        link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
+    });
 
     return (
         <ProductWrapper
@@ -87,7 +75,6 @@ const page = async ({ params: { id } }) => {
             variationData={variationData}
             breadCrumbs={breadCrumbs}
         />
-        // <></>
     );
 };
 

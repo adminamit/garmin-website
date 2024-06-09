@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useState, useCallback } from "react";
-import { Suspense } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
@@ -16,44 +15,6 @@ import "@/app/_css/product/gallery.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 export default function Gallery({ gallery }) {
-    // const gallery = [
-    //     {
-    //         id: 1,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/pd-01-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-01-xl?pgw=1",
-    //     },
-    //     {
-    //         id: 2,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/pd-02-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-02-xl?pgw=1",
-    //     },
-    //     {
-    //         id: 3,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/pd-03-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-03-xl?pgw=1",
-    //     },
-    //     {
-    //         id: 4,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/pd-04-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-04-xl?pgw=1",
-    //     },
-    //     {
-    //         id: 5,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/pd-06-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-06-xl?pgw=1",
-    //     },
-    //     {
-    //         id: 6,
-    //         thumbnail:
-    //             "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_100,q_auto,w_100/c_pad,h_100,w_100/v1/Product_Images/en_GB/products/010-02785-00/v/cf-xl?pgw=1",
-    //         img: "https://res.garmin.com/transform/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_500,q_auto,w_500/c_pad,h_500,w_500/v1/Product_Images/en_GB/products/010-02785-00/v/pd-06-xl?pgw=1",
-    //     },
-    // ];
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const sliderRef = useRef(null);
     const sliderRefThumbnail = useRef(null);

@@ -10,7 +10,6 @@ import Link from "next/link";
 export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const handleAddedCart = () => {
-        alert("added to cart");
         setAddedToCart(true);
     };
 
