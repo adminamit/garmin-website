@@ -32,9 +32,19 @@ export async function generateMetadata(
     };
 }
 
+// async function getProduct(id) {
+//     const res = await fetch(
+//         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
+//     );
+//     return res.json();
+// }
+
 async function getProduct(id) {
+    console.log(
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product?sku=${id}`
+    );
     const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
+        `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product?sku=${id}`
     );
     return res.json();
 }
@@ -42,21 +52,24 @@ async function getProduct(id) {
 const page = async ({ params: { id } }) => {
     let productData = null,
         variationData = null;
-    // const fetchProduct = await getProduct(id);
+    const fetchProduct = await getProduct(id);
+    // console.log("fetchProduct");
+    // console.log(fetchProduct);
+    productData = fetchProduct;
     // productData = fetchProduct.product;
-    // variationData = fetchProduct.variations ? fetchProduct.variations : [];
+    variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
-    // if (!productData) {
-    //     return notFound();
-    // }
+    if (!productData) {
+        return notFound();
+    }
 
     //Prepare Breadcrumb
-    // const breadCrumbs = [
-    //     {
-    //         label: "All SmartWatches",
-    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
-    //     },
-    // ];
+    const breadCrumbs = [
+        {
+            label: "All SmartWatches",
+            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
+        },
+    ];
     // productData.categories.map((category) => {
     //     breadCrumbs.push({
     //         label: category.title,
@@ -69,12 +82,12 @@ const page = async ({ params: { id } }) => {
     // });
 
     return (
-        // <ProductWrapper
-        //     productData={productData}
-        //     variationData={variationData}
-        //     breadCrumbs={breadCrumbs}
-        // />
-        <></>
+        <ProductWrapper
+            productData={productData}
+            variationData={variationData}
+            breadCrumbs={breadCrumbs}
+        />
+        // <></>
     );
 };
 

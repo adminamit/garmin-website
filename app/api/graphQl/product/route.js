@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 export async function GET(request, context) {
     let sku = request.nextUrl.searchParams.get("sku");
-
+    console.log("sku");
+    console.log(sku);
     // return NextResponse.json({ url: process.env.GRAPHQL_API_URL });
     const res = await fetch(process.env.GRAPHQL_API_URL, {
         method: "POST",
@@ -148,7 +149,5 @@ export async function GET(request, context) {
         }),
     });
     const data = await res.json();
-    console.log("data NextResponse");
-    console.log(data);
-    return NextResponse.json(data.data.Products.docs);
+    return NextResponse.json(data.data.Products.docs[0]);
 }
