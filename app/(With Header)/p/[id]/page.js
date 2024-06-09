@@ -42,31 +42,31 @@ async function getProduct(id) {
 const page = async ({ params: { id } }) => {
     let productData = null,
         variationData = null;
-    const fetchProduct = await getProduct(id);
-    productData = fetchProduct.product;
-    variationData = fetchProduct.variations ? fetchProduct.variations : [];
+    // const fetchProduct = await getProduct(id);
+    // productData = fetchProduct.product;
+    // variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
-    if (!productData) {
-        return notFound();
-    }
+    // if (!productData) {
+    //     return notFound();
+    // }
 
     //Prepare Breadcrumb
-    const breadCrumbs = [
-        {
-            label: "All SmartWatches",
-            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
-        },
-    ];
+    // const breadCrumbs = [
+    //     {
+    //         label: "All SmartWatches",
+    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
+    //     },
+    // ];
     // productData.categories.map((category) => {
     //     breadCrumbs.push({
     //         label: category.title,
     //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${category.slug}`,
     //     });
     // });
-    breadCrumbs.push({
-        label: productData.categories[0].title,
-        link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
-    });
+    // breadCrumbs.push({
+    //     label: productData.categories[0].title,
+    //     link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
+    // });
 
     return (
         // <ProductWrapper
