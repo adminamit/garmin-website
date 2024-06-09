@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import Link from "next/link";
-import { FaIndianRupeeSign } from "react-icons/fa6";
+import HtmlParser from "react-html-parser";
 import Image from "next/image";
 import { useCart } from "@/app/_providers/Cart";
 const formatPrice = (price) => {
@@ -35,7 +35,7 @@ const CartItem = ({ item }) => {
                     className="cart__product-card__product-url"
                 >
                     <h2 className="cart__product-card__product-name">
-                        {product.title}
+                        {HtmlParser(product.title)}
                     </h2>
                 </Link>
                 <div className="cart__product-card__product-sku">

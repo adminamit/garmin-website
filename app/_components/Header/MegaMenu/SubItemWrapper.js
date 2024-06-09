@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 export const SubItemWrapper = ({ children, title }) => {
+    const path = usePathname();
     const [active, setActive] = useState(false);
+    useEffect(() => {
+        setActive(false);
+    }, [path]);
     return (
         <div
             className={`gh__nav__categories__items__menu__column ${

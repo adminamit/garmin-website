@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { serialize } from "@/app/_utilities/GenerateHTML";
+import HtmlParser from "react-html-parser";
 export const CopyFootnote = ({ copy, theme }) => {
     return (
         <div

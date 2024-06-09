@@ -75,21 +75,6 @@ const compare = async () => {
                             return o.specKey == item.specification.id;
                         }
                     );
-                    // if (
-                    //     group.specificationGroup.id ==
-                    //     "6635b997df49de087e7e5fe9"
-                    // ) {
-                    //     console.log("index");
-                    //     console.log(index);
-                    //     if (
-                    //         item.specification.id === "66584af8b388639409165ba0"
-                    //     ) {
-                    //         console.log("item");
-                    //         console.log(item);
-                    //         console.log("isEmpty item.value");
-                    //         console.log(isEmpty(item.value));
-                    //     }
-                    // }
 
                     if (specIndex == "-1") {
                         specGroups[index]["specs"].push({
@@ -106,9 +91,6 @@ const compare = async () => {
                 });
             });
         });
-
-        // console.log("specGroupsspecGroupsspecGroups");
-        // console.log(specGroups);
 
         setSpecGroupsData(specGroups);
     }, [products]);

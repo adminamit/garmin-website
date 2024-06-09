@@ -5,28 +5,24 @@ import PostList from "@/app/_components/Blog/PostList";
 import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
 import { BlogSearch } from "@/app/_components/Blog/Search";
-// async function getPosts() {
-//     const res = await fetch(
-//         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/blog`,
-//         {
-//             next: { tags: ["blog"] },
-//         }
-//     );
-//     return res.json();
-// }
+// import { useSearchParams } from "next/navigation";
 
-async function getPosts() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs`, {
-        next: { tags: ["blog"] },
-    });
-    return res.json();
-}
+const fetchBlogResults = async (query) => {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/blogs/search?query=${query}`,
+        { next: { tags: ["blogSearch"] } }
+    );
+    return await res.json();
+};
 
-const blog = async () => {
+const blog = async ({ searchParams }) => {
+    // const searchParams = useSearchParams()
+    const query = searchParams.query;
     let posts = null;
-    const fetchPosts = await getPosts();
+    const fetchPosts = await fetchBlogResults(query);
     posts = fetchPosts ? fetchPosts.docs : null;
-
+    console.log("posts");
+    console.log(posts);
     return (
         <div>
             <nav className="blog__breadcrumbs">
@@ -57,7 +53,11 @@ const blog = async () => {
                     </div>
                 </div>
                 <BlogSearch />
-                {posts ? <PostList posts={posts} /> : <></>}
+                {posts && posts.length > 0 ? (
+                    <PostList posts={posts} />
+                ) : (
+                    <div className="text-center">No results found!</div>
+                )}
                 <NewsletterSignup />
             </div>
         </div>

@@ -8,7 +8,7 @@ const RelatedProducts = ({ products }) => {
             {products.map((product) => {
                 return (
                     <li key={product.id}>
-                        <Link href={`p/${product.id}`}>
+                        <Link href={`/p/${product.sku}`}>
                             <Image
                                 src={product.featuredImageUrl}
                                 alt={product.title}

@@ -11,10 +11,7 @@ export const MediaBlock = ({ heading, text, media, imagePosition }) => {
                 }`}
             >
                 <div className="media">
-                    <img
-                        src={media.url}
-                        alt="A woman is checking her stress level on her Garmin lady smartwatch"
-                    />
+                    <img src={media.url} alt={media.alt} />
                 </div>
                 <div className="body">
                     <div className="g__heading g__heading--left g__heading--light">

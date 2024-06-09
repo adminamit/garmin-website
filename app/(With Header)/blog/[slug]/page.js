@@ -7,6 +7,7 @@ import NewsletterSignup from "@/app/_components/Newsletter";
 import BlogNav from "@/app/_components/Blog/BlogNav";
 import RelatedProducts from "@/app/_components/Blog/RelatedProducts";
 import { serialize } from "@/app/_utilities/GenerateHTML";
+import { BlogSearch } from "@/app/_components/Blog/Search";
 import "@/app/_css/blog/post.css";
 import RelatedPosts from "@/app/_components/Blog/RelatedPosts";
 
@@ -36,20 +37,7 @@ const Post = async ({ params: { slug } }) => {
             <BlogNav />
 
             <div className="post">
-                <div className="blog__search">
-                    <form action="" method="get" className="form">
-                        <div className="form__search">
-                            <input
-                                type="search"
-                                name="s"
-                                id="search"
-                                value=""
-                                placeholder="Search Blog"
-                                aria-label="Search Blog"
-                            />
-                        </div>
-                    </form>
-                </div>
+                <BlogSearch />
 
                 <article className="post__main">
                     <div className="post__featured-image">
@@ -83,7 +71,13 @@ const Post = async ({ params: { slug } }) => {
                 <div className="post__aside">
                     <ul>
                         <li className="widget">
-                            <RelatedProducts products={post.relatedProducts} />
+                            {post.relatedProducts ? (
+                                <RelatedProducts
+                                    products={post.relatedProducts}
+                                />
+                            ) : (
+                                <></>
+                            )}
                         </li>
                         {/* <li className="widget">
                             <h2 className="widgettitle">Related</h2>

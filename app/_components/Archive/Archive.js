@@ -12,6 +12,7 @@ import { Loading } from "./Loading";
 import SortFilter from "./Filters/Sort";
 import Series from "./Series";
 import { useSearchParams } from "next/navigation";
+import HtmlParser from "react-html-parser";
 import { Loader } from "../Loader";
 import useIsMobile from "@/app/_utilities/IsMobileDevice";
 export const Archive = ({ category }) => {
@@ -139,7 +140,9 @@ export const Archive = ({ category }) => {
             </React.Fragment>
             <div className="py-[2.5em] px-[1em] text-center max-w-[900px] mx-auto mt-2 mb-6">
                 <Heading title={heading} />
-                <p className="font-light text-base">{description}</p>
+                <p className="font-light text-base">
+                    {HtmlParser(description)}
+                </p>
             </div>
 
             <div className="flex flex-col lg:flex-row w-full border-t border-borderColor">
@@ -151,7 +154,7 @@ export const Archive = ({ category }) => {
                         compare={compare}
                         handleCompareChange={handleCompareChange}
                     />
-                    {/* <Suspense fallback={<Loading />}> */}
+
                     {!loading && products ? (
                         <Products
                             compare={compare}
@@ -166,7 +169,6 @@ export const Archive = ({ category }) => {
                     ) : (
                         <Loading />
                     )}
-                    {/* </Suspense> */}
                 </div>
             </div>
 

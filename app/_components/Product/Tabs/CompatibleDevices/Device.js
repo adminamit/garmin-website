@@ -7,7 +7,7 @@ const Device = ({ device }) => {
         <div className="app__product__devices__section">
             <Link
                 className="app__product__devices__section__link"
-                href={`p/${device.sku}`}
+                href={`/p/${device.sku}`}
                 data-ua-event="Product Page Accessories Tab, Compatible Devices, 605172 + Approach® CT10 Full Set"
             >
                 <div className="app__product__devices__section__card app__product__devices__section__drop-shadow">

@@ -10,7 +10,7 @@ const PostList = ({ posts }) => {
                         return <Post post={post} key={post.slug} />;
                     })}
             </div>
-            <Pagination />
+            <Pagination posts={posts} />
         </div>
     );
 };

@@ -10,10 +10,8 @@ export const SportFitness = () => {
                     <div className="gh__nav__categories__items__menu__subcategories">
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/running/"
+                            href="/c/sports-fitness/running-smartwatches/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/running/"
                         >
                             Running{" "}
                         </a>
@@ -21,89 +19,69 @@ export const SportFitness = () => {
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/cycling/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/cycling/"
                         >
                             Cycling{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/tacx-indoor-cycling/"
+                            href="/c/sports-fitness/indoor-trainers/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/tacx-indoor-cycling/"
                         >
                             Tacx® Indoor Cycling{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/activity-fitness-trackers/"
+                            href="/c/sports-fitness/activity-fitness-trackers/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/activity-fitness-trackers/"
                         >
                             Fitness &amp; Health Tracking{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/golf/"
+                            href="/c/sports-fitness/golf-gps-devices-smartwatches/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/golf/"
                         >
                             Golf{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/multisport/"
+                            href="/c/sports-fitness/multisport-smartwatches/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/multisport/"
                         >
                             Multisport &amp; Triathlete{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/swimming/"
+                            href="/c/sports-fitness/swimming-smartwatches/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/swimming/"
                         >
                             Swimming{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/diving/"
+                            href="/c/sports-fitness/dive-computers-smartwatches"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/diving/"
                         >
                             Diving{" "}
                         </a>
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/water-sports/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/water-sports/"
                         >
                             Water Sports{" "}
-                        </a>
+                        </a> */}
                         <a
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/scales-monitors/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/scales-monitors/"
                         >
                             Scales &amp; Heart Rate Monitors{" "}
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/sports-fitness/kids-wearables/"
+                            href="/c/sports-fitness/kids-wearables-fitness-activity-trackers"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/sports-fitness/kids-wearables/"
                         >
                             Kids wearables{" "}
                         </a>
@@ -157,10 +135,6 @@ export const SportFitness = () => {
                                 href="https://www.garmin.com/en-GB/maps/updates/cycling/"
                                 target="_blank"
                                 aria-label="Cycling Maps - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-gb/maps/updates/cycling/$cyclingmaps"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-GB/maps/updates/cycling/"
                             >
                                 Cycling Maps{" "}
                             </a>
@@ -169,10 +143,6 @@ export const SportFitness = () => {
                                 href="https://discover.garmin.com/en-GB/performance-data/wearable-maps/"
                                 target="_blank"
                                 aria-label="Wearable Maps - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://discover.garmin.com/en-gb/performance-data/wearable-maps/$wearablemaps"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://discover.garmin.com/en-GB/performance-data/wearable-maps/"
                             >
                                 Wearable Maps{" "}
                             </a>
@@ -181,10 +151,6 @@ export const SportFitness = () => {
                                 href="https://www.garmin.com/en-GB/maps/updates/golf/"
                                 target="_blank"
                                 aria-label="Golf Maps - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-gb/maps/updates/golf/$golfmaps"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-GB/maps/updates/golf/"
                             >
                                 Golf Maps{" "}
                             </a>
@@ -193,10 +159,6 @@ export const SportFitness = () => {
                                 href="https://www.garmin.com/en-GB/golf-courses/"
                                 target="_blank"
                                 aria-label="Golf Course Locator - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-gb/golf-courses/$golfcourselocator"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-GB/golf-courses/"
                             >
                                 Golf Course Locator{" "}
                             </a>
@@ -246,8 +208,6 @@ export const SportFitness = () => {
                                 className="gh__nav__categories__items__menu__link"
                                 href="/c/wearables-smartwatches-accessories/"
                                 target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/wearables-smartwatches-accessories/"
                             >
                                 Wearables &amp; Smartwatch Accessories{" "}
                             </a>
@@ -255,8 +215,6 @@ export const SportFitness = () => {
                                 className="gh__nav__categories__items__menu__link"
                                 href="/c/cycling-accessories/"
                                 target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/cycling-accessories/"
                             >
                                 Cycling Accessories{" "}
                             </a>
@@ -264,8 +222,6 @@ export const SportFitness = () => {
                                 className="gh__nav__categories__items__menu__link"
                                 href="/c/sports-fitness/indoor-training-accessories/"
                                 target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/sports-fitness/indoor-training-accessories/"
                             >
                                 Indoor Training Accessories{" "}
                             </a>
@@ -273,8 +229,6 @@ export const SportFitness = () => {
                                 className="gh__nav__categories__items__menu__link"
                                 href="/c/apps/"
                                 target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/apps/"
                             >
                                 Apps{" "}
                             </a>
@@ -328,10 +282,6 @@ export const SportFitness = () => {
                             href="/blog/"
                             target="_blank"
                             aria-label="Blog - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="/blog/$blog"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/blog/"
                         >
                             Blog{" "}
                         </a>
@@ -340,10 +290,6 @@ export const SportFitness = () => {
                             href="https://www.garmin.com/en-GB/careers/"
                             target="_blank"
                             aria-label="Careers - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/careers/$careers"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/careers/"
                         >
                             Careers{" "}
                         </a>
@@ -352,10 +298,6 @@ export const SportFitness = () => {
                             href="https://apps.garmin.com/en-GB/"
                             target="_blank"
                             aria-label="Connect IQ - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://apps.garmin.com/en-gb/$connectiq"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://apps.garmin.com/en-GB/"
                         >
                             Connect IQ{" "}
                         </a>
@@ -364,10 +306,6 @@ export const SportFitness = () => {
                             href="https://connect.garmin.com/en-GB/"
                             target="_blank"
                             aria-label="Garmin Coach - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://connect.garmin.com/en-gb/$garmincoach"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://connect.garmin.com/en-GB/"
                         >
                             Garmin Coach{" "}
                         </a>
@@ -376,10 +314,6 @@ export const SportFitness = () => {
                             href="https://connect.garmin.com/en-GB/"
                             target="_blank"
                             aria-label="Garmin Connect - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://connect.garmin.com/en-gb/$garminconnect"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://connect.garmin.com/en-GB/"
                         >
                             Garmin Connect{" "}
                         </a>
@@ -388,10 +322,6 @@ export const SportFitness = () => {
                             href="https://www.garmin.com/en-GB/golf-courses/?a2=GB&state=&new=false&upd=false&cnt=false&q=&addr="
                             target="_blank"
                             aria-label="Garmin Express - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/golf-courses/?a2=gb&state=&new=false&upd=false&cnt=false&q=&addr=$garminexpress"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/golf-courses/?a2=GB&state=&new=false&upd=false&cnt=false&q=&addr="
                         >
                             Garmin Express{" "}
                         </a>
@@ -400,10 +330,6 @@ export const SportFitness = () => {
                             href="https://www.garmin.com/en-GB/health/"
                             target="_blank"
                             aria-label="Garmin Enterprise Health Solutions - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/health/$garminenterprisehealthsolutions"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/health/"
                         >
                             Garmin Enterprise Health Solutions{" "}
                         </a>
@@ -412,10 +338,6 @@ export const SportFitness = () => {
                             href="https://explore.garmin.com/en-GB/garmin-pay/"
                             target="_blank"
                             aria-label="Garmin Pay - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://explore.garmin.com/en-gb/garmin-pay/$garminpay"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://explore.garmin.com/en-GB/garmin-pay/"
                         >
                             Garmin Pay{" "}
                         </a>
@@ -424,10 +346,6 @@ export const SportFitness = () => {
                             href="https://www.garmin.com/en-GB/pros/"
                             target="_blank"
                             aria-label="Garmin Pros - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/pros/$garminpros"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/pros/"
                         >
                             Garmin Pros{" "}
                         </a>
@@ -435,8 +353,6 @@ export const SportFitness = () => {
                             className="gh__nav__categories__items__menu__link"
                             href="/garmin-technology/"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/garmin-technology/"
                         >
                             Garmin Technology{" "}
                         </a>
@@ -445,10 +361,6 @@ export const SportFitness = () => {
                             href="https://discover.garmin.com/en-GB/who-we-work-with/"
                             target="_blank"
                             aria-label="Who We Work With - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://discover.garmin.com/en-gb/who-we-work-with/$whoweworkwith"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://discover.garmin.com/en-GB/who-we-work-with/"
                         >
                             Who We Work With{" "}
                         </a>
@@ -457,10 +369,6 @@ export const SportFitness = () => {
                             href="https://www.garmin.com/en-GB/c/subscription-plans/"
                             target="_blank"
                             aria-label="Subscription Plans - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/c/subscription-plans/$subscriptionplans"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/c/subscription-plans/"
                         >
                             Subscription Plans{" "}
                         </a>
@@ -509,8 +417,6 @@ export const SportFitness = () => {
                                 src="https://www.garmin.ae/wp-content/uploads/2022/07/YWYW-vivoactiveWhite-Small-300x150-1.png"
                                 loading="lazy"
                                 alt="YOUR WATCH. YOUR WAY."
-                                data-uw-rm-alt-original="YOUR WATCH. YOUR WAY."
-                                data-uw-rm-alt="ALT"
                             />
                             <div className="grouping">
                                 <h3 className="gh__nav__categories__items__menu__promo-card__heading">

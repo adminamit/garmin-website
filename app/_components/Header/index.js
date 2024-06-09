@@ -18,14 +18,17 @@ import { Marine } from "./MegaMenu/Marine";
 import { Automotive } from "./MegaMenu/Automotive";
 import { Outdoor } from "./MegaMenu/Outdoor";
 import { SportFitness } from "./MegaMenu/SportFitness";
+import { usePathname } from "next/navigation";
 import "../../_css/header.css";
 const Header = () => {
     const router = useRouter();
     const { status } = useAuth();
     const [menuActive, setMenuActive] = useState(false);
+    const path = usePathname();
     useEffect(() => {
         setMenuActive(false);
-    }, [router]);
+    }, [path]);
+
     return (
         <div>
             <header className="gh__header">

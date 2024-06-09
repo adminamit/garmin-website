@@ -27,14 +27,25 @@ export async function generateMetadata(
 ) {
     const activeSlug = slug.pop();
 
-    const meta = await fetch(
+    const metaData = await fetch(
         `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/category/meta?slug=${activeSlug}`
-    ).then((meta) => meta.json());
+    )
+        .then((meta) => meta.json())
+        .catch((err) => {
+            metaData: {
+            }
+        });
     return {
-        title: meta.meta.title ? meta.meta.title : meta.title,
-        description: meta.meta.description
-            ? meta.meta.description
-            : meta.description,
+        title: metaData
+            ? metaData.meta.title
+                ? metaData.meta.title
+                : metaData.title
+            : "",
+        description: metaData
+            ? metaData.meta.description
+                ? metaData.meta.description
+                : metaData.description
+            : "",
     };
 }
 

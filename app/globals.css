@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html {
+  scroll-behavior: smooth;
+}
 @import './_css/cart.css';
 @import './_css/fonts.css';
 :root {
@@ -541,7 +543,6 @@ table {
     stroke: rgb(51, 51, 51);
   }
 }
-
 
 .loading-cloud {
   position: relative;

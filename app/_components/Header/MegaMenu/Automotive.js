@@ -121,7 +121,7 @@ export const Automotive = () => {
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/p/305726/garmin-catalyst-driving-performance-optimiser010-02345-10/"
+                            href="/c/automotive/motorsports/"
                             target="_self"
                             data-uw-rm-brl="PR"
                             data-uw-original-href="/p/305726/garmin-catalyst-driving-performance-optimiser010-02345-10/"

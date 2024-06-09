@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useRef } from "react";
 import { Tab } from "@headlessui/react";
 import Sidebar from "../Sidebar/Sidebar";
 import "@/app/_css/product/tabs.css";
@@ -11,6 +11,7 @@ import { Accessories } from "./Accessories/Accessories";
 import { isEmpty } from "lodash";
 const Tabs = ({ productData }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const tabReference = useRef(null);
     // const scroll = useScroll();
     const navListItems = [
         {
@@ -43,7 +44,7 @@ const Tabs = ({ productData }) => {
         {
             id: "accessories",
             label: "Accessories",
-            content: productData.productAccessories ? (
+            content: productData.productAccessories.accessory ? (
                 <Accessories
                     accessories={productData.productAccessories.accessory}
                 />
@@ -57,13 +58,16 @@ const Tabs = ({ productData }) => {
             content: productData.compatibleProducts ? (
                 <Devices products={productData.compatibleProducts} />
             ) : (
-                <></>
+                <div className="text-center oswald my-7">
+                    <h4 className="text-lg">No Compatible devices found!</h4>
+                </div>
             ),
         },
     ];
 
     const handleTabChange = (index) => {
         setSelectedIndex(index);
+        tabReference.current.scrollIntoView();
     };
     return (
         <div className="">
@@ -104,6 +108,7 @@ const Tabs = ({ productData }) => {
                     <div
                         className="app__tabs__content_wrapper"
                         id="app__tabs__content_wrapper"
+                        ref={tabReference}
                     >
                         <div
                             className={`${

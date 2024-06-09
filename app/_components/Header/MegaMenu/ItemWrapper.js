@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 export const ItemWrapper = ({ children, title }) => {
+    const path = usePathname();
     const [active, setActive] = useState(false);
+    useEffect(() => {
+        setActive(false);
+    }, [path]);
     return (
         <li
             className={`gh__nav__categories__items js__mega-menu-item en-GB ${

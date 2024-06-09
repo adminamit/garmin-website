@@ -2,7 +2,7 @@ import React from "react";
 import { ItemWrapper } from "./ItemWrapper";
 import { SubItemWrapper } from "./SubItemWrapper";
 import Link from "next/link";
-export const SmartWatches = () => {
+export const SmartWatches = ({}) => {
     return (
         <ItemWrapper title="SMARTWATCHES">
             {/* <li className="gh__nav__categories__items js__mega-menu-item en-GB"> */}

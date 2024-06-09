@@ -220,15 +220,6 @@ export const Marine = () => {
                         <div className="gh__nav__categories__items__menu__subcategories">
                             <a
                                 className="gh__nav__categories__items__menu__link"
-                                href="/c/marine/fishfinders/"
-                                target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/marine/fishfinders/"
-                            >
-                                Fishfinders{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
                                 href="/c/marine/trolling-motors/"
                                 target="_self"
                                 data-uw-rm-brl="PR"
@@ -256,10 +247,10 @@ export const Marine = () => {
                             </a>
                             <a
                                 className="gh__nav__categories__items__menu__link"
-                                href="/c/marine/handhelds-wearables-marine-2/"
+                                href="/c/marine/handhelds-wearables-marine/"
                                 target="_self"
                                 data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/marine/handhelds-wearables-marine-2/"
+                                data-uw-original-href="/c/marine/handhelds-wearables-marine/"
                             >
                                 Handhelds &amp; Wearables{" "}
                             </a>
@@ -328,13 +319,9 @@ export const Marine = () => {
                     <div className="gh__nav__categories__items__menu__subcategories">
                         <a
                             className="gh__nav__categories__items__menu__link"
-                            href="/c/marinechart-mappurchase/"
+                            href="https://www.garmin.com/en-GB/marinechart-mappurchase/"
                             target="_blank"
                             aria-label="Purchase - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="/c/marinechart-mappurchase/$purchase"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/marinechart-mappurchase/"
                         >
                             Purchase{" "}
                         </a>
@@ -343,10 +330,6 @@ export const Marine = () => {
                             href="https://www.garmin.com/en-GB/marine/types-of-updates/"
                             target="_blank"
                             aria-label="Update - open in a new tab"
-                            data-uw-rm-ext-link
-                            uw-rm-external-link-id="https://www.garmin.com/en-gb/marine/types-of-updates/$update"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="https://www.garmin.com/en-GB/marine/types-of-updates/"
                         >
                             Update{" "}
                         </a>
@@ -428,7 +411,7 @@ export const Marine = () => {
                         >
                             Careers{" "}
                         </a>
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="/support/software/marine/engine-integration/"
                             target="_self"
@@ -436,7 +419,7 @@ export const Marine = () => {
                             data-uw-original-href="/support/software/marine/engine-integration/"
                         >
                             Engine Integration{" "}
-                        </a>
+                        </a> */}
                         <a
                             className="gh__nav__categories__items__menu__link"
                             href="https://www.garmin.com/en-GB/software/express/windows/"

@@ -139,6 +139,7 @@ h2 {
 .form__search {
     margin: 0 1rem;
     width: calc(100% - 2rem);
+    
 }
 .form input[type=search] {
     border: 1px solid #d9d9d9;

@@ -51,6 +51,10 @@
     font-size: 1.5rem;
     margin: 1.5rem 0;
   }
+  .g__spotlight--width-60-40{
+    width: 100%;
+    flex-direction: column;
+  }
   
   @media screen and (min-width: 768px) {
     .g__heading h2 {
@@ -71,6 +75,12 @@
     .g__spotlight--width-60-40 .body,
     .g__spotlight--width-half .body {
       padding: 2rem 4rem;
+    }
+    .g__spotlight--width-60-40.g__spotlight--img-left {
+      flex-direction: row;
+    }
+    .g__spotlight--width-60-40 {
+      flex-direction: row;
     }
     .g__heading h2 {
       font-size: 2rem;

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import HtmlParser from "react-html-parser";
 const OrderItems = ({ orderItems, cartDetails }) => {
     return (
         <div className="flex flex-col bg-white">
@@ -18,7 +19,7 @@ const OrderItems = ({ orderItems, cartDetails }) => {
                     </div>
                     <div className="checkout__product-card__product-details flex-1 ml-4 flex flex-col gap-2">
                         <h2 className="checkout__product-card__product-name">
-                            {item.product.title}
+                            {HtmlParser(item.product.title)}
                         </h2>
 
                         <div className="checkout__product-card__product-sku">

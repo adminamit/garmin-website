@@ -4,6 +4,10 @@
 .post .blog__search {
     margin: 1rem 0;
 }
+article.post__main {
+    width: 100%;
+    word-break: break-all;
+}
 .post__featured-image {
     margin-bottom: 1rem;
 }

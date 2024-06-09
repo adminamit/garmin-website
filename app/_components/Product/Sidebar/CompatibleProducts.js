@@ -10,7 +10,7 @@ export const CompatibleProducts = ({ products }) => {
             <Heading>compatible products</Heading>
             <div className="sidebar__list">
                 {products.map((item) => (
-                    <Card href={`p/${item.sku}`} key={item.sku}>
+                    <Card href={`/p/${item.sku}`} key={item.sku}>
                         <div className="product-card__product-url">
                             <Image
                                 src={item.featuredImageUrl}

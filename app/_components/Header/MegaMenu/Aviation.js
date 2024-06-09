@@ -124,10 +124,7 @@ export const Aviation = () => {
                             </a>
                             <a
                                 className="gh__nav__categories__items__menu__link"
-                                href="/c/aviation/portable-gps-aviation/"
-                                target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/aviation/portable-gps-aviation/"
+                                href="https://www.garmin.com/en-US/c/aviation/gps-wearables-apps/"
                             >
                                 Portable GPS &amp; Wearables{" "}
                             </a>
