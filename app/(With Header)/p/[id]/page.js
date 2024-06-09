@@ -50,8 +50,6 @@ const page = async ({ params: { id } }) => {
         return notFound();
     }
 
-    console.log("productDataproductDataproductDataproductData");
-    console.log(productData.breadcrumb);
     //Prepare Breadcrumb
     const breadCrumbs = [
         {
@@ -71,11 +69,12 @@ const page = async ({ params: { id } }) => {
     });
 
     return (
-        <ProductWrapper
-            productData={productData}
-            variationData={variationData}
-            breadCrumbs={breadCrumbs}
-        />
+        // <ProductWrapper
+        //     productData={productData}
+        //     variationData={variationData}
+        //     breadCrumbs={breadCrumbs}
+        // />
+        <></>
     );
 };
 

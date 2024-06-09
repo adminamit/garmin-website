@@ -45,9 +45,6 @@ export async function GET(request, context) {
 
         { addQueryPrefix: true }
     );
-    console.log(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
-    );
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`,
         { next: { tags: ["products"] } }
