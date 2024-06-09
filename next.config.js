@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 protocol: "https",
-                hostname: "3.7.254.15.nip.io",
+                hostname: "13.201.128.24.nip.io",
                 port: "",
             },
         ],
