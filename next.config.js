@@ -23,6 +23,11 @@ module.exports = {
                 hostname: "garmincontrolpanel.cyberworxindia.com",
                 port: "",
             },
+            {
+                protocol: "https",
+                hostname: "13.201.128.24.nip.io",
+                port: "",
+            },
         ],
         domains: ["localhost"],
     },

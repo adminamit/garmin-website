@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Message } from "@/app/_components/Message";
 import { Loader } from "@/app/_components/Loader";
 import { useAuth } from "@/app/_providers/Auth";
-
+import toast from "react-hot-toast";
 export const setTokenCookie = (expiresIn, accessToken) => {
     return fetch("/api/auth/setHttpCookie", {
         method: "post",
@@ -19,17 +19,20 @@ export const setTokenCookie = (expiresIn, accessToken) => {
     });
 };
 
-import toast from "react-hot-toast";
 export const LoginForm = () => {
+    //Get Rdirect Param
+
     const { login } = useAuth();
     const [error, setError] = useState(null);
-
     const reCaptchaRef = useRef(null);
     const searchParams = useSearchParams();
     const allParams = searchParams.toString()
         ? `?${searchParams.toString()}`
         : "";
-    const redirect = useRef(searchParams.get("redirect"));
+    // const redirect = useRef(searchParams.get("redirect"));
+    const redirect = searchParams.get("redirect");
+    console.log("redirect");
+    console.log(redirect);
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
@@ -55,7 +58,7 @@ export const LoginForm = () => {
                 if (authStatus.errors) {
                     toast.error(authStatus.errors[0].message);
                 } else {
-                    toast.success("Logged in! Redirecting to dashboard..");
+                    toast.success("Logged in! Redirecting..");
                     const { token, exp, user } = authStatus;
                     // setCookie("payload-token", authStatus.token, {
                     //     maxAge: authStatus.exp,
@@ -67,7 +70,7 @@ export const LoginForm = () => {
                     login(user);
                     setSubmitting(true);
                     resetForm();
-                    router.push("/account");
+                    redirect ? router.push(redirect) : router.push("/account");
                 }
             } else {
                 toast.error("Something went wrong. Please try again");

@@ -20,7 +20,9 @@ const Checkout = () => {
     } = useCart();
     const router = useRouter();
     // if (!user) {
-    //     router.push("/login");
+    //     router.push(
+    //         `/login?redirect=${process.env.NEXT_PUBLIC_LIVE_URL}/checkout`
+    //     );
     // }
 
     return (

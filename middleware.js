@@ -15,7 +15,12 @@ export function middleware(request) {
     }
     //Checkout Redirection
     if (!userToken && request.nextUrl.pathname.startsWith("/checkout")) {
-        return Response.redirect(new URL("/login", request.url));
+        return Response.redirect(
+            new URL(
+                `/login?redirect=${process.env.NEXT_PUBLIC_LIVE_URL}/checkout`,
+                request.url
+            )
+        );
     }
 
     // Add new request headers

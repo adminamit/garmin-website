@@ -426,7 +426,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     // }, [formik.values.isBillingSame]);
 
     const handleIsBillingSameChange = (e) => {
-        console.log(e.target.checked);
         e.target.checked ? setIsBillingSame(true) : setIsBillingSame(false);
     };
 
@@ -440,15 +439,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                 <div>
                     {/* <Loader /> */}
                     <div>
-                        <div
-                            onClick={() => {
-                                createDelhiveryManifestation({
-                                    id: "3432423",
-                                });
-                            }}
-                        >
-                            Manifest
-                        </div>
                         <form onSubmit={formik.handleSubmit} className="">
                             <GuestUserEmail formik={formik} status={status} />
 

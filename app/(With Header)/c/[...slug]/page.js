@@ -3,6 +3,10 @@ import { Archive } from "@/app/_components/Archive/Archive";
 import "@/app/_css/shop/products.css";
 import qs from "qs";
 
+export const runtime = "edge";
+export const preferredRegion = "home";
+export const maxDuration = 300;
+
 async function getCategoryData(slug) {
     const query = {
         slug: {
