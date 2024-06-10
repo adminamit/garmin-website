@@ -430,10 +430,8 @@ export const Outdoor = () => {
                     <div className="gh__nav__categories__items__menu__promo-card">
                         <a
                             className="vertical"
-                            href="/c/wearables-smartwatches/?FILTER_SERIES=fenix-fenix&FILTER_FEATURES=&FILTER_ACTIVITY=&FILTER_COMPATABILITY=&FILTER_ACCESSORYTYPE=&FILTER_CHARTPLOTTER="
+                            href="/c/wearables-smartwatches?series=665c80de16fdddb4b01efa31"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/wearables-smartwatches/?FILTER_SERIES=fenix-fenix&FILTER_FEATURES=&FILTER_ACTIVITY=&FILTER_COMPATABILITY=&FILTER_ACCESSORYTYPE=&FILTER_CHARTPLOTTER="
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"
@@ -457,10 +455,8 @@ export const Outdoor = () => {
                     <div className="gh__nav__categories__items__menu__promo-card">
                         <a
                             className="horizontal"
-                            href="/c/wearables-smartwatches/?FILTER_SERIES=epix&FILTER_FEATURES=&FILTER_ACTIVITY=&FILTER_COMPATABILITY=&FILTER_ACCESSORYTYPE=&FILTER_CHARTPLOTTER="
+                            href="/c/wearables-smartwatches?series=665c812116fdddb4b01efa4e"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/c/wearables-smartwatches/?FILTER_SERIES=epix&FILTER_FEATURES=&FILTER_ACTIVITY=&FILTER_COMPATABILITY=&FILTER_ACCESSORYTYPE=&FILTER_CHARTPLOTTER="
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"

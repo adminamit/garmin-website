@@ -163,7 +163,7 @@ const Info = ({
                     ""
                 )}
             </div>
-            <ShippingInfo />
+            {productData.stock > 0 ? <ShippingInfo /> : <></>}
         </div>
     );
 };

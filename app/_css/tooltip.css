@@ -21,3 +21,10 @@
 .tooltip--product .tooltip__title{
     /* font-family: 'Roboto'; */
 }
+
+
+@media screen and (max-width: 1024px){
+    .tooltip__summary {
+        justify-content: center;
+    }
+}

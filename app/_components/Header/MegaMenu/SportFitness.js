@@ -380,22 +380,18 @@ export const SportFitness = () => {
                     <div className="gh__nav__categories__items__menu__promo-card">
                         <a
                             className="vertical"
-                            href="/p/307559/forerunner-945010-02063-01/"
+                            href="/p/010-02641-43"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/p/307559/forerunner-945010-02063-01/"
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"
-                                src="https://www.garmin.ae/wp-content/uploads/2022/07/Forerunner945-lg-300x225-1.jpeg"
+                                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/Forerunner 010-02641-43.webp`}
                                 loading="lazy"
-                                alt="FORERUNNER® 945"
-                                data-uw-rm-alt-original="FORERUNNER® 945"
-                                data-uw-rm-alt="ALT"
+                                alt="Forerunner® 255"
                             />
                             <div className="grouping">
                                 <h3 className="gh__nav__categories__items__menu__promo-card__heading">
-                                    FORERUNNER® 945
+                                    Forerunner® 255
                                 </h3>
                                 <div className="gh__nav__categories__items__menu__promo-card__copy" />
                                 <span className="gh__nav__categories__items__menu__promo-card__cta">

@@ -488,10 +488,8 @@ export const Marine = () => {
                     <div className="gh__nav__categories__items__menu__promo-card">
                         <a
                             className="vertical"
-                            href="/p/306346/fusion-signature-series-3-marine-wake-tower-speakers010-02437-00/"
+                            href="https://www.garmin.com/en-GB/p/1145309"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/p/306346/fusion-signature-series-3-marine-wake-tower-speakers010-02437-00/"
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"

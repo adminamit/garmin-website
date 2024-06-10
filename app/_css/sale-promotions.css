@@ -1,0 +1,171 @@
+#sales__promotions .container {
+    width: auto;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+#sales__promotions .container.light {
+    background: #fff;
+}
+#sales__promotions .container {
+    margin: 0 auto;
+    width: 100%;
+}
+.container--constraint {
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+#sales__promotions .container--constraint {
+    display: flex;
+    flex-direction: column;
+}
+#sales__promotions .container.base__medium .container--constraint {
+    max-width: 900px;
+}
+#sales__promotions .h1 {
+    font-family: Oswald, Roboto Condensed, Roboto, Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Prompt, sans-serif;
+    font-weight: 400;
+    letter-spacing: .05rem;
+    line-height: 1.25;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+#sales__promotions .g__copy {
+    font-family: Roboto, Noto Sans TC, Noto Sans SC, Noto Sans JP, Noto Sans KR, Prompt, sans-serif;
+    line-height: 1.5;
+    margin-bottom: 0;
+    overflow: auto;
+    text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+#sales__promotions .container.light {
+    background: #eee;
+}
+
+.g__card-container {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+.g__card-container--light {
+    background: #eeeeee;
+}
+.g__card-container__constraint {
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+.g__card-container__center {
+    justify-content: center;
+}
+.g__card {
+    background: #ffffff;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: block;
+    min-height: 200px;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.24);
+    transition: box-shadow 135ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+.g__card .g__card__button-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    text-indent: -99999px;
+    cursor: pointer;
+}
+.g__card .g__card__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.g__card .image {
+    width: 100%;
+    flex-shrink: 0;
+}
+.g__card .heading {
+    margin: 1rem 1rem;
+}
+.g__card .copy--no-disclaimer {
+    margin-bottom: 1.5rem;
+}
+a.g__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: auto;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    font-size: 14px;
+}
+.g__card .copy {
+    margin: 0 1rem 1rem;
+}
+.g__card .image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.g__card .g__card__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 2;
+}
+.g__heading h2 {
+    font-family: "Oswald", "Roboto Condensed", "Roboto", "Noto Sans TC", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", "Prompt", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
+    line-height: 1.25;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+}
+@media screen and (min-width: 480px) {
+    .g__card-container__constraint {
+        padding-left: 1rem;
+    }
+    .g__card {
+        margin: 0;
+    }
+    .g__card__vertical {
+        width: calc(50% - 1rem);
+    }
+}
+@media screen and (min-width: 768px) {
+    .g__card__vertical {
+        width: calc(33.3333333333% - 1rem);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .g__card__vertical {
+        width: calc(25% - 1rem);
+    }
+}
+@media screen and (min-width: 768px) {
+    .g__card__vertical.g__card--third {
+        width: calc(50% - 1rem);
+    }
+}
+@media screen and (min-width: 1024px) {
+    .g__card__vertical.g__card--third {
+        width: calc(33.3333333333% - 1rem);
+    }
+}

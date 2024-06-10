@@ -76,7 +76,7 @@ const ResetPassword = () => {
                 .string()
                 .oneOf([yup.ref("password"), null], "Passwords must match")
                 .required("This field is required"),
-            promotion: yup.boolean().oneOf([true], "Please accept."),
+            promotion: yup.boolean(),
             termsCondition: yup
                 .boolean()
                 .oneOf([true], "Please accept.")

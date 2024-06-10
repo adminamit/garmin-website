@@ -9,9 +9,9 @@
     width: 100%;
     display: block;
 }
-.app__img-banner__img--desktop {
+/* .app__img-banner__img--desktop {
     display: none;
-}
+} */
 .app__tabs__content__main img {
     max-width: 100%;
     height: auto;

@@ -2,11 +2,14 @@
     @apply relative cursor-pointer items-center z-[100]
 }
 .dropdown__title{
-    @apply py-5 border-b-[3px] border-white group-hover:border-black px-1;
+    @apply pt-5 pb-2 border-b-[0px] border-white group-hover:border-black px-1;
 }
 .dropdown__menu{
-    @apply absolute flex-col gap-2 border border-borderColor bg-white text-sm p-6 -left-20 top-full w-32 hidden group-hover:flex;
+    @apply absolute flex-col gap-2 border border-borderColor bg-white text-sm p-6 -left-12 top-full w-48 hidden group-hover:flex;
     @apply hidden;
+}
+.gh__utility-bar__sign-in .dropdown__menu{
+    @apply -left-16 w-32 top-[70px]
 }
 .dropdown__menu a{
     @apply hover:underline;

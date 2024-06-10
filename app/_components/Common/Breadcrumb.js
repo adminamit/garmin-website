@@ -12,7 +12,7 @@ const BreadCrumb = ({ breadCrumbs }) => {
                         >
                             <Link
                                 href={breadcrumb.link}
-                                className="app__breadcrumb__link"
+                                className="app__breadcrumb__link text-xs md:text-base"
                             >
                                 {breadcrumb.label}
                             </Link>

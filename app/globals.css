@@ -248,7 +248,9 @@ nav.menu .menu-item{
   }
 
 /* Home Featured  */
-
+.featured-slider .swiper-slide {
+  height: auto !important;
+}
 .home-featured-product-card {
   display: block;
   position: relative;
@@ -258,6 +260,7 @@ nav.menu .menu-item{
   box-shadow: 0 2px 3px 1px #d9d9d9;
   padding-bottom: 1em;
   @apply pt-8 px-4;
+  height: calc(100%);
 }
 
 .home-featured-product-heading{
@@ -266,6 +269,7 @@ nav.menu .menu-item{
   font-weight: 400;
   letter-spacing: 0.05rem;
   line-height: 1.25;
+  margin: 0;
 }
 .home-featured-product-description{
   line-height: 1.25rem;

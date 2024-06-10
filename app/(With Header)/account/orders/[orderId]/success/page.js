@@ -9,8 +9,7 @@ const OrderSuccess = ({ id }) => {
                     Payment Successful
                 </h2>
                 <p className="mt-4 font-normal text-lg leading-8  mb-11 text-center">
-                    Thank you for your purchase. You can view your order summary
-                    below.
+                    Your order summary
                 </p>
                 <div className="main-box border border-borderColor pt-6 max-lg:mx-auto lg:max-w-full">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between px-6 pb-6 border-b border-borderColor">

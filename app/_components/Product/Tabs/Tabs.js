@@ -41,28 +41,27 @@ const Tabs = ({ productData }) => {
                 <></>
             ),
         },
-        {
-            id: "accessories",
-            label: "Accessories",
-            content: productData.productAccessories.accessory ? (
-                <Accessories
-                    accessories={productData.productAccessories.accessory}
-                />
-            ) : (
-                <></>
-            ),
-        },
-        {
-            id: "devices",
-            label: "Compatible Devices",
-            content: productData.compatibleProducts ? (
-                <Devices products={productData.compatibleProducts} />
-            ) : (
-                <div className="text-center oswald my-7">
-                    <h4 className="text-lg">No Compatible devices found!</h4>
-                </div>
-            ),
-        },
+        productData.productAccessories.accessory &&
+        productData.productAccessories.accessory.length > 0
+            ? {
+                  id: "accessories",
+                  label: "Accessories",
+                  content: (
+                      <Accessories
+                          accessories={productData.productAccessories.accessory}
+                      />
+                  ),
+              }
+            : {},
+        productData.compatibleProducts
+            ? {
+                  id: "devices",
+                  label: "Compatible Devices",
+                  content: (
+                      <Devices products={productData.compatibleProducts} />
+                  ),
+              }
+            : {},
     ];
 
     const handleTabChange = (index) => {
@@ -79,7 +78,7 @@ const Tabs = ({ productData }) => {
                     <Tab.List as={Fragment}>
                         <ul className="product__tabs__nav__list">
                             {navListItems.map((item) => {
-                                return (
+                                return !isEmpty(item) ? (
                                     <div
                                         className="product__subnav__item tabs__list__item"
                                         key={item.id}
@@ -99,6 +98,8 @@ const Tabs = ({ productData }) => {
                                             )}
                                         </Tab>
                                     </div>
+                                ) : (
+                                    <></>
                                 );
                             })}
                         </ul>

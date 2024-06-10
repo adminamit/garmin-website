@@ -85,25 +85,29 @@ export const LifeStyle = ({
                     unoptimized
                 /> */}
             </div>
-            <div
-                className={`app__life-style__text__con app__life-style__text__con--${horizontalAlign} app__life-style__text__con--${verticalAlign} app__life-style__text__con__mobile--center app__life-style__text__con__mobile--middle`}
-            >
-                <h2
-                    className={`app__headline app__headline--dark app__headline--${horizontalAlign} app__headline--mobile--center`}
+            {title && description ? (
+                <div
+                    className={`app__life-style__text__con app__life-style__text__con--${horizontalAlign} app__life-style__text__con--${verticalAlign} app__life-style__text__con__mobile--center app__life-style__text__con__mobile--middle`}
                 >
-                    <span
-                        className="app__headline__container"
-                        style={{ "font-size": "5rem" }}
+                    <h2
+                        className={`app__headline app__headline--dark app__headline--${horizontalAlign} app__headline--mobile--center`}
                     >
-                        <span className="app__headline__primary-text">
-                            {HtmlParser(title)}
+                        <span
+                            className="app__headline__container"
+                            style={{ "font-size": "5rem" }}
+                        >
+                            <span className="app__headline__primary-text">
+                                {HtmlParser(title)}
+                            </span>
+                            <span className="app__headline__secondary-text">
+                                {HtmlParser(description)}
+                            </span>
                         </span>
-                        <span className="app__headline__secondary-text">
-                            {HtmlParser(description)}
-                        </span>
-                    </span>
-                </h2>
-            </div>
+                    </h2>
+                </div>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

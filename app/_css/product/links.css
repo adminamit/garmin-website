@@ -40,7 +40,13 @@
         @apply w-[200px] 
     }
     .sidebar__container {
+        flex-direction: row;
+        gap: 0px;
+    }
+}
 
+@media screen and (max-width: 1024px){
+    .sidebar__container {
         flex-direction: row;
         gap: 0px;
     }

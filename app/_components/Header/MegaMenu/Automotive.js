@@ -424,10 +424,8 @@ export const Automotive = () => {
                     <div className="gh__nav__categories__items__menu__promo-card">
                         <a
                             className="vertical"
-                            href="/p/306620/tread-xl-overland-edition010-02509-10/"
+                            href="https://www.garmin.com/en-GB/p/772586"
                             target="_self"
-                            data-uw-rm-brl="PR"
-                            data-uw-original-href="/p/306620/tread-xl-overland-edition010-02509-10/"
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"

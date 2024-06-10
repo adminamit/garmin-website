@@ -22,7 +22,7 @@ import { usePathname } from "next/navigation";
 import "../../_css/header.css";
 const Header = () => {
     const router = useRouter();
-    const { status } = useAuth();
+    const { user, status } = useAuth();
     const [menuActive, setMenuActive] = useState(false);
     const path = usePathname();
     useEffect(() => {
@@ -73,12 +73,33 @@ const Header = () => {
 
                         <div className="gh__utility-bar has-search-ref">
                             <div className="gh__utility-bar__support js__utility-bar-item">
-                                <Link href="https://support.garmin.com//">
+                                {/* <Link href="https://support.garmin.com//">
                                     <span className="flex space-x-1 font-medium text-xs items-center">
                                         <CiCircleQuestion className="w-6 h-6" />
                                         <span>Support</span>
                                     </span>
-                                </Link>
+                                </Link> */}
+                                <Dropdown
+                                    title={
+                                        <div className="flex items-center gap-1">
+                                            <CiCircleQuestion className="w-5 h-5" />{" "}
+                                            Support
+                                        </div>
+                                    }
+                                >
+                                    <Link href="https://support.garmin.com/en-GB/">
+                                        Support Center{" "}
+                                    </Link>
+                                    <Link href="https://support.garmin.com/en-GB/aviation/">
+                                        Aviation Support{" "}
+                                    </Link>
+                                    <Link href="https://support.garmin.com/en-GB/marine">
+                                        Marine Support
+                                    </Link>
+                                    <Link href="https://support.garmin.com/en-GB/navionics">
+                                        Navionics Support
+                                    </Link>
+                                </Dropdown>
                             </div>
 
                             <Search />
@@ -91,7 +112,7 @@ const Header = () => {
                                     <Link href="/account">Account</Link>
                                     <Link href="/account/orders">Orders</Link>
 
-                                    {status == "loggedIn" ? (
+                                    {user ? (
                                         <Link href="#">
                                             <SignOut />
                                         </Link>
