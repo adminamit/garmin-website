@@ -333,14 +333,7 @@ export const SportFitness = () => {
                         >
                             Garmin Enterprise Health Solutions{" "}
                         </a>
-                        <a
-                            className="gh__nav__categories__items__menu__link"
-                            href="https://explore.garmin.com/en-GB/garmin-pay/"
-                            target="_blank"
-                            aria-label="Garmin Pay - open in a new tab"
-                        >
-                            Garmin Pay{" "}
-                        </a>
+
                         <a
                             className="gh__nav__categories__items__menu__link"
                             href="https://www.garmin.com/en-GB/pros/"

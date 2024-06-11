@@ -114,14 +114,14 @@ export const SmartWatches = ({}) => {
                         >
                             Fitness &amp; Health Tracking
                         </Link>{" "}
-                        <Link
+                        {/* <Link
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/kids-wearables-fitness-activity-trackers/"
                             data-gatext="Global Navigation - Just for Kids"
                             data-ua-event="Global Header, SMARTWATCHES, Kids wearables"
                         >
                             Kids wearables
-                        </Link>{" "}
+                        </Link>{" "} */}
                         {/* <Link
                             className="gh__nav__categories__items__menu__link"
                             href="/c/sports-fitness/gaming/"
@@ -182,14 +182,6 @@ export const SmartWatches = ({}) => {
                 </SubItemWrapper>
                 <SubItemWrapper title="DISCOVER">
                     <div className="gh__nav__categories__items__menu__subcategories">
-                        <Link
-                            className="gh__nav__categories__items__menu__link"
-                            href="https://www.garmin.com/en-GB/garmin-pay/"
-                            data-gatext="Global Navigation - Garmin Pay"
-                            data-ua-event="Global Header, SMARTWATCHES, Garmin Pay"
-                        >
-                            Garmin Pay
-                        </Link>{" "}
                         <Link
                             className="gh__nav__categories__items__menu__link"
                             href="https://www.garmin.com/en-GB/garmin-technology/"

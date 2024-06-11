@@ -203,7 +203,7 @@ const Footer = () => {
                                         </Link>
                                     </span>
                                 </li>
-                                <li
+                                {/* <li
                                     className="gf__list__item en-GB js__gf__list__item"
                                     aria-hidden="false"
                                 >
@@ -212,7 +212,7 @@ const Footer = () => {
                                             Jobs
                                         </Link>
                                     </span>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </ItemWrapper>
@@ -313,7 +313,7 @@ const Footer = () => {
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
                                         <Link
-                                            href="https://www.garmin.ae/health/"
+                                            href="https://www.garmin.com/en-GB/health/"
                                             className=""
                                         >
                                             Garmin Health: Enterprise Health
@@ -324,7 +324,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </ItemWrapper>
-                    <ItemWrapper>
+                    {/* <ItemWrapper>
                         <button
                             className="gf__list__item__link en-GB js__gf__list__item__link"
                             data-gatext="For business"
@@ -404,7 +404,7 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-                    </ItemWrapper>
+                    </ItemWrapper> */}
                 </ul>
             </nav>
             <div className="gf__image gf__image--screen-lg">
