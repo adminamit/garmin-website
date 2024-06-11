@@ -85,7 +85,9 @@ export const LifeStyle = ({
                     unoptimized
                 /> */}
             </div>
-            {title && description ? (
+            {!title && !description ? (
+                <></>
+            ) : (
                 <div
                     className={`app__life-style__text__con app__life-style__text__con--${horizontalAlign} app__life-style__text__con--${verticalAlign} app__life-style__text__con__mobile--center app__life-style__text__con__mobile--middle`}
                 >
@@ -105,8 +107,6 @@ export const LifeStyle = ({
                         </span>
                     </h2>
                 </div>
-            ) : (
-                <></>
             )}
         </div>
     );

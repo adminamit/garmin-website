@@ -48,11 +48,11 @@ export const VideoBlock = ({ fallBackImage, videoUrl }) => {
                     src={fallBackImage.url}
                     alt="video"
                 />
-                <img
+                {/* <img
                     className="app__img-banner__img app__img-banner__img--mobile"
                     src={fallBackImage.url}
                     alt="video"
-                />
+                /> */}
             </div>
             <div
                 tabIndex={0}
