@@ -103,16 +103,16 @@ const Footer = () => {
                                         </Link>
                                     </span>
                                 </li>
-                                {/* <li
+                                <li
                                     className="gf__list__item en-GB js__gf__list__item"
                                     aria-hidden="false"
                                 >
                                     <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                                        <Link href="/refund-policy">
-                                            Refund Policy
+                                        <Link href="/shipping">
+                                            Shipping Policy
                                         </Link>
                                     </span>
-                                </li> */}
+                                </li>
                             </ul>
                         </div>
                     </ItemWrapper>

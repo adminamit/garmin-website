@@ -147,6 +147,61 @@ const Privacy = () => {
                     </div>
                 </details>
             </section>
+
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">Security Policy</h2>
+                <div className="content__section__copy">
+                    <p>
+                        Garmin aims to keep its products, apps and websites safe
+                        for everyone, and data security is very important to us.
+                        To that end, here’s some information about the measures
+                        Garmin takes to secure data.
+                    </p>
+                </div>
+                <details className="content__section__details" index="1">
+                    <summary className="content__section__details__summary">
+                        Learn More
+                    </summary>
+                    <div className="content__section__details__content">
+                        <h3 className="content__section__details__content__heading">
+                            Garmin’s Responsible Disclosure Policy
+                        </h3>
+                        <div className="content__section__details__content__copy">
+                            <p>
+                                Data security is a priority at Garmin. If you
+                                are a security researcher or Garmin customer and
+                                think you’ve found a security issue or
+                                vulnerability, we appreciate your help in
+                                disclosing it to us in a responsible manner.
+                                Please don’t access or modify data without
+                                permission, and act in good faith not to degrade
+                                the performance of our products, apps and
+                                websites.
+                            </p>
+
+                            <p>
+                                If you believe you have discovered a
+                                vulnerability or have a security incident to
+                                report, let us know. Please include a detailed
+                                description of the possible vulnerability and an
+                                email address where we can reach you in case we
+                                need more information. We’ll work to assess your
+                                report as quickly as possible. If you’d like,
+                                you can download our public PGP key and use a
+                                third-party encryption site to increase the
+                                privacy of your report.
+                            </p>
+                            <p>
+                                We appreciate your help in making Garmin
+                                products, apps and websites secure. We’d also
+                                like to thank all those who have already
+                                reported security issues.
+                            </p>
+                        </div>
+                    </div>
+                </details>
+            </section>
             <section className="content__section">
                 <div className="content__section__icon--squiggly-spacer"></div>
                 <h2 className="content__section__heading">Cookies</h2>
