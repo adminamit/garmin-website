@@ -324,8 +324,8 @@ const Footer = () => {
                             </ul>
                         </div>
                     </ItemWrapper>
-                    {/* <ItemWrapper>
-                        <button
+                    <ItemWrapper>
+                        {/* <button
                             className="gf__list__item__link en-GB js__gf__list__item__link"
                             data-gatext="For business"
                         >
@@ -403,22 +403,22 @@ const Footer = () => {
                                     </span>
                                 </li>
                             </ul>
-                        </div>
-                    </ItemWrapper> */}
+                        </div> */}
+                    </ItemWrapper>
                 </ul>
             </nav>
             <div className="gf__image gf__image--screen-lg">
                 <ul className="gf__image__list" />
             </div>
             <div className="gf__company">
-                <div class="gf__locale">
+                <div className="gf__locale">
                     <Image
                         alt="default alt"
                         src={`/assets/images/amit-white-logo.svg`}
                         width="140"
                         height="140"
                     />
-                    <a class="gf__locale__link en-GB" href="/">
+                    <a className="gf__locale__link en-GB" href="/">
                         India
                     </a>
                 </div>

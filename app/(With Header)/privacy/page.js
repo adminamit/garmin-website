@@ -5,286 +5,284 @@ const Privacy = () => {
         <>
             <div className="py-4 bg-white">
                 <h3 className="uppercase font-normal text-base text-center">
-                    Privacy Garmin
+                    PRIVACY AND COOKIE POLICY
                 </h3>
             </div>
-            <section class="content__section content__section--hero">
-                <div class="content__section__icon--lock"></div>
-                <h1 class="content__section__heading">
-                    Your Privacy Matters to Garmin
+            <section className="content__section content__section--hero">
+                <div className="content__section__icon--lock"></div>
+                <h1 className="content__section__heading">
+                    {" "}
+                    PRIVACY AND COOKIE POLICY
                 </h1>
-                <div class="content__section__copy">
+                <div className="content__section__copy">
                     <p>
                         Our goal is to make sure you know how we collect, use,
                         share, and store your personal data when you create a
                         Garmin account, interact with our customer support
-                        specialists, and visit{" "}
-                        <a href="https://www.garmin.com/">Garmin.com</a> or
-                        other Garmin websites and apps covered by this privacy
-                        policy.
+                        specialists.
                     </p>
                 </div>
             </section>
-            <section class="content__section">
-                <div class="content__section__icon--squiggly-spacer"></div>
-                <h2 class="content__section__heading">
-                    What personal data does Garmin collect?
-                </h2>
-                <div class="content__section__copy">
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">General</h2>
+                <div className="content__section__copy">
                     <p>
-                        Garmin makes products that are engineered on the inside
-                        for life on the outside. We ask for personal data — such
-                        as your name, email address, location, and other
-                        information — so you can sign in to your account,
-                        receive personalized support, receive important safety
-                        information about your devices, and get the most out of
-                        our products.
+                        AMIT GPS AND NAVIGATION LLP (“AMIT” “Company”, “We”,
+                        “Us”) is committed to the compliance of applicable
+                        Privacy Laws in the Country where Company’s product is
+                        distributed. Protecting the privacy and security of your
+                        personal data is of prime importance to AMIT, therefore,
+                        we adopt industry standard practices to protect your
+                        personal data against unauthorized access, disclosure,
+                        use, modification, damage, or loss of data, and we
+                        conduct our business by abiding by the laws applicable
+                        to data privacy and data security in the Country.
+                        However, by using the Platform, the users accept the
+                        inherent security implications of data transmission over
+                        the internet and the World Wide Web which cannot always
+                        be guaranteed as completely secure, and therefore, there
+                        would always remain certain inherent risks regarding use
+                        of the Platform.
                     </p>
                 </div>
-                <details class="content__section__details" index="1">
-                    <summary class="content__section__details__summary">
+                <details className="content__section__details" index="1">
+                    <summary className="content__section__details__summary">
                         Learn More
                     </summary>
-                    <div class="content__section__details__content">
-                        <h3 class="content__section__details__content__heading">
-                            When You Make a Garmin Account
-                        </h3>
-                        <div class="content__section__details__content__copy">
+                    <div className="content__section__details__content">
+                        <div className="content__section__details__content__copy">
                             <p>
-                                Garmin stores information such as your name,
-                                email address, and password so you can sign in.
-                                It also helps us verify your account if you call
-                                customer support.
+                                We do not offer any product/service under this
+                                Platform outside India. By visiting this
+                                Platform, providing your information, or
+                                availing our product/service, you expressly
+                                agree to be bound by the terms and conditions of
+                                this Privacy Policy, the Terms of Use and the
+                                applicable service/product terms and conditions,
+                                and agree to be governed by the laws of India
+                                including but not limited to the laws applicable
+                                to data protection and privacy. If you disclose
+                                to us any personal information relating to other
+                                people, you represent that you have the
+                                authority to do so and to permit us to use the
+                                information in accordance with this Privacy
+                                Policy. If you do not agree please do not use or
+                                access our Platform.
                             </p>
                         </div>
-                        <h3 class="content__section__details__content__heading">
-                            When You Sync Devices
-                        </h3>
-                        <div class="content__section__details__content__copy">
+                        <div className="content__section__details__content__copy">
                             <p>
-                                When you sync devices, data such as your IP
-                                address, sync time and date, and battery level
-                                will be uploaded to Garmin.
+                                We do not knowingly solicit or collect personal
+                                information from children under the age of 18
+                                and use of our Platform is available only to
+                                persons who can form a legally binding contract
+                                under the Indian Contract Act, 1872. If you are
+                                under 18, you must use the Platform under the
+                                supervision of your parent, legal guardian, or
+                                any responsible adult.
                             </p>
                         </div>
-                        <h3 class="content__section__details__content__heading">
-                            When You Buy Products or Subscriptions
+
+                        <h3 className="content__section__details__content__heading">
+                            Collection of Information
                         </h3>
-                        <div class="content__section__details__content__copy">
+
+                        <h3 className="content__section__details__content__heading">
+                            A. Information you provide directly:
+                        </h3>
+                        <div className="content__section__details__content__copy">
                             <p>
-                                When you buy products or subscriptions through
-                                our website, stores, or apps, we ask for
-                                information such as your name, address, phone
-                                number, and other information needed to collect
-                                your payment and fulfill your order. We have a
-                                third party process your payment information,
-                                but Garmin does not store your payment card
-                                details.
+                                In general, you can browse the Platform without
+                                registering with us. When you register for
+                                products or services, we may ask you to provide
+                                certain personal data such as name, date of
+                                birth, contact number, postal address, billing
+                                address, bank instrument details, email address,
+                                username, password etc.
+                            </p>
+
+                            <p>
+                                {" "}
+                                If you choose to send us personal
+                                correspondence, post messages/feedback on our
+                                message boards, or other message areas we will
+                                collect that information you provide to us. We
+                                retain this information as necessary to resolve
+                                disputes, provide customer support and
+                                troubleshoot problems as permitted by law.
                             </p>
                         </div>
-                        <h3 class="content__section__details__content__heading">
-                            When You Use Location Features
+
+                        <h3 className="content__section__details__content__heading">
+                            B. Information that is automatically collected when
+                            you visit the Platform:
                         </h3>
-                        <div class="content__section__details__content__copy">
+                        <div className="content__section__details__content__copy">
                             <p>
-                                Sometimes we need to collect your device’s
-                                location. That makes it a lot easier to tell you
-                                about things such as weather in your area,
-                                nearby traffic, and even movie prices near you.
+                                When you visit the platform, certain information
+                                may be collected automatically, which includes,
+                                bandwidth speed, the computer’s Internet
+                                Protocol (IP) Address, browser type, operating
+                                system, web pages and links last visited,
+                                advertisements you viewed, standard server log
+                                information etc.
                             </p>
                         </div>
-                        <h3 class="content__section__details__content__heading">
-                            When You Use Auto Navigation
+
+                        <h3 className="content__section__details__content__heading">
+                            C. Information that we collect from other sources:
                         </h3>
-                        <div class="content__section__details__content__copy">
+                        <div className="content__section__details__content__copy">
                             <p>
-                                With your consent, Garmin collects information
-                                that includes location, direction, and speed to
-                                help with features such as parking and traffic.
+                                We may receive information about you from
+                                publicly and commercially available sources (as
+                                permitted by law), which we may combine with
+                                other information we receive from or about you.
+                                We also may receive information about you from
+                                third-party social networking services when you
+                                choose to connect with those services.
                             </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            When You Contact Garmin
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                We know you might want to stay off the grid, but
-                                we may collect things such as your contact,
-                                device, or subscription information during
-                                support calls to ensure that you get the help
-                                you need.
-                            </p>
-                        </div>
-                        <div class="content__section__details__content__copy">
-                            <a href="https://www.garmin.com/en-GB/privacy/global/policy/">
-                                View Full Privacy Policy
-                            </a>
                         </div>
                     </div>
                 </details>
             </section>
-            <section class="content__section">
-                <div class="content__section__icon--squiggly-spacer"></div>
-                <h2 class="content__section__heading">
-                    Why does Garmin ask for your personal data?
-                </h2>
-                <div class="content__section__copy">
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">Cookies</h2>
+                <div className="content__section__copy">
                     <p>
-                        From providing product support to offering clear
-                        directions to your destination, any information we ask
-                        you for is used to improve your experience with Garmin.
+                        We use data collection devices such as "cookies" on
+                        certain pages of the Platform to help analyze our web
+                        page flow, measure promotional effectiveness, and
+                        promote trust and safety. "Cookies" are small files
+                        placed on your hard drive that assist us in providing
+                        our services. Cookies do not contain any of your
+                        personal information. Cookies can also help us provide
+                        information that is targeted to your interests. Most
+                        cookies are "session cookies," meaning that they are
+                        automatically deleted from your hard drive at the end of
+                        a session. You are always free to decline/delete our
+                        cookies if your browser permits. We do not control the
+                        use of cookies by third parties.
                     </p>
                 </div>
-                <details class="content__section__details" index="2">
-                    <summary class="content__section__details__summary">
-                        Learn More
-                    </summary>
-                    <div class="content__section__details__content">
-                        <h3 class="content__section__details__content__heading">
-                            To Keep You Informed
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                When we have something important to tell you
-                                about your products, apps, subscriptions, or
-                                account — such as vital safety information, app
-                                updates, new products or deals, and updates to
-                                our privacy policy — we use collected contact
-                                information to reach you.
-                            </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            To Improve Our Sites and Apps
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                When you visit our sites or use our apps, we
-                                collect information — such as your IP address,
-                                location, times that you visit, and more — to
-                                let us know how people navigate our sites and
-                                apps and how we can improve them.
-                            </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            To Give You Information You Might Actually Find
-                            Interesting
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                We use things such as cookies, pixel tags, and
-                                similar tools to help us provide better, more
-                                relevant content on our sites.
-                            </p>
-                            <p>
-                                We also use these tools to see how effective our
-                                ads are and to identify any problems that we
-                                need to fix. All in all, we just want to give
-                                you websites worth browsing.
-                            </p>
-                        </div>
-                        <div class="content__section__details__content__copy">
-                            <a href="https://www.garmin.com/en-GB/privacy/global/policy/">
-                                View Full Privacy Policy
-                            </a>
-                        </div>
-                    </div>
-                </details>
             </section>
 
-            <section class="content__section">
-                <div class="content__section__icon--squiggly-spacer"></div>
-                <h2 class="content__section__heading">
-                    Does Garmin sell your personal data?
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">
+                    Sharing of personal information
                 </h2>
-                <div class="content__section__copy">
+                <div className="content__section__copy">
                     <p>
-                        No! We don’t sell your personal data to anyone. And we
-                        only share personal data with others in specific
-                        situations.
+                        We do not sell or trade your personally identifiable
+                        information; however, disclosure (includes sharing with
+                        third party supplier) may be required for us to provide
+                        you access to our products and services; for fulfilment
+                        of your orders; for enhancing your experience; for
+                        providing feedback on products; to collect payments from
+                        you; to comply with our legal obligations; to conduct
+                        market research or surveys; to enforce our Terms of Use;
+                        to facilitate our marketing and advertising activities;
+                        to analyze data; for customer service assistance; to
+                        prevent, detect, mitigate, and investigate fraudulent or
+                        illegal activities related to our product and services.
                     </p>
                 </div>
-                <details class="content__section__details" index="3">
-                    <summary class="content__section__details__summary">
-                        Learn More
-                    </summary>
-                    <div class="content__section__details__content">
-                        <h3 class="content__section__details__content__heading">
-                            Data Shared with Content and Feature Providers
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                With your consent, we share information
-                                collected from your auto navigation device —
-                                such as location, direction, and speed — with
-                                third parties that provide content and features
-                                such as traffic and parking information.
-                            </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            Data Shared Within Garmin
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                Garmin is global, which means that Garmin has
-                                companies all over the world that work together
-                                to provide our products/services and support our
-                                business. No matter which Garmin company handles
-                                your information, it is still secured under this
-                                privacy policy.
-                            </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            Data Shared with Service Providers
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                We share personal data with third parties who
-                                provide services — such as fulfilling orders,
-                                processing payments, and sending emails to
-                                customers — for us.
-                            </p>
-                        </div>
-                        <h3 class="content__section__details__content__heading">
-                            Data Shared for Legal Reasons
-                        </h3>
-                        <div class="content__section__details__content__copy">
-                            <p>
-                                We will share your personal data when required
-                                to by law enforcement and in other legal
-                                matters.
-                            </p>
-                        </div>
-                        <div class="content__section__details__content__copy">
-                            <a href="https://www.garmin.com/en-GB/privacy/global/policy/">
-                                View Full Privacy Policy
-                            </a>
-                        </div>
-                    </div>
-                </details>
             </section>
-            <section class="content__section">
-                <div class="content__section__icon--squiggly-spacer"></div>
-                <h2 class="content__section__heading">
-                    How can you manage your personal data?
+
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">
+                    Third party suppliers and their services
                 </h2>
-                <div class="content__section__copy">
+                <div className="content__section__copy">
                     <p>
-                        Visit our{" "}
-                        <a href="https://www.garmin.com/account/datamanagement">
-                            Account Management Center
-                        </a>{" "}
-                        to manage your data or exercise your rights. If you have
-                        questions about your rights,{" "}
-                        <a href="https://www.garmin.com/privacy/your-data-protection-rights/policy/">
-                            click here
-                        </a>{" "}
-                        to learn more.
+                        We may employ third-party entities and individuals to
+                        facilitate our Services (e.g., maintenance, analysis,
+                        audit, marketing, and development). These third parties
+                        have limited access to your information only to perform
+                        these tasks on our behalf and are obligated to us, not
+                        to disclose or use it for other purposes. All our
+                        approved third-party providers go through an extensive
+                        data protection compliance vetting process before being
+                        selected as a third-party provider and are bound by all
+                        relevant data privacy laws, terms of confidentiality,
+                        and this Privacy Policy.
+                    </p>
+                    <p>
+                        Our Platform may provide links to other websites or
+                        applications that may collect personal information about
+                        you. We are not responsible for the privacy practices or
+                        the content of those linked websites. Please contact the
+                        owner or operator of such website/application if you
+                        have any concerns or questions.
+                    </p>
+                    <p>
+                        In the event of any misuse or damage to the website
+                        caused by a third party responsible for its development,
+                        Amit GPS and Navigation shall not be held liable for
+                        such misuse or damage. However, we have made every
+                        effort to ensure the safety and security of this website
+                        through third-party developer.
                     </p>
                 </div>
-                <div class="content__section__details__content__copy">
-                    {/* <a href="https://www.garmin.com/en-GB/privacy/global/policy/">
-                        View Full Privacy Policy
-                    </a> */}
+            </section>
+
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">Data Retention</h2>
+                <div className="content__section__copy">
+                    <p>
+                        We retain your personal information in accordance with
+                        applicable laws, for a period no longer than is required
+                        for the purpose for which it was collected or as
+                        required under any applicable law.
+                    </p>
+                </div>
+            </section>
+
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">
+                    Modifications to the Privacy Policy
+                </h2>
+                <div className="content__section__copy">
+                    <p>
+                        Please check our Privacy Policy periodically for
+                        changes. We may update this Privacy Policy at any time
+                        to reflect changes in our business practices and service
+                        offerings. If we modify this Privacy Policy, we will
+                        update the date on which the new Privacy Policy will be
+                        effective, and we will alert you of any significant
+                        changes by placing a notice on our Platform.
+                    </p>
+                </div>
+            </section>
+
+            <section className="content__section">
+                <div className="content__section__icon--squiggly-spacer"></div>
+                <h2 className="content__section__heading">Grievance Officer</h2>
+                <div className="content__section__copy">
+                    <p>
+                        In accordance with Information Technology Act 2000 and
+                        rules made thereunder, the name and contact details of
+                        the Grievance Officer are provided below:
+                    </p>
+                </div>
+                <div className="content__section__details__content__copy">
+                    <p>
+                        <b>Mr. Deepak Raina</b>
+                    </p>
+                    <p>
+                        Designation: Grievance In charge <br />
+                        Address: JA0326, Plot No 10, Third Floor, DLF Tower A,
+                        Jasola, New, Delhi 110025 <br />
+                        Phone: +91 1148005802 Email: deepak.raina@amitintl.com{" "}
+                        <br />
+                        Time: Mon – Fri (10:00 - 18:00)
+                    </p>
                 </div>
             </section>
         </>

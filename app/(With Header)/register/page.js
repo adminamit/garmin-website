@@ -81,8 +81,10 @@ const ResetPassword = () => {
                 .boolean()
                 .oneOf([true], "Please accept.")
                 .required("Please accept."),
-            recaptcha: yup.string().min(1, "Prove You Are Not A Robot"),
-            // .required("Prove You Are Not A Robot"),
+            recaptcha: yup
+                .string()
+                .min(1, "Prove You Are Not A Robot")
+                .required("Prove You Are Not A Robot"),
         }),
     });
 

@@ -8,7 +8,10 @@ const Filters = ({ attributes, product }) => {
         <div id="js__filters-section" className="app__product__filters">
             {attributes.map((attribute) => {
                 return (
-                    <div className="app__product__filters__group">
+                    <div
+                        className="app__product__filters__group"
+                        key={attribute.id}
+                    >
                         <div className="app__product__filters__label">
                             <Tooltip
                                 title={attribute.title}

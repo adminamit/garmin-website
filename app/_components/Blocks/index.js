@@ -57,7 +57,7 @@ export const Blocks = (props) => {
                         if (Block) {
                             return (
                                 <Block
-                                    key={toKebabCase(blockName)}
+                                    key={index}
                                     id={toKebabCase(blockName)}
                                     {...block}
                                 />

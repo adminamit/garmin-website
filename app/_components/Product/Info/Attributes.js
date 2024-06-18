@@ -11,8 +11,6 @@ export const Attributes = ({ productData, variationData }) => {
     productData.attributes.map((attribute) => {
         activeAttributes[attribute.attributeName] = attribute.title;
     });
-    console.log("activeAttributes");
-    console.log(productData.attributes);
 
     //Get All Attributes
     productData.attributes.map((attribute) => {
@@ -24,17 +22,12 @@ export const Attributes = ({ productData, variationData }) => {
         });
     });
 
-    console.log("Get All Attributes");
-    console.log(attributes);
-
     //Get All Attributes Available
     variationData.map((product) => {
         const variationAttributes = {};
         product.attributes.map((attribute) => {
             variationAttributes[attribute.attributeName] = attribute.title;
         });
-        console.log("Get All variationAttributes");
-        console.log(variationAttributes);
 
         //Prepare Variation Model
         models.push({
@@ -69,9 +62,6 @@ export const Attributes = ({ productData, variationData }) => {
             ...new Map(el.values.map((item) => [item["title"], item])).values(),
         ];
     });
-
-    console.log("attributesattributesattributesattributes");
-    console.log(attributes);
     return (
         <div>
             <Filters attributes={attributes} product={productData} />

@@ -7,6 +7,7 @@ import Gallery from "@/app/_components/Product/Gallery/Gallery";
 import Info from "@/app/_components/Product/Info/Info";
 import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
+import HtmlParser from "react-html-parser";
 export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const handleAddedCart = () => {
@@ -30,7 +31,8 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                                     Added To Cart
                                 </div>
                                 <div className="app__product__interstitial__details__name">
-                                    {productData.title} - {productData.excerpt}
+                                    {HtmlParser(productData.title)} -{" "}
+                                    {HtmlParser(productData.excerpt)}
                                 </div>
                             </div>
                         </div>

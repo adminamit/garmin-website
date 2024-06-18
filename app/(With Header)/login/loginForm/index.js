@@ -9,6 +9,7 @@ import { Message } from "@/app/_components/Message";
 import { Loader } from "@/app/_components/Loader";
 import { useAuth } from "@/app/_providers/Auth";
 import toast from "react-hot-toast";
+
 export const setTokenCookie = (expiresIn, accessToken) => {
     return fetch("/api/auth/setHttpCookie", {
         method: "post",
@@ -21,18 +22,11 @@ export const setTokenCookie = (expiresIn, accessToken) => {
 
 export const LoginForm = () => {
     //Get Rdirect Param
-
     const { login } = useAuth();
-    const [error, setError] = useState(null);
     const reCaptchaRef = useRef(null);
     const searchParams = useSearchParams();
-    const allParams = searchParams.toString()
-        ? `?${searchParams.toString()}`
-        : "";
-    // const redirect = useRef(searchParams.get("redirect"));
     const redirect = searchParams.get("redirect");
-    console.log("redirect");
-    console.log(redirect);
+
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
@@ -58,18 +52,12 @@ export const LoginForm = () => {
                 if (authStatus.errors) {
                     toast.error(authStatus.errors[0].message);
                 } else {
-                    toast.success("Logged in! Redirecting..");
                     const { token, exp, user } = authStatus;
-                    // setCookie("payload-token", authStatus.token, {
-                    //     maxAge: authStatus.exp,
-                    //     httpOnly: true,
-                    //     sameSite: "none",
-                    //     secure: true,
-                    // });
                     await setTokenCookie(exp, token);
                     login(user);
                     setSubmitting(true);
                     resetForm();
+                    toast.success("Logged in! Redirecting..");
                     redirect ? router.push(redirect) : router.push("/account");
                 }
             } else {
@@ -84,14 +72,16 @@ export const LoginForm = () => {
 
             password: yup.string().required("This field is required"),
             rememberMe: yup.boolean(),
-            recaptcha: yup.string().min(1, "Prove You Are Not A Robot"),
-            // .required("Prove You Are Not A Robot"),
+            recaptcha: yup
+                .string()
+                .min(1, "Prove You Are Not A Robot")
+                .required("Prove You Are Not A Robot"),
         }),
     });
 
     return (
         <>
-            <Message error={error} />
+            {/* <Message error={error} /> */}
             <form onSubmit={formik.handleSubmit} className="pt-10 pb-9">
                 <div className="input-wrapper">
                     <label htmlFor="name" className="label">

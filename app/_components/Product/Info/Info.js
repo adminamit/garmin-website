@@ -133,7 +133,7 @@ const Info = ({
                     <OutOfStock productId={productData.id} />
                 )}
 
-                {user ? (
+                {/* {user ? (
                     !isUpdating ? (
                         !checkIfInWishlist(productData.id) ? (
                             <div
@@ -161,7 +161,7 @@ const Info = ({
                     )
                 ) : (
                     ""
-                )}
+                )} */}
             </div>
             {productData.stock > 0 ? <ShippingInfo /> : <></>}
         </div>
