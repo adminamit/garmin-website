@@ -52,6 +52,7 @@ export default function Gallery({ gallery }) {
                         thumbs={{ swiper: thumbsSwiper }}
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="product__gallery__thumbnails"
+                        loop={true}
                         ref={sliderRef}
                     >
                         {gallery.map((item) => {

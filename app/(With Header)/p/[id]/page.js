@@ -38,6 +38,9 @@ async function getProduct(id) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
     );
+    console.log(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
+    );
     return res.json();
 }
 
@@ -69,6 +72,9 @@ const page = async ({ params: { id } }) => {
         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
     });
 
+    // console.log("productData - variationData");
+    // console.log(productData);
+    // console.log(variationData);
     return (
         <ProductWrapper
             productData={productData}

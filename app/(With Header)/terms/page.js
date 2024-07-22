@@ -18,7 +18,9 @@ const Terms = () => {
                 </p>
                 <p>
                     The website - 
-                    <a href="www.garmin-india.com">www.garmin-india.com</a>
+                    <a href="https://www.garmin-india.com/">
+                        www.garmin-india.com
+                    </a>
                      (hereinafter referred to as "Platform") is owned and
                     operated by <b>AMIT GPS AND NAVIGATION LLP</b>. A LLP
                     incorporated under laws of India with our registered office

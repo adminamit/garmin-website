@@ -118,10 +118,12 @@ const Info = ({
                 </div>
             </div>
 
-            <Attributes
-                productData={productData}
-                variationData={variationData}
-            />
+            {productData.attributes && (
+                <Attributes
+                    productData={productData}
+                    variationData={variationData}
+                />
+            )}
 
             <div className="flex-gap gap-4 items-center relative">
                 {productData.stock > 0 ? (
