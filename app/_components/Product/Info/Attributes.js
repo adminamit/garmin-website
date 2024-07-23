@@ -8,26 +8,29 @@ export const Attributes = ({ productData, variationData }) => {
         attributes = [];
     // Current Product attribute
     const activeAttributes = {};
-    productData.attributes.map((attribute) => {
-        activeAttributes[attribute.attributeName] = attribute.title;
-    });
+    productData.attributes &&
+        productData.attributes.map((attribute) => {
+            activeAttributes[attribute.attributeName] = attribute.title;
+        });
 
     //Get All Attributes
-    productData.attributes.map((attribute) => {
-        attributes.push({
-            title: attribute.attributeName,
-            id: attribute.attribute,
-            text: attribute.attributeText,
-            values: [],
+    productData.attributes &&
+        productData.attributes.map((attribute) => {
+            attributes.push({
+                title: attribute.attributeName,
+                id: attribute.attribute,
+                text: attribute.attributeText,
+                values: [],
+            });
         });
-    });
 
     //Get All Attributes Available
     variationData.map((product) => {
         const variationAttributes = {};
-        product.attributes.map((attribute) => {
-            variationAttributes[attribute.attributeName] = attribute.title;
-        });
+        productData.attributes &&
+            product.attributes.map((attribute) => {
+                variationAttributes[attribute.attributeName] = attribute.title;
+            });
 
         //Prepare Variation Model
         models.push({
@@ -41,19 +44,20 @@ export const Attributes = ({ productData, variationData }) => {
             active: isEqual(variationAttributes, activeAttributes),
         });
 
-        product.attributes.map((attribute) => {
-            attributes.map((el) => {
-                const att = {};
-                att[attribute.attributeName] = attribute.title;
-                if (el.id === attribute.attribute) {
-                    el.values.push({
-                        title: attribute.title,
-                        sku: product.sku,
-                        active: isMatch(activeAttributes, att),
-                    });
-                }
+        productData.attributes &&
+            product.attributes.map((attribute) => {
+                attributes.map((el) => {
+                    const att = {};
+                    att[attribute.attributeName] = attribute.title;
+                    if (el.id === attribute.attribute) {
+                        el.values.push({
+                            title: attribute.title,
+                            sku: product.sku,
+                            active: isMatch(activeAttributes, att),
+                        });
+                    }
+                });
             });
-        });
     });
 
     //GET Unique Attributes
