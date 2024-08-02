@@ -41,28 +41,33 @@ const Tabs = ({ productData }) => {
                 <></>
             ),
         },
+        productData.compatibleProducts ? (
+            {
+                id: "devices",
+                label: "Compatible Devices",
+                content: <Devices products={productData.compatibleProducts} />,
+            }
+        ) : (
+            <></>
+        ),
         productData.productAccessories.accessory &&
-        productData.productAccessories.accessory.length > 0
-            ? {
-                  id: "accessories",
-                  label: "Accessories",
-                  content: (
-                      <Accessories
-                          accessories={productData.productAccessories.accessory}
-                      />
-                  ),
-              }
-            : {},
-        productData.compatibleProducts
-            ? {
-                  id: "devices",
-                  label: "Compatible Devices",
-                  content: (
-                      <Devices products={productData.compatibleProducts} />
-                  ),
-              }
-            : {},
+        productData.productAccessories.accessory.length > 0 ? (
+            {
+                id: "accessories",
+                label: "Accessories",
+                content: (
+                    <Accessories
+                        accessories={productData.productAccessories.accessory}
+                    />
+                ),
+            }
+        ) : (
+            <></>
+        ),
     ];
+
+    console.log("navListItems");
+    console.log(navListItems);
 
     const handleTabChange = (index) => {
         setSelectedIndex(index);

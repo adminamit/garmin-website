@@ -19,7 +19,6 @@ export const VideoBlock = ({ fallBackImage, videoUrl }) => {
                         allow="autoplay"
                         frameBorder={0}
                         allowFullScreen
-                        data-dashlane-frameid={1562}
                     />
                     <div
                         className="app__video-banner__video__close-bt__con"
