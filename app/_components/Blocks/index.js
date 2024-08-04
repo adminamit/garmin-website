@@ -19,6 +19,7 @@ import { MediaBlock } from "@/app/_blocks/MediaBlock";
 import { IconGrid } from "@/app/_blocks/IconGrid";
 import { VideoBlock } from "@/app/_blocks/VideoBlock";
 import { CopyFootnote } from "@/app/_blocks/CopyFootenote";
+import { HTML } from "@/app/_blocks/HTML";
 const blockComponents = {
     heroSlider: HeroSlider,
     newsletter: Newsletter,
@@ -38,6 +39,7 @@ const blockComponents = {
     iconGrid: IconGrid,
     videoBlock: VideoBlock,
     copyFootote: CopyFootnote,
+    html: HTML,
 };
 
 export const Blocks = (props) => {

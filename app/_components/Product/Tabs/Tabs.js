@@ -8,39 +8,43 @@ import Specs from "./Specs/Specs";
 import { Devices } from "./CompatibleDevices/Devices";
 import BoxContent from "./InTheBox/BoxContent";
 import { Accessories } from "./Accessories/Accessories";
-import { isEmpty } from "lodash";
+import { isEmpty, compact } from "lodash";
 const Tabs = ({ productData }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const tabReference = useRef(null);
     // const scroll = useScroll();
+    console.log("productData.productSpecifications");
+    console.log(productData.productSpecifications.specificationGroup);
     const navListItems = [
         {
             id: "overview",
             label: "Overview",
             content: <Overview productData={productData} />,
         },
-        {
-            id: "specs",
-            label: "Specs",
-            content: productData.productSpecifications ? (
-                <Specs
-                    productSpecifications={
-                        productData.productSpecifications.specificationGroup
-                    }
-                />
-            ) : (
-                <></>
-            ),
-        },
-        {
-            id: "inthebox",
-            label: "In the Box",
-            content: productData.inTheBox ? (
-                <BoxContent content={productData.inTheBox} />
-            ) : (
-                <></>
-            ),
-        },
+        productData.productSpecifications.specificationGroup.length > 0 ? (
+            {
+                id: "specs",
+                label: "Specs",
+                content: (
+                    <Specs
+                        productSpecifications={
+                            productData.productSpecifications.specificationGroup
+                        }
+                    />
+                ),
+            }
+        ) : (
+            <></>
+        ),
+        productData.inTheBox ? (
+            {
+                id: "inthebox",
+                label: "In the Box",
+                content: <BoxContent content={productData.inTheBox} />,
+            }
+        ) : (
+            <></>
+        ),
         productData.compatibleProducts ? (
             {
                 id: "devices",
@@ -83,7 +87,8 @@ const Tabs = ({ productData }) => {
                     <Tab.List as={Fragment}>
                         <ul className="product__tabs__nav__list">
                             {navListItems.map((item) => {
-                                return !isEmpty(item) ? (
+                                console.log(item);
+                                return item.id ? (
                                     <div
                                         className="product__subnav__item tabs__list__item"
                                         key={item.id}

@@ -166,6 +166,13 @@ const Info = ({
                 )} */}
             </div>
             {productData.stock > 0 ? <ShippingInfo /> : <></>}
+            {productData.note ? (
+                <span className="app__product__note text-sm pt-1">
+                    NOTE: {HtmlParser(productData.note)}
+                </span>
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

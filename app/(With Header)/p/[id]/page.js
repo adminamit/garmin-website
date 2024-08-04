@@ -38,9 +38,6 @@ async function getProduct(id) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
     );
-    console.log(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/data/${id}`
-    );
     return res.json();
 }
 
@@ -49,6 +46,7 @@ const page = async ({ params: { id } }) => {
         variationData = null;
     const fetchProduct = await getProduct(id);
     productData = fetchProduct.product;
+
     variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
     if (!productData) {
@@ -61,20 +59,14 @@ const page = async ({ params: { id } }) => {
             link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
         },
     ];
-    // productData.categories.map((category) => {
-    //     breadCrumbs.push({
-    //         label: category.title,
-    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${category.slug}`,
-    //     });
-    // });
-    breadCrumbs.push({
-        label: productData.categories[0].title,
-        link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
-    });
-
-    // console.log("productData - variationData");
-    // console.log(productData);
-    // console.log(variationData);
+    productData.categories[0] ? (
+        breadCrumbs.push({
+            label: productData.categories[0].title,
+            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
+        })
+    ) : (
+        <></>
+    );
     return (
         <ProductWrapper
             productData={productData}

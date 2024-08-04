@@ -570,10 +570,19 @@ table {
 
 }
 
-
 @media screen and (min-width: 1600px){
   .home-slide-item{
     height: 470px;
   }
 
+}
+
+.app__layout-container ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.app__layout-container ol {
+  list-style: auto !important;
+  list-style-position: inside;
 }

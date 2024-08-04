@@ -14,10 +14,8 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
         setAddedToCart(true);
     };
 
-    console.log("productData - variationData");
+    console.log("productData");
     console.log(productData);
-    console.log(variationData);
-
     return (
         <>
             {addedToCart ? (

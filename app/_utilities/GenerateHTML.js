@@ -32,6 +32,10 @@ export const serialize = (children) =>
                 text = <u key={i}>{text}</u>;
             }
 
+            if (node.text === "") {
+                text = <br />;
+            }
+
             return <Fragment key={i}>{text}</Fragment>;
         }
 
@@ -62,9 +66,6 @@ export const serialize = (children) =>
                 return <ol key={i}>{serialize(node.children)}</ol>;
             case "li":
                 return <li key={i}>{serialize(node.children)}</li>;
-            case "sup":
-                return <sup key={i}>{serialize(node.children)}</sup>;
-
             case "link":
                 return (
                     <Link
@@ -79,7 +80,7 @@ export const serialize = (children) =>
                 return (
                     <Image
                         key={i}
-                        src={`${node.value.url}`}
+                        src={`${process.env.NEXT_PUBLIC_SERVER_URL}${node.value.url}`}
                         width={0}
                         height={0}
                         unoptimized
