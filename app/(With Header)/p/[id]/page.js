@@ -46,7 +46,6 @@ const page = async ({ params: { id } }) => {
         variationData = null;
     const fetchProduct = await getProduct(id);
     productData = fetchProduct.product;
-
     variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
     if (!productData) {
@@ -55,18 +54,28 @@ const page = async ({ params: { id } }) => {
     //Prepare Breadcrumb
     const breadCrumbs = [
         {
-            label: "All SmartWatches",
-            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
+            label: fetchProduct.breadcrumb.parentCategory[0].title,
+            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.parentCategory[0].slug}`,
+        },
+        {
+            label: fetchProduct.breadcrumb.title,
+            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
         },
     ];
-    productData.categories[0] ? (
-        breadCrumbs.push({
-            label: productData.categories[0].title,
-            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
-        })
-    ) : (
-        <></>
-    );
+    // const breadCrumbs = [
+    //     {
+    //         label: "All SmartWatches",
+    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
+    //     },
+    // ];
+    // productData.categories[0] ? (
+    //     breadCrumbs.push({
+    //         label: productData.categories[0].title,
+    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
+    //     })
+    // ) : (
+    //     <></>
+    // );
     return (
         <ProductWrapper
             productData={productData}
