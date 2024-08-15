@@ -68,22 +68,18 @@ export const LifeStyle = ({
             img-width=""
         >
             <div className="app__img-banner app__life-style__img-con">
-                <Image
-                    className="app__img-banner__img app__img-banner__img--desktop"
-                    src={image.url}
-                    alt={title}
-                    width={0}
-                    height={0}
-                    unoptimized
-                />
-                {/* <Image
-                    className="app__img-banner__img app__img-banner__img--mobile"
-                    src={mobileImg}
-                    alt=""
-                    width={0}
-                    height={0}
-                    unoptimized
-                /> */}
+                {image ? (
+                    <Image
+                        className="app__img-banner__img app__img-banner__img--desktop"
+                        src={image.url}
+                        alt={title}
+                        width={0}
+                        height={0}
+                        unoptimized
+                    />
+                ) : (
+                    <div className="!bg-primary h-screen w-screen"></div>
+                )}
             </div>
             {!title && !description ? (
                 <></>
@@ -99,10 +95,10 @@ export const LifeStyle = ({
                             style={{ "font-size": "5rem" }}
                         >
                             <span className="app__headline__primary-text">
-                                {HtmlParser(title)}
+                                {title ? HtmlParser(title) : ""}
                             </span>
                             <span className="app__headline__secondary-text">
-                                {HtmlParser(description)}
+                                {description ? HtmlParser(description) : ""}
                             </span>
                         </span>
                     </h2>

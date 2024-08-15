@@ -46,16 +46,21 @@ const ThreeColumnBlockWrapper = ({ items, title, align, columns }) => {
                             >
                                 <Link href={urlData.url} className="">
                                     <div className="w-full absolute h-full top-0 left-0">
-                                        <Image
-                                            alt="default alt"
-                                            src={item.image.url}
-                                            width="400"
-                                            height="400"
-                                            className="w-full h-full object-center object-cover"
-                                            quality={100}
-                                            unoptimized
-                                        />
+                                        {item.image ? (
+                                            <Image
+                                                alt="default alt"
+                                                src={item.image.url}
+                                                width="400"
+                                                height="400"
+                                                className="w-full h-full object-center object-cover"
+                                                quality={100}
+                                                unoptimized
+                                            />
+                                        ) : (
+                                            <div className="!bg-primary h-full w-full"></div>
+                                        )}
                                     </div>
+
                                     <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                     <div className="text-white relative  pb-5">
                                         <h2 className="home-product-cat-tile-heading uppercase">

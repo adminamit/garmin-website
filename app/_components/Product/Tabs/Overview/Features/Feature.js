@@ -20,12 +20,12 @@ export const Feature = ({
                     src={image.url}
                     width={0}
                     height={0}
-                    className="app__feature__card__image"
+                    className="app__feature__card__image !max-h-[250px] object-contain"
                     unoptimized
                     alt={image.alt}
                 />
             ) : (
-                <></>
+                <div className="h-full max-h-[250px] object-contain"></div>
             )}
             {heading ? (
                 <h3

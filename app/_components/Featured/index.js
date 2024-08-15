@@ -57,12 +57,15 @@ export const Featured = ({ slides }) => {
                             <div className="group home-featured-product-card h-full min-h-[540px]">
                                 <Link
                                     href={
-                                        slide.links[0].link.type == "custom"
-                                            ? slide.links[0].link.url
-                                            : slide.links[0].link.reference
-                                                  .relationTo == "products"
-                                            ? `/p/${slide.links[0].link.reference.value.slug}`
-                                            : `/c/${slide.links[0].link.reference.value.slug}`
+                                        slide.links[0]
+                                            ? slide.links[0].link.type ==
+                                              "custom"
+                                                ? slide.links[0].link.url
+                                                : slide.links[0].link.reference
+                                                      .relationTo == "products"
+                                                ? `/p/${slide.links[0].link.reference.value.slug}`
+                                                : `/c/${slide.links[0].link.reference.value.slug}`
+                                            : ""
                                     }
                                     className=""
                                 >
@@ -101,14 +104,18 @@ export const Featured = ({ slides }) => {
                                     )}
 
                                     <div className="w-full md:h-[16vw] text-center mt-4 mb-8 flex justify-center">
-                                        <Image
-                                            alt="default alt"
-                                            src={slide.image.url}
-                                            width="160"
-                                            height="160"
-                                            className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
-                                            quality={100}
-                                        />
+                                        {slide.image ? (
+                                            <Image
+                                                alt="default alt"
+                                                src={slide.image.url}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
+                                                quality={100}
+                                            />
+                                        ) : (
+                                            <div className="!bg-primary h-full w-full"></div>
+                                        )}
                                     </div>
 
                                     <div className=" text-black text-center flex flex-col gap-4">

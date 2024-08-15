@@ -26,14 +26,18 @@ const OneColumnBlockWrapper = ({ items }) => {
                         >
                             <Link href="/">
                                 <div className="w-full absolute h-full top-0 left-0">
-                                    <Image
-                                        alt="default alt"
-                                        src={item.image.url}
-                                        width="160"
-                                        height="160"
-                                        className="w-full h-full object-center object-cover"
-                                        unoptimized
-                                    />
+                                    {item.image ? (
+                                        <Image
+                                            alt="default alt"
+                                            src={item.image.url}
+                                            width="160"
+                                            height="160"
+                                            className="w-full h-full object-center object-cover"
+                                            unoptimized
+                                        />
+                                    ) : (
+                                        <div className="!bg-primary h-full w-full"></div>
+                                    )}
                                 </div>
                                 <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                 <div className="absolute bottom-8 left-8 text-white">

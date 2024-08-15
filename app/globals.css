@@ -586,3 +586,7 @@ table {
   list-style: auto !important;
   list-style-position: inside;
 }
+
+.app__breadcrumb:not(:last-child)::after{
+  content: "/";
+}

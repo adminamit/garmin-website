@@ -51,31 +51,26 @@ const page = async ({ params: { id } }) => {
     if (!productData) {
         return notFound();
     }
-    //Prepare Breadcrumb
-    const breadCrumbs = [
-        {
-            label: fetchProduct.breadcrumb.parentCategory[0].title,
-            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.parentCategory[0].slug}`,
-        },
-        {
-            label: fetchProduct.breadcrumb.title,
-            link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
-        },
-    ];
-    // const breadCrumbs = [
-    //     {
-    //         label: "All SmartWatches",
-    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/wearables-smartwatches`,
-    //     },
-    // ];
-    // productData.categories[0] ? (
-    //     breadCrumbs.push({
-    //         label: productData.categories[0].title,
-    //         link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.categories[0].slug}`,
-    //     })
-    // ) : (
-    //     <></>
-    // );
+
+    const breadCrumbs = fetchProduct.breadcrumb
+        ? fetchProduct.breadcrumb.parentCategory
+            ? [
+                  {
+                      label: fetchProduct.breadcrumb.parentCategory[0].title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.parentCategory[0].slug}`,
+                  },
+                  {
+                      label: fetchProduct.breadcrumb.title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
+                  },
+              ]
+            : [
+                  {
+                      label: fetchProduct.breadcrumb.title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
+                  },
+              ]
+        : [];
     return (
         <ProductWrapper
             productData={productData}

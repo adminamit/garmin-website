@@ -75,22 +75,30 @@ export const SwiperSlider = ({ slides }) => {
                             >
                                 <Link href={urlData.url} className="w-full">
                                     <div className="w-full md:absolute h-full top-0 left-0 ">
-                                        <Image
-                                            alt="default alt"
-                                            src={item.image.url}
-                                            width="160"
-                                            height="160"
-                                            className="w-full h-full object-center object-cover desktopImage"
-                                            unoptimized
-                                        />
-                                        <Image
-                                            alt="default alt"
-                                            src={item.mobileImage.url}
-                                            width="160"
-                                            height="160"
-                                            className="w-full h-full object-center object-cover mobileImage"
-                                            unoptimized
-                                        />
+                                        {item.image ? (
+                                            <Image
+                                                alt="default alt"
+                                                src={item.image.url}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-full object-center object-cover desktopImage"
+                                                unoptimized
+                                            />
+                                        ) : (
+                                            <div className="!bg-primary h-full w-full"></div>
+                                        )}
+                                        {item.mobileImage ? (
+                                            <Image
+                                                alt="default alt"
+                                                src={item.mobileImage.url}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-full object-center object-cover mobileImage"
+                                                unoptimized
+                                            />
+                                        ) : (
+                                            <div className="!bg-primary h-full w-full"></div>
+                                        )}
                                     </div>
                                     <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                     <div className="slide-content relative text-white flex flex-col gap-8">

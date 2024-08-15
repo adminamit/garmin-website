@@ -8,14 +8,18 @@ const TwoColumnBlockWrapper = ({ items }) => {
             {items.map((item, index) => (
                 <div key={index} className="flex flex-col card">
                     <div className="flex-1">
-                        <Image
-                            alt="default alt"
-                            src={item.image.url}
-                            width="160"
-                            height="160"
-                            className="w-full object-center object-cover"
-                            unoptimized
-                        />
+                        {item.image ? (
+                            <Image
+                                alt="default alt"
+                                src={item.image.url}
+                                width="160"
+                                height="160"
+                                className="w-full object-center object-cover"
+                                unoptimized
+                            />
+                        ) : (
+                            <div className="!bg-primary h-full w-full"></div>
+                        )}
                     </div>
                     <div className="px-4 py-8">
                         <h2 className="home-product-cat-tile-heading">
