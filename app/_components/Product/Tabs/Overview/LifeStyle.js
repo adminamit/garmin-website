@@ -78,7 +78,15 @@ export const LifeStyle = ({
                         unoptimized
                     />
                 ) : (
-                    <div className="!bg-primary h-screen w-screen"></div>
+                    <Image
+                        alt="default alt"
+                        src={`/assets/images/1655x800px.webp`}
+                        width="160"
+                        height="160"
+                        className="app__img-banner__img app__img-banner__img--desktop"
+                        quality={100}
+                        unoptimized
+                    />
                 )}
             </div>
             {!title && !description ? (

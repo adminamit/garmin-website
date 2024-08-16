@@ -25,7 +25,19 @@ export const Feature = ({
                     alt={image.alt}
                 />
             ) : (
-                <div className="h-full max-h-[250px] object-contain"></div>
+                <Image
+                    alt="default alt"
+                    src={`/assets/images/225x250px.webp`}
+                    width="160"
+                    height="160"
+                    className={`app__feature__card__image ${
+                        headingSize == "small"
+                            ? "!max-h-[50px]"
+                            : "!max-h-[250px]"
+                    } object-contain`}
+                    quality={100}
+                    unoptimized
+                />
             )}
             {heading ? (
                 <h3

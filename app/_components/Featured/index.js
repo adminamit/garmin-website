@@ -115,7 +115,15 @@ export const Featured = ({ slides }) => {
                                                 unoptimized
                                             />
                                         ) : (
-                                            <div className="!bg-primary h-full w-full"></div>
+                                            <Image
+                                                alt="default alt"
+                                                src={`/assets/images/270x270px.webp`}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
+                                                quality={100}
+                                                unoptimized
+                                            />
                                         )}
                                     </div>
 

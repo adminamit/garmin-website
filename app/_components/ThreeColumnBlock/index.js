@@ -57,7 +57,15 @@ const ThreeColumnBlockWrapper = ({ items, title, align, columns }) => {
                                                 unoptimized
                                             />
                                         ) : (
-                                            <div className="!bg-primary h-full w-full"></div>
+                                            <Image
+                                                alt="default alt"
+                                                src={`/assets/images/225x250px.webp`}
+                                                width="160"
+                                                height="160"
+                                                className="w-full object-center object-cover"
+                                                quality={100}
+                                                unoptimized
+                                            />
                                         )}
                                     </div>
 

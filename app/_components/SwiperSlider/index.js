@@ -85,7 +85,15 @@ export const SwiperSlider = ({ slides }) => {
                                                 unoptimized
                                             />
                                         ) : (
-                                            <div className="!bg-primary h-full w-full"></div>
+                                            <Image
+                                                alt="default alt"
+                                                src={`/assets/images/1665x470px.webp`}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-full object-center object-cover desktopImage"
+                                                quality={100}
+                                                unoptimized
+                                            />
                                         )}
                                         {item.mobileImage ? (
                                             <Image
@@ -97,7 +105,15 @@ export const SwiperSlider = ({ slides }) => {
                                                 unoptimized
                                             />
                                         ) : (
-                                            <div className="!bg-primary h-full w-full"></div>
+                                            <Image
+                                                alt="default alt"
+                                                src={`/assets/images/270x270px.webp`}
+                                                width="160"
+                                                height="160"
+                                                className="w-full h-full object-center object-cover mobileImage"
+                                                quality={100}
+                                                unoptimized
+                                            />
                                         )}
                                     </div>
                                     <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>

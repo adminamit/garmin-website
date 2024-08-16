@@ -36,7 +36,15 @@ const OneColumnBlockWrapper = ({ items }) => {
                                             unoptimized
                                         />
                                     ) : (
-                                        <div className="!bg-primary h-full w-full"></div>
+                                        <Image
+                                            alt="default alt"
+                                            src={`/assets/images/800x850px 3.webp`}
+                                            width="160"
+                                            height="160"
+                                            className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
+                                            quality={100}
+                                            unoptimized
+                                        />
                                     )}
                                 </div>
                                 <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
