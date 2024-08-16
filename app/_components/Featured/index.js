@@ -112,7 +112,6 @@ export const Featured = ({ slides }) => {
                                                 height="160"
                                                 className="w-full h-[200px] md:h-full object-center object-contain max-w-[15em] "
                                                 quality={100}
-                                                unoptimized
                                             />
                                         ) : (
                                             <div className="!bg-primary h-full w-full"></div>
