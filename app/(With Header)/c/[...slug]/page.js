@@ -1,6 +1,7 @@
 import notFound from "@/app/(With Header)/not-found";
 import { Archive } from "@/app/_components/Archive/Archive";
 import "@/app/_css/shop/products.css";
+import { orderBy } from "lodash";
 import qs from "qs";
 
 export const runtime = "edge";
@@ -19,6 +20,7 @@ async function getCategoryData(slug) {
         },
         { addQueryPrefix: true }
     );
+
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/product-category${stringifiedQuery}`,
         { next: { tags: ["category"] } }

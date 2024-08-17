@@ -6,7 +6,9 @@ export async function GET(request, context) {
     const series = request.nextUrl.searchParams.get("series");
     const activity = request.nextUrl.searchParams.get("activity");
     const features = request.nextUrl.searchParams.get("features");
-    const sortBy = request.nextUrl.searchParams.get("sortBy");
+    const sortBy = request.nextUrl.searchParams.get("sortBy")
+        ? request.nextUrl.searchParams.get("sortBy")
+        : "proirityOrder";
     const page = request.nextUrl.searchParams.get("page");
     const query = {
         categories: {
@@ -41,9 +43,13 @@ export async function GET(request, context) {
             ...(sortBy != "null" && {
                 sort: sortBy,
             }),
+            sort: "proirityOrder",
         },
 
         { addQueryPrefix: true }
+    );
+    console.log(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
     );
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`,

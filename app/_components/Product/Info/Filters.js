@@ -4,7 +4,7 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import Link from "next/link";
 import "@/app/_css/product/filters.css";
 import { useQueryState, parseAsArrayOf } from "nuqs";
-import { isEqual } from "lodash";
+import { isEqual, isMatch, omit } from "lodash";
 import { useRouter } from "next/navigation";
 
 const Filters = ({ attributes, product, activeAttributes, variationData }) => {
@@ -13,7 +13,13 @@ const Filters = ({ attributes, product, activeAttributes, variationData }) => {
         useState(activeAttributes);
     const [notAvailable, setNotAvailable] = useState(false);
 
-    const switchVariation = (e, variations) => {
+    const switchVariation = (e, variations, currentKey) => {
+        console.log("activeAttributes");
+        console.log(activeAttributes);
+        console.log("variations");
+        console.log(variations);
+
+        console.log("variation.trimmedAttributes");
         let available = false;
         variationData.map((variation) => {
             if (isEqual(variation.trimmedAttributes, variations)) {
@@ -22,10 +28,15 @@ const Filters = ({ attributes, product, activeAttributes, variationData }) => {
             }
         });
         if (!available) {
-            setNotAvailable(true);
-            setTimeout(() => {
-                setNotAvailable(false);
-            }, [500]);
+            variationData.map((variation) => {
+                if (isMatch(variation.trimmedAttributes, currentKey)) {
+                    router.push(`/p/${variation.sku}`);
+                }
+            });
+            // setNotAvailable(true);
+            // setTimeout(() => {
+            //     setNotAvailable(false);
+            // }, [500]);
         }
     };
 
@@ -70,10 +81,14 @@ const Filters = ({ attributes, product, activeAttributes, variationData }) => {
                                         // href={`/p/${product.sku}`}
 
                                         onClick={(e) => {
-                                            switchVariation(e, {
-                                                ...selectedVariations,
-                                                [attribute.title]: el.title,
-                                            });
+                                            switchVariation(
+                                                e,
+                                                {
+                                                    ...selectedVariations,
+                                                    [attribute.title]: el.title,
+                                                },
+                                                { [attribute.title]: el.title }
+                                            );
 
                                             // setSelectedVariations([...selectedVariations, {el.title ] );
                                         }}
