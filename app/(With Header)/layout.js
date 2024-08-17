@@ -19,9 +19,6 @@ const oswald = Oswald({
 export const metadata = {
     title: "Garmin | India | Home",
     description: "",
-    icons: {
-        icon: "/icon.webp", // /public path
-    },
 };
 
 export default function RootLayout({ children }) {
