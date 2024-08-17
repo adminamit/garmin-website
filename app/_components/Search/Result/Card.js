@@ -13,6 +13,7 @@ export const SearchResultCard = ({ product }) => {
                     width={80}
                     height={80}
                     quality={100}
+                    unoptimized
                 />
                 <h2 className="card__name">
                     <p>{HtmlParser(product.title)}</p>
