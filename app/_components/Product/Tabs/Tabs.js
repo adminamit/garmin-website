@@ -13,8 +13,7 @@ const Tabs = ({ productData }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const tabReference = useRef(null);
     // const scroll = useScroll();
-    console.log("productData.productSpecifications");
-    console.log(productData.productSpecifications.specificationGroup);
+
     const navListItems = [
         {
             id: "overview",
@@ -69,9 +68,6 @@ const Tabs = ({ productData }) => {
             <></>
         ),
     ];
-
-    console.log("navListItems");
-    console.log(navListItems);
 
     const handleTabChange = (index) => {
         setSelectedIndex(index);

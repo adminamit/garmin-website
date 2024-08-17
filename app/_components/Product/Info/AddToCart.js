@@ -13,9 +13,6 @@ export const AddToCart = ({ product, quantity = 1, setAddedToCart }) => {
     } = useCart();
     const [addingToCart, setAddingToCart] = useState(false);
 
-    // useEffect(() => {
-    //     setIsInCart(isProductInCart(product));
-    // }, [isProductInCart, product, cart]);
     const handleAddToCart = () => {
         setAddingToCart(true);
         setTimeout(() => {

@@ -49,6 +49,7 @@ export const Attributes = ({ productData, variationData }) => {
                 attributes.map((el) => {
                     const att = {};
                     att[attribute.attributeName] = attribute.title;
+
                     if (el.id === attribute.attribute) {
                         el.values.push({
                             title: attribute.title,
@@ -60,15 +61,30 @@ export const Attributes = ({ productData, variationData }) => {
             });
     });
 
-    //GET Unique Attributes
+    // //GET Unique Attributes
     attributes.map((el) => {
         el.values = [
             ...new Map(el.values.map((item) => [item["title"], item])).values(),
         ];
     });
+    variationData.map((variation, index) => {
+        console.log(variation);
+        const trimmedAttributes = {};
+
+        variation.attributes &&
+            variation.attributes.map((attribute) => {
+                trimmedAttributes[attribute.attributeName] = attribute.title;
+            });
+        variationData[index]["trimmedAttributes"] = trimmedAttributes;
+    });
     return (
         <div>
-            <Filters attributes={attributes} product={productData} />
+            <Filters
+                attributes={attributes}
+                product={productData}
+                activeAttributes={activeAttributes}
+                variationData={variationData}
+            />
             {models ? <ColorPicker models={models} /> : <></>}
         </div>
     );
