@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Tooltip from "../../Helpers/Tooltip";
 import { AiFillQuestionCircle } from "react-icons/ai";
-import Link from "next/link";
 import "@/app/_css/product/filters.css";
-import { useQueryState, parseAsArrayOf } from "nuqs";
 import { isEqual, isMatch, omit } from "lodash";
 import { useRouter } from "next/navigation";
 
@@ -14,12 +12,6 @@ const Filters = ({ attributes, product, activeAttributes, variationData }) => {
     const [notAvailable, setNotAvailable] = useState(false);
 
     const switchVariation = (e, variations, currentKey) => {
-        console.log("activeAttributes");
-        console.log(activeAttributes);
-        console.log("variations");
-        console.log(variations);
-
-        console.log("variation.trimmedAttributes");
         let available = false;
         variationData.map((variation) => {
             if (isEqual(variation.trimmedAttributes, variations)) {

@@ -36,7 +36,7 @@ export async function GET(request, context) {
 
     const stringifiedQuery = qs.stringify(
         {
-            limit: 12,
+            limit: 9,
             page: page ? page : 1,
             depth: 1,
             where: query,
@@ -48,15 +48,11 @@ export async function GET(request, context) {
 
         { addQueryPrefix: true }
     );
-    console.log(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`
-    );
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products${stringifiedQuery}`,
         { next: { tags: ["products"] } }
     );
     const data = await res.json();
-    // console.log(data);
 
     return NextResponse.json(data);
 }
