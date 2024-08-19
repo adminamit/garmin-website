@@ -32,6 +32,9 @@ export async function GET(request, context) {
                 in: features,
             },
         }),
+        _status: {
+            equals: "published",
+        },
     };
 
     const stringifiedQuery = qs.stringify(
@@ -44,6 +47,7 @@ export async function GET(request, context) {
                 sort: sortBy,
             }),
             sort: "proirityOrder",
+            draft: false,
         },
 
         { addQueryPrefix: true }

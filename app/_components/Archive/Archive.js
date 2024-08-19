@@ -14,7 +14,7 @@ import Series from "./Series";
 import { useSearchParams } from "next/navigation";
 import HtmlParser from "react-html-parser";
 import { Loader } from "../Loader";
-import useIsMobile from "@/app/_utilities/IsMobileDevice";
+
 export const Archive = ({ category }) => {
     const searchParams = useSearchParams();
     const series = searchParams.get("series");
@@ -58,7 +58,7 @@ export const Archive = ({ category }) => {
             // const res = await fetch(
             //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
             //         category.id
-            //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
+            //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
             // );
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${

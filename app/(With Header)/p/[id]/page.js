@@ -48,7 +48,7 @@ const page = async ({ params: { id } }) => {
     productData = fetchProduct.product;
     variationData = fetchProduct.variations ? fetchProduct.variations : [];
 
-    if (!productData) {
+    if (!productData || productData._status != "published") {
         return notFound();
     }
 
