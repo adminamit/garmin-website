@@ -11,6 +11,7 @@ export const Products = ({
     handleCompareChange,
     categoryId,
     products,
+    sortBy,
 }) => {
     // const searchParams = useSearchParams();
     // const series = searchParams.get("series");
@@ -22,7 +23,9 @@ export const Products = ({
     //     }/api/products/?id=${categoryId}&draft=${false}&series=${series}`
     // );
     // products = await fetchProducts.json();
-    const sortedProducts = orderBy(products.docs, ["proirityOrder"], ["asc"]);
+    const sortedProducts = sortBy
+        ? products.docs
+        : orderBy(products.docs, ["proirityOrder"], ["asc"]);
     return (
         <>
             <div className="product-grid">

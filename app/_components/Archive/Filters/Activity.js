@@ -4,16 +4,18 @@ import { useQueryState } from "nuqs";
 
 const ActivityFilter = ({ allActivity }) => {
     const [activity, setActivity] = useQueryState("activity");
-
+    const [page, setPage] = useQueryState("page");
     const handleActivityUpdate = (id, action) => {
         let activeActivity = activity ? activity.split(",") : [];
         if (!action) {
             const updated = activeActivity.filter((item) => item !== id);
             updated.length === 0
                 ? setActivity(null)
-                : setActivity(updated.toString());
+                : setActivity(updated.toString()) && setPage("1");
         } else {
-            activeActivity.push(id) && setActivity(activeActivity.toString());
+            activeActivity.push(id) &&
+                setActivity(activeActivity.toString()) &&
+                setPage("1");
         }
     };
 

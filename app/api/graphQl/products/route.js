@@ -40,6 +40,12 @@ export async function GET(request, context) {
     //   }
 
     //   { productType: { in: [variable, simple, group] }, categories: {in: ["65e869ec8e41da318f3a8c22"]} } , limit:10
+    let activityArr = activity.split(",");
+    let featuresArr = features.split(",");
+
+    //Prepare for graphQl Query
+    activityArr = activityArr.map((i) => `"${i}"`);
+    featuresArr = featuresArr.map((i) => `"${i}"`);
 
     const res = await fetch(
         process.env.GRAPHQL_API_URL,
@@ -53,11 +59,24 @@ export async function GET(request, context) {
             {
                 Products(
                     where: {
-                    categories: { equals: "65e869ec8e41da318f3a8c22" }
+                    categories: { equals: "${id}" }
                     productType: { in: [simple, variable, group] }
+                    ${
+                        activity != "null"
+                            ? `activity: {in: [${activityArr}]}`
+                            : ""
                     }
+                    ${
+                        features != "null"
+                            ? `features: {in: [${featuresArr}]}`
+                            : ""
+                    }
+                    ${series != "null" ? `series: {equals: "${series}"}` : ""}
+                    }
+                    ${sortBy != "null" ? `sort: "${sortBy}"` : ""}
                     limit: 12
                     page: ${page ? page : 1}
+                    
                 ) {
                     docs {
                     id
@@ -101,6 +120,7 @@ export async function GET(request, context) {
         },
         { cache: "no-store" }
     );
+
     const data = await res.json();
     return NextResponse.json(data.data.Products);
 }

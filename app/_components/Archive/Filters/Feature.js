@@ -3,6 +3,7 @@ import { useQueryState } from "nuqs";
 
 const FeatureFilter = ({ allFeatures }) => {
     const [features, setFeatures] = useQueryState("features");
+    const [page, setPage] = useQueryState("page");
 
     const handleFeaturesUpdate = (id, action) => {
         let activeFeatures = features ? features.split(",") : [];
@@ -10,9 +11,11 @@ const FeatureFilter = ({ allFeatures }) => {
             const updated = activeFeatures.filter((item) => item !== id);
             updated.length === 0
                 ? setFeatures(null)
-                : setFeatures(updated.toString());
+                : setFeatures(updated.toString()) && setPage("1");
         } else {
-            activeFeatures.push(id) && setFeatures(activeFeatures.toString());
+            activeFeatures.push(id) &&
+                setFeatures(activeFeatures.toString()) &&
+                setPage("1");
         }
     };
 

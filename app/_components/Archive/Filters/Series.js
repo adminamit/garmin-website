@@ -4,16 +4,18 @@ import { useQueryState } from "nuqs";
 
 const SeriesFilter = ({ allSeries }) => {
     const [series, setSeries] = useQueryState("series");
-
+    const [page, setPage] = useQueryState("page");
     const handleSeriesUpdate = (id, action) => {
         let activeSeries = series ? series.split(",") : [];
         if (!action) {
             const updated = activeSeries.filter((item) => item !== id);
             updated.length === 0
                 ? setSeries(null)
-                : setSeries(updated.toString());
+                : setSeries(updated.toString()) && setPage("1");
         } else {
-            activeSeries.push(id) && setSeries(activeSeries.toString());
+            activeSeries.push(id) &&
+                setSeries(activeSeries.toString()) &&
+                setPage("1");
         }
     };
 

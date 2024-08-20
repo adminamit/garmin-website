@@ -55,16 +55,16 @@ export const Archive = ({ category }) => {
     useEffect(() => {
         setLoading(true);
         const fetchProducts = async () => {
-            // const res = await fetch(
-            //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
-            //         category.id
-            //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
-            // );
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
+                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
                     category.id
                 }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
             );
+            // const resRest = await fetch(
+            //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
+            //         category.id
+            //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
+            // );
             const data = await res.json();
             setLoading(false);
             setProducts(data);
@@ -165,6 +165,7 @@ export const Archive = ({ category }) => {
                             compareProducts={compareProducts}
                             categoryId={category.id}
                             products={products}
+                            sortBy={sortBy}
                         />
                     ) : (
                         <Loading />
