@@ -8,38 +8,7 @@ export async function GET(request, context) {
     const features = request.nextUrl.searchParams.get("features");
     const sortBy = request.nextUrl.searchParams.get("sortBy");
     const page = request.nextUrl.searchParams.get("page");
-    const query = {
-        categories: {
-            in: JSON.stringify([id]),
-        },
-        productType: {
-            in: `[simple, variable, group]`,
-        },
-        ...(series != null && {
-            series: {
-                equals: series,
-            },
-        }),
-        ...(activity != null && {
-            activity: {
-                in: activity,
-            },
-        }),
-        ...(features != null && {
-            features: {
-                in: features,
-            },
-        }),
-    };
 
-    // console.log(query);
-    // { productType: { in: [variable, simple, group] }, categories: {in: ["65e869ec8e41da318f3a8c22"]} } , limit:10
-    // {
-    //     categories: { in: '["65e869ec8e41da318f3a8c22"]' },
-    //     productType: { in: '"[simple, variable, group]"' }
-    //   }
-
-    //   { productType: { in: [variable, simple, group] }, categories: {in: ["65e869ec8e41da318f3a8c22"]} } , limit:10
     let activityArr = activity.split(",");
     let featuresArr = features.split(",");
 

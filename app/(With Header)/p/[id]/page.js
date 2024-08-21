@@ -41,12 +41,264 @@ async function getProduct(id) {
     return res.json();
 }
 
+async function getProductGraphql(id) {
+    const res = await fetch(
+        process.env.GRAPHQL_API_URL,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: `
+            {
+                Products(where: { sku: { equals: "${id}" } }) {
+                    docs {
+                    id
+                    title
+                    price
+                    salePrice
+                    sku
+                    productType
+                    parentProduct {
+                        title
+                        id
+                    }
+                    attributes {
+                        id
+                        attributeName
+                        attributeTitle
+                        title
+                        slug
+                        attribute {
+                            title
+                            slug
+                            id
+                            text
+                        }
+                    }
+                    images {
+                        featuredImage {
+                        url
+                        }
+                    }
+                    featuredImage {
+                        url
+                    }
+                    stock
+                    excerpt
+                    description
+                    featuredImageUrl
+                    _status
+                    slug
+                    groupProducts {
+                        id
+                        title
+                        sku
+                        featuredImageUrl
+                        price
+                        salePrice
+                        slug
+                    }
+                    links {
+                        manual
+                        software
+                        supportCenter
+                    }
+                    
+                    series {
+                        id
+                        title
+                        slug
+                    }
+                    activity {
+                        id
+                        title
+                        slug
+                    }
+                    features {
+                        id
+                        title
+                        slug
+                    }
+                    categories {
+                        id
+                        title
+                        slug
+                    }
+                    breadcrumb{
+                        id
+                        title
+                        slug
+                    }
+                }
+            }
+        }
+        `,
+            }),
+        },
+        { cache: "no-store" }
+    );
+
+    return res.json();
+}
+
+async function getVariationGraphql(id) {
+    const res = await fetch(
+        process.env.GRAPHQL_API_URL,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: `
+                {
+                    Products(where: { parentProduct: { equals: "${id}" } }) {
+                        docs {
+                            id
+                            title
+                            sku
+                            featuredImage {
+                                url
+                            }
+                            featuredImageUrl
+                            attributes {
+                                attributeName
+                                attributeTitle
+                                id
+                                title
+                                slug
+                                attribute {
+                                    title
+                                    slug
+                                    id
+                                    text
+                                }
+                            }
+                        }
+                    }
+                }
+            `,
+            }),
+        },
+        { cache: "no-store" }
+    );
+    return res.json();
+}
+
+async function getProductTabsGraphql(id) {
+    const res = await fetch(
+        process.env.GRAPHQL_API_URL,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: `
+            {
+                Products(where: { sku: { equals: "${id}" } }) {
+                    docs {
+                        overviewJson
+                        inTheBox
+                        productSpecifications {
+                            specificationGroup {
+                            id
+                            specificationGroup {
+                                id
+                                title
+                            }
+                            items {
+                                value
+                                id
+                                specification {
+                                id
+                                title
+                                url
+                                specTitle
+                                updatedAt
+                                createdAt
+                                }
+                            }
+                            }
+                        }
+                        productAccessories {
+                            accessory {
+                            id
+                            accessoryCategory {
+                                id
+                                title
+                                heading
+                                description
+                                slug
+                            }
+                            products {
+                                id
+                                title
+                                sku
+                                price
+                                salePrice
+                                featuredImageUrl
+                            }
+                            }
+                        }
+                        compatibleProducts {
+                            title
+                            sku
+                            slug
+                            featuredImageUrl
+                            id
+                            price
+                        }
+                        moreFeaturesProducts {
+                            id
+                            title
+                            sku
+                            featuredImageUrl
+                            price
+                        }
+                        
+                        relatedProducts {
+                            id
+                            title
+                            sku
+                            price
+                        }
+                    }
+                }
+            }
+        `,
+            }),
+        },
+        { cache: "no-store" }
+    );
+
+    return res.json();
+}
 const page = async ({ params: { id } }) => {
     let productData = null,
-        variationData = null;
-    const fetchProduct = await getProduct(id);
-    productData = fetchProduct.product;
-    variationData = fetchProduct.variations ? fetchProduct.variations : [];
+        variationData = [],
+        tabsData = null;
+    const fetchProduct = await getProductGraphql(id);
+    productData = fetchProduct.data.Products.docs[0];
+
+    // FETCH VARIATION
+    if (productData.productType == "variable") {
+        const fetchVariation = await getVariationGraphql(productData.id);
+        variationData = fetchVariation.data.Products.docs;
+        variationData.push(productData);
+    } else if (productData.productType == "variation") {
+        const fetchVariation = await getVariationGraphql(
+            productData.parentProduct.id
+        );
+        variationData = fetchVariation.data.Products.docs;
+        variationData.push(productData);
+    }
+
+    //FETCH TABS DATA
+    const fetchTabsData = await getProductTabsGraphql(id);
+    tabsData = fetchTabsData.data.Products.docs[0];
 
     if (!productData || productData._status != "published") {
         return notFound();
@@ -76,6 +328,7 @@ const page = async ({ params: { id } }) => {
             productData={productData}
             variationData={variationData}
             breadCrumbs={breadCrumbs}
+            tabsData={tabsData}
         />
     );
 };

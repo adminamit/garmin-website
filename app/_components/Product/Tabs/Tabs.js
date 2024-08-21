@@ -9,7 +9,7 @@ import { Devices } from "./CompatibleDevices/Devices";
 import BoxContent from "./InTheBox/BoxContent";
 import { Accessories } from "./Accessories/Accessories";
 import { isEmpty, compact } from "lodash";
-const Tabs = ({ productData }) => {
+const Tabs = ({ tabsData }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const tabReference = useRef(null);
     // const scroll = useScroll();
@@ -18,16 +18,18 @@ const Tabs = ({ productData }) => {
         {
             id: "overview",
             label: "Overview",
-            content: <Overview productData={productData} />,
+            content: (
+                <Overview overviewBlocks={JSON.parse(tabsData.overviewJson)} />
+            ),
         },
-        productData.productSpecifications.specificationGroup.length > 0 ? (
+        tabsData.productSpecifications.specificationGroup.length > 0 ? (
             {
                 id: "specs",
                 label: "Specs",
                 content: (
                     <Specs
                         productSpecifications={
-                            productData.productSpecifications.specificationGroup
+                            tabsData.productSpecifications.specificationGroup
                         }
                     />
                 ),
@@ -35,32 +37,33 @@ const Tabs = ({ productData }) => {
         ) : (
             <></>
         ),
-        productData.inTheBox ? (
+        tabsData.inTheBox ? (
             {
                 id: "inthebox",
                 label: "In the Box",
-                content: <BoxContent content={productData.inTheBox} />,
+                content: <BoxContent content={tabsData.inTheBox} />,
             }
         ) : (
             <></>
         ),
-        productData.compatibleProducts ? (
+        tabsData.compatibleProducts &&
+        tabsData.compatibleProducts.length > 0 ? (
             {
                 id: "devices",
                 label: "Compatible Devices",
-                content: <Devices products={productData.compatibleProducts} />,
+                content: <Devices products={tabsData.compatibleProducts} />,
             }
         ) : (
             <></>
         ),
-        productData.productAccessories.accessory &&
-        productData.productAccessories.accessory.length > 0 ? (
+        tabsData.productAccessories.accessory &&
+        tabsData.productAccessories.accessory.length > 0 ? (
             {
                 id: "accessories",
                 label: "Accessories",
                 content: (
                     <Accessories
-                        accessories={productData.productAccessories.accessory}
+                        accessories={tabsData.productAccessories.accessory}
                     />
                 ),
             }
@@ -142,7 +145,7 @@ const Tabs = ({ productData }) => {
                             })}
                             <Sidebar
                                 full={selectedIndex == 0 ? true : false}
-                                productData={productData}
+                                tabsData={tabsData}
                             />
                         </div>
                     </div>

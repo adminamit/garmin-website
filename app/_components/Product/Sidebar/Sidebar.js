@@ -5,29 +5,28 @@ import { MoreFeatures } from "./MoreFeatures";
 import { YouMayAlsoLike } from "./YouMayAlsoLike";
 import { CompatibleProducts } from "./CompatibleProducts";
 import "@/app/_css/product/sidebar.css";
-const Sidebar = ({ full, productData }) => {
+const Sidebar = ({ full, tabsData }) => {
+    console.log(tabsData);
     return (
         <div
             id="js__product__sidebar"
             className={`${full ? "sidebar__full" : "sidebar"}`}
         >
-            {productData.links ? (
-                <ProductLinks links={productData.links} />
+            {tabsData.links ? <ProductLinks links={tabsData.links} /> : <></>}
+            {tabsData.compatibleProducts &&
+            tabsData.compatibleProducts.length > 0 ? (
+                <CompatibleProducts products={tabsData.compatibleProducts} />
             ) : (
                 <></>
             )}
-            {productData.compatibleProducts ? (
-                <CompatibleProducts products={productData.compatibleProducts} />
+            {tabsData.relatedProducts && tabsData.relatedProducts.length > 0 ? (
+                <YouMayAlsoLike products={tabsData.relatedProducts} />
             ) : (
                 <></>
             )}
-            {productData.relatedProducts ? (
-                <YouMayAlsoLike products={productData.relatedProducts} />
-            ) : (
-                <></>
-            )}
-            {productData.moreFeaturesProducts ? (
-                <MoreFeatures products={productData.moreFeaturesProducts} />
+            {tabsData.moreFeaturesProducts &&
+            tabsData.moreFeaturesProducts.length > 0 ? (
+                <MoreFeatures products={tabsData.moreFeaturesProducts} />
             ) : (
                 <></>
             )}

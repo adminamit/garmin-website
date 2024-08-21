@@ -37,21 +37,6 @@ export const Archive = ({ category }) => {
             history: "push",
         }
     );
-
-    // let products = [];
-    // const fetchProducts = await fetch(
-    //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
-    //         category.id
-    //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
-    // );
-
-    // const fetchProducts = await fetch(
-    //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
-    //         category.id
-    //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}`
-    // );
-    // products = await fetchProducts.json();
-
     useEffect(() => {
         setLoading(true);
         const fetchProducts = async () => {
@@ -60,11 +45,6 @@ export const Archive = ({ category }) => {
                     category.id
                 }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
             );
-            // const resRest = await fetch(
-            //     `${process.env.NEXT_PUBLIC_LIVE_URL}/api/products/?id=${
-            //         category.id
-            //     }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
-            // );
             const data = await res.json();
             setLoading(false);
             setProducts(data);

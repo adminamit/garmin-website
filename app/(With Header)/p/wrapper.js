@@ -8,7 +8,12 @@ import Info from "@/app/_components/Product/Info/Info";
 import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
 import HtmlParser from "react-html-parser";
-export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
+export const ProductWrapper = ({
+    productData,
+    variationData,
+    breadCrumbs,
+    tabsData,
+}) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const handleAddedCart = () => {
         setAddedToCart(true);
@@ -77,7 +82,7 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                     handleAddedCart={handleAddedCart}
                 />
             </div>
-            {productData ? <Tabs productData={productData} /> : <Loader />}
+            {tabsData ? <Tabs tabsData={tabsData} /> : <Loader />}
         </>
     );
 };

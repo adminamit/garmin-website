@@ -19,7 +19,7 @@ export const Attributes = ({ productData, variationData }) => {
             attributes.push({
                 title: attribute.attributeName,
                 id: attribute.attribute,
-                text: attribute.attributeText,
+                text: attribute.attributeName,
                 values: [],
             });
         });
@@ -41,7 +41,8 @@ export const Attributes = ({ productData, variationData }) => {
             current: productData.id === product.id ? true : false,
             attributes: variationAttributes,
             activeAttributes: activeAttributes,
-            active: isEqual(variationAttributes, activeAttributes),
+            // active: isEqual(variationAttributes, activeAttributes),
+            active: productData.id === product.id ? true : false,
         });
 
         productData.attributes &&
@@ -50,7 +51,7 @@ export const Attributes = ({ productData, variationData }) => {
                     const att = {};
                     att[attribute.attributeName] = attribute.title;
 
-                    if (el.id === attribute.attribute) {
+                    if (el.id.id === attribute.attribute.id) {
                         el.values.push({
                             title: attribute.title,
                             sku: product.sku,

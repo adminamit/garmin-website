@@ -25,7 +25,7 @@ module.exports = {
             },
             {
                 protocol: "https",
-                hostname: "13.201.128.24.nip.io",
+                hostname: "cmsprod.garmin-india.com",
                 port: "",
             },
         ],

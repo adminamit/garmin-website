@@ -16,14 +16,6 @@ const ColorPicker = ({ models }) => {
                 {models.map((model) => {
                     return (
                         <li className="app__color__picker__item" key={model.id}>
-                            {/* {JSON.stringify(model.activeAttributes)}
-                            {JSON.stringify(model.attributes)}
-                            {JSON.stringify(
-                                isEqual(
-                                    model.activeAttributes,
-                                    model.attributes
-                                )
-                            )} */}
                             <Link
                                 className={`app__color__picker__link js__filter-option ${
                                     model.active
