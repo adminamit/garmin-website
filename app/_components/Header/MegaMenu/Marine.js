@@ -90,7 +90,7 @@ export const Marine = () => {
                             data-uw-rm-brl="PR"
                             data-uw-original-href="/c/marine/chartplotters/"
                         >
-                            Chartplotters{" "}
+                            Chartplotters & Fishfinders
                         </a>
                         <a
                             className="gh__nav__categories__items__menu__link"
