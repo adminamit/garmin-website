@@ -139,8 +139,9 @@ async function getProductGraphql(id) {
         },
         { cache: "no-store" }
     );
+    const responseBody = await res.json();
 
-    return res.json();
+    return responseBody;
 }
 
 async function getVariationGraphql(id) {
@@ -154,7 +155,7 @@ async function getVariationGraphql(id) {
             body: JSON.stringify({
                 query: `
                 {
-                    Products(where: { parentProduct: { equals: "${id}" } }) {
+                    Products(where: { parentProduct: { equals: "${id}" } }, limit:50) {
                         docs {
                             id
                             title
@@ -173,10 +174,11 @@ async function getVariationGraphql(id) {
                                     title
                                     slug
                                     id
-                                    text
                                 }
                             }
                         }
+                        limit
+                        totalDocs
                     }
                 }
             `,
@@ -184,7 +186,8 @@ async function getVariationGraphql(id) {
         },
         { cache: "no-store" }
     );
-    return res.json();
+    const responseBody = await res.json();
+    return responseBody;
 }
 
 async function getProductTabsGraphql(id) {
@@ -268,40 +271,44 @@ async function getProductTabsGraphql(id) {
                     }
                 }
             }
-        `,
+                `,
             }),
         },
         { cache: "no-store" }
     );
 
-    return res.json();
+    const responseBody = await res.json();
+    console.log("responseBody getProductTabsGraphql");
+    console.log(responseBody);
+    return responseBody;
 }
 const page = async ({ params: { id } }) => {
     let productData = null,
         variationData = [],
         tabsData = null;
     const fetchProduct = await getProductGraphql(id);
+
     productData = fetchProduct.data.Products.docs[0];
-
-    // FETCH VARIATION
-    if (productData.productType == "variable") {
-        const fetchVariation = await getVariationGraphql(productData.id);
-        variationData = fetchVariation.data.Products.docs;
-        variationData.push(productData);
-    } else if (productData.productType == "variation") {
-        const fetchVariation = await getVariationGraphql(
-            productData.parentProduct.id
-        );
-        variationData = fetchVariation.data.Products.docs;
-        variationData.push(productData);
-    }
-
-    //FETCH TABS DATA
-    const fetchTabsData = await getProductTabsGraphql(id);
-    tabsData = fetchTabsData.data.Products.docs[0];
 
     if (!productData || productData._status != "published") {
         return notFound();
+    } else {
+        // FETCH VARIATION
+        if (productData.productType == "variable") {
+            const fetchVariation = await getVariationGraphql(productData.id);
+            variationData = fetchVariation.data.Products.docs;
+            variationData.push(productData);
+        } else if (productData.productType == "variation") {
+            const fetchVariation = await getVariationGraphql(
+                productData.parentProduct.id
+            );
+            variationData = fetchVariation.data.Products.docs;
+            // variationData.push(productData);
+        }
+
+        //FETCH TABS DATA
+        // const fetchTabsData = await getProductTabsGraphql(id);
+        // tabsData = fetchTabsData.data.Products.docs[0];
     }
 
     const breadCrumbs = fetchProduct.breadcrumb
@@ -330,6 +337,7 @@ const page = async ({ params: { id } }) => {
             breadCrumbs={breadCrumbs}
             tabsData={tabsData}
         />
+        // <></>
     );
 };
 

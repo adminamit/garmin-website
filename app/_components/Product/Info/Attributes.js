@@ -41,8 +41,8 @@ export const Attributes = ({ productData, variationData }) => {
             current: productData.id === product.id ? true : false,
             attributes: variationAttributes,
             activeAttributes: activeAttributes,
-            // active: isEqual(variationAttributes, activeAttributes),
-            active: productData.id === product.id ? true : false,
+            active: isEqual(variationAttributes, activeAttributes),
+            // active: productData.id === product.id ? true : false,
         });
 
         productData.attributes &&

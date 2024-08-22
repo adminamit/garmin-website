@@ -8,19 +8,24 @@ import Info from "@/app/_components/Product/Info/Info";
 import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
 import HtmlParser from "react-html-parser";
-export const ProductWrapper = ({
-    productData,
-    variationData,
-    breadCrumbs,
-    tabsData,
-}) => {
+export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     const [addedToCart, setAddedToCart] = useState(false);
+    const [tabsData, setTabsData] = useState(null);
     const handleAddedCart = () => {
         setAddedToCart(true);
     };
 
-    console.log("productData");
-    console.log(productData);
+    useEffect(() => {
+        const fetchTabsData = async () => {
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product/tabs?sku=${productData.sku}`
+            );
+            const tabsData = await res.json();
+            setTabsData(tabsData);
+        };
+
+        fetchTabsData();
+    }, []);
     return (
         <>
             {addedToCart ? (
