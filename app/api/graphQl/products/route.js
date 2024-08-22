@@ -28,7 +28,7 @@ export async function GET(request, context) {
             {
                 Products(
                     where: {
-                    categories: { equals: "${id}" }
+                    categories: { in: ["${id}"] }
                     productType: { in: [simple, variable, group] }
                     ${
                         activity != "null"
