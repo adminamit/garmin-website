@@ -188,14 +188,14 @@ export const SmartWatches = ({}) => {
                         >
                             Garmin Technology
                         </a>{" "}
-                        <a
+                        {/* <a
                             className="gh__nav__categories__items__menu__link"
                             href="https://www.garmin.com/en-GB/which-watch/"
                             data-gatext="Watch Finder"
                             data-ua-event="Global Header, SMARTWATCHES, Watch finder"
                         >
                             Watch finder
-                        </a>
+                        </a> */}
                     </div>
                 </SubItemWrapper>
                 <div className="gh__nav__categories__items__menu__column">
