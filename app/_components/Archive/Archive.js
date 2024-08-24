@@ -23,6 +23,8 @@ export const Archive = ({ category }) => {
     const sortBy = searchParams.get("sortBy");
     const page = searchParams.get("page");
 
+    console.log("searchParams page");
+    console.log(page);
     const [products, setProducts] = useState(null);
     const [loading, setLoading] = useState(false);
     const [compareProductsData, setCompareProductsData] = useState([]);
@@ -43,7 +45,9 @@ export const Archive = ({ category }) => {
             const res = await fetch(
                 `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
                     category.id
-                }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${page}`
+                }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${
+                    page ? page : 1
+                }`
             );
             const data = await res.json();
             setLoading(false);

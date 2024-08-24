@@ -28,8 +28,8 @@ export async function GET(request, context) {
             {
                 Products(
                     where: {
-                    status: {equals : "published"}
                     categories: { in: ["${id}"] }
+                    status: { equals: published }
                     productType: { in: [simple, variable, group] }
                     ${
                         activity != "null"
@@ -42,7 +42,9 @@ export async function GET(request, context) {
                             : ""
                     }
                     ${series != "null" ? `series: {equals: "${series}"}` : ""}
+                    
                     }
+                    
                     ${sortBy != "null" ? `sort: "${sortBy}"` : ""}
                     limit: 12
                     page: ${page ? page : 1}
@@ -80,7 +82,6 @@ export async function GET(request, context) {
                     nextPage
                     prevPage
                     hasNextPage
-                    hasNextPage
                 }
                 }
 
@@ -88,8 +89,11 @@ export async function GET(request, context) {
             `,
             }),
         },
+
         { cache: "no-store" }
     );
+    console.log("resresresresres");
+    console.log(res);
 
     const data = await res.json();
     return NextResponse.json(data.data.Products);
