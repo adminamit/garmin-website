@@ -28,6 +28,7 @@ export async function GET(request, context) {
             {
                 Products(
                     where: {
+                    status: {equals : "published"}
                     categories: { in: ["${id}"] }
                     productType: { in: [simple, variable, group] }
                     ${

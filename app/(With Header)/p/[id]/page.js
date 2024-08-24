@@ -2,11 +2,10 @@ import React from "react";
 import "@/app/_css/product/product.css";
 import notFound from "../../not-found";
 import { ProductWrapper } from "../wrapper";
+import { unstable_noStore as noStore } from "next/cache";
 
-export const runtime = "edge";
-export const preferredRegion = "home";
-export const maxDuration = 300;
-
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 export async function generateMetadata(
     { params: { id }, searchParams },
     parent
@@ -55,6 +54,7 @@ async function getProductGraphql(id) {
                 Products(where: { sku: { equals: "${id}" } }) {
                     docs {
                     id
+                    status
                     title
                     price
                     salePrice
@@ -137,7 +137,7 @@ async function getProductGraphql(id) {
         `,
             }),
         },
-        { cache: "no-store" }
+        { cache: "no-cache" }
     );
     const responseBody = await res.json();
 
@@ -278,19 +278,20 @@ async function getProductTabsGraphql(id) {
     );
 
     const responseBody = await res.json();
-    console.log("responseBody getProductTabsGraphql");
-    console.log(responseBody);
     return responseBody;
 }
 const page = async ({ params: { id } }) => {
+    noStore();
     let productData = null,
         variationData = [],
         tabsData = null;
     const fetchProduct = await getProductGraphql(id);
 
     productData = fetchProduct.data.Products.docs[0];
+    console.log("productData");
+    console.log(productData);
 
-    if (!productData || productData._status != "published") {
+    if (!productData || productData.status != "published") {
         return notFound();
     } else {
         // FETCH VARIATION

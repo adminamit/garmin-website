@@ -8,6 +8,7 @@ import Info from "@/app/_components/Product/Info/Info";
 import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
 import HtmlParser from "react-html-parser";
+
 export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     const [addedToCart, setAddedToCart] = useState(false);
     const [tabsData, setTabsData] = useState(null);
