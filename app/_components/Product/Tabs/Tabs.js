@@ -15,13 +15,19 @@ const Tabs = ({ tabsData }) => {
     // const scroll = useScroll();
 
     const navListItems = [
-        {
-            id: "overview",
-            label: "Overview",
-            content: (
-                <Overview overviewBlocks={JSON.parse(tabsData.overviewJson)} />
-            ),
-        },
+        tabsData.overviewJson.length > 0 ? (
+            {
+                id: "overview",
+                label: "Overview",
+                content: (
+                    <Overview
+                        overviewBlocks={JSON.parse(tabsData.overviewJson)}
+                    />
+                ),
+            }
+        ) : (
+            <></>
+        ),
         tabsData.productSpecifications.specificationGroup.length > 0 ? (
             {
                 id: "specs",

@@ -438,6 +438,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             <div className="checkout__prompt">
                 <div>
                     {/* <Loader /> */}
+                    {/* New Git Change */}
                     <div>
                         <form onSubmit={formik.handleSubmit} className="">
                             <GuestUserEmail formik={formik} status={status} />
