@@ -47,7 +47,8 @@ export const Archive = ({ category }) => {
                     category.id
                 }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${
                     page ? page : 1
-                }`
+                }`,
+                { cache: "no-store" }
             );
             const data = await res.json();
             setLoading(false);

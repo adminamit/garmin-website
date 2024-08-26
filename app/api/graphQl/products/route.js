@@ -92,8 +92,6 @@ export async function GET(request, context) {
 
         { cache: "no-store" }
     );
-    console.log("resresresresres");
-    console.log(res);
 
     const data = await res.json();
     return NextResponse.json(data.data.Products);
