@@ -44,8 +44,11 @@ const ResetPassword = () => {
             const status = await res.json();
             if (res.status === 200) {
                 if (status.errors) {
-                    // alert();
-                    toast.error(status.errors[0].message);
+                    if (status.errors[0].data[0]) {
+                        toast.error(status.errors[0].data[0].message);
+                    } else {
+                        toast.error(status.errors[0].message);
+                    }
                 } else {
                     // alert(
                     //     "Acccount created succefully. Please verify your email id before login."

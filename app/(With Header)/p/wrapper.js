@@ -19,7 +19,8 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
     useEffect(() => {
         const fetchTabsData = async () => {
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product/tabs?sku=${productData.sku}`
+                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/product/tabs?sku=${productData.sku}`,
+                { cache: "no-store" }
             );
             const tabsData = await res.json();
             setTabsData(tabsData);

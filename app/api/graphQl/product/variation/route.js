@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 export async function GET(request, context) {
     let id = request.nextUrl.searchParams.get("id");
     const res = await fetch(process.env.GRAPHQL_API_URL, {

@@ -22,9 +22,6 @@ export const Archive = ({ category }) => {
     const features = searchParams.get("features");
     const sortBy = searchParams.get("sortBy");
     const page = searchParams.get("page");
-
-    console.log("searchParams page");
-    console.log(page);
     const [products, setProducts] = useState(null);
     const [loading, setLoading] = useState(false);
     const [compareProductsData, setCompareProductsData] = useState([]);

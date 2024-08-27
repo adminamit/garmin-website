@@ -15,7 +15,7 @@ const Tabs = ({ tabsData }) => {
     // const scroll = useScroll();
 
     const navListItems = [
-        tabsData.overviewJson.length > 0 ? (
+        tabsData.overviewJson && tabsData.overviewJson.length > 0 ? (
             {
                 id: "overview",
                 label: "Overview",

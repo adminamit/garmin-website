@@ -1,7 +1,10 @@
 import { NextResponse, NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(request) {
     const user = await request.json();
+    const allCookies = cookies();
+    const payloadToken = allCookies.get("payload-token").value;
     try {
         const res = await fetch(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/api/customers/${user.id}`,
@@ -10,6 +13,7 @@ export async function POST(request) {
                 credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${payloadToken}`,
                 },
                 body: JSON.stringify(user.updatedData),
             }

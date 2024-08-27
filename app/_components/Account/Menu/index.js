@@ -11,7 +11,6 @@ export const AccountMenu = ({}) => {
     const accountMenu = [
         { id: "profile", href: "/account/profile", label: "profile" },
         { id: "orders", href: "/account/orders", label: "orders" },
-        // { id: "wishlist", href: "/account/wishlist", label: "your wishlist" },
         { id: "address", href: "/account/address", label: "addresses" },
         { id: "logout", href: "/account/sign-out", label: "Sign out" },
     ];

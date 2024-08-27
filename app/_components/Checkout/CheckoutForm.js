@@ -148,7 +148,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     };
 
     const processPayment = async (order) => {
-        // e.preventDefault();
+        console.log("processPayment--order");
         let waybill = "";
         try {
             const orderId = await createOrderId(order);
@@ -166,22 +166,30 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                         razorpayOrderId: response.razorpay_order_id,
                         razorpaySignature: response.razorpay_signature,
                     };
-
+                    console.log("processPayment handler");
+                    console.log(data);
                     const result = await fetch("/api/order/verify", {
                         method: "POST",
                         body: JSON.stringify(data),
                         headers: { "Content-Type": "application/json" },
                     });
+
                     const res = await result.json();
+
+                    console.log("/api/order/verify");
+                    console.log(res);
                     if (res.isOk) {
                         const manifestation =
                             await createDelhiveryManifestation(order);
                         //GET WayBill number
-
+                        console.log("/api/order/manifestation");
+                        console.log(manifestation);
                         if (manifestation) {
                             waybill = manifestation.success
                                 ? manifestation.packages[0].waybill
-                                : "";
+                                : "NA";
+                            console.log("/api/order/waybill");
+                            console.log(waybill);
                         }
                         // route.push(`/account/orders/${order.id}`);
                         const paymentUpdate = await updateGarminOrderStatus({
@@ -190,6 +198,10 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                             orderStatus: "processing",
                             trackingId: waybill,
                         });
+
+                        console.log("/api/order/paymentUpdate");
+                        console.log(paymentUpdate);
+
                         if (paymentUpdate) {
                             toast.success("payment successful!");
                             setCheckingOut(false);
@@ -197,7 +209,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                             clearCart();
                             route.push(`/account/orders/${order.id}`);
                         } else {
-                            toast.error(
+                            toast.success(
                                 "Payment recieved, will reflect in another 20 minutes"
                             );
                             route.push(`/account/orders/${order.id}`);
@@ -209,6 +221,12 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                         setCheckingOut(false);
                         toast.error(res.message);
                     }
+                },
+                modal: {
+                    ondismiss: function () {
+                        toast.success("Payment cancelled!!");
+                        setCheckingOut(false);
+                    },
                 },
                 prefill: {
                     name: order.orderedBy.full_name,
@@ -264,6 +282,8 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             setCheckingOut(true);
             //Check for orderId
             const garminOrderId = checkForExisitingOrderID();
+            console.log("garminOrderId");
+            console.log(garminOrderId);
 
             //Prepare Order Details
             const orderProducts = [];
@@ -311,12 +331,18 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                 shippingAddress: shippingAddress,
             };
 
+            console.log("orderData");
+            console.log(orderData);
+
             const order = garminOrderId
                 ? await updateGarminOrder({
                       orderData: orderData,
                       orderId: garminOrderId,
                   })
                 : await createGarminOrder(orderData);
+
+            console.log("order--order");
+            console.log(order);
             if (order.id) {
                 processPayment(order);
             }
