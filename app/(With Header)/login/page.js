@@ -1,14 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Loader } from "@/app/_components/Loader";
-import { RenderParams } from "@/app/_components/RenderParams";
 import { LoginForm } from "./loginForm";
 
 const LoginPage = () => {
     return (
         <div>
-            {/* <RenderParams /> */}
             <div
                 className="flex flex-col items-center justify-center md:py-16 bg-cover"
                 style={{
@@ -26,7 +23,6 @@ const LoginPage = () => {
                         />
                     </div>
                     <div>
-                        {/* <Loader /> */}
                         <div>
                             <h1 className="portal-heading">Sign In</h1>
                             <LoginForm />

@@ -4,8 +4,16 @@ import { AccountMenu } from "@/app/_components/Account/Menu";
 import { useOrder } from "@/app/_providers/Order";
 import { Loader } from "@/app/_components/Loader";
 import Link from "next/link";
-const Profile = () => {
-    // Dummy data for demonstration
+import dayjs from "dayjs";
+
+const formatPrice = (price) => {
+    return price.toLocaleString("en-IN", {
+        style: "currency",
+        currency: "INR",
+    });
+};
+
+const Orders = () => {
     const { getAllOrders } = useOrder();
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -14,8 +22,6 @@ const Profile = () => {
             const data = await getAllOrders();
             setOrders(data.docs);
             setIsLoading(false);
-            console.log("datadatadata");
-            console.log(data);
         };
         fetchOrders();
     }, []);
@@ -33,27 +39,79 @@ const Profile = () => {
                         </h2>
                     </div>
                 ) : (
-                    <div className="details-wrapper grid grid-cols-2 gap-5">
+                    <div className="details-wrapper grid xl:grid-cols-1 gap-6">
                         {orders.map((order) => {
                             return (
-                                <Link href={`/account/orders/${order.id}`}>
-                                    <div className="card p-5 cursor-pointer">
+                                <Link
+                                    href={`/account/orders/${order.id}`}
+                                    key={order.id}
+                                    target="_blank"
+                                >
+                                    <div className="border shadow-sm border-gray rounded-md p-6 cursor-pointer flex gap-12 justify-between">
                                         <div>
-                                            <h2 className="card__name oswald mb-4">
-                                                <p>{order.orderTitle}</p>
+                                            <h2 className="card__name oswald mb-4 font-medium">
+                                                <p>Order ID: #{order.id}</p>
                                             </h2>
-                                            <div className="text-base flex flex-col gap-1">
+                                            <div>
+                                                <h4 className="text-base oswald mb-2 underline font-bold">
+                                                    Products in order:
+                                                </h4>
+                                                <div className="flex flex-col gap-2">
+                                                    {order.items &&
+                                                        order.items.map(
+                                                            (item, index) => {
+                                                                return (
+                                                                    <span
+                                                                        className="text-sm oswald"
+                                                                        key={
+                                                                            item
+                                                                                .product
+                                                                                .id
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            item
+                                                                                .product
+                                                                                .title
+                                                                        }
+                                                                    </span>
+                                                                );
+                                                            }
+                                                        )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col border-l border-gray pl-12 w-[40%]">
+                                            <div className="text-base flex flex-col gap-1 font-light">
                                                 <p>
-                                                    <strong>Order Date:</strong>{" "}
-                                                    {order.createdAt}
+                                                    <strong>Order Date</strong>:
+                                                    {dayjs(
+                                                        order.createdAt
+                                                    ).format("DD MMM YYYY")}
                                                 </p>
                                                 <p>
                                                     <strong>Discount:</strong>{" "}
-                                                    {order.discount}
+                                                    {formatPrice(
+                                                        order.discount
+                                                    )}
                                                 </p>
                                                 <p>
                                                     <strong>Total:</strong>{" "}
-                                                    {order.total}
+                                                    {formatPrice(order.total)}
+                                                </p>
+                                                <p className="mt-4 flex gap-2">
+                                                    <span className="uppercase text-xs text-white bg-primary px-4 py-2 rounded-md oswald">
+                                                        {order.orderStatus}
+                                                    </span>
+                                                    {order.trackingId && (
+                                                        <Link
+                                                            href={`https://www.delhivery.com/tracking?awb=${order.trackingId}`}
+                                                            target="_blank"
+                                                            className="uppercase text-xs text-white bg-black px-4 py-2 rounded-md oswald"
+                                                        >
+                                                            Track
+                                                        </Link>
+                                                    )}
                                                 </p>
                                             </div>
                                         </div>
@@ -70,4 +128,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Orders;

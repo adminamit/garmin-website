@@ -1,5 +1,4 @@
 import { NextResponse, NextRequest } from "next/server";
-import cookie from "cookie";
 export async function POST(request) {
     const values = await request.json();
 

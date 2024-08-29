@@ -1,11 +1,10 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Message } from "@/app/_components/Message";
+import { useSearchParams } from "next/navigation";
 import { Loader } from "@/app/_components/Loader";
 import { useAuth } from "@/app/_providers/Auth";
 import toast from "react-hot-toast";
@@ -21,13 +20,10 @@ export const setTokenCookie = (expiresIn, accessToken) => {
 };
 
 export const LoginForm = () => {
-    //Get Rdirect Param
     const { login } = useAuth();
     const reCaptchaRef = useRef(null);
     const searchParams = useSearchParams();
     const redirect = searchParams.get("redirect");
-
-    const router = useRouter();
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -35,17 +31,14 @@ export const LoginForm = () => {
             rememberMe: false,
         },
         onSubmit: async (values, { setSubmitting, resetForm }) => {
-            const res = await fetch(
-                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/auth/login`,
-                {
-                    method: "POST",
-                    credentials: "include",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(values),
-                }
-            );
+            const res = await fetch(`/api/auth/login`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
 
             const authStatus = await res.json();
             if (res.status === 200) {
@@ -58,7 +51,9 @@ export const LoginForm = () => {
                     setSubmitting(true);
                     resetForm();
                     toast.success("Logged in! Redirecting..");
-                    redirect ? router.push(redirect) : router.push("/account");
+                    redirect
+                        ? (window.location.href = redirect)
+                        : (window.location.href = "/account");
                 }
             } else {
                 toast.error("Something went wrong. Please try again");
@@ -81,7 +76,6 @@ export const LoginForm = () => {
 
     return (
         <>
-            {/* <Message error={error} /> */}
             <form onSubmit={formik.handleSubmit} className="pt-10 pb-9">
                 <div className="input-wrapper">
                     <label htmlFor="name" className="label">

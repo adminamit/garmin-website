@@ -87,7 +87,7 @@ export const OrderProvider = ({ children }) => {
             const parsedUser = JSON.parse(localUser);
             try {
                 const res = await fetch(
-                    `${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders/getOrders?orderedBy=${parsedUser.id}`,
+                    `/api/graphQl/orders/?user=${parsedUser.id}`,
                     {
                         method: "GET",
                         credentials: "include",
@@ -99,7 +99,6 @@ export const OrderProvider = ({ children }) => {
 
                 if (res.ok) {
                     const data = await res.json();
-
                     return data;
                 } else {
                     throw new Error(
