@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Suspense } from "react";
 import { useQueryState } from "nuqs";
 import { Products } from "./Products/Products";
 import { Blocks } from "../Blocks";
@@ -10,10 +9,8 @@ import { Heading } from "./Heading";
 import Sidebar from "./sidebar";
 import { Loading } from "./Loading";
 import SortFilter from "./Filters/Sort";
-import Series from "./Series";
 import { useSearchParams } from "next/navigation";
 import HtmlParser from "react-html-parser";
-import { Loader } from "../Loader";
 
 export const Archive = ({ category }) => {
     const searchParams = useSearchParams();
@@ -40,7 +37,7 @@ export const Archive = ({ category }) => {
         setLoading(true);
         const fetchProducts = async () => {
             const res = await fetch(
-                `${process.env.NEXT_PUBLIC_LIVE_URL}/api/graphQl/products/?id=${
+                `/api/graphQl/products/?id=${
                     category.id
                 }&draft=${false}&series=${series}&activity=${activity}&features=${features}&sortBy=${sortBy}&page=${
                     page ? page : 1
