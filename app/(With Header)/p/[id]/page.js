@@ -288,8 +288,6 @@ const page = async ({ params: { id } }) => {
     const fetchProduct = await getProductGraphql(id);
 
     productData = fetchProduct.data.Products.docs[0];
-    console.log("productData");
-    console.log(productData);
 
     if (!productData || productData.status != "published") {
         return notFound();

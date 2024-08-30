@@ -30,6 +30,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
     const createGarminOrder = async (orderData) => {
+        console.log("createGarminOrder");
         try {
             const response = await fetch("/api/order/create", {
                 method: "POST",
@@ -54,6 +55,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     };
 
     const updateGarminOrder = async (orderData) => {
+        console.log("updateGarminOrder");
         try {
             const response = await fetch("/api/order/update", {
                 method: "POST",
@@ -182,12 +184,12 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                         const manifestation =
                             await createDelhiveryManifestation(order);
                         //GET WayBill number
-                        console.log("/api/order/manifestation");
-                        console.log(manifestation);
+                        // console.log("/api/order/manifestation");
+                        // console.log(manifestation);
                         if (manifestation) {
                             waybill = manifestation.success
                                 ? manifestation.packages[0].waybill
-                                : "NA";
+                                : null;
                             console.log("/api/order/waybill");
                             console.log(waybill);
                         }

@@ -1,12 +1,11 @@
 "use client";
-import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Loader } from "@/app/_components/Loader";
-
+import toast from "react-hot-toast";
 const ResetPassword = () => {
     const searchParams = useSearchParams();
     const token = searchParams.get("token");
@@ -33,15 +32,15 @@ const ResetPassword = () => {
             const status = await res.json();
             if (res.status === 200) {
                 if (status.errors) {
-                    alert(status.errors[0].message);
+                    toast.error(status.errors[0].message);
                 } else {
-                    alert("Password reset successfully");
+                    toast.success("Password reset successfully");
                     router.push("/login");
                     setSubmitting(true);
                     resetForm();
                 }
             } else {
-                alert("Something went wrong. Please try again");
+                toast.error("Something went wrong. Please try again");
             }
         },
         validationSchema: yup.object({

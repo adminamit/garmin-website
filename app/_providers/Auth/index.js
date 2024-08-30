@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
         setStatus("loggedOut");
         localStorage.setItem("user", null);
         localStorage.setItem("authStatus", "loggedOut");
-        await fetch(`${process.env.NEXT_PUBLIC_LIVE_URL}/api/auth/logout`);
+        await fetch(`/api/auth/logout`);
     }, []);
 
     //     const fetchMe = async () => {
@@ -123,17 +123,14 @@ export const AuthProvider = ({ children }) => {
         const localUser = localStorage.getItem("user");
         const parsedLocalUser = JSON.parse(localUser);
         try {
-            const res = await fetch(
-                `${process.env.NEXT_PUBLIC_SERVER_URL}/api/customers/${parsedLocalUser.id}`,
-                {
-                    method: "PATCH",
-                    credentials: "include",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                }
-            );
+            const res = await fetch(`/api/customers/${parsedLocalUser.id}`, {
+                method: "PATCH",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
             if (res.ok) {
                 const { doc, errors } = await res.json();
                 if (errors) throw new Error(errors[0].message);
