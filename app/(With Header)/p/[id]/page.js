@@ -190,6 +190,52 @@ async function getVariationGraphql(id) {
     return responseBody;
 }
 
+async function getParentGraphql(id) {
+    const res = await fetch(
+        process.env.GRAPHQL_API_URL,
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: `
+                {
+                    Products(where: { id: { equals: "${id}" } }, limit:50) {
+                        docs {
+                            id
+                            title
+                            sku
+                            featuredImage {
+                                url
+                            }
+                            featuredImageUrl
+                            attributes {
+                                attributeName
+                                attributeTitle
+                                id
+                                title
+                                slug
+                                attribute {
+                                    title
+                                    slug
+                                    id
+                                }
+                            }
+                        }
+                        limit
+                        totalDocs
+                    }
+                }
+            `,
+            }),
+        },
+        { cache: "no-store" }
+    );
+    const responseBody = await res.json();
+    return responseBody;
+}
+
 async function getProductTabsGraphql(id) {
     const res = await fetch(
         process.env.GRAPHQL_API_URL,
@@ -292,6 +338,10 @@ const page = async ({ params: { id } }) => {
     if (!productData || productData.status != "published") {
         return notFound();
     } else {
+        // FETCH TABS DATA
+        // const fetchTabsData = await getProductTabsGraphql(id);
+        // console.log("tabsData tabsData tabsData");
+        // tabsData = fetchTabsData.data.Products.docs[0];
         // FETCH VARIATION
         if (productData.productType == "variable") {
             const fetchVariation = await getVariationGraphql(productData.id);
@@ -302,7 +352,13 @@ const page = async ({ params: { id } }) => {
                 productData.parentProduct.id
             );
             variationData = fetchVariation.data.Products.docs;
-            // variationData.push(productData);
+
+            //Get Parent Product
+            const parentProduct = await getParentGraphql(
+                productData.parentProduct.id
+            );
+            const parentProductData = parentProduct.data.Products.docs[0];
+            variationData.push(parentProductData);
         }
 
         //FETCH TABS DATA
