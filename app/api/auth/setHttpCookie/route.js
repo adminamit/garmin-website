@@ -15,7 +15,7 @@ export async function POST(request, response) {
                 secure: process.env.NODE_ENV !== "development",
                 maxAge: expiresIn,
                 sameSite: "strict",
-                // domain: "garmin-india.com",
+                // domain: "cyberworxindia.com",
                 path: "/",
             }),
         },

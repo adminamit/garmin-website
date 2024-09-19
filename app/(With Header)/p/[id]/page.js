@@ -130,6 +130,11 @@ async function getProductGraphql(id) {
                         id
                         title
                         slug
+                        parentCategory {
+                            id
+                            title
+                            slug
+                        }
                     }
                 }
             }
@@ -338,10 +343,6 @@ const page = async ({ params: { id } }) => {
     if (!productData || productData.status != "published") {
         return notFound();
     } else {
-        // FETCH TABS DATA
-        // const fetchTabsData = await getProductTabsGraphql(id);
-        // console.log("tabsData tabsData tabsData");
-        // tabsData = fetchTabsData.data.Products.docs[0];
         // FETCH VARIATION
         if (productData.productType == "variable") {
             const fetchVariation = await getVariationGraphql(productData.id);
@@ -360,31 +361,27 @@ const page = async ({ params: { id } }) => {
             const parentProductData = parentProduct.data.Products.docs[0];
             variationData.push(parentProductData);
         }
-
-        //FETCH TABS DATA
-        // const fetchTabsData = await getProductTabsGraphql(id);
-        // tabsData = fetchTabsData.data.Products.docs[0];
     }
-
-    const breadCrumbs = fetchProduct.breadcrumb
-        ? fetchProduct.breadcrumb.parentCategory
+    const breadCrumbs = productData.breadcrumb
+        ? productData.breadcrumb[0].parentCategory[0]
             ? [
                   {
-                      label: fetchProduct.breadcrumb.parentCategory[0].title,
-                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.parentCategory[0].slug}`,
+                      label: productData.breadcrumb[0].parentCategory[0].title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.breadcrumb[0].parentCategory[0].slug}`,
                   },
                   {
-                      label: fetchProduct.breadcrumb.title,
-                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
+                      label: productData.breadcrumb[0].title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.breadcrumb[0].slug}`,
                   },
               ]
             : [
                   {
-                      label: fetchProduct.breadcrumb.title,
-                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${fetchProduct.breadcrumb.slug}`,
+                      label: productData.breadcrumb[0].title,
+                      link: `${process.env.NEXT_PUBLIC_LIVE_URL}/c/${productData.breadcrumb[0].slug}`,
                   },
               ]
         : [];
+
     return (
         <ProductWrapper
             productData={productData}
