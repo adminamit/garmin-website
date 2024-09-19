@@ -124,7 +124,7 @@
         top: 0;
         text-shadow: 0 0 0.5em #000;
     }
-    span.app__headline__secondary-text {
+    body span.app__headline__secondary-text {
         font-size: 1rem;
     }
 }
