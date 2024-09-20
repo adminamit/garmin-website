@@ -1,198 +1,84 @@
 import React from "react";
+import { ItemWrapper } from "./ItemWrapper";
+import { SubItemWrapper } from "./SubItemWrapper";
 
 export const Aviation = () => {
     return (
-        <li className="gh__nav__categories__items js__mega-menu-item en-GB">
-            <span className="gh__nav__categories__items__link" tabIndex={0}>
-                AVIATION
-                <span className="items__menu__icon">
-                    <svg
-                        className="plus"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                        width="14px"
-                        viewBox="0 0 12 12"
-                        version="1.1"
-                    >
-                        <g
-                            stroke="none"
-                            strokeWidth={1}
-                            fill="none"
-                            fillRule="evenodd"
-                        >
-                            <g
-                                transform="translate(-347.000000, -136.000000)"
-                                fill="#000000"
-                            >
-                                <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                            </g>
-                        </g>
-                    </svg>
-                    <svg
-                        className="minus"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 455 31"
-                        width="15px"
-                    >
-                        <path
-                            className="shp0"
-                            d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                        />
-                    </svg>
-                </span>
-            </span>
+        <ItemWrapper title="AVIATION">
             <div className="gh__nav__categories__items__menu">
                 {/* Column 1 starts      */}
                 {/* Column 1 Ends */}
                 {/* Column 2 Starts*/}
-                <div className="gh__nav__categories__items__menu__column">
-                    <div className="main2cat-sub">
-                        <span className="gh__nav__categories__items__menu__heading en-GB ">
-                            PRODUCTS{" "}
-                            <span className="items__menu__icon">
-                                <svg
-                                    className="plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    width="14px"
-                                    viewBox="0 0 12 12"
-                                    version="1.1"
-                                >
-                                    <g
-                                        stroke="none"
-                                        strokeWidth={1}
-                                        fill="none"
-                                        fillRule="evenodd"
-                                    >
-                                        <g
-                                            transform="translate(-347.000000, -136.000000)"
-                                            fill="#000000"
-                                        >
-                                            <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                                        </g>
-                                    </g>
-                                </svg>
-                                <svg
-                                    className="minus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 455 31"
-                                    width="15px"
-                                >
-                                    <path
-                                        className="shp0"
-                                        d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                                    />
-                                </svg>
-                            </span>
-                        </span>
-                        <div className="gh__nav__categories__items__menu__subcategories">
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="https://www.garmin.com/en-US/c/aviation/general/"
-                                target="_blank"
-                                aria-label="General Aviation - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/general/$generalaviation"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-US/c/aviation/general/"
-                            >
-                                General Aviation{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="https://www.garmin.com/en-US/c/aviation/helicopters/"
-                                target="_blank"
-                                aria-label="Helicopters - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/helicopters/$helicopters"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-US/c/aviation/helicopters/"
-                            >
-                                Helicopters{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="https://www.garmin.com/en-US/c/aviation/experimental/"
-                                target="_blank"
-                                aria-label="Experimental - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/experimental/$experimental"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://www.garmin.com/en-US/c/aviation/experimental/"
-                            >
-                                Experimental{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="https://www.garmin.com/en-US/c/aviation/gps-wearables-apps/"
-                            >
-                                Portable GPS &amp; Wearables{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="/c/apps/"
-                                target="_self"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="/c/apps/"
-                            >
-                                Apps{" "}
-                            </a>
-                            <a
-                                className="gh__nav__categories__items__menu__link"
-                                href="https://fly.garmin.com/fly-garmin/"
-                                target="_blank"
-                                aria-label="fly Garmin Services - open in a new tab"
-                                data-uw-rm-ext-link
-                                uw-rm-external-link-id="https://fly.garmin.com/fly-garmin/$flygarminservices"
-                                data-uw-rm-brl="PR"
-                                data-uw-original-href="https://fly.garmin.com/fly-garmin/"
-                            >
-                                fly Garmin Services{" "}
-                            </a>
-                        </div>
+                <SubItemWrapper title="PRODUCTS">
+                    <div className="gh__nav__categories__items__menu__subcategories">
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="https://www.garmin.com/en-US/c/aviation/general/"
+                            target="_blank"
+                            aria-label="General Aviation - open in a new tab"
+                            data-uw-rm-ext-link
+                            uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/general/$generalaviation"
+                            data-uw-rm-brl="PR"
+                            data-uw-original-href="https://www.garmin.com/en-US/c/aviation/general/"
+                        >
+                            General Aviation{" "}
+                        </a>
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="https://www.garmin.com/en-US/c/aviation/helicopters/"
+                            target="_blank"
+                            aria-label="Helicopters - open in a new tab"
+                            data-uw-rm-ext-link
+                            uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/helicopters/$helicopters"
+                            data-uw-rm-brl="PR"
+                            data-uw-original-href="https://www.garmin.com/en-US/c/aviation/helicopters/"
+                        >
+                            Helicopters{" "}
+                        </a>
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="https://www.garmin.com/en-US/c/aviation/experimental/"
+                            target="_blank"
+                            aria-label="Experimental - open in a new tab"
+                            data-uw-rm-ext-link
+                            uw-rm-external-link-id="https://www.garmin.com/en-us/c/aviation/experimental/$experimental"
+                            data-uw-rm-brl="PR"
+                            data-uw-original-href="https://www.garmin.com/en-US/c/aviation/experimental/"
+                        >
+                            Experimental{" "}
+                        </a>
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="https://www.garmin.com/en-US/c/aviation/gps-wearables-apps/"
+                        >
+                            Portable GPS &amp; Wearables{" "}
+                        </a>
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="/c/apps/"
+                            target="_self"
+                            data-uw-rm-brl="PR"
+                            data-uw-original-href="/c/apps/"
+                        >
+                            Apps{" "}
+                        </a>
+                        <a
+                            className="gh__nav__categories__items__menu__link"
+                            href="https://fly.garmin.com/fly-garmin/"
+                            target="_blank"
+                            aria-label="fly Garmin Services - open in a new tab"
+                            data-uw-rm-ext-link
+                            uw-rm-external-link-id="https://fly.garmin.com/fly-garmin/$flygarminservices"
+                            data-uw-rm-brl="PR"
+                            data-uw-original-href="https://fly.garmin.com/fly-garmin/"
+                        >
+                            fly Garmin Services{" "}
+                        </a>
                     </div>
-                </div>
+                </SubItemWrapper>
                 {/* Column 2 Ends*/}
                 {/* Column 3 Starts*/}
-                <div className="gh__nav__categories__items__menu__column">
-                    <span className="gh__nav__categories__items__menu__heading en-GB">
-                        DISCOVER{" "}
-                        <span className="items__menu__icon">
-                            <svg
-                                className="plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                width="14px"
-                                viewBox="0 0 12 12"
-                                version="1.1"
-                            >
-                                <g
-                                    stroke="none"
-                                    strokeWidth={1}
-                                    fill="none"
-                                    fillRule="evenodd"
-                                >
-                                    <g
-                                        transform="translate(-347.000000, -136.000000)"
-                                        fill="#000000"
-                                    >
-                                        <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                                    </g>
-                                </g>
-                            </svg>
-                            <svg
-                                className="minus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 455 31"
-                                width="15px"
-                            >
-                                <path
-                                    className="shp0"
-                                    d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                                />
-                            </svg>
-                        </span>
-                    </span>
+                <SubItemWrapper title="DISCOVER">
                     <div className="gh__nav__categories__items__menu__subcategories">
                         <a
                             className="gh__nav__categories__items__menu__link"
@@ -219,7 +105,7 @@ export const Aviation = () => {
                             Careers{" "}
                         </a>
                     </div>
-                </div>
+                </SubItemWrapper>
                 {/* Column 3 Ends */}
                 {/* Column 4 Starts */}
                 <div className="gh__nav__categories__items__menu__column">
@@ -254,6 +140,6 @@ export const Aviation = () => {
                 </div>
                 {/* Column 4 Ends */}
             </div>
-        </li>
+        </ItemWrapper>
     );
 };
