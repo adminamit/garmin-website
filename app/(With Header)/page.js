@@ -18,6 +18,8 @@ export default async function Home() {
             { cache: "no-store" }
         );
         page = await page.json();
+        console.log("Page Data");
+        console.log(page);
     } catch (error) {
         console.log(error);
     }
@@ -29,9 +31,9 @@ export default async function Home() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            {/* <div className="w-xl mx-auto">
+            <div className="w-xl mx-auto">
                 <pre>{JSON.stringify(layout, null, 2)}</pre>
-            </div> */}
+            </div>
 
             <React.Fragment>
                 <Blocks
