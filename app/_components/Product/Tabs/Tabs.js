@@ -92,7 +92,6 @@ const Tabs = ({ tabsData }) => {
                     <Tab.List as={Fragment}>
                         <ul className="product__tabs__nav__list">
                             {navListItems.map((item) => {
-                                console.log(item);
                                 return item.id ? (
                                     <div
                                         className="product__subnav__item tabs__list__item"
@@ -138,7 +137,7 @@ const Tabs = ({ tabsData }) => {
                             }`}
                         >
                             {navListItems.map((item) => {
-                                return (
+                                return item.id ? (
                                     <Tab.Panel
                                         className={`app__tabs__content__main app__tabs__content__${item.id}`}
                                         key={item.id}
@@ -147,6 +146,8 @@ const Tabs = ({ tabsData }) => {
                                             {item.content}
                                         </div>
                                     </Tab.Panel>
+                                ) : (
+                                    <></>
                                 );
                             })}
                             <Sidebar

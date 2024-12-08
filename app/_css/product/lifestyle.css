@@ -23,15 +23,11 @@
 }
 .app__life-style__text__con {
     color: #fff;
-    
     text-align: center;
     font-family: var(--font-oswald);
     padding: 2rem;
     margin: 0;
     width: 100%;
-    /* position: absolute;
-    width: 35%; */
-    
 }
 .app__life-style--dark .app__life-style__text__con *{
     color: #fff;
@@ -77,7 +73,6 @@
         position: absolute;
         width: 40%;
         text-shadow: 0 0 0.5em #000;
-        
     }
 .app__img-banner__img--desktop {
     display: block;
@@ -120,4 +115,16 @@
 .app__headline--dark, .app__headline--dark a {
     color: #fff;
   }
+}
+
+@media screen and (max-width: 768px){
+    .app__life-style__text__con {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        text-shadow: 0 0 0.5em #000;
+    }
+    body span.app__headline__secondary-text {
+        font-size: 1rem;
+    }
 }

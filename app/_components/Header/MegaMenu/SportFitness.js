@@ -89,46 +89,8 @@ export const SportFitness = () => {
                 </SubItemWrapper>
                 {/* Column 1 Ends */}
                 {/* Column 2 Starts*/}
-                <div className="gh__nav__categories__items__menu__column">
+                <SubItemWrapper title="MAPS">
                     <div className="main2cat-sub">
-                        <span className="gh__nav__categories__items__menu__heading en-GB ">
-                            MAPS{" "}
-                            <span className="items__menu__icon">
-                                <svg
-                                    className="plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    width="14px"
-                                    viewBox="0 0 12 12"
-                                    version="1.1"
-                                >
-                                    <g
-                                        stroke="none"
-                                        strokeWidth={1}
-                                        fill="none"
-                                        fillRule="evenodd"
-                                    >
-                                        <g
-                                            transform="translate(-347.000000, -136.000000)"
-                                            fill="#000000"
-                                        >
-                                            <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                                        </g>
-                                    </g>
-                                </svg>
-                                <svg
-                                    className="minus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 455 31"
-                                    width="15px"
-                                >
-                                    <path
-                                        className="shp0"
-                                        d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                                    />
-                                </svg>
-                            </span>
-                        </span>
                         <div className="gh__nav__categories__items__menu__subcategories">
                             <a
                                 className="gh__nav__categories__items__menu__link"
@@ -164,45 +126,9 @@ export const SportFitness = () => {
                             </a>
                         </div>
                     </div>
+                </SubItemWrapper>
+                <SubItemWrapper title="ACCESSORIES">
                     <div className="main2cat-sub">
-                        <span className="gh__nav__categories__items__menu__heading en-GB ">
-                            ACCESSORIES{" "}
-                            <span className="items__menu__icon">
-                                <svg
-                                    className="plus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                                    width="14px"
-                                    viewBox="0 0 12 12"
-                                    version="1.1"
-                                >
-                                    <g
-                                        stroke="none"
-                                        strokeWidth={1}
-                                        fill="none"
-                                        fillRule="evenodd"
-                                    >
-                                        <g
-                                            transform="translate(-347.000000, -136.000000)"
-                                            fill="#000000"
-                                        >
-                                            <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                                        </g>
-                                    </g>
-                                </svg>
-                                <svg
-                                    className="minus"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 455 31"
-                                    width="15px"
-                                >
-                                    <path
-                                        className="shp0"
-                                        d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                                    />
-                                </svg>
-                            </span>
-                        </span>
                         <div className="gh__nav__categories__items__menu__subcategories">
                             <a
                                 className="gh__nav__categories__items__menu__link"
@@ -234,48 +160,10 @@ export const SportFitness = () => {
                             </a>
                         </div>
                     </div>
-                </div>
+                </SubItemWrapper>
                 {/* Column 2 Ends*/}
                 {/* Column 3 Starts*/}
-                <div className="gh__nav__categories__items__menu__column">
-                    <span className="gh__nav__categories__items__menu__heading en-GB">
-                        DISCOVER{" "}
-                        <span className="items__menu__icon">
-                            <svg
-                                className="plus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                xmlnsXlink="http://www.w3.org/1999/xlink"
-                                width="14px"
-                                viewBox="0 0 12 12"
-                                version="1.1"
-                            >
-                                <g
-                                    stroke="none"
-                                    strokeWidth={1}
-                                    fill="none"
-                                    fillRule="evenodd"
-                                >
-                                    <g
-                                        transform="translate(-347.000000, -136.000000)"
-                                        fill="#000000"
-                                    >
-                                        <polygon points="352.142857 136 352.142857 141.142857 347 141.142857 347 142.857143 352.142857 142.857143 352.142857 148 353.857143 148 353.857143 142.857143 359 142.857143 359 141.142857 353.857143 141.142857 353.857143 136" />
-                                    </g>
-                                </g>
-                            </svg>
-                            <svg
-                                className="minus"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 455 31"
-                                width="15px"
-                            >
-                                <path
-                                    className="shp0"
-                                    d="M0 0.5L455 0.5L455 30.5L0 30.5L0 0.5Z"
-                                />
-                            </svg>
-                        </span>
-                    </span>
+                <SubItemWrapper title="DISCOVER">
                     <div className="gh__nav__categories__items__menu__subcategories">
                         <a
                             className="gh__nav__categories__items__menu__link"
@@ -366,7 +254,7 @@ export const SportFitness = () => {
                             Subscription Plans{" "}
                         </a>
                     </div>
-                </div>
+                </SubItemWrapper>
                 {/* Column 3 Ends */}
                 {/* Column 4 Starts */}
                 <div className="gh__nav__categories__items__menu__column">
