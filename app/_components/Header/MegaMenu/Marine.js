@@ -305,7 +305,7 @@ export const Marine = () => {
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"
-                                src="https://www.garmin.ae/wp-content/uploads/2022/07/FusionWakeTower-lg-300x225-1.jpeg"
+                                src="https://legacy.garmin.ae/wp-content/uploads/2022/07/FusionWakeTower-lg-300x225-1.jpeg"
                                 loading="lazy"
                                 alt="FUSION® SIGNATURE SERIES 3 MARINE WAKE TOWER SPEAKERS"
                                 data-uw-rm-alt-original="FUSION® SIGNATURE SERIES 3 MARINE WAKE TOWER SPEAKERS"

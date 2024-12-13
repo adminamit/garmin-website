@@ -249,7 +249,7 @@ export const Outdoor = () => {
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"
-                                src="https://www.garmin.ae/wp-content/uploads/2022/07/fenix7Series-TopNav-300x225-1.jpeg"
+                                src="https://legacy.garmin.ae/wp-content/uploads/2022/07/fenix7Series-TopNav-300x225-1.jpeg"
                                 loading="lazy"
                                 alt="FĒNIX® 7 SERIES"
                                 data-uw-rm-alt-original="FĒNIX® 7 SERIES"
@@ -274,7 +274,7 @@ export const Outdoor = () => {
                         >
                             <img
                                 className="gh__nav__categories__items__menu__promo-card__image"
-                                src="https://www.garmin.ae/wp-content/uploads/2022/07/epix-topnav-sm-300x150-1.png"
+                                src="https://legacy.garmin.ae/wp-content/uploads/2022/07/epix-topnav-sm-300x150-1.png"
                                 loading="lazy"
                                 alt="EPIX™"
                                 data-uw-rm-alt-original="EPIX™"
