@@ -44,8 +44,8 @@ const Contact = () => {
           <p>
             For help and support, please contact 011-48005813/825 or send us an
             email at{" "}
-            <a href="mailto:support@garmin-india.com">
-              support@garmin-india.com
+            <a href="mailto:support.india@amitintl.com">
+              support.india@amitintl.com
             </a>
             <br />
             <br />
