@@ -6,7 +6,7 @@ const stores = [
     image: "https://cmsprod.garmin-india.com/media/Athelin.webp",
     name: "Garmin Brand Store - Gurgaon",
     address:
-      "Shop no 6A Sector 42 - 43 metro station golf course road gurgaon 122002",
+      "Athelin - Shop Number 6A Sector 42 - 43 Metro Station Golf Course Road Gurgaon 122002",
     phone: "9811981110 and 9810149738",
     operatingTime: "All 7 days from 11 am to 8 pm",
   },
