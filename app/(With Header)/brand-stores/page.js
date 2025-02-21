@@ -14,7 +14,7 @@ const stores = [
     image: "https://cmsprod.garmin-india.com/media/Bangalore.webp",
     name: "Garmin Brand Store - Indiranagar Bangalore",
     address:
-      "777/D, 100 Ft Road, Landmark:, opposite to New Horizon Public School, HAL 2nd Stage, Doopanahalli, Indiranagar, Bengaluru, Karnataka 560038",
+      "777/D, 100 Ft Road, opposite to New Horizon Public School, HAL 2nd Stage, Doopanahalli, Indiranagar, Bengaluru, Karnataka 560038",
     phone: "92802 33001",
     operatingTime: "All 7 days 10:30 AM to 9 PM",
   },
