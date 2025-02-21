@@ -4,7 +4,7 @@ import "./index.css";
 const stores = [
   {
     image: "https://cmsprod.garmin-india.com/media/Athelin.webp",
-    name: "Garmin Brand Store - Athelin",
+    name: "Garmin Brand Store - Gurgaon",
     address:
       "Shop no 6A Sector 42 - 43 metro station golf course road gurgaon 122002",
     phone: "9811981110 and 9810149738",
@@ -12,7 +12,7 @@ const stores = [
   },
   {
     image: "https://cmsprod.garmin-india.com/media/Bangalore.webp",
-    name: "Garmin Brand Store - Indiranagar Bangalore",
+    name: "Garmin Brand Store - Bangalore",
     address:
       "777/D, 100 Ft Road, opposite to New Horizon Public School, HAL 2nd Stage, Doopanahalli, Indiranagar, Bengaluru, Karnataka 560038",
     phone: "92802 33001",
