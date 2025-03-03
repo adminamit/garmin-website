@@ -396,13 +396,10 @@ const Footer = () => {
         <div className="gf__locale">
           <Image
             alt="default alt"
-            src={`/assets/images/amit-white-logo.svg`}
-            width="140"
-            height="140"
+            src="https://cmsprod.garmin-india.com/media/Amit-Logo-white.svg"
+            width="120"
+            height="120"
           />
-          <a className="gf__locale__link en-GB" href="/">
-            India
-          </a>
         </div>
 
         <div className="gf__social">
@@ -470,7 +467,7 @@ const Footer = () => {
       <div className="gf__legal en-GB">
         <div className="gf__legal__container">
           <p className="gf__legal__container__copyright">
-            Copyright © AMIT International Group
+            Copyright © AMIT International Group FZE
           </p>
         </div>
         <ul className="gfl__list en-GB">

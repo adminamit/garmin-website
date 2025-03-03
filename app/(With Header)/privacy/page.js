@@ -1,347 +1,234 @@
 import React from "react";
 import "./index.css";
+
 const Privacy = () => {
-    return (
-        <>
-            <div className="py-4 bg-white">
-                <h3 className="uppercase font-normal text-base text-center">
-                    PRIVACY AND COOKIE POLICY
-                </h3>
-            </div>
-            <section className="content__section content__section--hero">
-                <div className="content__section__icon--lock"></div>
-                <h1 className="content__section__heading">
-                    {" "}
-                    PRIVACY AND COOKIE POLICY
-                </h1>
-                <div className="content__section__copy">
-                    <p>
-                        Our goal is to make sure you know how we collect, use,
-                        share, and store your personal data when you create a
-                        Garmin account, interact with our customer support
-                        specialists.
-                    </p>
-                </div>
-            </section>
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">General</h2>
-                <div className="content__section__copy">
-                    <p>
-                        AMIT GPS AND NAVIGATION LLP (“AMIT” “Company”, “We”,
-                        “Us”) is committed to the compliance of applicable
-                        Privacy Laws in the Country where Company’s product is
-                        distributed. Protecting the privacy and security of your
-                        personal data is of prime importance to AMIT, therefore,
-                        we adopt industry standard practices to protect your
-                        personal data against unauthorized access, disclosure,
-                        use, modification, damage, or loss of data, and we
-                        conduct our business by abiding by the laws applicable
-                        to data privacy and data security in the Country.
-                        However, by using the Platform, the users accept the
-                        inherent security implications of data transmission over
-                        the internet and the World Wide Web which cannot always
-                        be guaranteed as completely secure, and therefore, there
-                        would always remain certain inherent risks regarding use
-                        of the Platform.
-                    </p>
-                </div>
-                <details className="content__section__details" index="1">
-                    <summary className="content__section__details__summary">
-                        Learn More
-                    </summary>
-                    <div className="content__section__details__content">
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                We do not offer any product/service under this
-                                Platform outside India. By visiting this
-                                Platform, providing your information, or
-                                availing our product/service, you expressly
-                                agree to be bound by the terms and conditions of
-                                this Privacy Policy, the Terms of Use and the
-                                applicable service/product terms and conditions,
-                                and agree to be governed by the laws of India
-                                including but not limited to the laws applicable
-                                to data protection and privacy. If you disclose
-                                to us any personal information relating to other
-                                people, you represent that you have the
-                                authority to do so and to permit us to use the
-                                information in accordance with this Privacy
-                                Policy. If you do not agree please do not use or
-                                access our Platform.
-                            </p>
-                        </div>
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                We do not knowingly solicit or collect personal
-                                information from children under the age of 18
-                                and use of our Platform is available only to
-                                persons who can form a legally binding contract
-                                under the Indian Contract Act, 1872. If you are
-                                under 18, you must use the Platform under the
-                                supervision of your parent, legal guardian, or
-                                any responsible adult.
-                            </p>
-                        </div>
-
-                        <h3 className="content__section__details__content__heading">
-                            Collection of Information
-                        </h3>
-
-                        <h3 className="content__section__details__content__heading">
-                            A. Information you provide directly:
-                        </h3>
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                In general, you can browse the Platform without
-                                registering with us. When you register for
-                                products or services, we may ask you to provide
-                                certain personal data such as name, date of
-                                birth, contact number, postal address, billing
-                                address, bank instrument details, email address,
-                                username, password etc.
-                            </p>
-
-                            <p>
-                                {" "}
-                                If you choose to send us personal
-                                correspondence, post messages/feedback on our
-                                message boards, or other message areas we will
-                                collect that information you provide to us. We
-                                retain this information as necessary to resolve
-                                disputes, provide customer support and
-                                troubleshoot problems as permitted by law.
-                            </p>
-                        </div>
-
-                        <h3 className="content__section__details__content__heading">
-                            B. Information that is automatically collected when
-                            you visit the Platform:
-                        </h3>
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                When you visit the platform, certain information
-                                may be collected automatically, which includes,
-                                bandwidth speed, the computer’s Internet
-                                Protocol (IP) Address, browser type, operating
-                                system, web pages and links last visited,
-                                advertisements you viewed, standard server log
-                                information etc.
-                            </p>
-                        </div>
-
-                        <h3 className="content__section__details__content__heading">
-                            C. Information that we collect from other sources:
-                        </h3>
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                We may receive information about you from
-                                publicly and commercially available sources (as
-                                permitted by law), which we may combine with
-                                other information we receive from or about you.
-                                We also may receive information about you from
-                                third-party social networking services when you
-                                choose to connect with those services.
-                            </p>
-                        </div>
-                    </div>
-                </details>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">Security Policy</h2>
-                <div className="content__section__copy">
-                    <p>
-                        Garmin aims to keep its products, apps and websites safe
-                        for everyone, and data security is very important to us.
-                        To that end, here’s some information about the measures
-                        Garmin takes to secure data.
-                    </p>
-                </div>
-                <details className="content__section__details" index="1">
-                    <summary className="content__section__details__summary">
-                        Learn More
-                    </summary>
-                    <div className="content__section__details__content">
-                        <h3 className="content__section__details__content__heading">
-                            Garmin’s Responsible Disclosure Policy
-                        </h3>
-                        <div className="content__section__details__content__copy">
-                            <p>
-                                Data security is a priority at Garmin. If you
-                                are a security researcher or Garmin customer and
-                                think you’ve found a security issue or
-                                vulnerability, we appreciate your help in
-                                disclosing it to us in a responsible manner.
-                                Please don’t access or modify data without
-                                permission, and act in good faith not to degrade
-                                the performance of our products, apps and
-                                websites.
-                            </p>
-
-                            <p>
-                                If you believe you have discovered a
-                                vulnerability or have a security incident to
-                                report, let us know. Please include a detailed
-                                description of the possible vulnerability and an
-                                email address where we can reach you in case we
-                                need more information. We’ll work to assess your
-                                report as quickly as possible. If you’d like,
-                                you can download our public PGP key and use a
-                                third-party encryption site to increase the
-                                privacy of your report.
-                            </p>
-                            <p>
-                                We appreciate your help in making Garmin
-                                products, apps and websites secure. We’d also
-                                like to thank all those who have already
-                                reported security issues.
-                            </p>
-                        </div>
-                    </div>
-                </details>
-            </section>
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">Cookies</h2>
-                <div className="content__section__copy">
-                    <p>
-                        We use data collection devices such as "cookies" on
-                        certain pages of the Platform to help analyze our web
-                        page flow, measure promotional effectiveness, and
-                        promote trust and safety. "Cookies" are small files
-                        placed on your hard drive that assist us in providing
-                        our services. Cookies do not contain any of your
-                        personal information. Cookies can also help us provide
-                        information that is targeted to your interests. Most
-                        cookies are "session cookies," meaning that they are
-                        automatically deleted from your hard drive at the end of
-                        a session. You are always free to decline/delete our
-                        cookies if your browser permits. We do not control the
-                        use of cookies by third parties.
-                    </p>
-                </div>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">
-                    Sharing of personal information
-                </h2>
-                <div className="content__section__copy">
-                    <p>
-                        We do not sell or trade your personally identifiable
-                        information; however, disclosure (includes sharing with
-                        third party supplier) may be required for us to provide
-                        you access to our products and services; for fulfilment
-                        of your orders; for enhancing your experience; for
-                        providing feedback on products; to collect payments from
-                        you; to comply with our legal obligations; to conduct
-                        market research or surveys; to enforce our Terms of Use;
-                        to facilitate our marketing and advertising activities;
-                        to analyze data; for customer service assistance; to
-                        prevent, detect, mitigate, and investigate fraudulent or
-                        illegal activities related to our product and services.
-                    </p>
-                </div>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">
-                    Third party suppliers and their services
-                </h2>
-                <div className="content__section__copy">
-                    <p>
-                        We may employ third-party entities and individuals to
-                        facilitate our Services (e.g., maintenance, analysis,
-                        audit, marketing, and development). These third parties
-                        have limited access to your information only to perform
-                        these tasks on our behalf and are obligated to us, not
-                        to disclose or use it for other purposes. All our
-                        approved third-party providers go through an extensive
-                        data protection compliance vetting process before being
-                        selected as a third-party provider and are bound by all
-                        relevant data privacy laws, terms of confidentiality,
-                        and this Privacy Policy.
-                    </p>
-                    <p>
-                        Our Platform may provide links to other websites or
-                        applications that may collect personal information about
-                        you. We are not responsible for the privacy practices or
-                        the content of those linked websites. Please contact the
-                        owner or operator of such website/application if you
-                        have any concerns or questions.
-                    </p>
-                    <p>
-                        In the event of any misuse or damage to the website
-                        caused by a third party responsible for its development,
-                        Amit GPS and Navigation shall not be held liable for
-                        such misuse or damage. However, we have made every
-                        effort to ensure the safety and security of this website
-                        through third-party developer.
-                    </p>
-                </div>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">Data Retention</h2>
-                <div className="content__section__copy">
-                    <p>
-                        We retain your personal information in accordance with
-                        applicable laws, for a period no longer than is required
-                        for the purpose for which it was collected or as
-                        required under any applicable law.
-                    </p>
-                </div>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">
-                    Modifications to the Privacy Policy
-                </h2>
-                <div className="content__section__copy">
-                    <p>
-                        Please check our Privacy Policy periodically for
-                        changes. We may update this Privacy Policy at any time
-                        to reflect changes in our business practices and service
-                        offerings. If we modify this Privacy Policy, we will
-                        update the date on which the new Privacy Policy will be
-                        effective, and we will alert you of any significant
-                        changes by placing a notice on our Platform.
-                    </p>
-                </div>
-            </section>
-
-            <section className="content__section">
-                <div className="content__section__icon--squiggly-spacer"></div>
-                <h2 className="content__section__heading">Grievance Officer</h2>
-                <div className="content__section__copy">
-                    <p>
-                        In accordance with Information Technology Act 2000 and
-                        rules made thereunder, the name and contact details of
-                        the Grievance Officer are provided below:
-                    </p>
-                </div>
-                <div className="content__section__details__content__copy">
-                    <p>
-                        <b>Mr. Deepak Raina</b>
-                    </p>
-                    <p>
-                        Designation: Grievance In charge <br />
-                        Address: JA0326, Plot No 10, Third Floor, DLF Tower A,
-                        Jasola, New, Delhi 110025 <br />
-                        Phone: +91 1148005802 Email: deepak.raina@amitintl.com{" "}
-                        <br />
-                        Time: Mon – Fri (10:00 - 18:00)
-                    </p>
-                </div>
-            </section>
-        </>
-    );
+  return (
+    <div className="max-w-[900px] mx-auto my-16 copy px-4">
+      <h1 className="oswald uppercase text-[2.5rem] font-normal tracking-wider leading-[1.25] my-6">
+        PRIVACY NOTICE
+      </h1>
+      <p className="mb-6">Last Updated: March 03, 2025</p>
+      <p className="mb-6">
+        This Privacy Notice explains how Garmin-India.com (the “Company,” “we,”
+        or “us”) collects, uses, and protects your personal information when you
+        access or use our website garmin-india.com and related services. By
+        using our services, you agree to the practices described in this Notice.
+        This Notice is governed by applicable Indian laws, including the
+        Information Technology Act, 2000 and the relevant IT Rules regarding
+        Sensitive Personal Data or Information.
+      </p>
+      <h2 className="mb-4">1. Types of Personal Information We Collect</h2>
+      <p className="mb-6">
+        We collect your personal information to provide, enhance, and
+        personalize our products and services. In doing so, we abide by the
+        principle of data minimization and limit collection to what is
+        necessary.
+      </p>
+      <h3 className="mb-4">1.1. Information You Provide</h3>
+      <p className="mb-4">
+        We collect information that you voluntarily provide when using our
+        services, including:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Identifying Information: Your name, address, phone number, and email
+          address.
+        </li>
+        <li className="mb-2">
+          Payment Information: Payment card details and billing information.
+        </li>
+        <li className="mb-2">
+          Demographic Data: Your age, date of birth, and location data.
+        </li>
+        <li className="mb-2">
+          Other Data: Information provided through forms, surveys, or customer
+          service communications.
+        </li>
+      </ul>
+      <p className="mb-6">
+        Note: For sensitive personal data (such as financial details or
+        biometric data), we ensure that collection and processing conform to the
+        definitions and requirements under Indian IT Rules.
+      </p>
+      <h3 className="mb-4">1.2. Automatic Information</h3>
+      <p className="mb-4">
+        When you access our website, we automatically collect certain technical
+        and usage information using cookies and similar technologies. This
+        includes:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Your IP address, browser type, device type, and operating system.
+        </li>
+        <li className="mb-2">
+          Usage data such as pages visited, time spent on our site, and
+          interaction patterns.
+        </li>
+        <li className="mb-2">
+          Device identifiers and other technical details to help improve our
+          services.
+        </li>
+        <li className="mb-2">
+          Information regarding your purchase history and online interactions.
+        </li>
+      </ul>
+      <h3 className="mb-4">1.3. Information from Other Sources</h3>
+      <p className="mb-4">
+        We may receive information about you from third parties, such as:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Logistic partners who provide updated delivery or address details.
+        </li>
+        <li className="mb-2">
+          Affiliates and marketing partners who assist in improving our service
+          offerings.
+        </li>
+        <li className="mb-2">
+          Public sources or data aggregators that help verify and enrich your
+          information.
+        </li>
+      </ul>
+      <h2 className="mb-4">2. Utilization of Your Personal Information</h2>
+      <p className="mb-4">We use your personal information to:</p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Communicate with you regarding orders, products, services, and
+          promotional offers.
+        </li>
+        <li className="mb-2">
+          Improve, personalize, and develop our website and services.
+        </li>
+        <li className="mb-2">Process transactions and manage your account.</li>
+        <li className="mb-2">
+          Display targeted advertisements and recommendations, subject to your
+          consent.
+        </li>
+        <li className="mb-2">
+          Prevent, detect, and mitigate fraud and unauthorized activities.
+        </li>
+        <li className="mb-2">
+          Comply with legal and regulatory obligations under Indian law.
+        </li>
+      </ul>
+      <p className="mb-6">
+        We process your information only for purposes compatible with those for
+        which it was originally collected.
+      </p>
+      <h2 className="mb-4">3. Sharing of Your Personal Information</h2>
+      <p className="mb-4">
+        We share your personal information only in the following circumstances:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          <b>Third-Party Service Providers:</b> With trusted vendors (e.g.,
+          payment processors, logistics providers) who are contractually
+          obligated to use your information solely to perform functions on our
+          behalf.
+        </li>
+        <li className="mb-2">
+          <b>Business Partners:</b> When you engage with third-party products or
+          services through our website, we may share relevant information with
+          those partners, ensuring that you are informed about such sharing.
+        </li>
+        <li className="mb-2">
+          <b>Legal and Regulatory Requirements:</b> When disclosure is required
+          by law, regulation, or legal process, or when necessary to protect our
+          rights and the safety of our users.
+        </li>
+      </ul>
+      <p className="mb-6">
+        International Transfers: If your personal data is transferred outside
+        India, we ensure that adequate safeguards are in place as per applicable
+        legal standards.
+      </p>
+      <h2 className="mb-4">4. Security of Your Information</h2>
+      <p className="mb-4">
+        We are committed to protecting your personal information and have
+        implemented reasonable technical, administrative, and physical
+        safeguards, including:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Encryption (e.g., SSL/TLS) during data transmission.
+        </li>
+        <li className="mb-2">
+          Compliance with industry standards, such as PCI DSS when processing
+          payment data.
+        </li>
+        <li className="mb-2">
+          Secure storage and controlled access protocols.
+        </li>
+        <li className="mb-2">
+          Regular updates and monitoring of our security practices.
+        </li>
+      </ul>
+      <p className="mb-6">
+        While we work to secure your data, please note that no system is
+        completely foolproof, and we encourage you to protect your own devices
+        and passwords.
+      </p>
+      <h2 className="mb-4">5. Accessing Your Information</h2>
+      <p className="mb-6">
+        You may access and manage your personal information by logging into your
+        account on our website. This includes viewing and updating details such
+        as your contact information, payment methods, and purchase history. If
+        you wish to request corrections or deletion of your data, please follow
+        the instructions in your account settings or contact our Customer
+        Service.
+      </p>
+      <h2 className="mb-4">6. Understanding Your Rights</h2>
+      <p className="mb-4">
+        Under Indian law, you have certain rights regarding your personal data.
+        These include:
+      </p>
+      <ul className="list-disc ml-8 mb-6">
+        <li className="mb-2">
+          Access and Correction: The right to access your personal data and
+          request corrections if necessary.
+        </li>
+        <li className="mb-2">
+          Withdrawal of Consent: The right to withdraw your consent for data
+          processing, where applicable.
+        </li>
+        <li className="mb-2">
+          Deletion Requests: The right to request deletion of your personal
+          data, subject to applicable legal and contractual limitations.
+        </li>
+        <li className="mb-2">
+          Opt-Out: The right to opt out of receiving promotional communications.
+        </li>
+      </ul>
+      <p className="mb-6">
+        Exercising these rights may affect your ability to use certain services.
+        For any requests or inquiries regarding your rights, please contact our
+        Customer Service.
+      </p>
+      <h2 className="mb-4">7. Children’s Use of Our Services</h2>
+      <p className="mb-6">
+        Our services are intended for adults. We do not knowingly collect
+        personal information from children under 18 without parental or guardian
+        consent. If we become aware of such collection in error, we will
+        promptly delete the information. If you are under 18, you may use our
+        services only with the involvement of a parent or guardian.
+      </p>
+      <h2 className="mb-4">
+        8. Conditions of Use & Sale, Notices, and Revisions
+      </h2>
+      <p className="mb-6">
+        By using our services, you agree to this Privacy Notice. Garmin India
+        reserves the right to update or modify this Notice from time to time.
+        Changes will be posted on our website along with the revised “Last
+        Updated” date. Continued use of our services after such changes
+        constitutes your acceptance of the updated terms.
+      </p>
+      <p className="mb-6">
+        If you have any concerns or questions about our privacy practices,
+        please contact us with a detailed description, and we will work to
+        address them.
+      </p>
+    </div>
+  );
 };
 
 export default Privacy;
