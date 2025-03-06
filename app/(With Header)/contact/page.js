@@ -48,6 +48,10 @@ const Contact = () => {
               support.india@amitintl.com
             </a>
             <br />
+            <p>
+              Working Hours : Monday to Friday: 9:30 AM – 6:00 PM (Saturday,
+              Sunday & National Holidays: Closed)
+            </p>
             <br />
           </p>
 
