@@ -139,7 +139,11 @@ const Footer = () => {
                   aria-hidden="false"
                 >
                   <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                    <Link href="/about-garmin" className="">
+                    <Link
+                      href="https://amitintl.com/about-us/"
+                      target="_blank"
+                      className=""
+                    >
                       About Us
                     </Link>
                   </span>
@@ -185,10 +189,10 @@ const Footer = () => {
                 >
                   <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
                     <Link
-                      href="https://www.garmin.com/en-IN/sustainability/overview/"
+                      href="https://www.garmin.com/en-GB/sustainability/overview/"
                       className=""
                     >
-                      Sustainability
+                      Garmin’s sustainability practices
                     </Link>
                   </span>
                 </li>
@@ -520,7 +524,7 @@ const Footer = () => {
           >
             <span className="js__gfl__list__item__link gfl__list__item__link__wrapper">
               <Link
-                href="https://support.garmin.com/en-GB/"
+                href="https://www.garmin-india.com/compliance"
                 className="footer-menu-list-item"
               >
                 Compliance
