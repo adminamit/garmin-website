@@ -58,10 +58,8 @@ const Contact = () => {
           <h3 id="marketing">MARKETING</h3>
           <hr />
           <p>
-            For marketing related queries:{" "}
-            <a href="mailto:ayush.mahajan@amitintl.com">
-              ayush.mahajan@amitintl.com
-            </a>
+            For marketing related queries: marketing@garmin-india.com ||
+            ayush.mahajan@amitintl.com
             <br />
             <br />
           </p>
