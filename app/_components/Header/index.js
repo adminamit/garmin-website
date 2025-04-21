@@ -92,25 +92,25 @@ const Header = () => {
                   }
                 >
                   <Link
-                    href="https://support.garmin.com/en-GB/"
+                    href="https://www.garmin-india.com/contact"
                     target="_blank"
                   >
                     Support Center{" "}
                   </Link>
                   <Link
-                    href="https://support.garmin.com/en-GB/aviation/"
+                    href="https://www.garmin-india.com/contact"
                     target="_blank"
                   >
                     Aviation Support{" "}
                   </Link>
                   <Link
-                    href="https://support.garmin.com/en-GB/marine"
+                    href="https://www.garmin-india.com/contact"
                     target="_blank"
                   >
                     Marine Support
                   </Link>
                   <Link
-                    href="https://support.garmin.com/en-GB/navionics"
+                    href="https://www.garmin-india.com/contact"
                     target="_blank"
                   >
                     Navionics Support

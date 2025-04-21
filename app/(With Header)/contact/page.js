@@ -58,8 +58,7 @@ const Contact = () => {
           <h3 id="marketing">MARKETING</h3>
           <hr />
           <p>
-            For marketing related queries: marketing@garmin-india.com ||
-            ayush.mahajan@amitintl.com
+            For marketing related queries: marketing@garmin-india.com
             <br />
             <br />
           </p>

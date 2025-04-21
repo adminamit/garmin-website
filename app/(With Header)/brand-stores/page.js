@@ -19,12 +19,11 @@ const stores = [
     operatingTime: "All 7 days 10:30 AM to 9 PM",
   },
   {
-    image: "https://cmsprod.garmin-india.com/media/Jaipur.webp",
-    name: "Garmin Brand Store - Jaipur",
-    address:
-      "The Runners Hub, G-20, Ground Floor, Near Decathlon Jaipur Centre, Tonk Road & B2 Bypass Junction, Durgapura, Jaipur, Rajasthan 302018",
-    phone: "+91 9324688691",
-    operatingTime: "Mon-Sat: 11:00 AM - 09:00 PM",
+    image: "https://cmsprod.garmin-india.com/media/chennai-store.webp",
+    name: "Garmin Brand Store - Chennai",
+    address: "46 Besant Avenue, Adyar, Chennai, Tamil Nadu 600020",
+    phone: "+91 9789910775",
+    operatingTime: "Mon-Sun: 10:00 AM - 09:30 PM",
   },
 
   {
