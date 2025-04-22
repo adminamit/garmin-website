@@ -101,7 +101,7 @@ const Header = () => {
                     href="https://www.garmin-india.com/contact"
                     target="_blank"
                   >
-                    Aviation Support{" "}
+                    Handheld Support{" "}
                   </Link>
                   <Link
                     href="https://www.garmin-india.com/contact"

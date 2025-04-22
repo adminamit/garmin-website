@@ -15,14 +15,14 @@ const stores = [
     name: "Garmin Brand Store - Bangalore",
     address:
       "777/D, 100 Ft Road, opposite to New Horizon Public School, HAL 2nd Stage, Doopanahalli, Indiranagar, Bengaluru, Karnataka 560038",
-    phone: "92802 33001",
+    phone: "+91 9280233001",
     operatingTime: "All 7 days 10:30 AM to 9 PM",
   },
   {
     image: "https://cmsprod.garmin-india.com/media/chennai-store.webp",
     name: "Garmin Brand Store - Chennai",
     address: "46 Besant Avenue, Adyar, Chennai, Tamil Nadu 600020",
-    phone: "+91 9789910775",
+    phone: "+91 9789910776 / +91 4446172020",
     operatingTime: "Mon-Sun: 10:00 AM - 09:30 PM",
   },
 
