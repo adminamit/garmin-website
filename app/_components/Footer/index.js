@@ -39,7 +39,7 @@ const Footer = () => {
                   aria-hidden="false"
                 >
                   <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                    <Link href="https://support.garmin.com/en-GB/">
+                    <Link href="https://www.garmin-india.com/contact">
                       Support Centre
                     </Link>
                   </span>
