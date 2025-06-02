@@ -22,7 +22,7 @@ const stores = [
     image: "https://cmsprod.garmin-india.com/media/chennai-store.webp",
     name: "Garmin Brand Store - Chennai",
     address: "46 Besant Avenue, Adyar, Chennai, Tamil Nadu 600020",
-    phone: "+91 9789910776 / +91 4446172020",
+    phone: "+91 9789901776 / +91 4446172020",
     operatingTime: "Mon-Sun: 10:00 AM - 09:30 PM",
   },
 

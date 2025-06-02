@@ -48,16 +48,16 @@ const Contact = () => {
               support.india@amitintl.com
             </a>
             <p>
-              For any enquiries or service-related support, please contact us at
-              011-4800-5805 or send us an email us at{" "}
+              For any enquiries or service-related support, contact us at
+              011-4800-5805 or email us at{" "}
               <a href="mailto:service@garmin-india.com">
                 service@garmin-india.com
               </a>
             </p>
-            <p>
+            <h5>
               Working Hours : Monday to Friday: 9:30 AM – 6:00 PM (Saturday,
               Sunday & National Holidays: Closed)
-            </p>
+            </h5>
             <br />
           </p>
 
