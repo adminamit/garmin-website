@@ -24,7 +24,7 @@ export const BulkEnquiryForm = () => {
       );
       if (res.status === 201) {
         setSubmitting(true);
-        toast.success("Enquiry sent succesfully");
+        toast.success("Enquiry sent succesfully!");
         resetForm();
       } else {
         alert("Something went wrong. Please try again");
