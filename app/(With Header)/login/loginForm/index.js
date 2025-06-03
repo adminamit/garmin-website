@@ -10,172 +10,164 @@ import { useAuth } from "@/app/_providers/Auth";
 import toast from "react-hot-toast";
 
 export const setTokenCookie = (expiresIn, accessToken) => {
-    return fetch("/api/auth/setHttpCookie", {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ expiresIn, accessToken }),
-    });
+  return fetch("/api/auth/setHttpCookie", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ expiresIn, accessToken }),
+  });
 };
 
 export const LoginForm = () => {
-    const { login } = useAuth();
-    const reCaptchaRef = useRef(null);
-    const searchParams = useSearchParams();
-    const redirect = searchParams.get("redirect");
-    const formik = useFormik({
-        initialValues: {
-            email: "",
-            password: "",
-            rememberMe: false,
+  const { login } = useAuth();
+  const reCaptchaRef = useRef(null);
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      rememberMe: false,
+    },
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
+      const res = await fetch(`/api/auth/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
         },
-        onSubmit: async (values, { setSubmitting, resetForm }) => {
-            const res = await fetch(`/api/auth/login`, {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(values),
-            });
+        body: JSON.stringify(values),
+      });
 
-            const authStatus = await res.json();
-            if (res.status === 200) {
-                if (authStatus.errors) {
-                    toast.error(authStatus.errors[0].message);
-                } else {
-                    const { token, exp, user } = authStatus;
-                    await setTokenCookie(exp, token);
-                    login(user);
-                    setSubmitting(true);
-                    resetForm();
-                    toast.success("Logged in! Redirecting..");
-                    redirect
-                        ? (window.location.href = redirect)
-                        : (window.location.href = "/account");
-                }
-            } else {
-                toast.error("Something went wrong. Please try again");
-            }
-        },
-        validationSchema: yup.object({
-            email: yup
-                .string()
-                .email("Must be a valid email")
-                .required("This field is required"),
+      const authStatus = await res.json();
+      if (res.status === 200) {
+        if (authStatus.errors) {
+          toast.error(authStatus.errors[0].message);
+        } else {
+          const { token, exp, user } = authStatus;
+          await setTokenCookie(exp, token);
+          login(user);
+          setSubmitting(true);
+          resetForm();
+          toast.success("Logged in! Redirecting..");
+          redirect
+            ? (window.location.href = redirect)
+            : (window.location.href = "/account");
+        }
+      } else {
+        toast.error("Something went wrong. Please try again");
+      }
+    },
+    validationSchema: yup.object({
+      email: yup
+        .string()
+        .email("Must be a valid email")
+        .required("This field is required"),
 
-            password: yup.string().required("This field is required"),
-            rememberMe: yup.boolean(),
-            recaptcha: yup
-                .string()
-                .min(1, "Prove You Are Not A Robot")
-                .required("Prove You Are Not A Robot"),
-        }),
-    });
+      password: yup.string().required("This field is required"),
+      rememberMe: yup.boolean(),
+      //   recaptcha: yup
+      //     .string()
+      //     .min(1, "Prove You Are Not A Robot")
+      //     .required("Prove You Are Not A Robot"),
+    }),
+  });
 
-    return (
-        <>
-            <form onSubmit={formik.handleSubmit} className="pt-10 pb-9">
-                <div className="input-wrapper">
-                    <label htmlFor="name" className="label">
-                        Email Address <span className="required">*</span>
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        className={`input ${
-                            formik.touched.email &&
-                            formik.errors.email &&
-                            "error-input"
-                        }`}
-                        {...formik.getFieldProps("email")}
-                    />
-                    {formik.touched.email && formik.errors.email ? (
-                        <div className="error-text">{formik.errors.email}</div>
-                    ) : null}
-                </div>
+  return (
+    <>
+      <form onSubmit={formik.handleSubmit} className="pt-10 pb-9">
+        <div className="input-wrapper">
+          <label htmlFor="name" className="label">
+            Email Address <span className="required">*</span>
+          </label>
+          <input
+            id="email"
+            type="email"
+            className={`input ${
+              formik.touched.email && formik.errors.email && "error-input"
+            }`}
+            {...formik.getFieldProps("email")}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <div className="error-text">{formik.errors.email}</div>
+          ) : null}
+        </div>
 
-                <div className="input-wrapper">
-                    <label htmlFor="name" className="label">
-                        Password <span className="required">*</span>
-                    </label>
-                    <input
-                        id="password"
-                        type="password"
-                        className={`input ${
-                            formik.touched.password &&
-                            formik.errors.password &&
-                            "error-input"
-                        }`}
-                        {...formik.getFieldProps("password")}
-                    />
+        <div className="input-wrapper">
+          <label htmlFor="name" className="label">
+            Password <span className="required">*</span>
+          </label>
+          <input
+            id="password"
+            type="password"
+            className={`input ${
+              formik.touched.password && formik.errors.password && "error-input"
+            }`}
+            {...formik.getFieldProps("password")}
+          />
 
-                    {formik.touched.password && formik.errors.password ? (
-                        <div className="error-text">
-                            {formik.errors.password}
-                        </div>
-                    ) : null}
-                </div>
-                <div className="flex justify-between align-middle">
-                    <div className="input-wrapper flex relative align-middle">
-                        <input
-                            id="rememberMe"
-                            type="checkbox"
-                            className="hidden"
-                            {...formik.getFieldProps("rememberMe")}
-                        />
-                        <label
-                            htmlFor="rememberMe"
-                            className="ml-2 block text-black px-6 form_checkbox_label"
-                        >
-                            <span className="">Remember Me</span>
-                        </label>
-                    </div>
+          {formik.touched.password && formik.errors.password ? (
+            <div className="error-text">{formik.errors.password}</div>
+          ) : null}
+        </div>
+        <div className="flex justify-between align-middle">
+          <div className="input-wrapper flex relative align-middle">
+            <input
+              id="rememberMe"
+              type="checkbox"
+              className="hidden"
+              {...formik.getFieldProps("rememberMe")}
+            />
+            <label
+              htmlFor="rememberMe"
+              className="ml-2 block text-black px-6 form_checkbox_label"
+            >
+              <span className="">Remember Me</span>
+            </label>
+          </div>
 
-                    <Link href="/forgot-password" className="link">
-                        Forgot Password?
-                    </Link>
-                </div>
+          <Link href="/forgot-password" className="link">
+            Forgot Password?
+          </Link>
+        </div>
 
-                <div className="g-recaptcha mb-6" data-sitekey="your-site-key">
-                    <ReCAPTCHA
-                        style={{ display: "inline-block" }}
-                        size="tiny"
-                        theme="light"
-                        ref={reCaptchaRef}
-                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                        name="recaptcha"
-                        id="recaptcha"
-                        value={formik.values.recaptcha}
-                        onBlur={formik.handleBlur}
-                        onChange={async () => {
-                            const token = await reCaptchaRef.current.getValue();
-                            formik.setFieldValue("recaptcha", token);
-                        }}
-                    />
-                </div>
-                <div className="">
-                    <button
-                        type="submit"
-                        className={` uppercase py-2 px-10 text-base font-medium submit submit--full  ${
-                            formik.isValid && formik.dirty
-                                ? ""
-                                : "submit--disabled"
-                        }`}
-                        disabled={!(formik.isValid && formik.dirty)}
-                    >
-                        {!formik.isSubmitting ? <span>Sign in</span> : ""}
-                        {formik.isSubmitting ? (
-                            <span>
-                                <Loader size="small" />
-                            </span>
-                        ) : (
-                            ""
-                        )}
-                    </button>
-                </div>
-            </form>
-        </>
-    );
+        {/* <div className="g-recaptcha mb-6" data-sitekey="your-site-key">
+          <ReCAPTCHA
+            style={{ display: "inline-block" }}
+            size="tiny"
+            theme="light"
+            ref={reCaptchaRef}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            name="recaptcha"
+            id="recaptcha"
+            value={formik.values.recaptcha}
+            onBlur={formik.handleBlur}
+            onChange={async () => {
+              const token = await reCaptchaRef.current.getValue();
+              formik.setFieldValue("recaptcha", token);
+            }}
+          />
+        </div> */}
+        <div className="">
+          <button
+            type="submit"
+            className={` uppercase py-2 px-10 text-base font-medium submit submit--full  ${
+              formik.isValid && formik.dirty ? "" : "submit--disabled"
+            }`}
+            disabled={!(formik.isValid && formik.dirty)}
+          >
+            {!formik.isSubmitting ? <span>Sign in</span> : ""}
+            {formik.isSubmitting ? (
+              <span>
+                <Loader size="small" />
+              </span>
+            ) : (
+              ""
+            )}
+          </button>
+        </div>
+      </form>
+    </>
+  );
 };
