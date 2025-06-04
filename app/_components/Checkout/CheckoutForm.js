@@ -176,6 +176,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
               trackingId: null,
             });
             toast.success("Payment successful!");
+            console.log("✅ Payment Success:", res);
             clearOrder();
             clearCart();
             route.push(`/account/orders/${order.id}`);
