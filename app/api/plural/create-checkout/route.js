@@ -64,7 +64,6 @@ export async function POST(request) {
     const callbackUrl = `${SERVER_BASE_URL}/account/orders/${order_id}?token=${token}`;
     const failureCallbackUrl = `${SERVER_BASE_URL}/account/orders/${order_id}`;
 
-    // Generate unique Request-ID and Timestamp for headers
     const requestId = uuidv4();
     const requestTimestamp = new Date().toISOString();
 
@@ -99,7 +98,8 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         merchant_id: PLURAL_MERCHANT_ID, // Still needed if not inside purchase_details/merchant_metadata
-        merchant_order_reference: order_id, // CORRECTED FIELD NAME
+        merchant_order_reference: order_id,
+        integration_mode: "IFRAME", // CORRECTED FIELD NAME
         order_amount: {
           value: amount, // Amount in the smallest currency unit
           currency: currency,

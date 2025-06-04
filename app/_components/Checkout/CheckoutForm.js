@@ -113,40 +113,19 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
   };
 
   const initiatePluralPayment = async (order) => {
-    console.log("initiatePluralPayment - order:", order);
-    let waybill = "";
-
     try {
       setCheckingOut(true);
 
+      // Step 1: Get Auth Token
       const tokenResponse = await fetch("/api/plural/generate-token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
-
-      let tokenResult;
-      if (!tokenResponse.ok) {
-        const errorText = await tokenResponse.text();
-        let errorData;
-        try {
-          errorData = JSON.parse(errorText);
-        } catch (e) {
-          errorData = { message: errorText || "Unknown error format" };
-        }
-        throw new Error(
-          `Failed to generate Plural auth token: ${
-            errorData.message || tokenResponse.statusText
-          }`
-        );
-      }
-
-      tokenResult = await tokenResponse.json();
+      const tokenResult = await tokenResponse.json();
       const token = tokenResult.access_token;
+      if (!token) throw new Error("Plural auth token not received.");
 
-      if (!token) {
-        throw new Error("Plural auth token (access_token) not received.");
-      }
-
+      // Step 2: Create Checkout Session
       const checkoutResponse = await fetch("/api/plural/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -155,6 +134,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
           merchant_order_reference: order.id,
           amount: parseFloat(order.total) * 100,
           currency: "INR",
+          integration_mode: "IFRAME",
           customer: {
             name: order.orderedBy.full_name,
             email: order.orderedBy.email,
@@ -178,36 +158,51 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         }),
       });
 
-      let checkoutResult;
-      if (!checkoutResponse.ok) {
-        const errorText = await checkoutResponse.text();
-        let errorData;
-        try {
-          errorData = JSON.parse(errorText);
-        } catch (e) {
-          errorData = { message: errorText || "Unknown error format" };
-        }
-        throw new Error(
-          `Failed to create Plural hosted checkout link: ${
-            errorData.message || checkoutResponse.statusText
-          }`
-        );
-      }
-
-      checkoutResult = await checkoutResponse.json();
+      const checkoutResult = await checkoutResponse.json();
       const { redirect_url } = checkoutResult;
-      if (redirect_url) {
-        window.location.href = redirect_url;
+      if (!redirect_url) throw new Error("Plural redirect URL missing.");
+
+      // Step 3: Load SDK only if not already loaded
+      const sdkUrl =
+        "https://checkout-staging.pluralonline.com/v3/web-sdk-checkout.js";
+      const sdkAlreadyLoaded = !!window.Plural;
+
+      const launchCheckout = () => {
+        const plural = new window.Plural({
+          redirectUrl: redirect_url,
+          successHandler: (res) => {
+            console.log("✅ Payment Success:", res);
+            toast.success("Payment successful!");
+            route.push(`/account/orders/${order.id}`);
+          },
+          failedHandler: (res) => {
+            console.error("❌ Payment Failed:", res);
+            toast.error(
+              res.status === "CANCELLED"
+                ? "Payment cancelled by user."
+                : "Payment failed. Please try again."
+            );
+            setCheckingOut(false);
+            route.push("/checkout");
+          },
+        });
+
+        plural.open();
+      };
+
+      if (sdkAlreadyLoaded) {
+        launchCheckout();
       } else {
-        throw new Error("No redirect URL received from Plural.");
+        const script = document.createElement("script");
+        script.src = sdkUrl;
+        script.onload = launchCheckout;
+        document.body.appendChild(script);
       }
     } catch (error) {
-      console.error("Error during Plural payment initiation:", error);
-      toast.error(error.message || "Failed to initiate payment.");
+      console.error("Error in initiatePluralPayment:", error);
+      toast.error(error.message || "Payment initiation failed.");
       setCheckingOut(false);
     }
-    clearOrder();
-    clearCart();
   };
 
   const formik = useFormik({
