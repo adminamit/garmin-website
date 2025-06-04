@@ -7,7 +7,6 @@ import ShippingAddress from "./ShippingAddress";
 import ShppingMethod from "./ShippingMethod";
 import BillingAddress from "./BillingAddress";
 import GuestUserEmail from "./GuestUserEmail";
-// import Script from "next/script"; // Removed Razorpay script
 import toast from "react-hot-toast";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import { useOrder } from "@/app/_providers/Order";
@@ -113,35 +112,26 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     }
   };
 
-  // Removed createOrderId (Razorpay specific)
-
-  // --- Plural Integration Logic ---
-  // --- Plural Integration Logic ---
   const initiatePluralPayment = async (order) => {
     console.log("initiatePluralPayment - order:", order);
-    let waybill = ""; // This variable seems unused in the Plural flow
+    let waybill = "";
 
     try {
       setCheckingOut(true);
 
-      // 1. Generate Auth Token (Backend API call)
       const tokenResponse = await fetch("/api/plural/generate-token", {
-        method: "POST", // Make sure this is exactly "POST"
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        // Your backend /api/plural/generate-token route uses env vars directly for client_id/secret,
-        // so no request body is strictly needed from the frontend for this call.
-        // Removed: body: JSON.stringify({ userId: user?.id, orderId: order.id }),
       });
 
-      let tokenResult; // Declare a variable to hold the parsed JSON response
+      let tokenResult;
       if (!tokenResponse.ok) {
-        // If the response is NOT ok, read the error details first.
-        const errorText = await tokenResponse.text(); // Read as text in case it's not JSON
+        const errorText = await tokenResponse.text();
         let errorData;
         try {
-          errorData = JSON.parse(errorText); // Try to parse as JSON
+          errorData = JSON.parse(errorText);
         } catch (e) {
-          errorData = { message: errorText || "Unknown error format" }; // Fallback if not JSON
+          errorData = { message: errorText || "Unknown error format" };
         }
         throw new Error(
           `Failed to generate Plural auth token: ${
@@ -149,20 +139,19 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
           }`
         );
       }
-      // Only parse JSON if the response is OK
+
       tokenResult = await tokenResponse.json();
-      const token = tokenResult.access_token; // Use access_token as returned by your backend API route
+      const token = tokenResult.access_token;
 
       if (!token) {
         throw new Error("Plural auth token (access_token) not received.");
       }
 
-      // 2. Create Hosted Checkout Link (Backend API call) - UPDATED
       const checkoutResponse = await fetch("/api/plural/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          merchant_id: process.env.NEXT_PUBLIC_PLURAL_MERCHANT_ID, // Ensure this is set in your .env file
+          merchant_id: process.env.NEXT_PUBLIC_PLURAL_MERCHANT_ID,
           merchant_order_reference: order.id,
           amount: parseFloat(order.total) * 100,
           currency: "INR",
@@ -170,35 +159,33 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             name: order.orderedBy.full_name,
             email: order.orderedBy.email,
             phone: order.shippingAddress.phone,
-            customer_id: user?.id || order.orderedBy.id, // Pass customer_id from your system
+            customer_id: user?.id || order.orderedBy.id,
             address: {
-              // This MUST be fully populated for both shipping/billing in backend
               street_name: order.shippingAddress.flat_home,
-              street_number: order.shippingAddress.flat_home, // Or a specific street number field
+              street_number: order.shippingAddress.flat_home,
               city: order.shippingAddress.city,
               zip_code: order.shippingAddress.pincode,
               state: order.shippingAddress.state,
-              country: order.shippingAddress.country || "INDIA", // Ensure 'INDIA' or other actual country
-              address1: order.shippingAddress.flat_home, // Map to address1
-              address2: "", // If you have these, use them
-              address3: "", // If you have these, use them
+              country: order.shippingAddress.country || "INDIA",
+              address1: order.shippingAddress.flat_home,
+              address2: "",
+              address3: "",
             },
           },
           order_id: order.id,
           token: token,
-          notes: `Garmin Order ${order.id}`, // Example note
+          notes: `Garmin Order ${order.id}`,
         }),
       });
 
-      let checkoutResult; // Declare a variable to hold the parsed JSON response
+      let checkoutResult;
       if (!checkoutResponse.ok) {
-        // If the response is NOT ok, read the error details first.
-        const errorText = await checkoutResponse.text(); // Read as text in case it's not JSON
+        const errorText = await checkoutResponse.text();
         let errorData;
         try {
-          errorData = JSON.parse(errorText); // Try to parse as JSON
+          errorData = JSON.parse(errorText);
         } catch (e) {
-          errorData = { message: errorText || "Unknown error format" }; // Fallback if not JSON
+          errorData = { message: errorText || "Unknown error format" };
         }
         throw new Error(
           `Failed to create Plural hosted checkout link: ${
@@ -206,7 +193,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
           }`
         );
       }
-      // Only parse JSON if the response is OK
+
       checkoutResult = await checkoutResponse.json();
       const { redirect_url } = checkoutResult;
       if (redirect_url) {
@@ -214,18 +201,14 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       } else {
         throw new Error("No redirect URL received from Plural.");
       }
-
-      // The rest of your success/failure logic will be handled on the /checkout/plural-callback page
-      // and via Plural's webhooks.
     } catch (error) {
       console.error("Error during Plural payment initiation:", error);
       toast.error(error.message || "Failed to initiate payment.");
       setCheckingOut(false);
     }
-    clearOrder(); // Clear the order cookie after initiating payment
-    clearCart(); // Clear the cart after initiating payment
+    clearOrder();
+    clearCart();
   };
-  // --- End Plural Integration Logic ---
 
   const formik = useFormik({
     initialValues: {
@@ -296,8 +279,8 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         items: orderProducts,
         billingAddress: billingAddress,
         shippingAddress: shippingAddress,
-        // Add total amount to orderData, required by Plural
-        total: cartTotal, // Ensure cartTotal is passed correctly from props
+
+        total: cartTotal,
       };
 
       console.log("orderData:", orderData);
@@ -311,7 +294,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
 
       console.log("order--order:", order);
       if (order.id) {
-        // Call Plural payment initiation instead of Razorpay
         await initiatePluralPayment(order);
       } else {
         setCheckingOut(false);
@@ -347,14 +329,11 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
           is: false,
           then: yup.string().required("This field is required"),
         }),
-      // Removed commented out billing address validations for brevity, assuming existing logic is fine
     }),
   });
 
   useEffect(() => {
-    // Corrected typo from formik.vaues to formik.values
     console.log(formik.values);
-    //do your stuff
   }, [formik.values]);
 
   const handleIsBillingSameChange = (e) => {
@@ -363,14 +342,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
 
   return (
     <div className="relative">
-      {/* Removed Razorpay Script */}
-      {/* You might need a script tag for Plural SDK if it's not imported directly */}
-      {/* Example:
-            <Script
-                id="plural-checkout-js"
-                src="URL_TO_PLURAL_SDK_SCRIPT" // Replace with the actual URL
-            />
-            */}
       <div className="checkout__prompt">
         <div>
           <div>
