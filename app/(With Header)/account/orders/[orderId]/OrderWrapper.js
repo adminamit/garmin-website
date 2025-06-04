@@ -5,6 +5,9 @@ import "./success/index.css";
 import { Loader } from "@/app/_components/Loader";
 import dayjs from "dayjs";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useSearchParams, useRouter } from "next/navigation";
+
 const formatPrice = (price) => {
   return price.toLocaleString("en-IN", {
     style: "currency",
@@ -14,8 +17,11 @@ const formatPrice = (price) => {
 
 const OrderWrapper = ({ orderId }) => {
   const [order, setOrder] = useState(null);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
   useEffect(() => {
-    async function getOrderData() {
+    async function getOrderDataAndVerify() {
       const res = await fetch(`/api/graphQl/order/?orderID=${orderId}`, {
         method: "GET",
         credentials: "include",
@@ -23,16 +29,48 @@ const OrderWrapper = ({ orderId }) => {
           "Content-Type": "application/json",
         },
       });
+
       if (res.ok) {
         const data = await res.json();
         setOrder(data);
+
+        // === Check if redirected from Plural with token ===
+        const pluralToken = searchParams.get("token");
+
+        if (pluralToken && data.orderStatus !== "processing") {
+          try {
+            const verifyRes = await fetch("/api/plural/verify-payment", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                plural_token: pluralToken,
+                order_id: orderId,
+              }),
+            });
+
+            const result = await verifyRes.json();
+
+            if (result.status === "SUCCESS") {
+              toast.success("Payment successful!");
+              router.refresh();
+            } else {
+              toast.error("Payment verification failed.");
+            }
+          } catch (error) {
+            console.error("Payment verification error:", error);
+            toast.error("Something went wrong verifying payment.");
+          }
+        }
       } else {
-        throw new Error("Error fetching orders! Please try again later.");
+        toast.error("Failed to load order.");
       }
     }
 
-    getOrderData();
+    getOrderDataAndVerify();
   }, []);
+
   return (
     <section className="py-16 relative">
       {order ? (
@@ -62,8 +100,7 @@ const OrderWrapper = ({ orderId }) => {
                 </span>
                 {order.trackingId && (
                   <Link
-                    href={`https://www.delhivery.com/tracking?awb=${order.trackingId}`}
-                    target="_blank"
+                    href="#"
                     className="uppercase text-xs text-white bg-black px-4 h-12 rounded-md oswald flex items-center gap-2"
                   >
                     <svg
@@ -85,57 +122,57 @@ const OrderWrapper = ({ orderId }) => {
                 )}
               </div>
             </div>
-            <div className="w-full px-3 min-[400px]:px-6">
-              {order.items.map((item) => {
-                return (
-                  <div
-                    className="flex flex-col lg:flex-row items-center py-12 border-b border-borderColor gap-6 w-full"
-                    key={item.product.id}
-                  >
-                    <div className="img-box max-lg:w-full">
-                      <Image
-                        src={item.product.featuredImageUrl}
-                        alt="Premium Watch image"
-                        className="aspect-square lg:max-w-[140px] w-[140px]"
-                        width={0}
-                        height={0}
-                        unoptimized
-                      />
-                    </div>
-                    <div className="flex flex-row items-center w-full ">
-                      <div className="grid grid-cols-1 w-full">
-                        <div className="flex items-center">
-                          <div className="">
-                            <h2 className="font-semibold oswald text-xl leading-8 text-secondary">
-                              {item.product.title}
-                            </h2>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-4 mt-4">
-                          <div className="flex items-center ">
-                            <p className="font-medium oswald text-base leading-7 text-secondary ">
-                              Qty :{" "}
-                              <span className="text-gray-500">
-                                {item.quantity}
-                              </span>
-                            </p>
-                          </div>
 
-                          <div className="flex gap-3">
-                            <p className="font-medium oswald text-sm leading-7 text-secondary">
-                              Price :{" "}
-                            </p>
-                            <p className="font-medium oswald text-lg leading-7 text-secondary">
-                              {formatPrice(item.price ? item.price : 0)}
-                            </p>
-                          </div>
+            <div className="w-full px-3 min-[400px]:px-6">
+              {order.items.map((item) => (
+                <div
+                  className="flex flex-col lg:flex-row items-center py-12 border-b border-borderColor gap-6 w-full"
+                  key={item.product.id}
+                >
+                  <div className="img-box max-lg:w-full">
+                    <Image
+                      src={item.product.featuredImageUrl}
+                      alt="Product Image"
+                      className="aspect-square lg:max-w-[140px] w-[140px]"
+                      width={0}
+                      height={0}
+                      unoptimized
+                    />
+                  </div>
+                  <div className="flex flex-row items-center w-full ">
+                    <div className="grid grid-cols-1 w-full">
+                      <div className="flex items-center">
+                        <div className="">
+                          <h2 className="font-semibold oswald text-xl leading-8 text-secondary">
+                            {item.product.title}
+                          </h2>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4 mt-4">
+                        <div className="flex items-center ">
+                          <p className="font-medium oswald text-base leading-7 text-secondary ">
+                            Qty :{" "}
+                            <span className="text-gray-500">
+                              {item.quantity}
+                            </span>
+                          </p>
+                        </div>
+
+                        <div className="flex gap-3">
+                          <p className="font-medium oswald text-sm leading-7 text-secondary">
+                            Price :{" "}
+                          </p>
+                          <p className="font-medium oswald text-lg leading-7 text-secondary">
+                            {formatPrice(item.price || 0)}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
+
             <div className="py-5 mx-6">
               <div className="flex gap-3 items-center">
                 <p className="font-medium oswald text-sm whitespace-nowrap text-secondary">

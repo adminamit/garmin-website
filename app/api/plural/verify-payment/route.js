@@ -5,7 +5,9 @@ export async function POST(request) {
     process.env;
 
   try {
-    const { pluralOrderId, orderId } = await request.json();
+    const { plural_token, order_id } = await request.json();
+
+    // Step 1: Get access token
     const tokenRes = await fetch(
       `${PLURAL_API_BASE_URL.replace(/\/api$/, "")}/api/auth/v1/token`,
       {
@@ -22,11 +24,16 @@ export async function POST(request) {
     const tokenData = await tokenRes.json();
     const accessToken = tokenData.access_token;
 
+    if (!accessToken) {
+      throw new Error("Could not retrieve access token from Plural.");
+    }
+
+    // Step 2: Fetch transaction details using the token from redirect
     const orderDetailsRes = await fetch(
       `${PLURAL_API_BASE_URL.replace(
         /\/api$/,
         ""
-      )}/api/pay/v1/orders/${pluralOrderId}`,
+      )}/api/checkout/v1/token/${plural_token}`,
       {
         method: "GET",
         headers: {
@@ -37,19 +44,26 @@ export async function POST(request) {
       }
     );
 
+    if (!orderDetailsRes.ok) {
+      const errRes = await orderDetailsRes.text();
+      throw new Error(`Plural fetch failed: ${errRes}`);
+    }
+
     const orderDetails = await orderDetailsRes.json();
 
-    if (
-      orderDetails.status === "COMPLETED" &&
-      orderDetails.client_transaction_id === orderId
-    ) {
+    const status = orderDetails.status;
+    const clientTransactionId = orderDetails.client_transaction_id;
+    const paymentId = orderDetails.payment_id;
+
+    if (status === "COMPLETED" && clientTransactionId === order_id) {
+      // Update your local order here (optional — or frontend triggers it)
       return NextResponse.json({
         status: "SUCCESS",
-        pluralOrderId,
-        client_transaction_id: orderId,
-        payment_id: orderDetails.payment_id || "",
+        pluralOrderId: orderDetails.order_id,
+        client_transaction_id: clientTransactionId,
+        payment_id: paymentId || "",
       });
-    } else if (orderDetails.status === "PENDING") {
+    } else if (status === "PENDING") {
       return NextResponse.json({
         status: "PENDING",
         message: "Payment is pending.",
@@ -57,13 +71,14 @@ export async function POST(request) {
     } else {
       return NextResponse.json({
         status: "FAILED",
-        message: `Payment status: ${orderDetails.status}`,
+        message: `Payment status: ${status}`,
       });
     }
   } catch (err) {
-    console.error("Verification error:", err);
+    console.error("Plural verify-payment error:", err);
     return NextResponse.json(
       {
+        status: "ERROR",
         message: "Verification failed.",
         error: err.message,
       },

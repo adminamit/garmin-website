@@ -61,8 +61,8 @@ export async function POST(request) {
     const [firstName, ...lastNameParts] = customer.name.split(" ");
     const lastName = lastNameParts.join(" ");
 
-    const callbackUrl = `${SERVER_BASE_URL}/checkout/plural-callback?orderId=${order_id}`;
-    const failureCallbackUrl = `${SERVER_BASE_URL}/checkout/plural-callback?orderId=${order_id}&status=FAILED_EXTERNAL`;
+    const callbackUrl = `${SERVER_BASE_URL}/account/orders/${order_id}?token=${token}`;
+    const failureCallbackUrl = `${SERVER_BASE_URL}/account/orders/${order_id}`;
 
     // Generate unique Request-ID and Timestamp for headers
     const requestId = uuidv4();
