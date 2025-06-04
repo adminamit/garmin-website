@@ -116,7 +116,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     try {
       setCheckingOut(true);
 
-      // Step 1: Get Auth Token
       const tokenResponse = await fetch("/api/plural/generate-token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -125,7 +124,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       const token = tokenResult.access_token;
       if (!token) throw new Error("Plural auth token not received.");
 
-      // Step 2: Create Checkout Session
       const checkoutResponse = await fetch("/api/plural/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -162,7 +160,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       const { redirect_url } = checkoutResult;
       if (!redirect_url) throw new Error("Plural redirect URL missing.");
 
-      // Step 3: Load SDK only if not already loaded
       const sdkUrl =
         "https://checkout-staging.pluralonline.com/v3/web-sdk-checkout.js";
       const sdkAlreadyLoaded = !!window.Plural;
@@ -170,9 +167,17 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       const launchCheckout = () => {
         const plural = new window.Plural({
           redirectUrl: redirect_url,
-          successHandler: (res) => {
+          successHandler: async (res) => {
             console.log("✅ Payment Success:", res);
+            await updateGarminOrderStatus({
+              id: order.id,
+              razorpayPaymentId: res?.payment_id || "",
+              orderStatus: "processing",
+              trackingId: null,
+            });
             toast.success("Payment successful!");
+            clearOrder();
+            clearCart();
             route.push(`/account/orders/${order.id}`);
           },
           failedHandler: (res) => {
@@ -186,7 +191,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             route.push("/checkout");
           },
         });
-
         plural.open();
       };
 
