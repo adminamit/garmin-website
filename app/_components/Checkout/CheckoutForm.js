@@ -129,7 +129,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           merchant_id: process.env.NEXT_PUBLIC_PLURAL_MERCHANT_ID,
-          merchant_order_reference: order.id,
+          merchant_order_reference: order.id + `${Date.now()}`,
           amount: parseFloat(order.total) * 100,
           currency: "INR",
           integration_mode: "IFRAME",
