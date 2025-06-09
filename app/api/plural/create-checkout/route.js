@@ -21,17 +21,16 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const {
-      amount, // Raw amount from frontend
+      amount,
       currency,
-      customer, // Customer object from frontend (contains name, email, phone, address)
-      order_id, // Your internal order ID
-      token, // Auth token from generate-token
-      // Other optional fields from frontend like notes, etc.
+      customer,
+      order_id,
+      token,
       notes,
-      ...otherCheckoutDetails // Catch any other extra fields
+      products,
+      ...otherCheckoutDetails
     } = body;
 
-    // --- Validate Required Fields from Frontend ---
     if (
       !token ||
       !amount ||
@@ -57,7 +56,6 @@ export async function POST(request) {
       );
     }
 
-    // Split full_name into first_name and last_name for Plural's customer object
     const [firstName, ...lastNameParts] = customer.name.split(" ");
     const lastName = lastNameParts.join(" ");
 
@@ -67,57 +65,48 @@ export async function POST(request) {
     const requestId = uuidv4();
     const requestTimestamp = new Date().toISOString();
 
-    console.log("Preparing Plural checkout request for order ID:", order_id);
-    console.log("Customer data for Plural:", {
-      first_name: firstName,
-      last_name: lastName,
-      email_id: customer.email,
-      mobile_number: customer.phone,
-      billing_address: customer.address, // Assuming customer.address is already structured correctly
-      shipping_address: customer.address, // Assuming billing and shipping are same for now, adjust if separate
-    });
-    console.log("Callback URL:", callbackUrl);
-    console.log("Failure Callback URL:", failureCallbackUrl);
+    console.log("🔁 Preparing Plural checkout request for order ID:", order_id);
+    console.log(
+      "👤 Customer data:",
+      JSON.stringify(
+        {
+          first_name: firstName,
+          last_name: lastName,
+          email_id: customer.email,
+          mobile_number: customer.phone,
+          products,
+        },
+        null,
+        2
+      )
+    );
 
-    // Construct the correct checkout endpoint URL as per cURL example:
-    // https://pluraluat.v2.pinepg.in/api/checkout/v1/orders
-    const baseUrl = PLURAL_API_BASE_URL.replace(/\/api$/, ""); // Ensure base URL ends correctly, e.g., .../v2.pinepg.in
-    const checkoutUrl = `${baseUrl}/api/checkout/v1/orders`; // CORRECTED ENDPOINT AS PER cURL
+    const baseUrl = PLURAL_API_BASE_URL.replace(/\/api$/, "");
+    const checkoutUrl = `${baseUrl}/api/checkout/v1/orders`;
 
-    console.log("Making request to Plural checkout URL:", checkoutUrl);
-
-    // Make a POST request to Plural's "Generate Checkout Link" API
     const response = await fetch(checkoutUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
-        "Request-ID": requestId, // ADDED HEADER
-        "Request-Timestamp": requestTimestamp, // ADDED HEADER
-        accept: "application/json", // ADDED HEADER
+        "Request-ID": requestId,
+        "Request-Timestamp": requestTimestamp,
+        accept: "application/json",
       },
       body: JSON.stringify({
-        merchant_id: PLURAL_MERCHANT_ID, // Still needed if not inside purchase_details/merchant_metadata
+        merchant_id: PLURAL_MERCHANT_ID,
         merchant_order_reference: order_id,
-        integration_mode: "IFRAME", // CORRECTED FIELD NAME
+        integration_mode: "IFRAME",
         order_amount: {
-          value: amount, // Amount in the smallest currency unit
+          value: amount,
           currency: currency,
         },
-        pre_auth: false, // As per cURL example
-        allowed_payment_methods: [
-          // As per cURL example
-          "CARD",
-          "UPI",
-          "NETBANKING",
-          "POINTS",
-          "WALLET",
-        ],
-        notes: notes || `Order ${order_id}`, // Optional notes
-        callback_url: callbackUrl, // CORRECTED FIELD NAME
-        failure_callback_url: failureCallbackUrl, // ADDED FIELD
+        pre_auth: false,
+        notes: notes || `Order ${order_id}`,
+        callback_url: callbackUrl,
+        failure_callback_url: failureCallbackUrl,
+        products: products || [],
         purchase_details: {
-          // Nested object as per cURL example
           customer: {
             email_id: customer.email,
             first_name: firstName,
@@ -125,20 +114,18 @@ export async function POST(request) {
             customer_id: customer.customer_id || order_id,
             mobile_number: customer.phone,
             billing_address: {
-              // Map directly from customer.address or order.billingAddress
-              address1: customer.address.street_name || "", // Example mapping
-              address2: customer.address.street_number || "", // Example mapping
-              address3: customer.address.address3 || "", // If you have this field
+              address1: customer.address.street_name || "",
+              address2: customer.address.street_number || "",
+              address3: customer.address.address3 || "",
               pincode: customer.address.zip_code,
               city: customer.address.city,
               state: customer.address.state,
               country: customer.address.country,
             },
             shipping_address: {
-              // Map directly from customer.address or order.shippingAddress
-              address1: customer.address.street_name || "", // Example mapping
-              address2: customer.address.street_number || "", // Example mapping
-              address3: customer.address.address3 || "", // If you have this field
+              address1: customer.address.street_name || "",
+              address2: customer.address.street_number || "",
+              address3: customer.address.address3 || "",
               pincode: customer.address.zip_code,
               city: customer.address.city,
               state: customer.address.state,
@@ -146,21 +133,19 @@ export async function POST(request) {
             },
           },
           merchant_metadata: {
-            // Optional metadata
             your_key_1: "your_value_1",
-            // key1: otherCheckoutDetails.key1, // Example if passed from frontend
           },
         },
-        ...otherCheckoutDetails, // Pass any other top-level details from the frontend if they exist
+        ...otherCheckoutDetails,
       }),
     });
 
-    console.log("Plural checkout API response status:", response.status);
+    console.log("🧾 Plural checkout API response status:", response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
       console.error(
-        "Plural Generate Checkout Link failed:",
+        "❌ Plural Generate Checkout Link failed:",
         response.status,
         errorText
       );
@@ -183,15 +168,10 @@ export async function POST(request) {
     }
 
     const data = await response.json();
-    console.log("Plural checkout response:", data);
-
-    const redirectUrl = data.redirect_url; // Plural returns this in the top level
+    const redirectUrl = data.redirect_url;
 
     if (!redirectUrl) {
-      console.error(
-        "Plural checkout link response missing redirect_url:",
-        data
-      );
+      console.error("❗ Plural checkout response missing redirect_url:", data);
       return NextResponse.json(
         {
           message:
@@ -201,10 +181,9 @@ export async function POST(request) {
       );
     }
 
-    // Return the redirect URL to the frontend
     return NextResponse.json({ redirect_url: redirectUrl }, { status: 200 });
   } catch (error) {
-    console.error("Error generating Plural hosted checkout link:", error);
+    console.error("🚨 Error generating Plural hosted checkout link:", error);
     return NextResponse.json(
       {
         message: "Internal server error during checkout link generation.",

@@ -124,6 +124,14 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       const token = tokenResult.access_token;
       if (!token) throw new Error("Plural auth token not received.");
 
+      const products = cart.items.map((item) => ({
+        product_code: item.product.sku || item.product.id,
+        product_amount: {
+          currency: "INR",
+          value: parseFloat(item.product.price),
+        },
+      }));
+
       const checkoutResponse = await fetch("/api/plural/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -150,6 +158,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
               address3: "",
             },
           },
+          products,
           order_id: order.id,
           token: token,
           notes: `Garmin Order ${order.id}`,
@@ -171,7 +180,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             console.log("✅ Payment Success:", res);
             await updateGarminOrderStatus({
               id: order.id,
-              razorpayPaymentId: res?.payment_id || "",
+              razorpayPaymentId: res.status || "AUTH",
               orderStatus: "processing",
               trackingId: null,
             });
