@@ -30,7 +30,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
   const createGarminOrder = async (orderData) => {
-    console.log("createGarminOrder");
+    // console.log("createGarminOrder");
     try {
       const response = await fetch("/api/order/create", {
         method: "POST",
@@ -52,7 +52,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
   };
 
   const updateGarminOrder = async (orderData) => {
-    console.log("updateGarminOrder");
+    // console.log("updateGarminOrder");
     try {
       const response = await fetch("/api/order/update", {
         method: "POST",
@@ -181,7 +181,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         const plural = new window.Plural({
           redirectUrl: redirect_url,
           successHandler: async (res) => {
-            console.log("✅ Initial SDK success response:", res);
+            // console.log("✅ Initial SDK success response:", res);
 
             try {
               const verifyRes = await fetch("/api/plural/verify-payment", {
@@ -191,7 +191,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
               });
 
               const verifyData = await verifyRes.json();
-              console.log("🔍 Payment verification result:", verifyData);
+              // console.log("🔍 Payment verification result:", verifyData);
 
               if (verifyData.status === "SUCCESS") {
                 await updateGarminOrderStatus({
@@ -276,7 +276,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     onSubmit: async (values, { setSubmitting }) => {
       setCheckingOut(true);
       const garminOrderId = checkForExisitingOrderID();
-      console.log("garminOrderId:", garminOrderId);
+      // console.log("garminOrderId:", garminOrderId);
 
       const orderProducts = [];
       cart.items.map((item) => {
@@ -323,7 +323,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         total: cartTotal,
       };
 
-      console.log("orderData:", orderData);
+      // console.log("orderData:", orderData);
 
       const order = garminOrderId
         ? await updateGarminOrder({
@@ -332,7 +332,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
           })
         : await createGarminOrder(orderData);
 
-      console.log("order--order:", order);
+      // console.log("order--order:", order);
       if (order.id) {
         await initiatePluralPayment(order);
       } else {
@@ -373,7 +373,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
   });
 
   useEffect(() => {
-    console.log(formik.values);
+    // console.log(formik.values);
   }, [formik.values]);
 
   const handleIsBillingSameChange = (e) => {

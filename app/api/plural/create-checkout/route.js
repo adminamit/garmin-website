@@ -65,21 +65,21 @@ export async function POST(request) {
     const requestId = uuidv4();
     const requestTimestamp = new Date().toISOString();
 
-    console.log("🔁 Preparing Plural checkout request for order ID:", order_id);
-    console.log(
-      "👤 Customer data:",
-      JSON.stringify(
-        {
-          first_name: firstName,
-          last_name: lastName,
-          email_id: customer.email,
-          mobile_number: customer.phone,
-          products,
-        },
-        null,
-        2
-      )
-    );
+    // console.log("🔁 Preparing Plural checkout request for order ID:", order_id);
+    // console.log(
+    //   "👤 Customer data:",
+    //   JSON.stringify(
+    //     {
+    //       first_name: firstName,
+    //       last_name: lastName,
+    //       email_id: customer.email,
+    //       mobile_number: customer.phone,
+    //       products,
+    //     },
+    //     null,
+    //     2
+    //   )
+    // );
 
     const baseUrl = PLURAL_API_BASE_URL.replace(/\/api$/, "");
     const checkoutUrl = `${baseUrl}/api/checkout/v1/orders`;
@@ -140,7 +140,7 @@ export async function POST(request) {
       }),
     });
 
-    console.log("🧾 Plural checkout API response status:", response.status);
+    // console.log("🧾 Plural checkout API response status:", response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -168,10 +168,10 @@ export async function POST(request) {
     }
 
     const data = await response.json();
-    console.log(
-      "✅ Plural checkout full response:",
-      JSON.stringify(data, null, 2)
-    );
+    // console.log(
+    //   "✅ Plural checkout full response:",
+    //   JSON.stringify(data, null, 2)
+    // );
     const redirectUrl = data.redirect_url;
 
     if (!redirectUrl) {

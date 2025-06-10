@@ -26,7 +26,7 @@ const OrderWrapper = ({ orderId }) => {
   useEffect(() => {
     const verifyAndUpdate = async () => {
       const pluralOrderId = searchParams.get("order_id");
-      console.log("🔔 Plural order ID:", pluralOrderId);
+      // console.log("🔔 Plural order ID:", pluralOrderId);
       const status = searchParams.get("status");
       const signature = searchParams.get("signature");
       const error_code = searchParams.get("error_code") || "";

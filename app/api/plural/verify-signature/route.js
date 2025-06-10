@@ -12,7 +12,7 @@ export async function POST(req) {
       error_message = null,
     } = body;
 
-    console.log("🔔 Plural redirect received:", body);
+    // console.log("🔔 Plural redirect received:", body);
 
     // ⚠️ Skipping signature verification for now — DO NOT use this in production
     const isSuccess = status === "AUTHORIZED" || status === "COMPLETED";

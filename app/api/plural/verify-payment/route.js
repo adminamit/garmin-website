@@ -15,7 +15,7 @@ export async function POST(request) {
       );
     }
 
-    console.log("🔍 Verifying Plural order ID:", order_id);
+    // console.log("🔍 Verifying Plural order ID:", order_id);
 
     // Step 1: Get access token
     const tokenRes = await fetch(
@@ -43,7 +43,7 @@ export async function POST(request) {
       /\/api$/,
       ""
     )}/api/pay/v1/orders/${order_id}`;
-    console.log("📡 Hitting Plural verify endpoint:", verifyUrl);
+    // console.log("📡 Hitting Plural verify endpoint:", verifyUrl);
 
     const orderDetailsRes = await fetch(verifyUrl, {
       method: "GET",
@@ -61,7 +61,7 @@ export async function POST(request) {
     }
 
     const verifyData = await orderDetailsRes.json();
-    console.log("✅ Plural order verification response:", verifyData);
+    // console.log("✅ Plural order verification response:", verifyData);
 
     const status = verifyData?.data?.status;
     const paymentId = verifyData?.data?.payments?.[0]?.id || null;
