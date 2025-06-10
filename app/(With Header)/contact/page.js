@@ -54,6 +54,13 @@ const Contact = () => {
                 service@garmin-india.com
               </a>
             </p>
+            <p>
+              For Order related queries, please contact us at{" "}
+              <a href="tel:+91-9266728566">+91-9266728566</a> or email us at{" "}
+              <a href="mailto:avinash.agnihotri@amitintl.com">
+                avinash.agnihotri@amitintl.com
+              </a>
+            </p>
             <h5>
               Working Hours : Monday to Friday: 9:30 AM – 6:00 PM (Saturday,
               Sunday & National Holidays: Closed)
