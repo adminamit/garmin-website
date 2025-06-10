@@ -168,6 +168,10 @@ export async function POST(request) {
     }
 
     const data = await response.json();
+    console.log(
+      "✅ Plural checkout full response:",
+      JSON.stringify(data, null, 2)
+    );
     const redirectUrl = data.redirect_url;
 
     if (!redirectUrl) {
@@ -181,7 +185,14 @@ export async function POST(request) {
       );
     }
 
-    return NextResponse.json({ redirect_url: redirectUrl }, { status: 200 });
+    return NextResponse.json(
+      {
+        redirect_url: redirectUrl,
+        plural_order_id: data.order_id, // ✅ Include Plural order ID for verification
+        plural_token: data.token, // ✅ Optionally include the token if needed later
+      },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("🚨 Error generating Plural hosted checkout link:", error);
     return NextResponse.json(

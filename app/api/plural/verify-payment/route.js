@@ -5,7 +5,17 @@ export async function POST(request) {
     process.env;
 
   try {
-    const { plural_token, order_id } = await request.json();
+    const { order_id } = await request.json();
+
+    if (!order_id) {
+      console.error("❌ No order_id provided.");
+      return NextResponse.json(
+        { status: "ERROR", message: "order_id is required." },
+        { status: 400 }
+      );
+    }
+
+    console.log("🔍 Verifying Plural order ID:", order_id);
 
     // Step 1: Get access token
     const tokenRes = await fetch(
@@ -25,43 +35,44 @@ export async function POST(request) {
     const accessToken = tokenData.access_token;
 
     if (!accessToken) {
-      throw new Error("Could not retrieve access token from Plural.");
+      throw new Error("❌ Failed to retrieve Plural access token.");
     }
 
-    // Step 2: Fetch transaction details using the token from redirect
-    const orderDetailsRes = await fetch(
-      `${PLURAL_API_BASE_URL.replace(
-        /\/api$/,
-        ""
-      )}/api/checkout/v1/token/${plural_token}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-          accept: "application/json",
-        },
-      }
-    );
+    // Step 2: Call Plural order API using correct order ID
+    const verifyUrl = `${PLURAL_API_BASE_URL.replace(
+      /\/api$/,
+      ""
+    )}/api/pay/v1/orders/${order_id}`;
+    console.log("📡 Hitting Plural verify endpoint:", verifyUrl);
+
+    const orderDetailsRes = await fetch(verifyUrl, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+    });
 
     if (!orderDetailsRes.ok) {
       const errRes = await orderDetailsRes.text();
+      console.error("❌ Plural verification failed:", errRes);
       throw new Error(`Plural fetch failed: ${errRes}`);
     }
 
-    const orderDetails = await orderDetailsRes.json();
+    const verifyData = await orderDetailsRes.json();
+    console.log("✅ Plural order verification response:", verifyData);
 
-    const status = orderDetails.status;
-    const clientTransactionId = orderDetails.client_transaction_id;
-    const paymentId = orderDetails.payment_id;
+    const status = verifyData?.data?.status;
+    const paymentId = verifyData?.data?.payments?.[0]?.id || null;
+    const clientTransactionId = verifyData?.data?.merchant_order_reference;
 
-    if (status === "COMPLETED" && clientTransactionId === order_id) {
-      // Update your local order here (optional — or frontend triggers it)
+    if (status === "PROCESSED") {
       return NextResponse.json({
         status: "SUCCESS",
-        pluralOrderId: orderDetails.order_id,
+        pluralOrderId: verifyData.data.order_id,
         client_transaction_id: clientTransactionId,
-        payment_id: paymentId || "",
+        payment_id: paymentId,
       });
     } else if (status === "PENDING") {
       return NextResponse.json({
@@ -75,7 +86,7 @@ export async function POST(request) {
       });
     }
   } catch (err) {
-    console.error("Plural verify-payment error:", err);
+    console.error("❌ Error in /api/plural/verify-payment:", err);
     return NextResponse.json(
       {
         status: "ERROR",

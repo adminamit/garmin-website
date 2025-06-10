@@ -120,6 +120,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
+
       const tokenResult = await tokenResponse.json();
       const token = tokenResult.access_token;
       if (!token) throw new Error("Plural auth token not received.");
@@ -128,7 +129,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         product_code: item.product.sku || item.product.id,
         product_amount: {
           currency: "INR",
-          value: parseFloat(item.product.price),
+          value: parseFloat(item.product.price) * 100,
         },
       }));
 
@@ -166,8 +167,11 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
       });
 
       const checkoutResult = await checkoutResponse.json();
-      const { redirect_url } = checkoutResult;
-      if (!redirect_url) throw new Error("Plural redirect URL missing.");
+      const { redirect_url, plural_order_id, plural_token } = checkoutResult;
+
+      if (!redirect_url || !plural_order_id || !plural_token) {
+        throw new Error("Incomplete checkout data received from Plural.");
+      }
 
       const sdkUrl =
         "https://checkout-staging.pluralonline.com/v3/web-sdk-checkout.js";
@@ -177,18 +181,44 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         const plural = new window.Plural({
           redirectUrl: redirect_url,
           successHandler: async (res) => {
-            console.log("✅ Payment Success:", res);
-            await updateGarminOrderStatus({
-              id: order.id,
-              razorpayPaymentId: res.status || "AUTH",
-              orderStatus: "processing",
-              trackingId: null,
-            });
-            toast.success("Payment successful!");
-            console.log("✅ Payment Success:", res);
-            clearOrder();
-            clearCart();
-            route.push(`/account/orders/${order.id}`);
+            console.log("✅ Initial SDK success response:", res);
+
+            try {
+              const verifyRes = await fetch("/api/plural/verify-payment", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ order_id: plural_order_id }),
+              });
+
+              const verifyData = await verifyRes.json();
+              console.log("🔍 Payment verification result:", verifyData);
+
+              if (verifyData.status === "SUCCESS") {
+                await updateGarminOrderStatus({
+                  id: order.id,
+                  razorpayPaymentId: verifyData.payment_id || "AUTH",
+                  orderStatus: "processing",
+                  trackingId: null,
+                });
+
+                toast.success("Payment successful!");
+                clearOrder();
+                clearCart();
+                route.push(`/account/orders/${order.id}`);
+              } else if (verifyData.status === "PENDING") {
+                toast("Payment is pending. Please wait.");
+                setCheckingOut(false);
+              } else {
+                toast.error("Payment verification failed.");
+                setCheckingOut(false);
+                route.push("/checkout");
+              }
+            } catch (err) {
+              console.error("❌ Error during payment verification:", err);
+              toast.error("Verification error. Please contact support.");
+              setCheckingOut(false);
+              route.push("/checkout");
+            }
           },
           failedHandler: (res) => {
             console.error("❌ Payment Failed:", res);
@@ -201,6 +231,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             route.push("/checkout");
           },
         });
+
         plural.open();
       };
 
