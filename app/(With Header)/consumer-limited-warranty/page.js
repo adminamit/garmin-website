@@ -202,14 +202,13 @@ const Warranty = () => {
           an online auction.
         </li>
         <li>
-          International Purchases: A separate warranty may be provided by
-          international distributors for devices purchased outside Singapore
-          depending on the country. If applicable, this warranty is provided by
-          the local in-country distributor and this distributor provides local
-          service for your device. Distributor warranties are only valid in the
-          area of intended distribution. Devices purchased in the United States
-          or Canada must be returned to the Garmin service center in the United
-          Kingdom, the United States, Canada, or Taiwan for service.
+          International Purchases: A separate warranty may be provided by 
+          international distributors for devices purchased outside country. 
+          If applicable, this warranty is provided by the local in-country 
+          distributor and this distributor provides local service for your device. 
+          Distributor warranties are only valid in the area of intended distribution. 
+          Devices purchased anywhere outside India, must be returned to the Garmin 
+          service center in the respective purchase country, for service.
         </li>
       </ol>
 
