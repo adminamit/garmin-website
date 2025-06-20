@@ -9,6 +9,7 @@ export const BulkEnquiryForm = () => {
       email: "",
       phone: "",
       organisationName: "",
+      modelNo: "",
       orderQuantity: "",
     },
     onSubmit: async (values, { setSubmitting, resetForm }) => {
@@ -40,6 +41,7 @@ export const BulkEnquiryForm = () => {
         .matches(/^\d+$/, "Phone number must contain only numbers")
         .required("This field is required"),
       organisationName: yup.string().required("This field is required"),
+      modelNo: yup.string().required("This field is required"),
       orderQuantity: yup.string().required("This field is required"),
     }),
   });
@@ -98,6 +100,27 @@ export const BulkEnquiryForm = () => {
 
           {formik.touched.organisationName && formik.errors.organisationName ? (
             <div className="error-text">{formik.errors.organisationName}</div>
+          ) : null}
+        </div>
+
+        <div className="input-wrapper">
+          <label htmlFor="modelNo" className="label !text-[0.8rem]">
+            Model no (Product)
+            <span className="required">*</span>
+          </label>
+          <input
+            id="modelNo"
+            type="text"
+            className={`input ${
+              formik.touched.modelNo &&
+              formik.errors.modelNo &&
+              "error-input"
+            }`}
+            {...formik.getFieldProps("modelNo")}
+          />
+
+          {formik.touched.modelNo && formik.errors.modelNo ? (
+            <div className="error-text">{formik.errors.modelNo}</div>
           ) : null}
         </div>
 
