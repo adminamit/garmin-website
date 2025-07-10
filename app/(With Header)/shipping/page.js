@@ -145,7 +145,7 @@ const Shipping = () => {
             <div>
                 <p>
                     For all queries and concerns you can reach us either by
-                    calling on <a href="tel:+91 1148005811">+91 1148005811</a>{" "}
+                    calling on <a href="tel:+91 11-48005813">+91 11-48005813/825</a>{" "}
                     or writing to us on 
                     <a href="mailto:info@Garmin-india.com">
                         info@Garmin-india.com

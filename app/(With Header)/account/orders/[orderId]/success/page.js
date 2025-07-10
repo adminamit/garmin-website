@@ -164,24 +164,18 @@ const OrderSuccess = ({ id }) => {
           </div>
           <div className="w-full border-t border-borderColor px-6 flex flex-col lg:flex-row items-center justify-between ">
             <div className="flex flex-col sm:flex-row items-center max-lg:border-b border-borderColor">
-              <button className="flex outline-0 py-6 sm:pr-6  sm:border-r border-borderColor whitespace-nowrap gap-2 items-center justify-center font-semibold oswald group text-base text-secondary bg-white transition-all duration-500 text-secondary">
-                <svg
-                  className="stroke-secondary transition-all duration-500 stroke-black text-secondary"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
-                  fill="none"
-                >
-                  <path
-                    d="M5.5 5.5L16.5 16.5M16.5 5.5L5.5 16.5"
-                    stroke=""
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                Cancel Order
-              </button>
+              <div className="py-6 sm:pr-6 sm:border-r border-borderColor">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  <span className="font-semibold">Note:</span> For any queries regarding your order, please contact customer service at{" "}
+                  <a href="mailto:help@garmin-india.com" className="text-primary hover:underline">
+                    help@garmin-india.com
+                  </a>
+                  {" "}or call{" "}
+                                      <a href="tel:+911148005813" className="text-primary hover:underline">
+                      +91 11-48005813/825
+                    </a>
+                </p>
+              </div>
               <p className="oswald font-medium oswald text-base text-secondary pl-6 py-3 max-lg:text-center">
                 Paid using Credit Card{" "}
                 <span className="text-primary">ending with 8822</span>
