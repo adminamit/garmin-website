@@ -49,8 +49,8 @@ export const ProductWrapper = ({ productData, variationData, breadCrumbs }) => {
                                     Added To Cart
                                 </div>
                                 <div className="app__product__interstitial__details__name">
-                                    {HtmlParser(productData.title)} -{" "}
-                                    {HtmlParser(productData.excerpt)}
+                                    {productData.title ? HtmlParser(productData.title) : ""} -{" "}
+                                    {productData.excerpt ? HtmlParser(productData.excerpt) : ""}
                                 </div>
                             </div>
                         </div>

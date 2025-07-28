@@ -64,13 +64,13 @@ const Info = ({
                     id="js__product__info__name"
                     className="app__product__info__title g__heading g__heading--left g__heading--light"
                 >
-                    <h1>{HtmlParser(productData.title)}</h1>
+                    <h1>{productData.title ? HtmlParser(productData.title) : ""}</h1>
                 </div>
                 <p
                     id="js__product__info__variation"
                     className="app__product__info__subtitle"
                 >
-                    {HtmlParser(productData.excerpt)}
+                    {productData.excerpt ? HtmlParser(productData.excerpt) : ""}
                 </p>
                 <p
                     id="js__product__info__part-number"
@@ -166,7 +166,7 @@ const Info = ({
             {productData.stock > 0 ? <ShippingInfo /> : <></>}
             {productData.note ? (
                 <span className="app__product__note text-sm pt-1">
-                    NOTE: {HtmlParser(productData.note)}
+                    NOTE: {productData.note ? HtmlParser(productData.note) : ""}
                 </span>
             ) : (
                 <></>

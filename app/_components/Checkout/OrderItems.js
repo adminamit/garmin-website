@@ -19,7 +19,7 @@ const OrderItems = ({ orderItems, cartDetails }) => {
                     </div>
                     <div className="checkout__product-card__product-details flex-1 ml-4 flex flex-col gap-2">
                         <h2 className="checkout__product-card__product-name">
-                            {HtmlParser(item.product.title)}
+                            {item.product.title ? HtmlParser(item.product.title) : ""}
                         </h2>
 
                         <div className="checkout__product-card__product-sku">
