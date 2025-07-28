@@ -62,7 +62,7 @@ const Post = async ({ params: { slug } }) => {
                                 );
                             })}
                     </div>
-                    <h1 className="post__title">{HtmlParser(post.title)} </h1>
+                    <h1 className="post__title">{post.title ? HtmlParser(post.title) : ""} </h1>
                     <div className="post__timestamp">{post.publishDate} </div>
                     {serialize(post.content)}
 
