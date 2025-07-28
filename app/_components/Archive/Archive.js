@@ -120,7 +120,7 @@ export const Archive = ({ category }) => {
             <div className="py-[2.5em] px-[1em] text-center max-w-[900px] mx-auto mt-2 mb-6">
                 <Heading title={heading} />
                 <p className="font-light text-base">
-                    {HtmlParser(description)}
+                    {description ? HtmlParser(description) : ""}
                 </p>
             </div>
 

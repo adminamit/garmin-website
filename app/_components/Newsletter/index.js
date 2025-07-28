@@ -39,7 +39,7 @@ const NewsletterSignup = ({ title, description }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between items-center  px-4 py-2">
           <h3 className="oswald text-2xl tracking-wider">
-            {HtmlParser(title)}
+            {title ? HtmlParser(title) : ""}
           </h3>
           <form
             onSubmit={handleSubmit}
