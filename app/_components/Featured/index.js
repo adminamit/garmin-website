@@ -129,10 +129,10 @@ export const Featured = ({ slides }) => {
 
                                     <div className=" text-black text-center flex flex-col gap-4">
                                         <h2 className="home-featured-product-heading">
-                                            {parse(slide.title)}
+                                            {slide.title ? parse(slide.title) : ""}
                                         </h2>
                                         <p className="home-featured-product-description">
-                                            {parse(slide.description)}
+                                            {slide.description ? parse(slide.description) : ""}
                                         </p>
                                     </div>
                                 </Link>

@@ -138,10 +138,10 @@ export const Featured = () => {
 
                                     <div className=" text-black text-center flex flex-col gap-4">
                                         <h2 className="home-featured-product-heading">
-                                            {parse(featuredProduct.name)}
+                                            {featuredProduct.name ? parse(featuredProduct.name) : ""}
                                         </h2>
                                         <p className="home-featured-product-description">
-                                            {parse(featuredProduct.description)}
+                                            {featuredProduct.description ? parse(featuredProduct.description) : ""}
                                         </p>
                                     </div>
                                 </Link>

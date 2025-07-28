@@ -119,10 +119,10 @@ export const SwiperSlider = ({ slides }) => {
                                     <div className="md:absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                     <div className="slide-content relative text-white flex flex-col gap-8">
                                         <h1 className="home-product-cat-tile-heading">
-                                            {parse(item.title)}
+                                            {item.title ? parse(item.title) : ""}
                                         </h1>
                                         <p className="max-w-[350px]">
-                                            {parse(item.description)}
+                                            {item.description ? parse(item.description) : ""}
                                         </p>
                                         {urlData.label ? (
                                             <p className="mt-5">

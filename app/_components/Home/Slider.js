@@ -44,10 +44,10 @@ export const Slider = () => {
                                 <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                 <div className="slide-content relative text-white flex flex-col gap-8">
                                     <h1 className="home-product-cat-tile-heading">
-                                        {parse(slide.title)}
+                                        {slide.title ? parse(slide.title) : ""}
                                     </h1>
                                     <p className="max-w-[350px]">
-                                        {parse(slide.subtitle)}
+                                        {slide.subtitle ? parse(slide.subtitle) : ""}
                                     </p>
                                     <p className="mt-2">
                                         <Link

@@ -72,9 +72,9 @@ const Series = () => {
                                 />
                             </div>
                             <h3 className="font-normal oswald my-4 leading-[1.25] tracking-wider text-2xl">
-                                {parse(watch.name)}
+                                {watch.name ? parse(watch.name) : ""}
                             </h3>
-                            <p className="my-4">{parse(watch.description)}</p>
+                            <p className="my-4">{watch.description ? parse(watch.description) : ""}</p>
                         </Link>
                     ))}
                 </div>
