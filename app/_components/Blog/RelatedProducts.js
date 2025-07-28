@@ -5,7 +5,7 @@ import HtmlParser from "react-html-parser";
 const RelatedProducts = ({ products }) => {
     return (
         <ul className="related-products-widget">
-            {products.map((product) => {
+            {products?.map((product) => {
                 return (
                     <li key={product.id}>
                         <Link href={`/p/${product.sku}`}>
@@ -18,10 +18,10 @@ const RelatedProducts = ({ products }) => {
                                 quality={100}
                             />
                             <div className="related-products-widget__name">
-                                {HtmlParser(product.title)}
+                                {product.title ? HtmlParser(product.title) : ""}
                             </div>
                             <div className="related-products-widget__description">
-                                {HtmlParser(product.description)}
+                                {product.description ? HtmlParser(product.description) : ""}
                             </div>
                             <div className="related-products-widget__cta">
                                 Shop Now{" "}

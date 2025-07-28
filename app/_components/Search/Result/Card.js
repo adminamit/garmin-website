@@ -9,17 +9,17 @@ export const SearchResultCard = ({ product }) => {
                 <Image
                     src={product.featuredImageUrl}
                     className="card__image"
-                    alt={product.featuredImage.alt}
+                    alt={product.featuredImage?.alt}
                     width={80}
                     height={80}
                     quality={100}
                     unoptimized
                 />
                 <h2 className="card__name">
-                    <p>{HtmlParser(product.title)}</p>
+                    <p>{product.title ? HtmlParser(product.title) : ""}</p>
                 </h2>
                 <span className="card__description">
-                    <p>{HtmlParser(product.description)}</p>
+                    <p>{product.description ? HtmlParser(product.description) : ""}</p>
                 </span>
             </div>
         </Link>

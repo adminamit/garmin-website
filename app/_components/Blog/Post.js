@@ -9,7 +9,7 @@ const Post = ({ post }) => {
             <Link href={`/blog/${post.slug}`}>
                 <div className="post-card__image">
                     <Image
-                        src={post.featuredImage.url}
+                        src={post.featuredImage?.url}
                         alt=""
                         width={0}
                         height={0}
@@ -17,7 +17,7 @@ const Post = ({ post }) => {
                     />
                 </div>
                 <ul className="post-card__categories">
-                    {post.category.map((item) => {
+                    {post.category?.map((item) => {
                         return (
                             <li key={item.id}>
                                 <Link href={`/blog/category/${item.slug}`}>
@@ -27,7 +27,7 @@ const Post = ({ post }) => {
                         );
                     })}
                 </ul>
-                <h1 className="post-card__title">{HtmlParser(post.title)}</h1>
+                <h1 className="post-card__title">{post.title ? HtmlParser(post.title) : ""}</h1>
                 <div className="post-card__date">{post.date} </div>
             </Link>
         </article>

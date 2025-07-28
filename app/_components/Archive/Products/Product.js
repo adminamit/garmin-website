@@ -54,12 +54,12 @@ export const Product = ({
 
           <div className="product-card__description">
             <h2 className="product-card__title">
-              {HtmlParser(
+              {product.CseriesName || product.title ? HtmlParser(
                 product.CseriesName ? product.CseriesName : product.title
-              )}{" "}
+              ) : ""}{" "}
             </h2>
             <p className="product-card__description__copy">
-              {HtmlParser(product.description)}
+              {product.description ? HtmlParser(product.description) : ""}
             </p>
             {/* <p className="pricing-wrapper">
               {product.type == "simple" ? (

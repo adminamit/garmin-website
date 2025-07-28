@@ -5,7 +5,7 @@ import HtmlParser from "react-html-parser";
 const RelatedPosts = ({ posts }) => {
     return (
         <ul className="related-posts">
-            {posts.map((post) => {
+            {posts?.map((post) => {
                 return (
                     <li key={post.slug}>
                         <Link href={`/blog/${post.slug}`}>
@@ -21,10 +21,10 @@ const RelatedPosts = ({ posts }) => {
                             </div>
                             <div className="related-posts__info">
                                 <div className="related-posts__title">
-                                    {HtmlParser(post.title)}
+                                    {post.title ? HtmlParser(post.title) : ""}
                                 </div>
                                 <div className="related-posts__timestamp">
-                                    {HtmlParser(post.description)}
+                                    {post.description ? HtmlParser(post.description) : ""}
                                 </div>
                             </div>
                         </Link>
