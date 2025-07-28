@@ -61,7 +61,7 @@ const ActivityFilter = ({ allActivity }) => {
                                         className="ml-1 block text-black px-4 py-[0.4rem] filter_checkbox_label cursor-pointer"
                                     >
                                         <span className="text-sm font-regular -mt-1">
-                                            {HtmlParser(item.name)}
+                                            {item.name ? HtmlParser(item.name) : ""}
                                         </span>
                                     </label>
                                 </div>

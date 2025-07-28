@@ -19,7 +19,7 @@ const Device = ({ device }) => {
                             height="130"
                         />
                         <div className="app__product__devices__section__card-content__heading g__heading g__heading--center g__heading--light">
-                            {HtmlParser(device.title)}
+                            {device.title ? HtmlParser(device.title) : ""}
                         </div>
                     </div>
                 </div>

@@ -5,12 +5,12 @@ import Link from "next/link";
 export const Items = ({ accessories, activeCategory }) => {
     return (
         <div className="app__product__accessories__wrapper">
-            {accessories.map((accessory) => {
+            {accessories?.map((accessory) => {
                 return activeCategory === accessory.id
-                    ? accessory.products.map((item) => {
+                    ? accessory.products?.map((item) => {
                           return (
                               <div
-                                  className={`app__product__accessories__section app__product__accessories__section--${accessory.accessoryCategory.title}`}
+                                  className={`app__product__accessories__section app__product__accessories__section--${accessory.accessoryCategory?.title}`}
                                   key={item.title}
                               >
                                   <div className="app__product__accessories__section__card">
@@ -24,7 +24,7 @@ export const Items = ({ accessories, activeCategory }) => {
                                                   src={item.featuredImageUrl}
                                               />
                                               <div className="app__product__accessories__section__card-content__heading">
-                                                  {HtmlParser(item.title)}
+                                                  {item.title ? HtmlParser(item.title) : ""}
                                               </div>
                                           </div>
                                       </Link>

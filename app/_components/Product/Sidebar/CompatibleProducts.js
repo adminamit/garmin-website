@@ -9,7 +9,7 @@ export const CompatibleProducts = ({ products }) => {
         <section className="sidebar__container sidebar__container--cards">
             <Heading>compatible products</Heading>
             <div className="sidebar__list">
-                {products.map((item) => (
+                {products?.map((item) => (
                     <Card href={`/p/${item.sku}`} key={item.sku}>
                         <div className="product-card__product-url">
                             <Image
@@ -23,7 +23,7 @@ export const CompatibleProducts = ({ products }) => {
                         </div>
                         <div className="product-card__product-details flex-1 ml-4 flex flex-col gap-2">
                             <h2 className="product-card__product-name">
-                                {HtmlParser(item.title)}
+                                {item.title ? HtmlParser(item.title) : ""}
                             </h2>
 
                             <div className="product-card__product-price">
