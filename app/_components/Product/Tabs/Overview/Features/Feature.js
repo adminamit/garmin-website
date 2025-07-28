@@ -45,7 +45,7 @@ export const Feature = ({
                         align == "left" ? "app__feature__card__title--left" : ""
                     }`}
                 >
-                    {HtmlParser(heading)}
+                    {heading ? HtmlParser(heading) : ""}
                 </h3>
             ) : (
                 " "
@@ -60,14 +60,14 @@ export const Feature = ({
                         align == "left" ? "app__feature__card__title--left" : ""
                     }`}
                 >
-                    {HtmlParser(title)}
+                    {title ? HtmlParser(title) : ""}
                 </h3>
             ) : (
                 " "
             )}
             {description ? (
                 <p className="app__feature__card__description">
-                    {HtmlParser(description)}
+                    {description ? HtmlParser(description) : ""}
                 </p>
             ) : (
                 ""

@@ -35,7 +35,7 @@ const CartItem = ({ item }) => {
                     className="cart__product-card__product-url"
                 >
                     <h2 className="cart__product-card__product-name">
-                        {HtmlParser(product.title)}
+                        {product.title ? HtmlParser(product.title) : ""}
                     </h2>
                 </Link>
                 <div className="cart__product-card__product-sku">

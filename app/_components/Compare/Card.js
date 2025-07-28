@@ -19,7 +19,7 @@ const Card = ({ product, removeProduct }) => {
                         unoptimized
                     />
                     <div className="card__header__image--sticky-title g__copy g__copy--left g__copy--light g__copy--primary">
-                        {HtmlParser(product.title)}
+                        {product.title ? HtmlParser(product.title) : ""}
                     </div>
                 </Link>
                 <div
@@ -42,7 +42,7 @@ const Card = ({ product, removeProduct }) => {
             <div className="card__body">
                 <div className="card__body__inner">
                     <div className="card__body--title g__copy g__copy--left g__copy--light g__copy--primary">
-                        {HtmlParser(product.title)}
+                        {product.title ? HtmlParser(product.title) : ""}
                     </div>
                     <div className="card__price">
                         <div

@@ -19,13 +19,13 @@ const WishlishtCard = ({ item, removeItemFromWishlist }) => {
                 <Image
                     src={item.product.featuredImageUrl}
                     className="card__image"
-                    alt={item.product.featuredImage.alt}
+                    alt={item.product.featuredImage?.alt}
                     width={80}
                     height={80}
                     quality={100}
                 />
                 <h2 className="card__name">
-                    <p>{HtmlParser(item.product.title)}</p>
+                    <p>{item.product.title ? HtmlParser(item.product.title) : ""}</p>
                 </h2>
                 <div className="card__description">
                     <Link
