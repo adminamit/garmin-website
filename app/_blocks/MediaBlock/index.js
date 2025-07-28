@@ -11,17 +11,17 @@ export const MediaBlock = ({ heading, text, media, imagePosition }) => {
                 }`}
             >
                 <div className="media">
-                    <img src={media.url} alt={media.alt} />
+                    <img src={media?.url} alt={media?.alt} />
                 </div>
                 <div className="body">
                     <div className="g__heading g__heading--left g__heading--light">
-                        <h2>{HtmlParser(heading)}</h2>
+                        <h2>{heading ? HtmlParser(heading) : ""}</h2>
                     </div>
 
                     <p className="g__copy g__copy--left g__copy--light g__copy--primary">
                         {/**/}
                         <div>
-                            <p>{serialize(text)}</p>
+                            <p>{text ? serialize(text) : ""}</p>
                         </div>
                     </p>
                 </div>

@@ -8,7 +8,7 @@ const ThreeColumnBlockWrapper = ({ items, title, align, columns }) => {
             <div className="mx-auto px-4 sm:px-4 lg:px-4">
                 {title ? (
                     <h2 className="text-4xl font-normal text-black mb-10 text-center oswald uppercase">
-                        {HtmlParser(title)}
+                        {title ? HtmlParser(title) : ""}
                     </h2>
                 ) : (
                     ""
@@ -16,16 +16,16 @@ const ThreeColumnBlockWrapper = ({ items, title, align, columns }) => {
                 <div
                     className={`grid grid-cols-1 sm:grid-cols-${columns} md:grid-cols-${columns} gap-4`}
                 >
-                    {items.map((item) => {
+                    {items?.map((item) => {
                         let urlData = " ";
-                        if (item.link.type == "custom") {
+                        if (item.link?.type == "custom") {
                             urlData = {
                                 url: item.link.url,
                                 label: item.link.label,
                             };
                         } else {
                             const urlActive =
-                                item.link.reference.relationTo == "products"
+                                item.link?.reference?.relationTo == "products"
                                     ? `/p/${item.link.reference.value.slug}`
                                     : `/c/${item.link.reference.value.slug}`;
                             urlData = {
@@ -72,10 +72,10 @@ const ThreeColumnBlockWrapper = ({ items, title, align, columns }) => {
                                     <div className="absolute w-full h-full top-0 left-0 gradient-border-dark"></div>
                                     <div className="text-white relative  pb-5">
                                         <h2 className="home-product-cat-tile-heading uppercase">
-                                            {HtmlParser(item.title)}
+                                            {item.title ? HtmlParser(item.title) : ""}
                                         </h2>
                                         <p className="font-light text-base">
-                                            {HtmlParser(item.description)}
+                                            {item.description ? HtmlParser(item.description) : ""}
                                         </p>
                                         {urlData.label ? (
                                             <p className="mt-5">

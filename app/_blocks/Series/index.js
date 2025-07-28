@@ -151,11 +151,11 @@ export const Series = ({ title, image }) => {
                   theme="light"
                 >
                   <h3>
-                    <p>{HtmlParser(el.title)}</p>
+                    <p>{el.title ? HtmlParser(el.title) : ""}</p>
                   </h3>
                 </div>
                 <div className="item-description">
-                  <p>{HtmlParser(el.excerpt)}</p>
+                  <p>{el.excerpt ? HtmlParser(el.excerpt) : ""}</p>
                 </div>
                 {/**/}
               </Link>

@@ -7,7 +7,7 @@ export const Headline = ({ heading, position, size }) => {
                 size == "big" ? "text-[2.5rem]" : "text-[2rem]"
             } oswald font-light text-center mt-12 mb-8`}
         >
-            {HtmlParser(heading)}
+            {heading ? HtmlParser(heading) : ""}
         </h1>
     );
 };
