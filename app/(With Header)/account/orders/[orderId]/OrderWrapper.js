@@ -173,6 +173,16 @@ const OrderWrapper = ({ orderId }) => {
                 ) : (
                   " "
                 )}
+                {order.courierCharge ? (
+                  <p className="">
+                    <strong className="oswald">Courier Charge : </strong>
+                    <span className="text-primary">
+                      {formatPrice(order.courierCharge)}
+                    </span>
+                  </p>
+                ) : (
+                  " "
+                )}
                 <p>
                   <strong className="oswald">Total : </strong>
                   {formatPrice(order.total)}

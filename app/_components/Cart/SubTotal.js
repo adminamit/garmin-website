@@ -59,6 +59,9 @@ const SubTotal = ({
                             {formatPrice(cartDetails.cart.total)}
                         </div>
                     </div>
+                    <div className="text-xs text-gray-600 mt-2">
+                        * Includes courier charge of ₹590 (₹500 + 18% GST)
+                    </div>
                 </div>
 
                 <div className="discount-wrapper">

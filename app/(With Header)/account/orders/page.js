@@ -95,6 +95,12 @@ const Orders = () => {
                                                         order.discount
                                                     )}
                                                 </p>
+                                                {order.courierCharge ? (
+                                                    <p>
+                                                        <strong>Courier Charge:</strong>{" "}
+                                                        {formatPrice(order.courierCharge)}
+                                                    </p>
+                                                ) : null}
                                                 <p>
                                                     <strong>Total:</strong>{" "}
                                                     {formatPrice(order.total)}

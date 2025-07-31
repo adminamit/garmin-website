@@ -65,10 +65,10 @@ const OrderSummary = ({
                         )}
                         <div className="order-total-summary__item">
                             <div className="order-total-summary__title">
-                                Shipping
+                                Courier Charge
                             </div>
                             <div className="order-total-summary__detail">
-                                {formatPrice(0)}
+                                {formatPrice(cartDetails.cart.courierCharge || 590)}
                             </div>
                         </div>
                         {/* <div className="order-total-summary__item">

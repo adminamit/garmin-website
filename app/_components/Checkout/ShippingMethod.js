@@ -12,11 +12,11 @@ const ShppingMethod = () => {
 
       <p className="checkout__shipping-method__info flex bg-black text-white px-4 py-5 justify-between items-center tracking-wider cursor-pointer">
         <div className="font-medium">
-          <div className="text-sm mb-1">Standard</div>
+          <div className="text-sm mb-1">Standard Courier</div>
           <div className="text-xs">1-3 business days + processing time</div>
         </div>
         <div>
-          <div className="uppercase font-semibold text-sm">Free</div>
+          <div className="uppercase font-semibold text-sm">₹590</div>
         </div>
       </p>
     </div>
