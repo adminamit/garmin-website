@@ -131,7 +131,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    amount: parseFloat(order.total) * 100,
+                    amount: (parseFloat(order.total) + (order.courierCharge || 590)) * 100,
                 }),
             });
 
@@ -156,7 +156,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             const orderId = await createOrderId(order);
             const options = {
                 key: process.env.RAZORPAY_KEY_ID,
-                amount: parseFloat(order.total) * 100,
+                amount: (parseFloat(order.total) + (order.courierCharge || 590)) * 100,
                 currency: "INR",
                 name: "Garmin India",
                 description: "description",

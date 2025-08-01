@@ -56,7 +56,7 @@ const SubTotal = ({
                             Estimated Total
                         </div>
                         <div className="order-total-summary__detail order-total-summary__detail--price">
-                            {formatPrice(cartDetails.cart.total)}
+                            {formatPrice((cartDetails.cart.total || 0) + (cartDetails.cart.courierCharge || 590))}
                         </div>
                     </div>
                     <div className="text-xs text-gray-600 mt-2">

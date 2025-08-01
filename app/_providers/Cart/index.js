@@ -89,6 +89,10 @@ export const CartProvider = (props) => {
         });
     }, []);
 
+    const forceRecalculateCart = useCallback(() => {
+        reCalculateCart();
+    }, []);
+
     const isProductInCart = useCallback(
         (incomingProduct) => {
             let isInCart = false;
@@ -140,7 +144,8 @@ export const CartProvider = (props) => {
 
     const reCalculateCart = async () => {
         setIsCartUpdating(true);
-        const currentCartTotal = localStorage.getItem("cartDetails");
+        // Clear any cached cart details to force fresh calculation
+        localStorage.removeItem("cartDetails");
         const flattenedCart = flattenCart(cart);
         const req = await fetch(
             `/api/order/calculate`,
@@ -167,7 +172,6 @@ export const CartProvider = (props) => {
                     // toast.success("Coupon applied successfully");
                 }
             }
-            // localStorage.setItem("cart", "[]");
             localStorage.setItem("cartDetails", JSON.stringify(data));
 
             setCartDetails(data);
@@ -189,6 +193,7 @@ export const CartProvider = (props) => {
                 isCartUpdating,
                 addCouponToCart,
                 removeCouponFromCart,
+                forceRecalculateCart,
                 cartDetails,
             }}
         >

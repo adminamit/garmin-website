@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MdCurrencyRupee } from "react-icons/md";
 import Link from "next/link";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
@@ -26,7 +26,16 @@ const OrderSummary = ({
         addItemToCart,
         cartDetails,
         hasInitializedCart,
+        forceRecalculateCart,
     } = useCart();
+
+    // Force recalculation when component mounts to ensure latest calculation
+    useEffect(() => {
+        if (cartDetails && cartDetails.cart) {
+            forceRecalculateCart();
+        }
+    }, []);
+
     return (
         <>
             <div
@@ -84,7 +93,7 @@ const OrderSummary = ({
                                 Total
                             </div>
                             <div className="order-total-summary__detail order-total-summary__detail--price">
-                                {formatPrice(cartDetails.cart.total)}
+                                {formatPrice((cartDetails.cart.total || 0) + (cartDetails.cart.courierCharge || 590))}
                             </div>
                         </div>
                     </div>
