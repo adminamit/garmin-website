@@ -30,7 +30,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
     const createGarminOrder = async (orderData) => {
-        console.log("createGarminOrder");
+
         try {
             const response = await fetch("/api/order/create", {
                 method: "POST",
@@ -150,7 +150,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
     };
 
     const processPayment = async (order) => {
-        console.log("processPayment--order");
+
         let waybill = "";
         try {
             const orderId = await createOrderId(order);
@@ -284,8 +284,6 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
             setCheckingOut(true);
             //Check for orderId
             const garminOrderId = checkForExisitingOrderID();
-            console.log("garminOrderId");
-            console.log(garminOrderId);
 
             //Prepare Order Details
             const orderProducts = [];
@@ -333,8 +331,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                 shippingAddress: shippingAddress,
             };
 
-            console.log("orderData");
-            console.log(orderData);
+
 
             const order = garminOrderId
                 ? await updateGarminOrder({
@@ -343,8 +340,7 @@ const CheckoutForm = ({ user, status, cartTotal, cart }) => {
                   })
                 : await createGarminOrder(orderData);
 
-            console.log("order--order");
-            console.log(order);
+
             if (order.id) {
                 processPayment(order);
             }
