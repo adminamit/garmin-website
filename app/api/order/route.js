@@ -5,61 +5,41 @@ export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import Razorpay from "razorpay";
-import { z } from "zod";
 
 const SERVER_URL = process.env.SERVER_URL || process.env.NEXT_PUBLIC_SERVER_URL;
 if (!SERVER_URL) throw new Error("Missing SERVER_URL");
 
-const Body = z.object({
-  // Client must send only the internal order id; server computes the amount.
-  orderId: z.string(),
-});
-
-function denyIfBadOrigin(req) {
-  const appOrigin = process.env.APP_ORIGIN; // e.g., https://yourdomain.com
-  if (!appOrigin) return null;
-  const origin = req.headers.get("origin");
-  try {
-    if (origin && new URL(appOrigin).origin !== origin) {
-      return NextResponse.json({ message: "Invalid origin" }, { status: 403 });
-    }
-  } catch {}
-  return null;
-}
+// Optional: put this in env if it varies
+const DEFAULT_COURIER_CHARGE = Number(process.env.COURIER_CHARGE_INR ?? 590);
 
 export async function POST(request) {
-  // Optional: block cross-site posts unless from your own origin
-  const originBlock = denyIfBadOrigin(request);
-  if (originBlock) return originBlock;
-
   const token = cookies().get("payload-token")?.value;
-  if (!token) {
+  if (!token)
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-  }
 
   let body;
   try {
-    body = Body.parse(await request.json());
+    body = await request.json(); // { orderId }
   } catch {
-    return NextResponse.json(
-      { message: "Invalid body. Expected { orderId: string }" },
-      { status: 400 }
-    );
+    return NextResponse.json({ message: "Invalid body" }, { status: 400 });
   }
 
-  // 1) Load authoritative order (owner + totals) from your backend API
+  const orderId = body?.orderId;
+  if (!orderId)
+    return NextResponse.json({ message: "orderId required" }, { status: 400 });
+
+  // 1) Load authoritative order
   let order;
   try {
-    const res = await fetch(`${SERVER_URL}/api/orders/${body.orderId}`, {
+    const res = await fetch(`${SERVER_URL}/api/orders/${orderId}`, {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     });
-    if (!res.ok) {
+    if (!res.ok)
       return NextResponse.json(
-        { message: "Order not found or not authorized" },
+        { message: "Order not found" },
         { status: res.status }
       );
-    }
     order = await res.json();
   } catch {
     return NextResponse.json(
@@ -68,19 +48,23 @@ export async function POST(request) {
     );
   }
 
-  // 2) Compute amount (paise) on server — never trust client totals
-  const currency = order.currency || "INR";
-  const amountPaise =
-    (Number(order.total) + Number(order.courierCharge || 0)) * 100;
+  // 2) Compute amount on server — include courier with a safe fallback of ₹590
+  const courierChargeInr = Number.isFinite(Number(order.courierCharge))
+    ? Number(order.courierCharge)
+    : DEFAULT_COURIER_CHARGE;
+
+  const amountPaise = Math.round(
+    (Number(order.total) + courierChargeInr) * 100
+  );
 
   if (!Number.isFinite(amountPaise) || amountPaise <= 0) {
     return NextResponse.json(
-      { message: "Computed amount is invalid" },
+      { message: "Computed amount invalid" },
       { status: 400 }
     );
   }
 
-  // 3) Create Razorpay order with server secrets
+  // 3) Create Razorpay order
   const razor = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET,
@@ -89,11 +73,10 @@ export async function POST(request) {
   try {
     const rpOrder = await razor.orders.create({
       amount: amountPaise,
-      currency,
+      currency: order.currency || "INR",
       receipt: `rcpt_${order.id}`,
-      // notes: { order_ref: order.id }, // optional, minimal PII
+      // notes: { order_ref: order.id },
     });
-
     return NextResponse.json({ orderId: rpOrder.id }, { status: 200 });
   } catch {
     return NextResponse.json(

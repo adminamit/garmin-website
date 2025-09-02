@@ -168,9 +168,9 @@ export default function CheckoutForm({ user, status }) {
               headers: { "Content-Type": "application/json" },
               credentials: "include",
               body: JSON.stringify({
-                orderCreationId: rpOrderId,
-                razorpayPaymentId: response.razorpay_payment_id,
+                internalOrderId: order.id, // your own order id
                 razorpayOrderId: response.razorpay_order_id,
+                razorpayPaymentId: response.razorpay_payment_id,
                 razorpaySignature: response.razorpay_signature,
               }),
             });
