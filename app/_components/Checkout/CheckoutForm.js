@@ -80,18 +80,23 @@ export default function CheckoutForm({ user, status }) {
     }
   };
 
-  const createDelhiveryManifestation = async (orderId) => {
+  const createDelhiveryManifestation = async (orderData) => {
     try {
-      const res = await fetch("/api/order/manifestation", {
+      const response = await fetch("/api/order/manifestation", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ id: orderId }), // send only id
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
       });
-      if (!res.ok) return null;
-      return await res.json();
-    } catch {
-      return null;
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("There was a problem with your fetch operation:", error);
     }
   };
 
