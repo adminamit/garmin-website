@@ -7,7 +7,7 @@ import Razorpay from "razorpay";
 import crypto from "crypto";
 
 const SERVER_URL = process.env.SERVER_URL || process.env.NEXT_PUBLIC_SERVER_URL;
-const DEFAULT_COURIER_CHARGE = Number(process.env.COURIER_CHARGE_INR ?? 590);
+const DEFAULT_COURIER_CHARGE = Number(process.env.COURIER_CHARGE_INR ?? 0);
 
 const json = (status, data) => NextResponse.json(data, { status });
 

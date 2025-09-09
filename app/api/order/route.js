@@ -10,7 +10,7 @@ const SERVER_URL = process.env.SERVER_URL || process.env.NEXT_PUBLIC_SERVER_URL;
 if (!SERVER_URL) throw new Error("Missing SERVER_URL");
 
 // Optional: put this in env if it varies
-const DEFAULT_COURIER_CHARGE = Number(process.env.COURIER_CHARGE_INR ?? 590);
+const DEFAULT_COURIER_CHARGE = Number(process.env.COURIER_CHARGE_INR ?? 0);
 
 export async function POST(request) {
   const token = cookies().get("payload-token")?.value;

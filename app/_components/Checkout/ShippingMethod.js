@@ -16,7 +16,7 @@ const ShppingMethod = () => {
           <div className="text-xs">1-3 business days + processing time</div>
         </div>
         <div>
-          <div className="uppercase font-semibold text-sm">₹590</div>
+          <div className="uppercase font-semibold text-sm">0.00</div>
         </div>
       </p>
     </div>

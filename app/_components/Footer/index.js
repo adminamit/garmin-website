@@ -57,7 +57,7 @@ const Footer = () => {
                   aria-hidden="false"
                 >
                   <span className="js__gf__list__item__link en-GB gf__list__item__link__wrapper">
-                    <Link href="https://www.delhivery.com/tracking">
+                    <Link href="https://www.garmin-india.com/contact">
                       Order Status
                     </Link>
                   </span>

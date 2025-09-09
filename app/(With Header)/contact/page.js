@@ -39,6 +39,25 @@ const Contact = () => {
             <br />
             <br />
           </p>
+          <h3 id="generalenquiries">SHIPPING ENQUIRIES</h3>
+          <hr />
+          <h4 id="garmineuropeltd">AMIT GPS & Navigation LLP</h4>
+          <p>
+            JA0326, 3rd Floor, DLF Tower A Jasola, <br />
+            New Delhi, 110025
+            <br />
+            <img
+              src="https://static.garmincdn.com/shared/uk/contact-us/phone.gif"
+              alt="Telephone"
+              height="18"
+            />{" "}
+            011 4800 5820 / 811 <br />
+            <a href="mailto:avinash.agnihotri@amitintl.com">
+              avinash.agnihotri@amitintl.com
+            </a>
+            <br />
+            <br />
+          </p>
           <h3 id="technicalsupport">TECHNICAL SUPPORT</h3>
           <hr />
           <p>

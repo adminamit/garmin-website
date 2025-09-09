@@ -55,7 +55,7 @@ export default function OrderSummary({
   const summary = cartDetails?.cart ?? {};
   const subTotal = Number(summary.subTotal ?? 0);
   const discount = Number(summary.discount ?? 0);
-  const courierCharge = Number(summary.courierCharge ?? 590);
+  const courierCharge = Number(summary.courierCharge ?? 0);
   const total = Number(summary.total ?? 0);
 
   return (
